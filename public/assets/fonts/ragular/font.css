@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'SuzukiPRORegular';
+  src: url('SuzukiPRORegular.eot');
+  src: url('SuzukiPRORegular.eot?#iefix') format('embedded-opentype'),
+       url('SuzukiPRORegular.svg#SuzukiPRORegular') format('svg'),
+       url('SuzukiPRORegular.ttf') format('truetype'),
+       url('SuzukiPRORegular.woff') format('woff'),
+       url('SuzukiPRORegular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+

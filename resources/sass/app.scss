@@ -1,0 +1,89 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+
+
+.content p {
+    @apply my-5;
+}
+.content ul {
+    @apply my-5 ml-5 list-disc
+}
+.content li {
+    @apply my-2 list-disc
+}
+.content a:hover {
+    @apply border-gray-300 text-theme-red-500;
+}
+.theme-link {
+    @apply border-b border-transparent inline-block pb-px transition ease-linear duration-200;
+}
+.theme-link:hover {
+    @apply border-gray-300 text-theme-red-500;
+}
+.theme-button {
+    @apply px-5 py-2 bg-blue-500 text-white font-medium border border-theme-blue-500 transition ease-linear duration-200;
+}
+.theme-button:hover {
+    @apply bg-transparent text-theme-blue-500;
+}
+.theme-button:focus {
+    @apply outline-none;
+}
+.red-button {
+    @apply inline-block mt-4 rounded px-6 py-3 border-2 border-transparent bg-theme-red-500 text-white transition ease-in-out duration-300;
+}
+.red-button:hover {
+    @apply bg-white border-theme-red-500 text-theme-red-500;
+}
+.red-button:focus {
+    @apply bg-transparent border-theme-red-500 outline-none;
+}
+.red-button:active {
+    @apply bg-theme-red-300;
+}
+.arrow-top {
+    @apply w-6 h-6 border border-gray-500 absolute top-0 left-0 ml-24 -mt-3 border-b-0 bg-white border-r-0;
+}
+
+.form-input {
+    @apply w-full p-2 border rounded mt-1 text-base;
+}
+.form-input:focus {
+    @apply outline-none border-gray-400 ;
+}
+
+.form-input-1 {
+    @apply w-full p-2 border-2 border-t-0 border-l-0 border-r-0 mt-1 border-theme-blue-500 text-base;
+}
+.form-input-1:focus {
+    @apply outline-none border-theme-blue-600 ;
+}
+
+.invalid-feedback {
+    @apply text-sm mt-1 text-red-600 ml-1 font-medium;
+}
+
+.everything-white-on-hover {
+    &:hover {
+        p,span,div,h1,h2,h3,h4,h5 {
+            @apply text-white;
+        }
+    }
+}
+
+@import '~vue-multiselect/dist/vue-multiselect.min.css';
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
+@import '~@splidejs/splide/dist/css/themes/splide-default.min.css';
+@import '~vue-js-modal/dist/styles.css';
+
+@import "tailwindcss/utilities";
+// Variables
+@import 'variables';
+@import 'font';
+@import 'queries';
+@import 'main';
+
+// Bootstrap
+// @import '~bootstrap/scss/bootstrap';

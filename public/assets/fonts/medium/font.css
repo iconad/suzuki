@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'SuzukiPROHeadline';
+  src: url('SuzukiPROHeadline.eot');
+  src: url('SuzukiPROHeadline.eot?#iefix') format('embedded-opentype'),
+       url('SuzukiPROHeadline.svg#SuzukiPROHeadline') format('svg'),
+       url('SuzukiPROHeadline.ttf') format('truetype'),
+       url('SuzukiPROHeadline.woff') format('woff'),
+       url('SuzukiPROHeadline.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
