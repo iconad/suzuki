@@ -63,7 +63,7 @@
       integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI="
       crossorigin="anonymous"
     ></script>
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('.ui.dropdown').dropdown();
             $('.sidebar-menu-toggler').on('click', function() {
@@ -77,7 +77,7 @@
                 .sidebar('toggle');
             });
         });
-    </script>
+    </script> --}}
     <script type="text/javascript">
         window.csrf_token = "{{ csrf_token() }}"
     </script>

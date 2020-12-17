@@ -53,6 +53,7 @@ Route::group(['prefix' => 'manage'], function() {
         Route::get('/dashboard', 'ManagePages@dashboard')->name('manage.dashboard');
         Route::get('/newsletter', 'ManagePages@newsletter')->name('manage.newsletter');
         Route::resource('/vehicles', 'VehicleController');
+        Route::resource('/vehicles/{vehicle}/files', 'VehicleFileController');
         Route::resource('/branches', 'BranchController');
         Route::resource('/branches/{branch}/offices', 'BranchOfficeController');
     });

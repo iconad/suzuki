@@ -1,5 +1,11 @@
 module.exports = {
-    purge: [],
+    purge: [
+        'resources/views/**/*.blade.php',
+        'resources/js/**/*.js',
+        './app/**/*.php',
+        './resources/**/*.php',
+        './resources/**/*.vue',
+    ],
     theme: {
         extend: {
             lineHeight: {

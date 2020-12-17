@@ -43,7 +43,11 @@ class VehicleController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'thumbnail' => 'required',
+            'showroom_image' => 'required',
+            'logo' => 'required',
         ]);
+
 
         $vehicle = Vehicle::create([
             'title' => $request->title,
@@ -111,7 +115,51 @@ class VehicleController extends Controller
      */
     public function update(Request $request, Vehicle $vehicle)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+        ]);
+
+        if($request->has('thumbnail')) {
+            $mediaItems = $vehicle->getMedia('thumbnail');
+            if(count($mediaItems) != 0) {
+                $mediaItems[0]->delete();
+            }
+            $pathToFile = $this->createImage($request->thumbnail);
+            $vehicle->addMedia($pathToFile)
+                    ->toMediaCollection('thumbnail');
+        }
+
+        if($request->has('showroom_image')) {
+            $mediaItems = $vehicle->getMedia('showroom');
+            if(count($mediaItems) != 0) {
+                $mediaItems[0]->delete();
+            }
+            $pathToFile = $this->createImage($request->showroom_image);
+            $vehicle->addMedia($pathToFile)
+                    ->toMediaCollection('showroom');
+        }
+
+        if($request->has('logo')) {
+            $mediaItems = $vehicle->getMedia('logo');
+            if(count($mediaItems) != 0) {
+                $mediaItems[0]->delete();
+            }
+            $pathToFile = $this->createImage($request->logo);
+            $vehicle->addMedia($pathToFile)
+                    ->toMediaCollection('logo');
+        }
+
+        $vehicle->title = $request->title;
+        $vehicle->sub_title = $request->sub_title;
+        $vehicle->iframe = $request->iframe;
+        $vehicle->price = $request->price;
+        $vehicle->body = $request->body;
+        $vehicle->html_content = $request->html_content;
+
+        if ($vehicle->save()) {
+            $request->session()->flash('green', 'Vehicle successful updated!');
+            return redirect()->route('vehicles.show', $vehicle->id);
+        }
     }
 
     /**
@@ -120,9 +168,15 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vehicle $vehicle)
+    public function destroy(Request $request, Vehicle $vehicle)
     {
-        //
+        if($vehicle->delete()){
+            $request->session()->flash('green', 'vehicle successful deleted!');
+            return redirect("/manage/vehicles/");
+        }else {
+            $request->session()->flash('red', 'Something went wrong, Please try again!');
+            return back();
+        }
     }
 
     public function createImage($file) {
@@ -142,4 +196,6 @@ class VehicleController extends Controller
 
         return $pathToFile;
     }
+
+
 }

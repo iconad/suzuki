@@ -6,7 +6,11 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <div class="active section">Vehicles</div>
+        <a href="/manage/vehicles" class="section">vehicles</a>
+        <div class="divider"> / </div>
+        <a href="/manage/vehicles/{{$vehicle->id}}" class="section">{{$vehicle->id}}</a>
+        <div class="divider"> / </div>
+        <div class="active section">files</div>
     </div>
 </div>
 
@@ -15,7 +19,7 @@
         <h3 class="ui header">Vehicles</h3>
     </span>
     <div class="right menu fitted">
-      <a href="/manage/vehicles/create" class="ui button item">
+      <a href="/manage/vehicles/{{$vehicle->id}}/files/create" class="ui button item">
         Add New
       </a>
     </div>
@@ -26,23 +30,25 @@
         <thead>
           <tr>
             <th>Title</th>
-            <th>price</th>
+            <th>year</th>
+            <th>type</th>
             <th>status</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-            @if ($vehicles->count() == 0)
+            @if ($files->count() == 0)
             <tr>
                 <td colspan="4">No record found!</td>
             </tr>
             @endif
-            @foreach ($vehicles as $vehicle)
+            @foreach ($files as $file)
             <tr>
                 <td>
-                    <a href="/manage/vehicles/{{$vehicle->id}}"> {{$vehicle->title}} </a>
+                    <a href="/manage/vehicles/{{$vehicle->id}}/files/{{$file->id}}"> {{$file->title}} </a>
                 </td>
-                <td> {{$vehicle->price}} </td>
+                <td> {{$file->year}} </td>
+                <td> {{$file->type}} </td>
                 <td>
                     @if ($vehicle->status == 1)
                         Published
