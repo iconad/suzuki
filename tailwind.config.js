@@ -2,6 +2,10 @@ module.exports = {
     purge: [],
     theme: {
         extend: {
+            lineHeight: {
+                'extra-loose': '2.5',
+                '12': '3rem',
+            },
             zIndex: {
                 '2': 2,
                 '3': 3,
@@ -16,6 +20,26 @@ module.exports = {
             fontSize: {
                 '7xl': '5rem',
                 '8xl': '6rem',
+                '9xl': '7rem',
+                '10xl': '8rem',
+
+                '10px': '10px',
+                '12px': '12px',
+                '16px': '16px',
+
+                "1vw": "1vw",
+                "2vw": "2vw",
+                "3vw": "3vw",
+                "4vw": "4vw",
+                "5vw": "5vw",
+                "6vw": "6vw",
+                "8vw": "8vw",
+                "9vw": "9vw",
+                "10vw": "10vw",
+                "12vw": "12vw",
+                "16vw": "16vw",
+                "24vw": "24vw",
+                "32vw": "32vw",
             },
             minHeight: {
                '0': '0',
@@ -81,6 +105,7 @@ module.exports = {
                 },
             },
             spacing: {
+                "2px": "2px",
                 "-0.85rem": "-0.85rem",
                 "-1.1rem": "-1.1rem",
                 "-1.35rem": "-1.35rem",
@@ -106,7 +131,10 @@ module.exports = {
                 "26rem": "26rem",
                 "36rem": "36rem",
                 "50rem": "50rem",
+                "12px": "12px",
                 "100px": "100px",
+                "300px": "300px",
+                "350px": "350px",
                 "500px": "500px",
                 "650px": "650px",
                 "750px": "750px",
@@ -117,6 +145,16 @@ module.exports = {
                 "1440px": "1440px",
                 "1650px": "1650px",
                 "90-percent": "90%",
+                "5vw": "5vw",
+                "6vw": "6vw",
+                "8vw": "8vw",
+                "9vw": "9vw",
+                "10vw": "10vw",
+                "12vw": "12vw",
+                "16vw": "16vw",
+                "24vw": "24vw",
+                "32vw": "32vw",
+                "screen-90": "90vh",
                 "screen-80": "80vh",
                 "screen-60": "60vh",
                 "screen-70": "70vh",

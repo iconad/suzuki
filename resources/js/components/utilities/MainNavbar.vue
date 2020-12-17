@@ -9,7 +9,7 @@
             </ul>
             <ul :class="!isMenu ? 'hidden sc1240:flex' : '' " class="absolute sc1240:static sc1240:left-0 sc1240:top-100 w-64 sc1240:w-auto sc1240:items-center bg-white shadow-xl sc1240:shadow-none">
                 <li class="nav-link">
-                    <a href="/vehicle" class="block px-2 py-3 hover:text-theme-red-500">Virtual Showroom</a>
+                    <a href="/vehicles" class="block px-2 py-3 hover:text-theme-red-500">Virtual Showroom</a>
                 </li>
                 <li class="nav-link mr-3 relative">
                     <a href="#" class="flex items-center px-2 pr-0 py-3 hover:text-theme-red-500">
@@ -20,21 +20,32 @@
                             <svg class="fill-current w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 13l1 1 6-6-2-1-4 4-4-4-2 1z"/></svg>
                         </span>
                     </a>
-                    <ul class="text-sm nav-list sc1240:absolute left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-theme-red-500 text-white w-auto whitespace-no-wrap">
+                    <ul class="text-sm nav-list sc1240:absolute left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-theme-red-500 text-white w-auto whitespace-nowrap">
                         <li class="nav-link">
-                            <a href="http://" class="block p-2">Our commitment</a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="http://" class="block p-2">Services</a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="http://" class="block p-2">Genuine parts</a>
+                            <a href="/after-sales/our-commitment" class="block p-2">Our commitment</a>
                         </li>
                         <li class="nav-link relative">
-                            <a href="http://" class="block p-2">accessories</a>
-                            <ul class="nav-list sc1240:absolute uppercase italic font-bold left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-gray-300 text-gray-800 w-64 sc1240:w-auto whitespace-no-wrap">
+                            <a href="/after-sales/services" class="block p-2">Services</a>
+                            <ul class="nav-list sc1240:absolute uppercase italic font-bold left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-gray-300 text-gray-800 w-64 sc1240:w-auto whitespace-nowrap">
                                 <li class="nav-link">
-                                    <a href="http://" class="block p-2">Vitara</a>
+                                    <a href="/after-sales/warranty" class="block p-2">Warranty</a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="/after-sales/service-payment-plan" class="block p-2">Service Payment Plan</a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="/after-sales/book-service" class="block p-2">Book A Service</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/after-sales/genuine-parts" class="block p-2">Genuine parts</a>
+                        </li>
+                        <li class="nav-link relative">
+                            <a class="block p-2">accessories</a>
+                            <ul class="nav-list sc1240:absolute uppercase italic font-bold left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-gray-300 text-gray-800 w-64 sc1240:w-auto whitespace-nowrap">
+                                <li class="nav-link">
+                                    <a href="/after-sales/accessories/vitara" class="block p-2">Vitara</a>
                                 </li>
                                 <li class="nav-link">
                                     <a href="http://" class="block p-2">Ertiga</a>
@@ -57,10 +68,7 @@
                             </ul>
                         </li>
                         <li class="nav-link">
-                            <a href="http://" class="block p-2">recall announcment</a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="http://" class="block p-2">Services</a>
+                            <a href="/after-sales/recall-announcements" class="block p-2">recall announcment</a>
                         </li>
                     </ul>
                 </li>
@@ -68,10 +76,10 @@
                     <a href="/logout" class="block px-2 py-3 hover:text-theme-red-500">Special Offers</a>
                 </li>
                 <li class="nav-link">
-                    <a href="#" class="block px-2 py-3 hover:text-theme-red-500">Pre Owned Cars</a>
+                    <a href="/pre-owned-cars" class="block px-2 py-3 hover:text-theme-red-500">Pre Owned Cars</a>
                 </li>
                 <li class="nav-link">
-                    <a href="#" class="block px-2 py-3 hover:text-theme-red-500">Business Solutions</a>
+                    <a href="/business-solutions" class="block px-2 py-3 hover:text-theme-red-500">Business Solutions</a>
                 </li>
                 <li class="nav-link mr-3 relative">
                     <a href="#" class="flex items-center px-2 pr-0 py-3 hover:text-theme-red-500">
@@ -82,7 +90,7 @@
                             <svg class="fill-current w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 13l1 1 6-6-2-1-4 4-4-4-2 1z"/></svg>
                         </span>
                     </a>
-                    <ul class="text-sm nav-list sc1240:absolute left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-theme-red-500 text-white w-auto whitespace-no-wrap">
+                    <ul class="text-sm nav-list sc1240:absolute left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-theme-red-500 text-white w-auto whitespace-nowrap">
                         <li class="nav-link">
                             <a href="/locations/abu-dhabi/showroom" class="block p-2">Showroom</a>
                         </li>

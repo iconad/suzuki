@@ -1,0 +1,341 @@
+<template>
+    <div class="overflow-hidden relative showroom">
+        <img src="https://i.ibb.co/47BBcMG/bg.jpg" class="w-full" alt="cover">
+        <div class="">
+
+             <div class="absolute left-12vw top-12vw text-gray-900 leading-none">
+                <div class="text-4vw text-shadow">
+                    <span>Suzuki</span>
+                    <span class="suzuki-bold splide-slide-title" id="slideTitle">Baleno</span>
+                </div>
+                <div class="text-2vw mt-1 uppercase text-gray-800 text-shadow splide-slide-sub-title text-shadow" id="slideSubTitle">
+                    <span>Reason</span>
+                    <span class="suzuki-bold">Finds</span>
+                    <span>Emotion</span>
+                </div>
+                <div class="relative z-10">
+                    <a href="/vehicles/baleno" class="red-button mt-2 text-10px md:text-lg xxl:text-xl px-2 lg:px-4 py-0 xxl:py-1 hover:bg-red-500 hover:text-white">Explore Car</a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 w-full left-0 car-wrapper">
+                <splide
+                :options="options"
+                ref="primary"
+                @splide:move="move"
+                @splide:moved="moved"
+                >
+                    <splide-slide v-for="(slide,i) in slides" :key="i" class="car-splide">
+                        <div class="absolute inset-x-0 bototm-0 hidden">
+                            <input type="hidden" :class="`slideTitle${i}`" :value="slide.title"/>
+                            <input type="hidden" :class="`slideSubTitle${i}`" :value="slide.subtitle" />
+                        </div>
+                        <div class="w-1/3 mx-auto">
+                            <img :src="slide.src" alt="slide.alt" class="car w-full ml-5 md:ml-12 lg:ml-16">
+                        </div>
+                    </splide-slide>
+                </splide>
+            </div>
+            <div class="vehicle-splide02-track mt-3 z-10 absolute bottom-2 md:bottom-5 left-0 w-full flex items-center justify-center vehicles-slider">
+                <splide
+                :options="secondaryOptions"
+                ref="secondary"
+                >
+                    <splide-slide v-for="(slide,t) in thumbSlides" :key="t" class="opacity-0 md:opacity-100">
+                        <img :src="slide.src" alt="slide.alt" class="w-10 md:w-32">
+                    </splide-slide>
+                </splide>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import { Splide, SplideSlide } from '@splidejs/vue-splide';
+
+    export default {
+    components: {
+        Splide,
+        SplideSlide,
+    },
+    data() {
+        return {
+            options: {
+                type: 'loop',
+                arrows: false,
+                rewind: true,
+                gap: '1rem',
+                pagination: false,
+                lazyLoad: 'nearby',
+            },
+            secondaryOptions: {
+                type        : 'slide',
+                rewind      : true,
+                gap         : '2rem',
+                pagination  : false,
+                cover       : true,
+                focus       : 'center',
+                isNavigation: true,
+                updateOnMove: true,
+                breakpoints: {
+                    '750': {
+                        pagination: true
+                    }
+                }
+            },
+            count: 0,
+            thumbSlides: [
+                {
+                    src: "https://i.ibb.co/bQRMVC1/bleno.png",
+                    alt: "image"
+                },
+                {
+                    src: "https://i.ibb.co/wKGdxKq/swift.png",
+                    alt: "image"
+                },
+                {
+                    src: "https://i.ibb.co/bsfF2Yj/jimny.png",
+                    alt: "image"
+                },
+                {
+                    src: "https://i.ibb.co/BgD2gyy/vitara.png",
+                    alt: "image"
+                },
+                {
+                    src: "https://i.ibb.co/G33hdy2/dzire.png",
+                    alt: "image"
+                },
+                {
+                    src: "https://i.ibb.co/G33hdy2/dzire.png",
+                    alt: "image"
+                },
+            ],
+            slides: [
+                {
+                    title: "Baleno",
+                    subtitle: "REASON FINDS EMOTION",
+                    src: "https://i.ibb.co/mGLwqS7/baleno.png",
+                    alt: "image"
+                },
+                {
+                    title: "Swift",
+                    subtitle: "up your game",
+                    src: "https://i.ibb.co/1M0DW2y/swift.png",
+                    alt: "image"
+                },
+                {
+                    title: "Jimny",
+                    subtitle: "REASON FINDS EMOTION",
+                    src: "https://i.ibb.co/frKkHjg/jimny.png",
+                    alt: "image"
+                },
+                {
+                    title: "Suzuki",
+                    subtitle: "up your game",
+                    src: "https://i.ibb.co/FHZ2n9M/vitara.png",
+                    alt: "image"
+                },
+                {
+                    title: "Dzire",
+                    subtitle: "A whole new world awaits",
+                    src: "https://i.ibb.co/rvXJgn7/dzire.png",
+                    alt: "image"
+                },
+                {
+                    title: "Ciaz",
+                    subtitle: "reason finds emotion",
+                    src: "https://i.ibb.co/3Fr9SC9/ertiga.png",
+                    alt: "image"
+                },
+            ],
+        }
+        },
+        mounted() {
+            this.$refs.primary.sync( this.$refs.secondary.splide );
+        },
+        methods: {
+            move( splide, newIndex ) {
+                let title = document.getElementsByClassName(`slideTitle${newIndex}`)[0].value
+                let subTitle = document.getElementsByClassName(`slideSubTitle${newIndex}`)[0].value
+                document.getElementById('slideTitle').innerHTML = title
+                document.getElementById('slideSubTitle').innerHTML = subTitle
+
+                // document.querySelectorAll("splide-slide-title").forEach(obj=>obj.classList.remove("focus-in-contract"));
+                // document.querySelectorAll("splide-slide-sub-title").forEach(obj=>obj.classList.remove("focus-in-contract"));
+
+                let slideSlideTitle = document.getElementById('slideTitle')
+                let slideSlideSubTitle = document.getElementById('slideSubTitle')
+
+                slideSlideTitle.classList.add("slide-in-blurred-top");
+                slideSlideSubTitle.classList.add("focus-in-contract");
+
+            },
+            moved (splide, newIndex) {
+                let title = document.getElementById('slideTitle');
+                let subTitle = document.getElementById('slideSubTitle');
+
+                setTimeout(function(){
+                    title.classList.remove('slide-in-blurred-top');
+                    subTitle.classList.remove('focus-in-contract');
+                 }, 500);
+            }
+        },
+    }
+</script>
+
+<style lang="scss">
+
+@mixin md-max {
+    @media only screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+.car-wrapper {
+    bottom: 25%;
+}
+.vehicle-splide02-track #splide02-track {
+    li {
+        width: 7vw!important;
+        height: 45px!important;
+        @include md-max {
+            width: 17vw!important;
+        }
+    }
+}
+.splide__slide {
+    background-size: contain!important;
+}
+
+.splide__arrows {
+    display: none;
+}
+
+.splide--nav>.splide__track>.splide__list>.splide__slide.is-active {
+    border: none!important;
+    filter: invert(100%);
+    transition: 0.3s;
+    transform: scale(1.2);
+}
+.active-thumb-slide {
+    box-shadow:
+    0 0 60px 30px #fff,  /* inner white */
+    0 0 100px 60px #f0f, /* middle magenta */
+    0 0 140px 90px #0ff; /* outer cyan */
+}
+
+.focus-in-contract {
+	-webkit-animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.text-focus-in {
+	-webkit-animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.slide-in-blurred-top {
+	-webkit-animation: slide-in-blurred-top 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+	        animation: slide-in-blurred-top 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+
+@-webkit-keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+            transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    -webkit-filter: blur(40px);
+            filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+            transform: translateY(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-blurred-top {
+  0% {
+    -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+            transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    -webkit-filter: blur(40px);
+            filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+            transform: translateY(0) scaleY(1) scaleX(1);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+    opacity: 1;
+  }
+}
+
+
+
+@-webkit-keyframes focus-in-contract {
+  0% {
+    letter-spacing: 1em;
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes focus-in-contract {
+  0% {
+    letter-spacing: 1em;
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+
+</style>
+

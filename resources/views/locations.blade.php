@@ -5,17 +5,17 @@
     <section class="vehicle-info section space-y-16 xxl:space-y-24">
 
         <div class="cover">
-            <img src="{{asset('assets/images/location-cover.jpg')}}" alt="cover" class="w-full">
+            <img src="{{asset('assets/images/suzuki-bg.jpg')}}" alt="cover" class="w-full">
         </div>
         {{-- row --}}
 
         <div class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 text-gray-800">
 
-            <div class="flex items-center justify-between mb-10 md:divide-x divide-y lg:divide-y-0 text-center suzuki-bold text-lg rounded-lg overflow-hidden border">
+            <div class="flex flex-wrap md:flex-nowrap items-center justify-between mb-10 md:divide-x divide-y lg:divide-y-0 text-center suzuki-bold text-base md:text-lg rounded-lg overflow-hidden border">
                 @foreach ($branches as $bran)
                 <a
                 href="/locations/{{$bran->slug}}/{{$type}}"
-                class="w-auto lg:w-full block hover:bg-gray-200 {{ $location === $bran->slug ? 'bg-gray-200' : "" }} py-4">
+                class="w-full block hover:bg-gray-200 {{ $location === $bran->slug ? 'bg-gray-200' : "" }} py-2 md:py-4">
                     {{$bran->title}}
                 </a>
                 @endforeach
@@ -36,66 +36,73 @@
                                     63 reviews
                                 </a>
                             </div>
-                            <div class="info">
-                                <table class="w-full" cellpadding="2">
-                                    @if ($branche->$type[0]->tel)
-                                    <tr>
-                                        <td>
-                                            <span class="text-lg suzuki-bold">Tel No</span>
-                                        </td>
-                                        <td>
-                                            <span class="text-lg suzuki-bold">{{$branche->$type[0]->tel}}</span>
-                                        </td>
-                                    </tr>
-                                    @endif
-                                    @if ($branche->$type[0]->fax)
-                                    <tr>
-                                        <td>
-                                            <span class="text-lg suzuki-bold">Fax No</span>
-                                        </td>
-                                        <td>
-                                            <span class="text-lg suzuki-bold">{{$branche->$type[0]->fax}}</span>
-                                        </td>
-                                    </tr>
-                                    @endif
-                                    @if ($branche->$type[0]->open_days)
-                                    <tr>
-                                        <td colspan="2" class="pt-3">
-                                            <span class="text-lg suzuki-bold">
-                                                {{ $branche->$type[0]->thursday ? 'Saturday to Wednesday' : "Saturday to Thursday" }}
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
-                                            <span class="text-lg">{{$branche->$type[0]->open_days}}</span>
-                                        </td>
-                                    </tr>
-                                    @endif
-                                    @if ($branche->$type[0]->thursday)
-                                    <tr>
-                                        <td colspan="2">
-                                            <span class="text-lg suzuki-bold"> Thursday </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
-                                            <span class="text-lg">{{$branche->$type[0]->thursday}}</span>
-                                        </td>
-                                    </tr>
-                                    @endif
-                                    @if ($branche->$type[0]->friday)
-                                    <tr>
-                                        <td colspan="2">
-                                            <span class="text-lg"><b class="suzuki-bold">Friday</b> {{$branche->$type[0]->friday}}</span>
-                                        </td>
-                                    </tr>
-                                    @endif
-                                </table>
+                            <div class="info grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-5">
+                                <div class="w-full">
+                                    <table class="w-full" cellpadding="2">
+                                        @if ($branche->$type[0]->tel)
+                                        <tr>
+                                            <td>
+                                                <span class="text-lg suzuki-bold">Tel No</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-lg suzuki-bold">{{$branche->$type[0]->tel}}</span>
+                                            </td>
+                                        </tr>
+                                        @endif
+                                        @if ($branche->$type[0]->fax)
+                                        <tr>
+                                            <td>
+                                                <span class="text-lg suzuki-bold">Fax No</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-lg suzuki-bold">{{$branche->$type[0]->fax}}</span>
+                                            </td>
+                                        </tr>
+                                        @endif
+                                    </table>
+                                </div>
+                                <div class="w-full">
+                                    <table class="w-full" cellpadding="2">
+
+                                        @if ($branche->$type[0]->open_days)
+                                        <tr>
+                                            <td colspan="2">
+                                                <span class="text-lg suzuki-bold">
+                                                    {{ $branche->$type[0]->thursday ? 'Saturday to Wednesday' : "Saturday to Thursday" }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <span class="text-lg">{{$branche->$type[0]->open_days}}</span>
+                                            </td>
+                                        </tr>
+                                        @endif
+                                        @if ($branche->$type[0]->thursday)
+                                        <tr>
+                                            <td colspan="2">
+                                                <span class="text-lg suzuki-bold"> Thursday </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <span class="text-lg">{{$branche->$type[0]->thursday}}</span>
+                                            </td>
+                                        </tr>
+                                        @endif
+                                        @if ($branche->$type[0]->friday)
+                                        <tr>
+                                            <td colspan="2">
+                                                <span class="text-lg"><b class="suzuki-bold">Friday</b> {{$branche->$type[0]->friday}}</span>
+                                            </td>
+                                        </tr>
+                                        @endif
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="w-full relative">
+                    <div class="w-full relative mt-8 md:mt-0">
                         <div class="absolute bottom-100 right-0 p-3">
                         <a href="{{$branche->$type[0]->map}}" class="theme-link text-base" target="_blank">Get Directions</a>
                         </div>

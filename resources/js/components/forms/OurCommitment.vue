@@ -1,9 +1,12 @@
 <template>
     <div>
-        <div class="text-xl md:text-3xl suzuki-bold text-gray-900 mb-5"> Our Commitment</div>
+        <button @click="showModal" class="red-button text-xl">Click To Learn More</button>
+        <modal adaptive width="1100" height="auto" scrollable name="commitment-modal" class="bg-opacity-25 bg-black relative">
+        <div class="p-10">
+            <div class="text-xl md:text-2xl suzuki-bold text-gray-900 mb-5"> Get in Touch to Learn More </div>
             <ValidationObserver v-slot="{ invalid,passes }">
                 <form @submit.prevent="passes(submitForm)">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     <div>
                         <ValidationProvider name="form.title" rules="required">
                             <div slot-scope="{ errors }">
@@ -117,6 +120,8 @@
             </form>
             </ValidationObserver>
         </div>
+        </modal>
+    </div>
 </template>
 
 <script>
@@ -209,6 +214,9 @@
             }
         },
         methods: {
+            showModal () {
+                this.$modal.show('commitment-modal');
+            },
             submitForm () {
                 console.log(this.form)
             }

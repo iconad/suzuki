@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="grid grid-cols-3 gap-10 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
             <div class="text-lg">
                 <div class="mb-5">
                     <div class="text-xl suzuki-bold mb-2">Customer Support & <br> Roadside Assistance</div>
@@ -54,7 +54,7 @@
                 <ValidationObserver v-slot="{ invalid,passes }">
                     <form @submit.prevent="passes(submitForm)">
                         <div class="grid grid-cols-1 gap-10 lg:gap-10">
-                            <div class="grid grid-cols-3 gap-3 items-end">
+                            <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 items-end">
                                 <div class="relative">
                                     <ValidationProvider name="form.title" rules="required">
                                         <div slot-scope="{ errors }">

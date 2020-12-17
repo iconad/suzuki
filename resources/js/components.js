@@ -21,7 +21,32 @@ Vue.component(
     require("./components/forms/NewsletterForm.vue").default
 );
 
+Vue.component(
+    "accessories-quote-form",
+    require("./components/forms/AccessoriesQuote.vue").default
+);
+
+Vue.component(
+    "accessories-brochures",
+    require("./components/forms/Accessoriesbrochures.vue").default
+);
+
+Vue.component(
+    "our-commitment",
+    require("./components/forms/OurCommitment.vue").default
+);
+
+Vue.component(
+    "genuine-parts",
+    require("./components/forms/GenuineParts.vue").default
+);
+
 // Vehicles
+Vue.component(
+    "vehicles-slider",
+    require("./components/vehicle/VehiclesSlider.vue").default
+);
+
 Vue.component(
     "showroom",
     require("./components/vehicle/Showroom.vue").default
@@ -70,5 +95,16 @@ Vue.component(
 Vue.component(
     "contact-us",
     require("./components/forms/ContactUs.vue").default
+);
+
+
+Vue.component(
+    "accessories-grid",
+    require("./components/accessories/AccessoriesGrid.vue").default
+);
+
+Vue.component(
+    "accessory-item",
+    require("./components/accessories/AccessoryItem.vue").default
 );
 

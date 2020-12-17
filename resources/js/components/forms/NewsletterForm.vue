@@ -14,6 +14,14 @@
                  <form @submit.prevent="passes(submitForm)">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
                         <div>
+                            <ValidationProvider name="form.title" rules="required">
+                                <div slot-scope="{ errors }">
+                                    <multiselect v-model="form.title" :options="titles"></multiselect>
+                                    <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
+                                </div>
+                            </ValidationProvider>
+                        </div>
+                        <div>
                             <ValidationProvider name="form.first_name" rules="required">
                                 <div slot-scope="{ errors }">
                                     <input type="text" v-model="form.first_name" class="form-input-1" name="first_name" placeholder="First Name *">
@@ -25,14 +33,6 @@
                             <ValidationProvider name="form.last_name" rules="required">
                                 <div slot-scope="{ errors }">
                                     <input type="text" v-model="form.last_name" class="form-input-1" name="last_name" placeholder="Last Name *">
-                                    <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
-                                </div>
-                            </ValidationProvider>
-                        </div>
-                        <div>
-                            <ValidationProvider name="form.title" rules="required">
-                                <div slot-scope="{ errors }">
-                                    <input type="text" v-model="form.title" class="form-input-1" name="title" placeholder="Title">
                                     <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
                                 </div>
                             </ValidationProvider>
@@ -67,14 +67,15 @@
                             class="block mt-1 -ml-3 inline-block">Please confirm you have read and agree to our <a href="http://" class="theme-link">Terms and Conditions</a> *</span>
                         </label>
                     </div>
-                    <div class="form-element mb-0 mt-5 text-right">
+                    <div v-if="isLoading" class="loader"></div>
+                    <div v-else class="form-element mb-0 mt-5 text-right">
                         <input
                             type="submit"
                             value="Subscribe"
-                            :disabled="[invalid, !form.check]"
+                            :disabled="!form.check"
                             :class="[
-                                invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' : 'red-button',
-                                !form.check ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' :  'red-button'
+                                invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800 hover:border-theme-gray-dark' : 'red-button cursor-pointer',
+                                !form.check ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800 hover:border-theme-gray-dark' :  'red-button cursor-pointer'
                                 ]">
                     </div>
                 </form>
@@ -123,18 +124,41 @@ export default {
                 hearFrom: null,
                 check: false,
             },
+            titles: ['Mr', 'Mrs'],
             hears: {
                 data: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"]
             },
+            isLoading: false
         }
-    },
-    mounted() {
-            // this.$modal.show('newsletter-modal');
     },
     methods: {
         submitForm () {
             if(this.form.check){
-                console.log("good")
+                this.isLoading = true
+                axios.post(`/api/newsletter`, {
+                    title: this.form.title,
+                    first_name: this.form.first_name,
+                    last_name: this.form.last_name,
+                    hear: this.form.hear,
+                    email: this.form.email,
+                })
+                .then(response => {
+                    this.$emit('updated')
+                    this.$swal({
+                        toast: true,
+                        position: 'center',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        title: response.data.wow,
+                        text: response.data.message,
+                    });
+                    if(response.data.wow != 'opps!') {
+                        this.form = []
+                        this.$modal.hide('newsletter-modal');
+                    }
+                    this.isLoading = false
+                })
+
             }
         },
         showModal () {

@@ -1,10 +1,12 @@
 <template>
     <div>
         <div @click="OpenBroucherModal">
-        <img src="https://i.ibb.co/PNP2dWb/showroom.jpg" alt="Showroom" class="w-full object-cover object-bottom">
+            <iframe src="http://localhost:3000/baleno" class="w-full h-screen" title="Baleno"></iframe>
         </div>
 
         <side-buttons></side-buttons>
+
+
 
     </div>
 </template>

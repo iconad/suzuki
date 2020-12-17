@@ -25,7 +25,7 @@
             </div>
             <div class="flex items-center w-full lg:w-4/5 order-1 lg:order-2">
                 <div class="px-5 text-center lg:text-left lg:px-0">
-                    <div class="text-5xl suzuki-bold capitalize mb-3">Space joins Style</div>
+                    <div class="text-3xl md:text-5xl suzuki-bold capitalize mb-3">Space joins Style</div>
                     <p class="text-lg text-gray-800">Go places in a touch of luxury with the elegant and dynamic Baleno. Combining style, space, economy and performance in one complete package , the new Baleno hatchback is equipped with all the latest mod-cons and safety features – for a whole lot less than you would expect.</p>
                 </div>
             </div>
@@ -33,7 +33,7 @@
 
         <div class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 text-gray-900 text-center">
             <div>
-                <div class="text-5xl suzuki-bold capitalize">Eco Meets Performance</div>
+                <div class="text-3xl md:text-5xl suzuki-bold capitalize mb-3">Eco Meets Performance</div>
                 <p class="text-lg text-gray-800">Convincing with economy and ecology – exciting with performance and agility. The new Baleno does both: experience the connection of high eco efficiency and real driving pleasure.​​ From the moment you set eyes on the Baleno, you’ll know that everything is different now. A new, refined excitement that grabs your heart and won’t let go - a sense of delight that changes your preconception of what a car can be. When you take off in a Baleno, you ride at the vanguard of a thrilling new life.</p>
             </div>
         </div>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 text-gray-900 text-center">
-            <div class="text-5xl suzuki-bold capitalize">Delivering heart-throbbing driving Experience</div>
+            <div class="text-3xl md:text-5xl suzuki-bold capitalize">Delivering heart-throbbing driving Experience</div>
         </div>
 
         <img src="http://www.suzuki.ae/SiteAssets/Images/Large/baleno-interior.jpg" alt="image" class="w-full">
@@ -79,5 +79,5 @@
     {{-- showroom section --}}
 
 
-    <spec-broucher></spec-broucher>
+    {{-- <spec-broucher></spec-broucher> --}}
 @endsection

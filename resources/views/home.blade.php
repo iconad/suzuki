@@ -6,14 +6,12 @@
     </section>
     {{-- front cover --}}
 
-    {{Auth::user()->name}}
-
-    <section class="take-your-pick py-12">
+    <section class="take-your-pick">
         <take-your-pick></take-your-pick>
     </section>
 
-    <section class="explore-the-exciting pt-12">
-        <div class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 heading mb-16">
+    <section class="explore-the-exciting pt-8">
+        <div class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 heading  mb-6">
             <div class="hidden text-6xl lg:text-8xl text-theme-red-500 font-bold uppercase leading-none">
                 <span class="flex items-end">
                     <span class="md:-mb-2">explore</span>
@@ -40,8 +38,9 @@
                         <a href="http://" class="red-button xxl:text-2xl px-3 py-1 hover:bg-white hover:border-white">Explore Now</a>
                     </div>
                 </div>
-                <div class="absolute left-0 bottom-0 -ml-12 lg:-ml-24 -mb-12 lg:-mb-2 xxl:-mb-48 w-full h-auto">
-                    <img src="{{asset('assets/images/vehicles/baleno-blue-2.png')}}" alt="Baleno" class="w-full object-cover h-full">
+                {{-- absolute left-0 bottom-0 -ml-12 lg:-ml-24 -mb-12 lg:-mb-2 xxl:-mb-48 w-full h-auto --}}
+                <div class="absolute left-0 bottom-0 w-full h-auto">
+                    <img src="{{asset('assets/images/vehicles/baleno-blue-2.webp')}}" alt="Baleno" class="-mb-16 sm:-mb-24 md:-mb-48 lg:-mb-24 -ml-8 w-full object-cover h-full">
                 </div>
             </div>
             <div class="bg-theme-gray h-screen-50 lg:h-20rem xxl:h-25rem flex flex-col items-center justify-around">
@@ -61,7 +60,7 @@
                         </div>
                     </div>
                     <div>
-                        <img src="{{asset('assets/images/vehicles/swift-red.png')}}" alt="swift" class="w-full">
+                        <img src="{{asset('assets/images/vehicles/swift-red.png')}}" alt="swift" class="mb-10 sm:mb-0 w-full">
                     </div>
                 </div>
             </div>

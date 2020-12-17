@@ -89,9 +89,13 @@ class PageController extends Controller
         return view('home');
     }
 
-    public function singeVehicle()
+    public function vehicles(){
+        return view('vehicle.index');
+    }
+
+    public function singeVehicle($vehicle)
     {
-        return view('vehicle.show');
+        return view('vehicle.show', compact('vehicle'));
     }
 
     public function showroomLocation($location, $type)
@@ -102,56 +106,9 @@ class PageController extends Controller
 
         $branche = Branch::where('slug', $location)->first();
 
-        // return $branche->$type[0]->title;
 
         return view('locations', compact('branches', 'branche', 'location', 'type'));
+
     }
-
-    public function servicesLocation()
-    {
-        return view('locations');
-    }
-
-    public function partsLocation()
-    {
-        return view('locations');
-    }
-
-    public function getQuote()
-    {
-        return view('forms.get-quote');
-    }
-
-    public function getBroucher()
-    {
-        return view('forms.get-broucher');
-    }
-
-    public function testDrive()
-    {
-        return view('forms.test-drive');
-    }
-
-    public function RequestQuoteAccessories()
-    {
-        return view('forms.request-quote-accessories');
-    }
-
-    public function ourCommitment()
-    {
-        return view('forms.our-commitment');
-    }
-
-    public function bookService()
-    {
-        return view('forms.book-service');
-    }
-
-    public function contactUs()
-    {
-        return view('contact');
-    }
-
-
 
 }

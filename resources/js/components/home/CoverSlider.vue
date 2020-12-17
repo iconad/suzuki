@@ -1,27 +1,29 @@
-<template>
-    <div>
-        <splide :options="options" has-slider-wrapper>
+    <template>
+        <div class="front-cover">
+            <splide :options="options" has-slider-wrapper>
 
-            <splide-slide v-for="(slide, i) in slides" :key="i">
-                <img :src="slide.src" alt="slide.name" class="w-full h-screen-80 object-cover">
-            </splide-slide>
+                <splide-slide v-for="(slide, i) in slides" :key="i">
+                    <cover-slide :slide="slide" />
+                </splide-slide>
 
-            <template v-slot:controls>
-                <div class="splide__progress">
-                    <div class="splide__progress__bar bg-theme-red"></div>
-                </div>
-            </template>
-        </splide>
-    </div>
-</template>
+                <template v-slot:controls>
+                    <div class="splide__progress">
+                        <div class="splide__progress__bar bg-theme-red"></div>
+                    </div>
+                </template>
+            </splide>
+        </div>
+    </template>
 
 <script>
     import { Splide, SplideSlide } from '@splidejs/vue-splide';
+    import CoverSlide from './CoverSlide.vue'
 
     export default {
         components: {
             Splide,
             SplideSlide,
+            CoverSlide
         },
         data() {
             return {
@@ -38,19 +40,19 @@
                   {
                       id: 1,
                       name: "slide one",
-                      src: "https://i.ibb.co/3SYDYJj/cover.jpg",
+                      src: "https://i.ibb.co/3SYDYJj/cover.webp",
                       link: ""
                   },
                   {
                       id: 2,
                       name: "slide two",
-                      src: "https://i.ibb.co/Tc8d8wL/cover-2.jpg",
+                      src: "https://i.ibb.co/Tc8d8wL/cover-2.webp",
                       link: ""
                   },
                   {
                       id: 3,
                       name: "slide three",
-                      src: "https://i.ibb.co/B6c7FKf/cover-1.jpg",
+                      src: "https://i.ibb.co/B6c7FKf/cover-1.webp",
                       link: ""
                   },
               ],
@@ -60,9 +62,34 @@
 </script>
 
 <style lang="scss">
-.splide__pagination {
-    bottom: 10%;
-    left: 10%;
+
+@mixin md-max {
+    @media only screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+.front-cover {
+    .splide__pagination {
+        bottom: 10%;
+        left: 10%;
+        @include md-max {
+        bottom: 3%;
+        left: 13%;
+    }
+  }
+}
+.vehicles-slider {
+    .splide__pagination {
+        bottom: 0%;
+        right: 0%;
+        .splide__pagination__page {
+            background: #00334C;
+            &.is-active {
+                background: #00334C;
+            }
+        }
+  }
 }
 .splide__pagination__page {
     width: 15px;

@@ -105,7 +105,7 @@
         <thead>
           <tr>
             <th colspan="3">
-              Git Repository Hello
+              Git Repository
             </th>
           </tr>
         </thead>

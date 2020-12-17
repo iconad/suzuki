@@ -7,7 +7,7 @@
             <a href="/test-drive" class="border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto">
                 <img src="../../../../public/assets/images/icons/drive.png" alt="icon" class="w-8">
             </a>
-            <button class="border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto">
+            <button @click="sidebar" class="border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto">
                 <img src="../../../../public/assets/images/icons/spec.png" alt="icon" class="w-6">
             </button>
             <button class="border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto">
@@ -63,6 +63,10 @@
             }
         },
         methods: {
+            sidebar () {
+                this.$store.commit('isSidebar', true)
+                this.$store.commit('isBodyOverlay', true)
+            },
             clearEverything () {
                 this.$store.commit('isSidebar', false)
                 this.$store.commit('isBodyOverlay', false)

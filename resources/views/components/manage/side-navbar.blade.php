@@ -3,7 +3,7 @@
         <div class="item">
           <div class="header">General</div>
           <div class="menu">
-            <a class="item">
+            <a href="/manage/dashboard" class="item">
               <div>
                 <i class="icon tachometer alternate"></i>
                 Dashboard
@@ -26,10 +26,20 @@
         </div>
         <div class="item">
             <div class="header">
+              Vehicles
+            </div>
+            <div class="menu">
+              <a href="/manage/vehicles" class="item">
+                <div><i class="car icon"></i>Vehicles</div>
+              </a>
+            </div>
+          </div>
+        <div class="item">
+            <div class="header">
               Leads
             </div>
             <div class="menu">
-              <a class="item">
+              <a href="/manage/newsletter" class="item">
                 <div><i class="envelope outline icon"></i>Newsletters</div>
               </a>
               <a class="item">

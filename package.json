@@ -25,10 +25,12 @@
     },
     "dependencies": {
         "@splidejs/vue-splide": "^0.3.5",
+        "autoprefixer": "^10.0.2",
+        "postcss": "^8.1.7",
         "pretty-checkbox-vue": "^1.1.9",
         "semantic-ui-css": "^2.4.1",
         "semantic-ui-vue": "^0.11.0",
-        "tailwindcss": "^1.9.0",
+        "tailwindcss": "^2.0.1",
         "v-calendar": "^2.0.1",
         "vee-validate": "^3.4.0",
         "vodal": "^2.4.0",

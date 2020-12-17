@@ -11,6 +11,7 @@
         "php": "^7.3",
         "cviebrock/eloquent-sluggable": "^8.0",
         "diglactic/laravel-breadcrumbs": "^6.0",
+        "dymantic/laravel-instagram-feed": "^2.3",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -20,6 +21,7 @@
         "laravel/ui": "^3.0",
         "nesbot/carbon": "^2.41",
         "nuwave/lighthouse": "^4.18",
+        "qoraiche/laravel-mail-editor": "^3.2",
         "spatie/image-optimizer": "^1.2",
         "spatie/laravel-medialibrary": "^8.0.0",
         "spatie/laravel-permission": "^3.17"

@@ -12,10 +12,42 @@ export const store = new Vuex.Store({
         isSidebar: false,
         isBodyOverlay: false,
         isFinancialCalculator: true,
-        isSideButtonStatus: 'drive'
+        isSideButtonStatus: 'drive',
+        cart: [],
+        isCart: false,
+        isCheckout: false,
+        accessoriesQuoteModal: false
     },
 
     mutations: {
+        accessoriesQuoteModal: function(state, payload) {
+            state.accessoriesQuoteModal = payload
+        },
+        flashing: function(state, payload) {
+            state.flashing = payload
+        },
+        isCart: function(state, payload) {
+            state.isCart = payload
+        },
+        isCheckout: function(state, payload) {
+            state.isCheckout = payload
+        },
+        cart: function(state, payload) {
+            if(payload != false) {
+                state.cart.push(payload)
+            }
+            // console.log(payload)
+        },
+        deleteCartItem (state, payload) {
+            state.cart.splice(payload,1)
+            if(state.cart.length == 0) {
+                state.isCart = false
+            }
+        },
+        updateCart (state, payload) {
+            window.sessionStorage.setItem("cart", JSON.stringify(state.cart))
+            document.getElementById("audio").play()
+        },
         isBodyOverlay: function(state, payload) {
             state.isBodyOverlay = payload
         },
@@ -40,6 +72,16 @@ export const store = new Vuex.Store({
     },
 
     actions: {
+        addToCart ({ commit, state }, payload) {
+
+            commit('cart', payload)
+            commit('updateCart')
+
+          },
+          deleteCartItem ({commit, state}, payload) {
+            commit('deleteCartItem', payload)
+            commit('updateCart', payload)
+          }
     },
   })
 

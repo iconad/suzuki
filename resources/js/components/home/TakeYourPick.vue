@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="pt-5 py-12 md:py-32 text-center font-bold uppercase italic text-4xl md:text-7xl xxl:text-8xl leading-none mb-5">
+        <div class="pt-5 py-12 md:py-24 text-center font-bold uppercase italic text-4xl md:text-7xl xxl:text-8xl leading-none mb-5">
             <span class="suzuki-mon font-black">
                 <span class="text-theme-darkblue">Take your</span>
                 <span class="text-theme-red-500">Pick</span>
@@ -8,20 +8,8 @@
         </div>
 
         <splide :options="options">
-            <splide-slide class="image-scale-effect relative h-64" v-for="(slide, i) in slides" :key="i">
-                <img :src="slide.src" alt="slide.alt" class="w-full h-full object-cover object-center">
-                <div class="absolute left-0 top-0 w-full h-full">
-                    <div class="absolute left-0 bottom-0 p-5 xxl:p-8 z-10 title">
-                        <span class="block italic text-gray-100 text-2xl suzuki-mon xxl:text-3xl uppercase font-black">
-                            <img v-if="slide.logo" :src="slide.logo" alt="logo" class="w-7rem">
-                            <span v-else>{{slide.name}}</span>
-                        </span>
-                        <a href class="flex items-center italic text-gray-100 text-base font-semibold hover:text-theme-red">
-                            <span>Explore</span>
-                            <span><svg class="fill-current w-4 xxl:w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 13l1 1 6-6-2-1-4 4-4-4-2 1z"/></svg></span>
-                        </a>
-                    </div>
-                </div>
+            <splide-slide class="image-scale-effect" v-for="(slide, i) in slides" :key="i">
+                <take-your-pick-slide :slide="slide" />
             </splide-slide>
         </splide>
 
@@ -30,10 +18,12 @@
 
 <script>
     import { Splide, SplideSlide } from '@splidejs/vue-splide';
+    import TakeYourPickSlide from './TakeYourPickSlide'
     export default {
         components: {
             Splide,
             SplideSlide,
+            TakeYourPickSlide
         },
         data() {
             return {
@@ -58,10 +48,12 @@
                             gap    : '1rem',
                         },
                         '740': {
+                            arrows: false,
                             perPage: 2,
                             gap    : '1rem',
                         },
                         '580': {
+                            arrows: false,
                             perPage: 1,
                             gap    : '0rem',
                         },

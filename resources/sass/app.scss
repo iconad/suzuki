@@ -32,16 +32,11 @@
     @apply outline-none;
 }
 .red-button {
-    @apply inline-block mt-4 rounded px-6 py-3 border-2 border-transparent bg-theme-red-500 text-white transition ease-in-out duration-300;
+    @apply inline-block mt-4 rounded px-6 py-3 border-2 border-transparent bg-theme-red-500 text-white transition ease-in-out duration-300 hover:bg-white hover:border-theme-red-500 hover:text-theme-red-500 focus:bg-transparent focus:text-theme-red-500 focus:border-theme-red-500 focus:outline-none;
 }
-.red-button:hover {
-    @apply bg-white border-theme-red-500 text-theme-red-500;
-}
-.red-button:focus {
-    @apply bg-transparent border-theme-red-500 outline-none;
-}
+
 .red-button:active {
-    @apply bg-theme-red-300;
+    @apply bg-transparent text-theme-red-500 border-theme-red-500 outline-none;
 }
 .arrow-top {
     @apply w-6 h-6 border border-gray-500 absolute top-0 left-0 ml-24 -mt-3 border-b-0 bg-white border-r-0;
@@ -72,6 +67,7 @@
         }
     }
 }
+
 
 @import '~vue-multiselect/dist/vue-multiselect.min.css';
 @import '~pretty-checkbox/src/pretty-checkbox.scss';

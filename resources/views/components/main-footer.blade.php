@@ -7,7 +7,7 @@
             <div class="hidden lg:block w-1/2 absolute left-0 top-0 h-full"></div>
             <div class="hidden lg:block bg-white w-1/2 absolute right-0 top-0 h-full"></div>
             <div class="md:max-w-screen-xl mx-auto font-normal relative">
-                <div class="flex flex-wrap lg:flex-no-wrap">
+                <div class="flex flex-wrap lg:flex-nowrap">
                     <div class="w-full text-gray-100 text-lg bg-theme-darkblue-500 p-5 lg:p-0">
                         <ul>
                             <li class="mt-2 capitalize">
@@ -43,7 +43,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="text-base mt-4 md:mt-0 md:text-lg text-gray-800 whitespace-no-wrap">
+                            <div class="text-base mt-4 md:mt-0 md:text-lg text-gray-800 whitespace-nowrap">
                                 <p>© Al Rostamani Group. All rights reserved .</p>
                             </div>
                         </div>
