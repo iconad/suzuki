@@ -1,0 +1,27 @@
+query {
+  vehicles {
+    id
+    title
+    slug
+    sub_title
+    body
+    price
+    media {
+      id
+      collection_name
+      name
+      file_name
+    }
+    files {
+      id
+      title
+      type
+      media {
+        id
+        collection_name
+        name
+        file_name
+      }
+    }
+  }
+}

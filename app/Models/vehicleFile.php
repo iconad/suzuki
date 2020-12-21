@@ -34,4 +34,8 @@ class vehicleFile extends Model implements HasMedia
         ];
     }
 
+    public function vehicle() {
+        return $this->belongsTo(Vehicle::class)->where('status', 1);
+    }
+
 }

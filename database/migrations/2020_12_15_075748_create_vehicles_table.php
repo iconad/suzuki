@@ -19,7 +19,7 @@ class CreateVehiclesTable extends Migration
             $table->string('slug');
             $table->string('sub_title');
             $table->string('body')->nullable();
-            $table->string('html_content')->nullable();
+            $table->longtext('html_content')->nullable();
             $table->integer('price');
             $table->string('iframe');
             $table->integer('status')->default(1);

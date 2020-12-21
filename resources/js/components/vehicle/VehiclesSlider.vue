@@ -1,8 +1,7 @@
 <template>
     <div class="overflow-hidden relative showroom">
         <img src="https://i.ibb.co/47BBcMG/bg.jpg" class="w-full" alt="cover">
-        <div class="">
-
+        <!-- <div class="" v-if="!$apollo.queries.vehicles.loading"> -->
              <div class="absolute left-12vw top-12vw text-gray-900 leading-none">
                 <div class="text-4vw text-shadow">
                     <span>Suzuki</span>
@@ -14,7 +13,7 @@
                     <span>Emotion</span>
                 </div>
                 <div class="relative z-10">
-                    <a href="/vehicles/baleno" class="red-button mt-2 text-10px md:text-lg xxl:text-xl px-2 lg:px-4 py-0 xxl:py-1 hover:bg-red-500 hover:text-white">Explore Car</a>
+                    <a id="slideSlug" href="/vehicles/baleno" class="red-button mt-2 text-10px md:text-lg xxl:text-xl px-2 lg:px-4 py-0 xxl:py-1 hover:bg-red-500 hover:text-white">Explore Car</a>
                 </div>
             </div>
 
@@ -25,14 +24,8 @@
                 @splide:move="move"
                 @splide:moved="moved"
                 >
-                    <splide-slide v-for="(slide,i) in slides" :key="i" class="car-splide">
-                        <div class="absolute inset-x-0 bototm-0 hidden">
-                            <input type="hidden" :class="`slideTitle${i}`" :value="slide.title"/>
-                            <input type="hidden" :class="`slideSubTitle${i}`" :value="slide.subtitle" />
-                        </div>
-                        <div class="w-1/3 mx-auto">
-                            <img :src="slide.src" alt="slide.alt" class="car w-full ml-5 md:ml-12 lg:ml-16">
-                        </div>
+                    <splide-slide v-for="(slide,i) in vehicles" :key="i" class="car-splide">
+                        <vehicle-slide :slide="slide" :index="i"></vehicle-slide>
                     </splide-slide>
                 </splide>
             </div>
@@ -40,9 +33,10 @@
                 <splide
                 :options="secondaryOptions"
                 ref="secondary"
+                class="flex items-center"
                 >
-                    <splide-slide v-for="(slide,t) in thumbSlides" :key="t" class="opacity-0 md:opacity-100">
-                        <img :src="slide.src" alt="slide.alt" class="w-10 md:w-32">
+                    <splide-slide v-for="(slide,t) in vehicles" :key="t" class="opacity-0 md:opacity-100">
+                        <thumb-slide :slide="slide"></thumb-slide>
                     </splide-slide>
                 </splide>
             </div>
@@ -51,12 +45,22 @@
 </template>
 
 <script>
+
+    // import gql from 'graphql-tag'
+    // import vehiclesQuery from "../../../../gql/frontend/vehicles.gql";
+
     import { Splide, SplideSlide } from '@splidejs/vue-splide';
 
+    import vehicleSlide from './VehicleSlide'
+    import thumbSlide from './VehiclesThumbSlide'
+
     export default {
+        props: ['vehicles'],
     components: {
         Splide,
         SplideSlide,
+        vehicleSlide,
+        thumbSlide
     },
     data() {
         return {
@@ -157,14 +161,17 @@
             move( splide, newIndex ) {
                 let title = document.getElementsByClassName(`slideTitle${newIndex}`)[0].value
                 let subTitle = document.getElementsByClassName(`slideSubTitle${newIndex}`)[0].value
+                let slug = document.getElementsByClassName(`slideSlug${newIndex}`)[0].value
                 document.getElementById('slideTitle').innerHTML = title
                 document.getElementById('slideSubTitle').innerHTML = subTitle
+                document.getElementById('slideSlug').setAttribute('href', 'vehicles/'+slug)
 
                 // document.querySelectorAll("splide-slide-title").forEach(obj=>obj.classList.remove("focus-in-contract"));
                 // document.querySelectorAll("splide-slide-sub-title").forEach(obj=>obj.classList.remove("focus-in-contract"));
 
                 let slideSlideTitle = document.getElementById('slideTitle')
                 let slideSlideSubTitle = document.getElementById('slideSubTitle')
+                let slideSlideSlug = document.getElementById('slideSlug')
 
                 slideSlideTitle.classList.add("slide-in-blurred-top");
                 slideSlideSubTitle.classList.add("focus-in-contract");
@@ -173,6 +180,7 @@
             moved (splide, newIndex) {
                 let title = document.getElementById('slideTitle');
                 let subTitle = document.getElementById('slideSubTitle');
+                let slug = document.getElementById('slideSlug');
 
                 setTimeout(function(){
                     title.classList.remove('slide-in-blurred-top');
@@ -180,6 +188,16 @@
                  }, 500);
             }
         },
+        // apollo: {
+        //     vehicles() {
+        //         return {
+        //             query: vehiclesQuery,
+        //             update(data) {
+        //                 return data.vehicles;
+        //             },
+        //         };
+        //     },
+        // }
     }
 </script>
 
@@ -196,6 +214,8 @@
 }
 .vehicle-splide02-track #splide02-track {
     li {
+        display: flex;
+        align-items: center;
         width: 7vw!important;
         height: 45px!important;
         @include md-max {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\Branch;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -90,12 +91,19 @@ class PageController extends Controller
     }
 
     public function vehicles(){
-        return view('vehicle.index');
+        $vehicles = Vehicle::where('status', 1)->with('media')->get();
+        return view('vehicle.index', compact('vehicles'));
     }
 
     public function singeVehicle($vehicle)
     {
+        $vehicle = Vehicle::where('slug', $vehicle)->first();
         return view('vehicle.show', compact('vehicle'));
+    }
+
+    public function vehiclesPage()
+    {
+        return view('vehicle.page');
     }
 
     public function showroomLocation($location, $type)

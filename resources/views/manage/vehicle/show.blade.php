@@ -79,7 +79,8 @@
             <div class="field">
                 <label>HTML Content</label>
                 <textarea rows="15" name="html_content" placeholder="Paste HTML code">
-                    {{$vehicle->html_content}}
+                    {!! $vehicle->html_content !!}
+                    {{-- {!!html_entity_decode($vehicle->html_content)!!} --}}
                 </textarea>
             </div>
 

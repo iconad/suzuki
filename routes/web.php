@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'pageController@home')->name('home');
 Route::get('/vehicles', 'pageController@vehicles');
 Route::get('/vehicles/{vehicle}', 'pageController@singeVehicle');
+Route::get('/page', 'pageController@vehiclesPage');
 
 // Forms
 Route::get('/get-a-quote', 'formPagesController@getQuote')->name('form.getquote');

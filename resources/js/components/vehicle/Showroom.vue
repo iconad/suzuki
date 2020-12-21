@@ -1,7 +1,7 @@
 <template>
     <div>
         <div @click="OpenBroucherModal">
-            <iframe src="http://localhost:3000/baleno" class="w-full h-screen" title="Baleno"></iframe>
+            <iframe :src="iframe" class="w-full h-screen" title="Baleno"></iframe>
         </div>
 
         <side-buttons></side-buttons>
@@ -14,6 +14,7 @@
 <script>
     import SideButtons from './SideButtons'
     export default {
+        props: ['iframe'],
         components: {
             SideButtons
         },

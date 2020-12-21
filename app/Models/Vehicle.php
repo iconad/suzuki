@@ -43,4 +43,9 @@ class Vehicle extends Model implements HasMedia
         $this->addMediaConversion('small')
               ->width(400);
     }
+
+    public function files() {
+        return $this->hasMany(VehicleFile::class)->where('status', 1);
+    }
+
 }
