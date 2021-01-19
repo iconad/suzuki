@@ -97,21 +97,144 @@
         </div>
     </div>
 
-    <div class="my-10">
+    <div class="mt-10 mb-5">
         <div class="ui divider"></div>
     </div>
 
     <div class="ui secondary menu">
         <span class="item fitted">
+            <h3 class="ui header">{{$vehicle->title}}' Extra</h3>
+        </span>
+    </div>
+
+
+    <div class="ui relaxed divided list">
+
+        <div class="item">
+          <div class="content">
+            <h4 class="ui header">
+                <a href="/manage/vehicles/{{$vehicle->id}}/files" class="header">{{$vehicle->title}}'s files</a>
+            </h4>
+            <div class="description">Total files {{count($vehicle->files)}} </div>
+          </div>
+        </div>
+
+        <div class="item">
+            <div class="content">
+              <h4 class="ui header">
+                  <a href="/manage/vehicles/{{$vehicle->id}}/accessories" class="header">{{$vehicle->title}}'s Accessory</a>
+              </h4>
+              <div class="description">Total files {{count($vehicle->accessories)}} </div>
+            </div>
+          </div>
+
+      </div>
+
+{{--
+    <div class="ui secondary menu">
+        <span class="item fitted">
             <h3 class="ui header">{{$vehicle->title}}' files</h3>
         </span>
         <div class="right menu fitted">
-          <a href="/manage/vehicles/{{$vehicle->id}}/file-upload" class="ui button item">
+            <a href="/manage/vehicles/{{$vehicle->id}}/files/create" class="ui button item">
             Add New File
-          </a>
+            </a>
         </div>
-      </div>
+    </div>
 
+    <div class="branches">
+        <table class="ui celled table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>year</th>
+                <th>type</th>
+                <th>status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                @if ($vehicle->files->count() == 0)
+                <tr>
+                    <td colspan="4">No record found!</td>
+                </tr>
+                @endif
+                @foreach ($vehicle->files as $file)
+                <tr>
+                    <td>
+                        <a href="/manage/vehicles/{{$vehicle->id}}/files/{{$file->id}}"> {{$file->title}} </a>
+                    </td>
+                    <td> {{$file->year}} </td>
+                    <td> {{$file->type}} </td>
+                    <td>
+                        @if ($vehicle->status == 1)
+                            Published
+                        @else
+                            Draft
+                        @endif
+                    </td>
+                    <td>
+                        <div class="ui basic mini buttons">
+                            <div class="ui button">Edit</div>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+    <div class="accessories mt-10">
+        <div class="ui secondary menu">
+            <span class="item fitted">
+                <h3 class="ui header">{{$vehicle->title}}' Accessories</h3>
+            </span>
+            <div class="right menu fitted">
+                <a href="/manage/vehicles/{{$vehicle->id}}/accessories/create" class="ui button item">
+                Add New Accessory
+                </a>
+            </div>
+        </div>
+        <table class="ui celled table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>year</th>
+                <th>type</th>
+                <th>status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                @if ($vehicle->files->count() == 0)
+                <tr>
+                    <td colspan="4">No record found!</td>
+                </tr>
+                @endif
+                @foreach ($vehicle->files as $file)
+                <tr>
+                    <td>
+                        <a href="/manage/vehicles/{{$vehicle->id}}/files/{{$file->id}}"> {{$file->title}} </a>
+                    </td>
+                    <td> {{$file->year}} </td>
+                    <td> {{$file->type}} </td>
+                    <td>
+                        @if ($vehicle->status == 1)
+                            Published
+                        @else
+                            Draft
+                        @endif
+                    </td>
+                    <td>
+                        <div class="ui basic mini buttons">
+                            <div class="ui button">Edit</div>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div> --}}
 
 
 @endsection

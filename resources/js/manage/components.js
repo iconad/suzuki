@@ -9,3 +9,8 @@ Vue.component(
     "delete-record",
     require("./components/DeleteRecord.vue").default
 );
+
+Vue.component(
+    "lead-cart",
+    require("./components/LeadCart.vue").default
+);

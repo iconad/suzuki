@@ -12,17 +12,17 @@
                                     <label
                                     v-for="(model, n) in models"
                                     :key="n"
-                                    :class=" selectedModel === model.id ? 'border-gray-400 bg-gray-200' : 'border-transparent bg-transparent'"
+                                    :class=" selectedModel.id === model.id ? 'border-blue-400 bg-blue-100' : 'border-transparent bg-transparent'"
                                     class="rounded p-2 lg:text-center border w-full">
                                         <input
                                         class="hidden"
                                         type="radio"
                                         v-model="selectedModel"
-                                        :value="model.id"
+                                        :value="model"
                                         number>
                                         <span
-                                        :class="selectedModel === model.id ? 'text-gray-700' : 'text-gray-600'"
-                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic "> {{model.name}} </span>
+                                        :class="selectedModel.id === model.id ? 'text-gray-700' : 'text-gray-600'"
+                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic "> {{model.title}} </span>
                                     </label>
                                 </div>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm">{{ errors[0] }}</p>
@@ -129,14 +129,15 @@
                         class="block mt-1 -ml-3 inline-block">Please confirm you have read and agree to our <a href="http://" class="theme-link">Terms and Conditions</a> *</span>
                     </label>
                 </div>
-                <div class="form-element mb-0 mt-5 text-right">
+                <div v-if="isLoading" class="loader"></div>
+                <div v-else class="form-element mb-0 mt-5 text-right">
                     <input
                         type="submit"
                         value="Submit"
-                        :disabled="[invalid, !form.check]"
+                        :disabled="!form.check"
                         :class="[
-                            invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' : 'red-button',
-                            !form.check ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' :  'red-button'
+                            invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' : 'red-button cursor-pointer',
+                            !form.check ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' :  'red-button cursor-pointer'
                             ]">
                 </div>
             </form>
@@ -152,6 +153,8 @@
     import { extend,ValidationProvider,ValidationObserver } from 'vee-validate';
     import { required, email } from 'vee-validate/dist/rules';
 
+    import gql from 'graphql-tag'
+    import vehiclesQuery from "../../../../gql/frontend/vehicles.gql";
 
     // Add the required rule
     extend('required', {
@@ -196,47 +199,58 @@
                     emirate: null,
                     check: false,
                     showroom: false,
-                    models: []
                 },
                 emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ras al khaimah", "Ajman", "Fujairah", "Umm al Quwain"],
                 hears: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"],
                 showrooms: ["Deira City center", "Abu Dhabi", "shaikh zayed road", "Al Ain", "Sharjah", "Ajman"],
-                models: [
-                    {
-                        id: 1,
-                        name: 'Vitara',
-                    },
-                    {
-                        id: 2,
-                        name: 'Ertiga',
-                    },
-                    {
-                        id: 3,
-                        name: 'Baleno',
-                    },
-                    {
-                        id: 4,
-                        name: 'Swift',
-                    },
-                    {
-                        id: 5,
-                        name: 'Dzire',
-                    },
-                    {
-                        id: 6,
-                        name: 'Jimny',
-                    },
-                    {
-                        id: 7,
-                        name: 'Ciaz',
-                    }
-                ]
             }
         },
         methods: {
             submitForm () {
-                console.log(this.form)
+                 if(this.form.check){
+                    this.isLoading = true
+                    axios.post(`/api/test-drive`, {
+                        title: this.form.title,
+                        first_name: this.form.first_name,
+                        last_name: this.form.last_name,
+                        hear: this.form.hear,
+                        emirate: this.form.emirate,
+                        email: this.form.email,
+                        model: this.selectedModel,
+                        phone: this.form.phone,
+                        mobile: this.form.mobile,
+                        hear: this.form.hearFrom,
+                        showroom: this.form.showroom,
+                        age: this.form.age,
+                    })
+                    .then(response => {
+                        this.$emit('updated')
+                        this.$swal({
+                            toast: true,
+                            position: 'center',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            title: response.data.wow,
+                            text: response.data.message,
+                        });
+                        if(response.data.wow != 'opps!') {
+                            this.form = []
+                        }
+                        this.isLoading = false
+                    })
+                }
             }
+        },
+        apollo: {
+            models() {
+                return {
+                    query: vehiclesQuery,
+                    update(data) {
+                        this.selectedModel = data.vehicles[0]
+                        return data.vehicles;
+                    },
+                };
+            },
         }
     }
 </script>

@@ -6,7 +6,7 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <div class="active section">Newsletter</div>
+        <div class="active section">Recall Announcements</div>
     </div>
 </div>
 
@@ -15,10 +15,10 @@
 </div> --}}
 <div class="ui secondary menu">
     <span class="item fitted">
-        <h3 class="ui header">Newsletter Signups</h3>
+        <h3 class="ui header">Recall Announcements</h3>
     </span>
     <div class="right menu fitted">
-      <a href="/manage/branches/create" class="ui button item">
+      <a href="/manage/recall-announcements/create" class="ui button item">
         Add New
       </a>
     </div>
@@ -29,27 +29,35 @@
         <thead>
           <tr>
             <th>Title</th>
-            <th>Email</th>
-            <th>Date</th>
+            <th>Vehicle</th>
+            <th>Till Date</th>
             <th>Actions</th>
           </tr>
         </thead>
+        @if (count($recalls) != 0)
         <tbody>
-            @foreach ($leads as $lead)
+            @foreach ($recalls as $recall)
             <tr>
                 <td>
-                    <a href="branches/{{$lead->id}}">{{$lead->title}}</a>
+                    <a href="recall-announcements/{{$recall->id}}">{{$recall->title}}</a>
                 </td>
-                <td> {{ $lead->email ? $lead->email : "---" }} </td>
-                <td> {{ $lead->created_at ? $lead->created_at : "---" }} </td>
+                <td> {{ $recall->vehicle->title}} </td>
+                <td> {{ $recall->till_date}} </td>
                 <td>
-                    <div class="ui inverted red mini buttons">
-                        <div class="ui button">Delete</div>
+                    <div class="ui basic mini buttons">
+                        <a href="recall-announcements/{{$recall->id}}" class="ui button">Edit</a>
                     </div>
                 </td>
             </tr>
             @endforeach
         </tbody>
+        @else
+        <tbody>
+            <tr>
+                <td colspan="4"> 0 Record found. </td>
+            </tr>
+        </tbody>
+        @endif
     </table>
 </div>
 

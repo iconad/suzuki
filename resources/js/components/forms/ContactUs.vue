@@ -49,7 +49,12 @@
 
 
         <div class="flex flex-wrap">
-            <div class="w-full">
+            <div v-if="isFormSubmit" class="w-full h-64 flex items-center justify-center">
+                <div class="h-64 flex items-center justify-center text-lg text-green-600 select-none">
+                    We have recived you request for the test drive. Shortly you will get a call from one of our memeber.
+                </div>
+            </div>
+            <div v-else class="w-full">
                 <div class="text-xl md:text-3xl suzuki-bold text-gray-900 mb-5"> Submit a Question or Comment</div>
                 <ValidationObserver v-slot="{ invalid,passes }">
                     <form @submit.prevent="passes(submitForm)">
@@ -102,7 +107,7 @@
                             </div>
 
                             <div>
-                                <ValidationProvider name="form.email" rules="required">
+                                <ValidationProvider name="form.message" rules="required">
                                     <div slot-scope="{ errors }">
                                         <textarea v-model="form.message" class="form-input-1" rows="6" name="message" placeholder="Message"> </textarea>
                                         <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
@@ -121,14 +126,13 @@
                                 class="block mt-1 -ml-3 inline-block">Get Suzuki updates <a href="http://" class="theme-link text-gray-600">(what are these?)</a></span>
                             </label>
                         </div>
-                        <div class="form-element mb-0 mt-5 text-right">
+                        <div v-if="isLoading" class="loader"></div>
+                        <div v-else class="form-element mb-0 mt-5 text-right">
                             <input
                                 type="submit"
                                 value="Submit"
-                                :disabled="[invalid]"
-                                :class="[
-                                    invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' : 'red-button',
-                                    ]">
+                                :disabled="invalid"
+                                :class="invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' : 'red-button'">
                         </div>
                     </form>
                 </ValidationObserver>
@@ -176,8 +180,11 @@
         data() {
             return {
                 isValidMobileNumber: true,
+                isLoading: false,
                 titles: ['Mr', 'Mrs'],
                 selectedModel: 1,
+                isFormSubmit: false,
+                isFormSubmitMessage: null,
                 form: {
                     first_name: null,
                     last_name: null,
@@ -191,7 +198,33 @@
         },
         methods: {
             submitForm () {
-                console.log(this.form)
+                this.isLoading = true
+                axios.post(`/api/contact-us`, {
+                    title: this.form.title,
+                    first_name: this.form.first_name,
+                    last_name: this.form.last_name,
+                    email: this.form.email,
+                    mobile: this.form.mobile,
+                    message: this.form.message,
+                })
+                .then(response => {
+                    this.$swal({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timerProgressBar: true,
+                        timer: 3000,
+                        icon: "success",
+                        title: response.data.wow,
+                        text: response.data.message,
+                    });
+                    if(response.data.wow != 'opps!') {
+                        this.form = []
+                        this.isFormSubmit = true
+                        this.isFormSubmitMessage = response.data.message
+                    }
+                    this.isLoading = false
+                })
             }
         }
     }

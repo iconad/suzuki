@@ -6,7 +6,7 @@
                 <div class="px-10 my-16">
                     <div>
                         <div class="flex items-center justify-between text-xl">
-                            <div>Diposit</div>
+                            <div>Deposit</div>
                             <div>AED {{deposit}}</div>
                         </div>
                         <vue-slider
@@ -93,11 +93,15 @@
             return {
                 deposit: 10000,
                 duration: 3,
-                price: 44000,
+                price: 0,
                 interest: 2.99,
                 totalIntrest: 0,
                 months: 0,
             }
+        },
+        mounted() {
+            let vehicle = this.$store.state.vehicle
+            this.price = vehicle.price
         },
         computed: {
             yearsToMonths () {

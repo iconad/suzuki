@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="text-xl md:text-3xl suzuki-bold text-gray-900 mb-5"> Book Service</div>
+        <div v-if="!isFormSend">
+            <div class="text-xl md:text-3xl suzuki-bold text-gray-900 mb-5"> Book Service</div>
             <ValidationObserver v-slot="{ invalid,passes }">
                 <form @submit.prevent="passes(submitForm)">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10">
@@ -74,11 +75,11 @@
                             </div>
                         </ValidationProvider>
                     </div>
-                    <div>
-                        <ValidationProvider name="form.hearFrom" rules="required">
+                    <div v-if="!$apollo.queries.models.loading">
+                        <ValidationProvider name="form.model" rules="required">
                             <div slot-scope="{ errors }">
-                                <multiselect v-model="form.model" track-by="name" label="name" placeholder="Car Model" :options="models" :searchable="false" :allow-empty="false">
-                                    <template slot="singleLabel" slot-scope="{ option }">{{ option.name }}</template>
+                                <multiselect v-model="form.model" track-by="title" label="title" placeholder="Car Model" :options="models" :searchable="false" :allow-empty="false">
+                                    <template slot="singleLabel" slot-scope="{ option }">{{ option.title }}</template>
                                 </multiselect>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
                             </div>
@@ -138,23 +139,32 @@
                         :class="!form.check ? 'text-red-600' : 'text-gray-800'"
                         class="block mt-1 -ml-3 inline-block">Please confirm you have read and agree to our <a href="http://" class="theme-link">Terms and Conditions</a> *</span>
                     </label>
+
                 </div>
                 <div class="form-element mb-0 mt-5 text-right">
+                    <div v-if="isLoading" class="loader"></div>
                     <input
+                        v-else
                         type="submit"
                         value="Submit"
-                        :disabled="[invalid, !form.check]"
-                        :class="[
-                            invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' : 'red-button',
-                            !form.check ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' :  'red-button'
-                            ]">
+                        :disabled="invalid"
+                        :class="invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' : 'red-button'">
                 </div>
+                <p v-if="checkError == 0 && !form.check" class="text-center text-theme-red-500 mt-1 px-1 text-base font-medium">You must agree to our terms & conditions.</p>
+
             </form>
             </ValidationObserver>
         </div>
+        <div class="h-64 flex items-center justify-center text-lg text-green-600" v-else>
+            We have recived you request for the test drive. Shortly you will get a call from one of our memeber.
+        </div>
+    </div>
 </template>
 
 <script>
+
+    import gql from 'graphql-tag'
+    import vehiclesQuery from "../../../../gql/frontend/vehicles.gql";
 
     import Multiselect from 'vue-multiselect'
     import PrettyCheckbox from 'pretty-checkbox-vue/check';
@@ -199,12 +209,14 @@
                 isValidMobileNumber: true,
                 titles: ['Mr', 'Mrs'],
                 selectedModel: 1,
+                checkError: 2,
+                isLoading: false,
+                isFormSend: false,
                 form: {
                     first_name: null,
                     last_name: null,
                     title: null,
                     email: null,
-                    hear: null,
                     mobile: null,
                     phone: null,
                     emirate: null,
@@ -220,42 +232,59 @@
                 hears: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"],
                 years: ["2016", "2017", "2018", "2019", "2020", "2021"],
                 showrooms: ["Deira City center", "Abu Dhabi", "shaikh zayed road", "Al Ain", "Sharjah", "Ajman"],
-                models: [
-                    {
-                        id: 1,
-                        name: 'Vitara',
-                    },
-                    {
-                        id: 2,
-                        name: 'Ertiga',
-                    },
-                    {
-                        id: 3,
-                        name: 'Baleno',
-                    },
-                    {
-                        id: 4,
-                        name: 'Swift',
-                    },
-                    {
-                        id: 5,
-                        name: 'Dzire',
-                    },
-                    {
-                        id: 6,
-                        name: 'Jimny',
-                    },
-                    {
-                        id: 7,
-                        name: 'Ciaz',
-                    }
-                ]
             }
         },
         methods: {
             submitForm () {
-                console.log(this.form)
+                 if(this.form.check){
+                    this.isLoading = true
+                    this.checkError = 1
+                    axios.post(`/api/book-service`, {
+                        title: this.form.title,
+                        first_name: this.form.first_name,
+                        last_name: this.form.last_name,
+                        showroom: this.form.showroom,
+                        emirate: this.form.emirate,
+                        email: this.form.email,
+                        model: this.form.model.title,
+                        mobile: this.form.mobile,
+                        tel: this.form.phone,
+                        date: this.form.date,
+                        year: this.form.year,
+                        service_type: this.form.stype,
+                    })
+                    .then(response => {
+                        this.$emit('updated')
+                        this.$swal({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timerProgressBar: true,
+                            timer: 3000,
+                            icon: "success",
+                            title: response.data.wow,
+                            text: response.data.message,
+                        });
+                        if(response.data.wow != 'opps!') {
+                            this.form = []
+                        }
+                        this.isLoading = false
+                        this.isFormSend = true
+                    })
+                }else{
+                    this.checkError = 0
+                }
             }
+        },
+        apollo: {
+            models() {
+                return {
+                    query: vehiclesQuery,
+                    update(data) {
+                        return data.vehicles;
+                    },
+                };
+            },
         }
     }
 </script>

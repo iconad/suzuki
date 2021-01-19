@@ -12,7 +12,7 @@
                 </div> --}}
                 <div class="w-full flex items-center">
                     <div class="lg:px-12 w-full">
-                        <get-broucher></get-broucher>
+                        <get-broucher :selectedmodel="{{ json_encode($selectedModel) }}"></get-broucher>
                     </div>
                 </div>
             </div>

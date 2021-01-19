@@ -21,6 +21,7 @@ class Lead extends Model
         'vin',
         'hear',
         'emirate',
+        'cart',
         'user_id',
         'purchase_type',
         'showroom',
@@ -33,5 +34,13 @@ class Lead extends Model
         'status',
         'order',
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getDateForHumansAttribute() {
+        return $this->created_at->format('d M, Y');
+    }
 
 }

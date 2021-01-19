@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'pageController@home')->name('home');
-Route::get('/vehicles', 'pageController@vehicles');
-Route::get('/vehicles/{vehicle}', 'pageController@singeVehicle');
-Route::get('/page', 'pageController@vehiclesPage');
+Route::get('/', 'PageController@home')->name('home');
+Route::get('/vehicles', 'PageController@vehicles');
+Route::get('/vehicles/{vehicle}', 'PageController@singeVehicle');
+Route::get('/page/{page}', 'PageController@show');
+Route::get('/page', 'PageController@vehiclesPage');
 
 // Forms
 Route::get('/get-a-quote', 'formPagesController@getQuote')->name('form.getquote');
-Route::get('/get-a-broucher', 'formPagesController@getBroucher')->name('form.getbroucher');
+Route::get('/get-a-brochure', 'formPagesController@getBroucher')->name('form.getbroucher');
 Route::get('/test-drive', 'formPagesController@testDrive')->name('form.testdrive');
 Route::get('/book-a-service', 'formPagesController@bookService')->name('form.bookservice');
 Route::get('/request-accessories-quote', 'formPagesController@RequestQuoteAccessories')->name('form.requestquoteaccessories');
@@ -41,9 +42,9 @@ Route::group(['prefix' => 'after-sales'], function() {
     Route::get('/recall-announcements/{announcement}', 'afterSalesController@RecallAnnouncement')->name('aftersales.recallannouncement');
 });
 
-Route::get('/locations/{location}/{type}/', 'pageController@showroomLocation');
-Route::get('/locations/{location}/services/', 'pageController@servicesLocation');
-Route::get('/locations/{location}/parts/', 'pageController@partsLocation');
+Route::get('/locations/{location}/{type}/', 'PageController@showroomLocation');
+Route::get('/locations/{location}/services/', 'PageController@servicesLocation');
+Route::get('/locations/{location}/parts/', 'PageController@partsLocation');
 
 Auth::routes();
 
@@ -52,10 +53,16 @@ Route::group(['prefix' => 'manage'], function() {
 
     Route::group(['middleware' => ['auth','permission:browse admin']], function () {
         Route::get('/dashboard', 'ManagePages@dashboard')->name('manage.dashboard');
-        Route::get('/newsletter', 'ManagePages@newsletter')->name('manage.newsletter');
+        Route::get('/menus', 'ManagePages@menus')->name('manage.menus');
+        Route::get('/leads/{lead}', 'ManagePages@singleLead');
+        Route::get('/leads/type/{newsletter}', 'ManagePages@index')->name('manage.leads.index');
         Route::resource('/vehicles', 'VehicleController');
         Route::resource('/vehicles/{vehicle}/files', 'VehicleFileController');
+        Route::resource('/vehicles/{vehicle}/accessories', 'AccessoryController');
+        Route::resource('/accessory-categories', 'AccessoryCategoryController');
         Route::resource('/branches', 'BranchController');
+        Route::resource('/recall-announcements', 'RecallController');
+        Route::resource('/pages', 'PageManagerController');
         Route::resource('/branches/{branch}/offices', 'BranchOfficeController');
     });
 

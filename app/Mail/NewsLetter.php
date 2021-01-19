@@ -28,6 +28,6 @@ class NewsLetter extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.admin.newletter_signup');
+        // return $this->view('mail.admin.newletter_signup');
     }
 }

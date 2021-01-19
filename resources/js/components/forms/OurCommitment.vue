@@ -72,7 +72,7 @@
                     <div>
                         <ValidationProvider name="form.vin" rules="required">
                             <div slot-scope="{ errors }">
-                                <input type="email" v-model="form.vin" class="form-input-1" name="vin" placeholder="Car Registration Number & VIN *">
+                                <input type="text" v-model="form.vin" class="form-input-1" name="vin" placeholder="Car Registration Number & VIN *">
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
                             </div>
                         </ValidationProvider>
@@ -80,7 +80,7 @@
                     <div>
                         <ValidationProvider name="form.location" rules="required">
                             <div slot-scope="{ errors }">
-                                <input type="email" v-model="form.location" class="form-input-1" name="location" placeholder="Location *">
+                                <input type="text" v-model="form.location" class="form-input-1" name="location" placeholder="Location *">
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
                             </div>
                         </ValidationProvider>
@@ -108,14 +108,14 @@
                     </label>
                 </div>
                 <div class="form-element mb-0 mt-5 text-right">
+                    <div v-if="isLoading" class="loader"></div>
                     <input
+                        v-else
                         type="submit"
                         value="Register With Us"
-                        :disabled="[invalid, !form.check]"
-                        :class="[
-                            invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' : 'red-button',
-                            !form.check ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' :  'red-button'
-                            ]">
+                        :disabled="invalid"
+                        :class="invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' : 'red-button'">
+                        <p v-if="checkError == 0 && !form.check" class="text-center text-theme-red-500 mt-1 px-1 text-base font-medium">You must agree to our terms & conditions.</p>
                 </div>
             </form>
             </ValidationObserver>
@@ -164,7 +164,9 @@
             return {
                 isValidMobileNumber: true,
                 titles: ['Mr', 'Mrs'],
-                selectedModel: 1,
+                checkError: 2,
+                isLoading: false,
+                isFormSend: false,
                 form: {
                     first_name: null,
                     last_name: null,
@@ -173,44 +175,10 @@
                     hear: null,
                     mobile: null,
                     phone: null,
-                    emirate: null,
                     check: false,
                     showroom: false,
-                    models: []
                 },
-                emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ras al khaimah", "Ajman", "Fujairah", "Umm al Quwain"],
                 hears: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"],
-                showrooms: ["Deira City center", "Abu Dhabi", "shaikh zayed road", "Al Ain", "Sharjah", "Ajman"],
-                models: [
-                    {
-                        id: 1,
-                        name: 'Vitara',
-                    },
-                    {
-                        id: 2,
-                        name: 'Ertiga',
-                    },
-                    {
-                        id: 3,
-                        name: 'Baleno',
-                    },
-                    {
-                        id: 4,
-                        name: 'Swift',
-                    },
-                    {
-                        id: 5,
-                        name: 'Dzire',
-                    },
-                    {
-                        id: 6,
-                        name: 'Jimny',
-                    },
-                    {
-                        id: 7,
-                        name: 'Ciaz',
-                    }
-                ]
             }
         },
         methods: {
@@ -218,7 +186,43 @@
                 this.$modal.show('commitment-modal');
             },
             submitForm () {
-                console.log(this.form)
+                 if(this.form.check){
+                    this.isLoading = true
+                    this.checkError = 1
+                    axios.post(`/api/our-commitment`, {
+                        title: this.form.title,
+                        first_name: this.form.first_name,
+                        last_name: this.form.last_name,
+                        showroom: this.form.showroom,
+                        email: this.form.email,
+                        tel: this.form.phone,
+                        mobile: this.form.mobile,
+                        vin: this.form.vin,
+                        location: this.form.location,
+                        hear: this.form.hear
+                    })
+                    .then(response => {
+                        this.$emit('updated')
+                        this.$swal({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timerProgressBar: true,
+                            timer: 3000,
+                            icon: "success",
+                            title: response.data.wow,
+                            text: response.data.message,
+                        });
+                        if(response.data.wow != 'opps!') {
+                            this.form = []
+                            this.$modal.hide('commitment-modal');
+                        }
+                        this.isLoading = false
+                        this.isFormSend = true
+                    })
+                }else{
+                    this.checkError = 0
+                }
             }
         }
     }

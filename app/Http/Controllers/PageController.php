@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\Branch;
+use App\Models\PageManager;
 use App\Models\Vehicle;
+use Harimayco\Menu\Facades\Menu;
 use Illuminate\Http\Request;
-
 class PageController extends Controller
 {
     /**
@@ -46,9 +47,11 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function show(Page $page)
+    public function show($slug)
     {
-        //
+        $page = PageManager::where('slug', $slug)->first();
+        $cover = $page->getMedia('cover')->count() != 0 ? $page->getMedia('cover')[0]->getUrl() : null;
+        return view('page', compact('page', 'cover'));
     }
 
     /**
@@ -118,5 +121,7 @@ class PageController extends Controller
         return view('locations', compact('branches', 'branche', 'location', 'type'));
 
     }
+
+
 
 }

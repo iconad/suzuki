@@ -18,4 +18,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::post('/our-commitment', 'LeadController@ourCommitment');
+Route::post('/geniune-parts', 'LeadController@geniuneParts');
+Route::post('/book-service', 'LeadController@bookService');
+Route::post('/accessories-quote', 'LeadController@accessoriesQuote');
 Route::post('/newsletter', 'LeadController@newsletter');
+Route::post('/get-brochure', 'LeadController@getBrochure');
+Route::post('/test-drive', 'LeadController@testDrive');
+Route::post('/contact-us', 'LeadController@contactUs');

@@ -11,14 +11,16 @@
             <div class="flex flex-wrap w-full">
                 <div class="w-full md:w-1/2 flex items-center">
                     <div>
-                        <a href="" class="theme-link hover:border-transparent text-xs"> Passenger Vehicle</a>
-                        <a href="#" class="theme-link hover:border-transparent block suzuki-bold leading-tight my-3 text-4xl text-gray-900">Safety Recall Campaign for Suzuki Baleno manufactured in 2017-2018</a>
-                        <div class="text-sm text-gray-600">3-11-2020</div>
+                        <a href="" class="theme-link hover:border-transparent text-xs capitalize"> {{$recall->vehicle_type}}</a>
+                        <a href="#" class="theme-link hover:border-transparent block suzuki-bold leading-tight my-3 text-4xl text-gray-900">
+                            {{$recall->title}}
+                        </a>
+                        <div class="text-sm text-gray-600">{{date('d M, Y', strtotime($recall->created_at))}}</div>
                     </div>
                 </div>
                 <div class="w-full md:w-1/2">
                     <a href="#">
-                        <img src="{{asset('assets/images/recall/baleno-big.png')}}" alt="car" class="w-full">
+                        <img src="{{$recall->getFirstMediaUrl('thumbnail')}}" alt="car" class="w-full">
                     </a>
                 </div>
             </div>

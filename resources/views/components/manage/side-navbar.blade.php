@@ -39,31 +39,51 @@
               Leads
             </div>
             <div class="menu">
-              <a href="/manage/newsletter" class="item">
+              <a href="/manage/leads/type/newsletter" class="item">
                 <div><i class="envelope outline icon"></i>Newsletters</div>
               </a>
-              <a class="item">
-                <div><i class="car icon"></i>Test Drives</div>
+              <a href="/manage/leads/type/test-drive" class="item">
+                <div><i class="envelope outline icon"></i>Test Drive</div>
               </a>
-              <a class="item">
-                <div><i class="suitcase icon"></i>Services</div>
+              <a href="/manage/leads/type/services" class="item">
+                <div><i class="envelope outline icon"></i>Services</div>
               </a>
-              <a class="item">
-                <div><i class="address card outline icon"></i>Quotations</div>
+              <a href="/manage/leads/type/quotations" class="item">
+                <div><i class="envelope outline icon"></i>Quotations</div>
               </a>
-              <a class="item">
-                <div><i class="address book outline icon"></i>Quotations (Accessories)</div>
+              <a href="/manage/leads/type/accessory-quotations" class="item">
+                <div><i class="envelope outline icon"></i>Quotations (Accessories)</div>
               </a>
-              <a class="item">
-                <div><i class="comment outline icon"></i>Commitments</div>
+              <a href="/manage/leads/type/geniune-part" class="item">
+                <div><i class="envelope outline icon"></i>Geniune Part</div>
+              </a>
+              <a href="/manage/leads/type/commitments" class="item">
+                <div><i class="envelope outline icon"></i>Commitments</div>
+              </a>
+              <a href="/manage/leads/type/contact-us" class="item">
+                <div><i class="envelope outline icon"></i>Contact</div>
               </a>
             </div>
           </div>
 
         <a href="{{ route('branches.index') }}" class="item">
           <div>
-            <i class="icon chart line"></i>
+            <i class="icon globe"></i>
             Branches
+          </div>
+        </a>
+
+        <a href="{{ route('recall-announcements.index') }}" class="item">
+          <div>
+            <i class="icon bullhorn"></i>
+            Recall Announcement
+          </div>
+        </a>
+
+        <a href="{{ route('pages.index') }}" class="item">
+          <div>
+            <i class="icon wpforms"></i>
+            Pages
           </div>
         </a>
 

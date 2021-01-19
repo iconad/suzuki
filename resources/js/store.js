@@ -1,12 +1,19 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+
+import gql from 'graphql-tag'
+import vehicleQuery from "../../gql/frontend/vehicle.gql";
+
+import graphqlClient from './apollo';
+
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 
     state: {
         publicUrl: "http://127.0.0.1:8000/storage/",
+        baseUrl: "http://127.0.0.1:8000/",
         isModalOne: false,
         isBroucherModal: false,
         isSpecSheetModal: false,
@@ -17,10 +24,15 @@ export const store = new Vuex.Store({
         cart: [],
         isCart: false,
         isCheckout: false,
-        accessoriesQuoteModal: false
+        accessoriesQuoteModal: false,
+        isVehicle: false,
+        vehicle: null
     },
 
     mutations: {
+        mutateVehicle: function (state, payload) {
+            state.vehicle = payload
+        },
         accessoriesQuoteModal: function(state, payload) {
             state.accessoriesQuoteModal = payload
         },
@@ -70,9 +82,21 @@ export const store = new Vuex.Store({
         isFinancialCalculator: function(state, payload) {
             state.isFinancialCalculator = payload
         },
+        isVehicle: function(state, payload) {
+            state.isVehicle = payload
+        },
     },
 
     actions: {
+        async getVehicle({ commit }, vid) {
+            commit('isVehicle', false)
+            const response = await graphqlClient.query({
+            query: vehicleQuery,
+            variables: { id: vid },
+            });
+            commit('mutateVehicle', response.data.vehicle)
+            commit('isVehicle', true)
+        },
         addToCart ({ commit, state }, payload) {
 
             commit('cart', payload)

@@ -2,23 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accessory;
+use App\Models\Recall;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class afterSalesController extends Controller
 {
-    public function vehicleAccessories($vehicle)
+    public function vehicleAccessories($slug)
     {
-        return view('aftersales.accessories');
+        $vehicle = Vehicle::where('slug', $slug)->first();
+        $logo = $vehicle->getMedia('logo')->count() != 0 ? $vehicle->getMedia('logo')[0]->getUrl() : null;
+        return view('aftersales.accessories', compact('vehicle', 'logo'));
     }
 
     public function RecallAnnouncements()
     {
-        return view('aftersales.recall-announcements');
+        $recalls = Recall::paginate();
+        return view('aftersales.recall-announcements', compact('recalls'));
     }
 
-    public function RecallAnnouncement()
+    public function RecallAnnouncement($slug)
     {
-        return view('aftersales.recall-announcement');
+        $recall = Recall::where('slug', $slug)->first();
+        return view('aftersales.recall-announcement', compact('recall'));
     }
 
     public function OurCommitment()

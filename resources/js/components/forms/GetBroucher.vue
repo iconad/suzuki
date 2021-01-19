@@ -1,5 +1,10 @@
 <template>
     <div>
+        <div class="hidden">
+            selectedVehicle
+        </div>
+        <!-- {{selectedVehicle}}
+        {{form.models}} -->
         <div class="text-xl md:text-3xl suzuki-bold text-gray-900 mb-5">Get A Broucher</div>
             <ValidationObserver v-slot="{ invalid,passes }">
                 <form @submit.prevent="passes(submitForm)">
@@ -9,9 +14,10 @@
                         <ValidationProvider name="form.models" rules="required">
                             <div slot-scope="{ errors }">
                                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-5 items-center lg:justify-between">
+                                    <template v-for="(model, n) in models">
                                     <label
-                                    v-for="(model, n) in models"
                                     :key="n"
+                                    v-if="isBrochure(model) != 0"
                                     :class=" selectedModels.includes(n) ? 'border-gray-400 bg-gray-200' : 'border-transparent bg-transparent'"
                                     class="rounded p-2 lg:text-center border w-full">
                                         <input
@@ -23,8 +29,9 @@
                                         number>
                                         <span
                                         :class="selectedModels.length > 1 && selectedModels.indexOf(n) === -1 ? 'text-gray-500' : 'text-gray-700'"
-                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic "> {{model.name}} </span>
+                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic "> {{model.title}} </span>
                                     </label>
+                                    </template>
                                 </div>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm">{{ errors[0] }}</p>
                             </div>
@@ -93,11 +100,12 @@
                         class="block mt-1 -ml-3 inline-block">Please confirm you have read and agree to our <a href="http://" class="theme-link">Terms and Conditions</a> *</span>
                     </label>
                 </div>
-                <div class="form-element mb-0 mt-5 text-right">
+                <div v-if="isLoading" class="loader"></div>
+                <div v-else class="form-element mb-0 mt-5 text-right">
                     <input
                         type="submit"
                         value="Submit"
-                        :disabled="[invalid, !form.check]"
+                        :disabled="!form.check"
                         :class="[
                             invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' : 'red-button',
                             !form.check ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800' :  'red-button'
@@ -109,6 +117,9 @@
 </template>
 
 <script>
+
+    import gql from 'graphql-tag'
+    import vehiclesQuery from "../../../../gql/frontend/vehicles.gql";
 
     import Multiselect from 'vue-multiselect'
     import PrettyCheckbox from 'pretty-checkbox-vue/check';
@@ -130,6 +141,7 @@
     });
 
     export default {
+        props: ['selectedmodel'],
         components: {
             Multiselect,
             ValidationProvider,
@@ -138,6 +150,7 @@
         },
         data() {
             return {
+                isLoading: false,
                 titles: ['Mr', 'Mrs'],
                 selectedModels: [],
                 form: {
@@ -153,50 +166,71 @@
                 },
                 emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ras al khaimah", "Ajman", "Fujairah", "Umm al Quwain"],
                 hears: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"],
-                models: [
-                    {
-                        id: 1,
-                        name: 'Vitara',
-                    },
-                    {
-                        id: 2,
-                        name: 'Ertiga',
-                    },
-                    {
-                        id: 3,
-                        name: 'Baleno',
-                    },
-                    {
-                        id: 4,
-                        name: 'Swift',
-                    },
-                    {
-                        id: 5,
-                        name: 'Dzire',
-                    },
-                    {
-                        id: 6,
-                        name: 'Jimny',
-                    },
-                    {
-                        id: 7,
-                        name: 'Ciaz',
-                    }
-                ]
             }
         },
         watch: {
             selectedModels (value) {
                 this.form.models = []
                 value.forEach(e => {
-                    this.form.models.push(this.models[e].name)
+                    this.form.models.push(this.models[e])
                 });
             }
         },
-        methods: {
-            submitForm () {
-                console.log(this.form)
+        computed: {
+            selectedVehicle () {
+                if(this.selectedmodel) {
+                    if(!this.$apollo.queries.models.loading) {
+                        // this.form.models = this.models.filter(e => e.title.toLowerCase() == this.selectedmodel.toLowerCase())
+                        // this.selectedModels.push(0)
+                    }
+                }
             }
+        },
+        methods: {
+            isBrochure (model) {
+                return model.files.filter(f => f.type == 'brochure').length
+            },
+            submitForm () {
+                 if(this.form.check){
+                    this.isLoading = true
+                    axios.post(`/api/get-brochure`, {
+                        title: this.form.title,
+                        first_name: this.form.first_name,
+                        last_name: this.form.last_name,
+                        hear: this.form.hear,
+                        emirate: this.form.emirate,
+                        email: this.form.email,
+                        models: this.form.models,
+                    })
+                    .then(response => {
+                        this.$emit('updated')
+                        this.$swal({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timerProgressBar: true,
+                            timer: 3000,
+                            icon: "success",
+                            title: response.data.wow,
+                            text: response.data.message,
+                        });
+                        if(response.data.wow != 'opps!') {
+                            this.form = []
+                        }
+                        this.isLoading = false
+                    })
+                }
+            }
+        },
+        apollo: {
+            models() {
+                return {
+                    query: vehiclesQuery,
+                    update(data) {
+                        return data.vehicles;
+                    },
+                };
+            },
         }
     }
 </script>

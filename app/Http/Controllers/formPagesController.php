@@ -16,9 +16,11 @@ class formPagesController extends Controller
         return view('forms.request-quote-accessories');
     }
 
-    public function getBroucher()
+    public function getBroucher(Request $request)
     {
-        return view('forms.get-broucher');
+
+        $selectedModel = $request->vehicle;
+        return view('forms.get-broucher', compact('selectedModel'));
     }
 
     public function testDrive()

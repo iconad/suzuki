@@ -93,14 +93,6 @@
                                     </ValidationProvider>
                                 </div>
                                 <div class="w-full relative">
-                                    <ValidationProvider name="form.hear" rules="required">
-                                        <div slot-scope="{ errors }">
-                                            <multiselect placeholder="Select Emirate" v-model="form.emirate" :options="emirates"></multiselect>
-                                            <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium absolute top-0 p-2 right-0 z-10">{{ errors[0] }}</p>
-                                        </div>
-                                    </ValidationProvider>
-                                </div>
-                                <div class="w-full relative">
                                     <ValidationProvider name="form.hearFrom" rules="required">
                                         <div slot-scope="{ errors }">
                                             <multiselect placeholder="Nearest showroom you can visit *" v-model="form.showroom" :options="showrooms"></multiselect>
@@ -122,15 +114,19 @@
                                 </label>
                             </div>
                             <div class="form-element mb-0 mt-5 text-right">
-                                <input
+                                <div v-if="isLoading" class="loader"></div>
+                                <template v-else>
+                                    <input
+                                    v-if="!invalid && cart.length != 0"
                                     type="submit"
                                     value="Submit"
-                                    :disabled="[invalid, cart.length == 0]"
                                     :class="[
                                         cart.length == 0 ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800 hover:border-theme-gray-dark' : 'red-button',
                                         invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800 hover:border-theme-gray-dark' : 'red-button',
                                         !form.check ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800 hover:border-theme-gray-dark' :  'red-button'
                                         ]">
+                                    <span v-else class="bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800 hover:border-theme-gray-dark">Submit</span>
+                                </template>
                             </div>
                         </form>
                         </ValidationObserver>
@@ -182,6 +178,7 @@
         },
         data() {
             return {
+                isLoading: false,
                 isValidMobileNumber: true,
                 titles: ['Mr', 'Mrs'],
                 selectedModel: 1,
@@ -198,7 +195,6 @@
                     showroom: false,
                     purchaseType: null
                 },
-                emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ras al khaimah", "Ajman", "Fujairah", "Umm al Quwain"],
                 purchaseTypes: ["type 1", "type 2", "type 3"],
                 showrooms: ["Deira City center", "Abu Dhabi", "shaikh zayed road", "Al Ain", "Sharjah", "Ajman"],
             }
@@ -225,8 +221,44 @@
         },
         methods: {
             submitForm () {
-                console.log(this.form)
-            },
+
+                let cart = JSON.stringify(this.cart)
+
+                if(this.form.check){
+                    this.isLoading = true
+                    axios.post(`/api/accessories-quote`, {
+                        title: this.form.title,
+                        first_name: this.form.first_name,
+                        last_name: this.form.last_name,
+                        showroom: this.form.showroom,
+                        purchase_type: this.form.purchaseType,
+                        cart: cart,
+                        tel: this.form.tel,
+                        mobile: this.form.mobile,
+                        age: this.form.age,
+                        email: this.form.email,
+                    })
+                    .then(response => {
+                        this.$emit('updated')
+                        this.$swal({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timerProgressBar: true,
+                            timer: 3000,
+                            icon: "success",
+                            title: response.data.wow,
+                            text: response.data.message,
+                        });
+                        if(response.data.wow != 'opps!') {
+                            this.form = []
+                            this.$modal.hide('modal');
+                        }
+                        this.isLoading = false
+                    })
+
+                }
+        },
             showModal () {
                 this.$store.commit("accessoriesQuoteModal", true)
             },

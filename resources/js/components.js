@@ -22,16 +22,6 @@ Vue.component(
 );
 
 Vue.component(
-    "accessories-quote-form",
-    require("./components/forms/AccessoriesQuote.vue").default
-);
-
-Vue.component(
-    "accessories-brochures",
-    require("./components/forms/Accessoriesbrochures.vue").default
-);
-
-Vue.component(
     "our-commitment",
     require("./components/forms/OurCommitment.vue").default
 );
@@ -106,5 +96,15 @@ Vue.component(
 Vue.component(
     "accessory-item",
     require("./components/accessories/AccessoryItem.vue").default
+);
+
+Vue.component(
+    "suzuki-loader",
+    require("./components/Loader.vue").default
+);
+
+Vue.component(
+    "thumb-image",
+    require("./components/ThumbImage.vue").default
 );
 

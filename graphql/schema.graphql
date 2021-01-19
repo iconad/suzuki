@@ -8,7 +8,9 @@ type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
 
+    accessoriesbyvehicle(vehicle_id: Int orderBy: [OrderByClause!] @orderBy): [Accessory!]!
     vehicles(orderBy: [OrderByClause!] @orderBy): [Vehicle!]!  @all
+    vehicle(id: ID @eq): Vehicle @find
 
 
 }
@@ -37,6 +39,42 @@ type Vehicle {
     updated_at: DateTime!
 }
 
+type Menu {
+    id: ID!
+    name: String!
+
+}
+
+type AccessoryCategory {
+    id: ID!
+    title: String!
+    slug: String!
+    type: String!
+    accessories: [Accessory] @hasMany
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Accessory {
+    id: ID!
+    title: String!
+    slug: String!
+    sku: String
+    excerpt: String
+    detail: String
+    weight: String
+    length: String
+    width: String
+    height: String
+    color: String
+    price: Int
+    status: Int
+    category: AccessoryCategory @hasOne
+    media: [Media] @hasMany
+    vehicle: Vehicle @hasOne
+    created_at: DateTime!
+    updated_at: DateTime!
+}
 
 type VehicleFile {
     id: ID!

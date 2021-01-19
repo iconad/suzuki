@@ -2,13 +2,14 @@
 <template>
     <div class="select-none">
         <div class="img overflow-hidden">
-            <img class="w-full scale-110 transform transition ease-in-out duration-500 hover:scale-125" :src="`/assets/images/acc/acc${item}.png`" alt="suzuki">
+            <thumb-image parentclasses="h-64 bg-gray-100" classess="w-full h-full object-cover scale-110 transform transition ease-in-out duration-500 hover:scale-125" :image="firstMedia[0].file_name" :id="firstMedia[0].id"></thumb-image>
+
         </div>
         <div class="info px-3 py-2">
-            <div class="suzuki-bold text-xl">Front SKID Plate {{item}} </div>
-            <div class="text-xl leading-snug">
+            <div class="suzuki-bold text-xl">{{item.title}} </div>
+            <div class="text-xl mt-1 leading-snug">
                 <span class="suzuki-normal">AED</span>
-                <span class="suzuki-bold">3199.00</span>
+                <span class="suzuki-bold">{{item.price}}</span>
             </div>
             <div class="flex items-center justify-between mt-3">
                 <div>
@@ -21,7 +22,7 @@
                 </div>
                 <div class="flex items-center">
                     <div v-if="!isAdded" @click="addToCart" class="text-xs font-medium mr-2 cursor-pointer hover:text-gray-900 hover:bg-gray-100 border rounded-full px-2">Add To List</div>
-                    <div v-else @click="deleteItem(isAdded)" class="text-xs font-medium text-red-500 border-red-300 mr-1 hover:text-red-900 hover:bg-red-100 border rounded-full px-2 cursor-pointer">Remove From List</div>
+                    <div v-else @click="deleteItem(isAdded)" class="text-xs font-medium text-red-500 border-red-300 mr-1 hover:text-red-900 hover:bg-red-100 border rounded-full px-2 cursor-pointer">Remove</div>
                     <div class="mx-1 text-green-500 cursor-pointer" @click="counting('add')">
                         <svg class="fill-current w-4 h-4" viewBox="0 0 448 448" xmlns="http://www.w3.org/2000/svg"><path d="M408 184H272c-4 0-8-4-8-8V40a40 40 0 00-80 0v136c0 4-4 8-8 8H40a40 40 0 000 80h136c4 0 8 4 8 8v136a40 40 0 0080 0V272c0-4 4-8 8-8h136a40 40 0 000-80zm0 0"/></svg>
                     </div>
@@ -36,14 +37,25 @@
 </template>
 
 <script>
+    import thumbImage from '../../ThumbImage';
     export default {
         props: ['item', 'vehicle'],
+        components: {
+            thumbImage
+        },
         data() {
             return {
                 count: 1,
             }
         },
         computed: {
+            firstMedia (){
+                return this.item.media.filter(e => {
+                    if(e.collection_name === 'thumbnail') {
+                        return e
+                    }
+                })
+            },
             cart: {
                 get: function () {
                     return this.$store.state.cart
@@ -53,7 +65,7 @@
                 }
             },
             isAdded () {
-                let item = this.item;
+                let item = this.item.title;
                 let find = _.findKey(this.cart, function(o) {
                     return o.accessory == item
                 });
@@ -63,9 +75,9 @@
         methods: {
             seeMore () {
                 let data = {
-                    title: this.item,
+                    title: this.item.title,
                     vehicle: this.vehicle,
-                    accessory: this.item,
+                    accessory: this.item.title,
                     count: this.count,
                 }
                 this.$emit('see-more', data)
@@ -79,7 +91,8 @@
             addToCart () {
                 let item = {
                     vehicle: this.vehicle,
-                    accessory: this.item,
+                    sku: this.item.sku,
+                    accessory: this.item.title,
                     count: this.count,
                 }
                 this.$store.dispatch('addToCart', item)

@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 relative">
-
-           <div v-for="item in 20" :key="item" class="border rounded overflow-hidden hover:shadow-xl transition ease-in-out duration-300">
-            <accessory-item @see-more="seeMoreModal" @update="updateCart" :item="item" vehicle="Vitara"></accessory-item>
+        <suzuki-loader v-if="$apollo.queries.accessories.loading" width="w-16"></suzuki-loader>
+        <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 relative">
+           <div v-for="(item,i) in accessories" :key="i" class="border rounded overflow-hidden hover:shadow-xl transition ease-in-out duration-300">
+            <accessory-item @see-more="seeMoreModal(item)" @update="updateCart" :item="item" :vehicle="vname"></accessory-item>
            </div>
 
 
@@ -38,26 +38,28 @@
                     <div class="flex flex-wrap md:flex-no-wrap">
                         <div class="w-full">
                             <div class="md:mr-5">
-                                <div class="text-2xl suzuki-bold mb-2" v-if="item">Front Skid Plate {{item.title}}</div>
-                                <div class="overflow-hidden">
-                                    <img src="http://127.0.0.1:8000/assets/images/acc/acc2.png" class="transform scale-125 w-full" alt="image">
+                                <div class="text-2xl suzuki-bold mb-2" v-if="item">{{item.title}}</div>
+                                <div class="overflow-hidden" v-if="item">
+                                    <thumb-image classess="transform scale-125 w-full" :image="item.media[0].collection_name == 'thumbnail' ? item.media[0].file_name : ''" :id="item.media[0].collection_name == 'thumbnail' ? item.media[0].id : ''"></thumb-image>
+
+                                    <!-- <img src="http://127.0.0.1:8000/assets/images/acc/acc2.png" class="transform scale-125 w-full" alt="image"> -->
                                 </div>
                             </div>
                         </div>
-                        <div class="w-full md:ml-5 flex items-center">
-                            <div class="border-l-2 pl-10 border-gray-800">
-                                <div class="flex items-start justify-between">
+                        <div class="mt-5 w-full md:pr-5 flex items-center">
+                            <div class="border-gray-800 w-full">
+                                <div class="flex items-start justify-between w-full">
                                     <div>
-                                        <div class="text-2xl text-gray-900 leading-none mt-0 mb-1" v-if="item">Front Skid Plate {{item.title}} </div>
-                                        <div class="text-sm text-gray-700">Part No. <span>456454-5sdf23-00</span></div>
+                                        <div class="text-2xl text-gray-900 leading-none mt-0 mb-1" v-if="item">{{item.title}} </div>
+                                        <div class="text-sm text-gray-700">Part No. <span v-if="item">{{item.sku}}</span></div>
                                     </div>
                                     <div>
                                         <div v-if="!isItemAdded" @click="addToCart" class="text-xs font-medium mr-2 cursor-pointer hover:text-gray-900 hover:bg-gray-100 border rounded-full px-2">Add To List</div>
-                                        <div v-else @click="deleteItem(isAdded)" class="text-xs font-medium text-red-500 border-red-300 mr-1 hover:text-red-900 hover:bg-red-100 border rounded-full px-2 cursor-pointer">Remove From List</div>
+                                        <div v-else @click="deleteItem(isAdded)" class="text-xs font-medium text-red-500 border-red-300 mr-1 hover:text-red-900 hover:bg-red-100 border rounded-full px-2 cursor-pointer">Remove</div>
                                     </div>
                                 </div>
-                                <div class="my-5 text-sm">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore alias soluta nesciunt autem exercitationem aliquam deserunt dolor voluptatibus suscipit, laudantium minus incidunt eius est eum temporibus impedit provident molestiae praesentium.
+                                <div class="my-5 text-sm" v-if="item">
+                                    {{item.detail}}
                                 </div>
                                 <div class="mb-5 bg-gray-900 border-b-2 border-gray-800"></div>
                                 <div class="text-xl mb-1">
@@ -80,16 +82,29 @@
 </template>
 
 <script>
+
+    import gql from 'graphql-tag'
+    import accessoriesQuery from "../../../../gql/frontend/accessoriesbyvehicle.gql";
+
+    import AccessoriesQuoteForm from '../forms/AccessoriesQuote'
+    import AccessoriesBrochures from '../forms/Accessoriesbrochures'
     import AccessoriesCart from './AccessoriesCart'
+    import thumbImage from '../../ThumbImage';
+
     export default {
+        props: ['vid', 'vname'],
         components: {
-            AccessoriesCart
+            AccessoriesCart,
+            thumbImage,
+            AccessoriesBrochures,
+            AccessoriesQuoteForm
         },
         data () {
             return {
                 flashing: false,
                 item: null,
-                isItemAdded: null
+                isItemAdded: null,
+                isThumbReady: false
             }
         },
         mounted () {
@@ -121,10 +136,20 @@
                 this.isAdded()
                 this.$modal.show('accessory-modal');
             },
+            firstMedia (){
+                if(this.item) {
+                    return this.item.media.filter(e => {
+                        if(e.collection_name === 'thumbnail') {
+                            return e
+                        }
+                    })
+                }
+            },
             addToCart () {
                 let item = {
                     vehicle: this.item.vehicle,
                     accessory: this.item.title,
+                    sku: this.item.sku,
                     count: this.item.count,
                 }
                 this.$store.dispatch('addToCart', item)
@@ -152,6 +177,19 @@
             }
 
         },
+        apollo: {
+            accessories() {
+                return {
+                    query: accessoriesQuery,
+                    variables: {
+                        vehicle_id: this.vid
+                    },
+                    update(data) {
+                        return data.accessoriesbyvehicle;
+                    },
+                };
+            },
+        }
 
     }
 </script>

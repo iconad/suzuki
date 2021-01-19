@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="text-xl md:text-2xl suzuki-bold text-gray-900 mb-5">Request a Quote – Genuine Parts</div>
+        <div v-if="!isFormSend">
+            <div class="text-xl md:text-2xl suzuki-bold text-gray-900 mb-5">Request a Quote – Genuine Parts</div>
             <ValidationObserver v-slot="{ invalid,passes }">
                 <form @submit.prevent="passes(submitForm)">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -12,17 +13,17 @@
                                     <label
                                     v-for="(model, n) in models"
                                     :key="n"
-                                    :class=" selectedModel === model.id ? 'border-gray-400 bg-gray-200' : 'border-transparent bg-transparent'"
+                                    :class=" selectedModel === model.title ? 'border-gray-400 bg-gray-100' : 'border-transparent bg-transparent'"
                                     class="rounded p-2 lg:text-center border w-full">
                                         <input
                                         class="hidden"
                                         type="radio"
                                         v-model="selectedModel"
-                                        :value="model.id"
+                                        :value="model.title"
                                         number>
                                         <span
-                                        :class="selectedModel === model.id ? 'text-gray-700' : 'text-gray-600'"
-                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic "> {{model.name}} </span>
+                                        :class="selectedModel === model.title ? 'text-gray-700' : 'text-gray-600'"
+                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic "> {{model.title}} </span>
                                     </label>
                                 </div>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm">{{ errors[0] }}</p>
@@ -102,8 +103,7 @@
                     <div>
                         <ValidationProvider name="form.showroom" rules="required">
                             <div slot-scope="{ errors }">
-                                <multiselect v-model="form.showroom" track-by="name" label="name" placeholder="Nearest service centre you can visit *" :options="showrooms" :searchable="false" :allow-empty="false">
-                                </multiselect>
+                                <multiselect placeholder="Nearest service centre you can visit *" v-model="form.showroom" :options="showrooms"></multiselect>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
                             </div>
                         </ValidationProvider>
@@ -125,12 +125,7 @@
                         </ValidationProvider>
                     </div>
                     <div class="lg:col-span-2">
-                        <ValidationProvider name="form.vin" rules="required">
-                            <div slot-scope="{ errors }">
-                                <textarea type="text" rows="3" v-model="form.detail" class="form-input-1" name="vin" placeholder="Enter the details for the part required *"></textarea>
-                                <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
-                            </div>
-                        </ValidationProvider>
+                        <textarea type="text" rows="3" v-model="form.detail" class="form-input-1" name="vin" placeholder="Enter the details for the part required *"></textarea>
                     </div>
 
                 </div>
@@ -147,21 +142,28 @@
                     </label>
                 </div>
                 <div class="form-element mb-0 mt-5 text-right">
+                    <div v-if="isLoading" class="loader"></div>
                     <input
+                        v-else
                         type="submit"
                         value="Submit"
-                        :disabled="[invalid, !form.check]"
-                        :class="[
-                            invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800 hover:border-theme-gray-dark' : 'red-button',
-                            !form.check ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800 hover:border-theme-gray-dark' :  'red-button'
-                            ]">
+                        :disabled="invalid"
+                        :class="invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800 hover:border-theme-gray-dark' : 'red-button'">
+                        <p v-if="checkError == 0 && !form.check" class="text-center text-theme-red-500 mt-1 px-1 text-base font-medium">You must agree to our terms & conditions.</p>
                 </div>
             </form>
             </ValidationObserver>
         </div>
+        <div class="h-64 flex items-center justify-center text-lg text-green-600" v-else>
+            We have recived you request for the test drive. Shortly you will get a call from one of our memeber.
+        </div>
+    </div>
 </template>
 
 <script>
+
+    import gql from 'graphql-tag'
+    import vehiclesQuery from "../../../../gql/frontend/vehicles.gql";
 
     import Multiselect from 'vue-multiselect'
     import PrettyCheckbox from 'pretty-checkbox-vue/check';
@@ -205,7 +207,10 @@
             return {
                 isValidMobileNumber: true,
                 titles: ['Mr', 'Mrs'],
-                selectedModel: 1,
+                selectedModel: null,
+                isLoading: false,
+                isFormSend: false,
+                checkError: 2,
                 form: {
                     first_name: null,
                     last_name: null,
@@ -220,47 +225,70 @@
                     date: new Date(),
                     stype: false,
                     year: false,
+                    vin: null,
+                    part: false,
+                    detail: null,
                     model: null
                 },
                 parts: ["part 1", "part 2", "part 3", "part 4"],
                 emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ras al khaimah", "Ajman", "Fujairah", "Umm al Quwain"],
                 showrooms: ["Deira City center", "Abu Dhabi", "shaikh zayed road", "Al Ain", "Sharjah", "Ajman"],
-                models: [
-                    {
-                        id: 1,
-                        name: 'Vitara',
-                    },
-                    {
-                        id: 2,
-                        name: 'Ertiga',
-                    },
-                    {
-                        id: 3,
-                        name: 'Baleno',
-                    },
-                    {
-                        id: 4,
-                        name: 'Swift',
-                    },
-                    {
-                        id: 5,
-                        name: 'Dzire',
-                    },
-                    {
-                        id: 6,
-                        name: 'Jimny',
-                    },
-                    {
-                        id: 7,
-                        name: 'Ciaz',
-                    }
-                ]
             }
         },
         methods: {
             submitForm () {
-                console.log(this.form)
+                 if(this.form.check){
+                    this.isLoading = true
+                    this.checkError = 1
+                    axios.post(`/api/geniune-parts`, {
+                        first_name: this.form.first_name,
+                        last_name: this.form.last_name,
+                        title: this.form.title,
+                        email: this.form.email,
+                        mobile: this.form.mobile,
+                        tel: this.form.phone,
+                        age: this.form.age,
+                        emirate: this.form.emirate,
+                        showroom: this.form.showroom,
+                        date: this.form.date,
+                        vin: this.form.vin,
+                        year: this.form.year,
+                        part: this.form.part,
+                        detail: this.form.detail,
+                        model: this.selectedModel
+                    })
+                    .then(response => {
+                        this.$emit('updated')
+                        this.$swal({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timerProgressBar: true,
+                            timer: 3000,
+                            icon: "success",
+                            title: response.data.wow,
+                            text: response.data.message,
+                        });
+                        if(response.data.wow != 'opps!') {
+                            this.form = []
+                        }
+                        this.isLoading = false
+                        this.isFormSend = true
+                    })
+                }else{
+                    this.checkError = 0
+                }
             }
+        },
+        apollo: {
+            models() {
+                return {
+                    query: vehiclesQuery,
+                    update(data) {
+                        return data.vehicles;
+                    },
+                };
+            },
         }
     }
 </script>

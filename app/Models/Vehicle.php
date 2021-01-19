@@ -44,8 +44,20 @@ class Vehicle extends Model implements HasMedia
               ->width(400);
     }
 
+    public function accessories() {
+        return $this->hasMany(Accessory::class)->where('status', 1);
+    }
+
     public function files() {
         return $this->hasMany(VehicleFile::class)->where('status', 1);
+    }
+
+    public function specfile() {
+        return $this->hasMany(VehicleFile::class)->where('type', 'specs')->where('status', 1);
+    }
+
+    public function brochure() {
+        return $this->hasMany(VehicleFile::class)->where('type', 'brochure')->where('status', 1);
     }
 
 }

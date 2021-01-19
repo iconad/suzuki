@@ -52,7 +52,7 @@
                 </td>
                 <td>
                     <div class="ui basic mini buttons">
-                        <div class="ui button">Edit</div>
+                        <a href="/manage/vehicles/{{$vehicle->id}}" class="ui button">Edit</a>
                     </div>
                 </td>
             </tr>

@@ -11,6 +11,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @livewireStyles
     @yield('headlinks')
 </head>
 <body>
@@ -19,7 +20,8 @@
             {{-- <x-topnav /> --}}
         </div>
         <nav class="bg-white shadow-xl relative z-10">
-            <x-main-navbar />
+            {{-- <x-main-navbar /> --}}
+            @livewire('main-navbar')
         </nav>
         <main>
             @yield('content')
@@ -33,6 +35,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @livewireScripts
     @yield('scripts')
+
 </body>
 </html>

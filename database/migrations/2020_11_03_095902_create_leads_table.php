@@ -34,6 +34,8 @@ class CreateLeadsTable extends Migration
             $table->string('year')->nullable();
             $table->string('service_type')->nullable();
             $table->string('service_date')->nullable();
+            $table->longtext('cart')->nullable();
+            $table->longtext('detail')->nullable();
             $table->string('branch')->nullable();
             $table->integer('status')->default(1);
             $table->integer('order')->default(0);

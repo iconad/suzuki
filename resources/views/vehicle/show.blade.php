@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="showroom-section">
-        <showroom iframe="{{$vehicle->iframe}}"></showroom>
+        <showroom :vid="{{$vehicle->id}}" :spec="{{$vehicle->specfile}}" :brochure="{{$vehicle->brochure}}" iframe="{{$vehicle->iframe}}"></showroom>
     </section>
     {{-- showroom section --}}
 
@@ -17,7 +17,7 @@
                     <vehicle-explore-more></vehicle-explore-more>
                 </div>
                 <div class="order-1 lg:order-2 image-scale-effect-small">
-                    <img src="http://www.suzuki.ae/SiteAssets/Images/Large/baleno-silver.jpg" alt="car" class="w-full">
+                    <img src="/assets/images/baleno-silver.jpg" alt="car" class="w-full">
                 </div>
             </div>
 

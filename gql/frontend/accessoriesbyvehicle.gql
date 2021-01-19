@@ -1,0 +1,33 @@
+query getEvent($vehicle_id: Int!) {
+  accessoriesbyvehicle (vehicle_id: $vehicle_id) {
+    id
+    title
+    slug
+    sku
+    color
+    weight
+    width
+    length
+    height
+    detail
+    excerpt
+    price
+    vehicle {
+      id
+      title
+      slug
+    }
+    category {
+      id
+      title
+      slug
+      type
+    }
+    media {
+      id
+      collection_name
+      file_name
+      name
+    }
+  }
+}

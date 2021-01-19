@@ -11,8 +11,29 @@ class ManagePages extends Controller
         return view('manage.dashboard');
     }
 
-    public function newsletter () {
-        $leads = Lead::where('type', 'newsletter')->get();
-        return view('manage.newsletter', compact('leads'));
+    public function singleLead ($id) {
+        $lead = Lead::where('id', $id)->first();
+        return view('manage.lead.single', compact('lead'));
     }
+
+    public function menus () {
+        return view('manage.menu.index');
+    }
+
+    public function index ($type) {
+
+        $types = ['newsletter', 'commitments', 'contact-us', 'services', 'geniune-part', 'quotations', 'accessory-quotations', 'test-drive'];
+
+        if (in_array($type, $types)) {
+
+        $leads = Lead::where('type', $type)->get();
+        return view('manage.lead.index', compact('leads', 'type'));
+
+        }else{
+            return redirect('/manage/dashboard');
+        }
+
+    }
+
+
 }
