@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="md:ml-48 sc1240:pl-5 capitalize relative z-20 suzuki-bold text-gray-800 text-lg tracking-normal navbar">
+        <nav class="md:ml-48 sc1240:pl-8 capitalize relative z-20 suzuki-bold text-gray-800 text-lg tracking-normal navbar">
             <ul class="sc1240:flex sc1240:items-center cursor-pointer hover:bg-gray-200" :class="isMenu ? 'bg-gray-300' : '' " @click="isMenu = !isMenu">
                 <li class="p-4 text-gray-800 block sc1240:hidden">
                     <svg v-if="!isMenu" class="fill-current w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>

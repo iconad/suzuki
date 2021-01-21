@@ -26,16 +26,6 @@
         </div>
         <div class="item">
             <div class="header">
-              Vehicles
-            </div>
-            <div class="menu">
-              <a href="/manage/vehicles" class="item">
-                <div><i class="car icon"></i>Vehicles</div>
-              </a>
-            </div>
-          </div>
-        <div class="item">
-            <div class="header">
               Leads
             </div>
             <div class="menu">
@@ -66,6 +56,10 @@
             </div>
           </div>
 
+        <a href="/manage/vehicles" class="item">
+            <div><i class="car icon"></i>Vehicles</div>
+        </a>
+
         <a href="{{ route('branches.index') }}" class="item">
           <div>
             <i class="icon globe"></i>
@@ -84,6 +78,13 @@
           <div>
             <i class="icon wpforms"></i>
             Pages
+          </div>
+        </a>
+
+        <a href="/manage/menus?menu=1" class="item">
+          <div>
+            <i class="icon wpforms"></i>
+            Menus
           </div>
         </a>
 
