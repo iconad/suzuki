@@ -2,19 +2,19 @@
 
 @section('content')
     <section class="showroom-section">
-        {{-- <showroom :vid="{{$vehicle->id}}" :spec="{{$vehicle->specfile}}" :brochure="{{$vehicle->brochure}}" iframe="{{$vehicle->iframe}}"></showroom> --}}
+        <showroom :vid="{{$vehicle->id}}" :spec="{{$vehicle->specfile}}" :brochure="{{$vehicle->brochure}}" iframe="{{$vehicle->iframe}}"></showroom>
     </section>
     {{-- showroom section --}}
 
     <section class="vehicle-info section mt-16 space-y-16 xxl:space-y-24">
 
-        {{-- {!! $vehicle->html_content !!} --}}
+        {!! $vehicle->html_content !!}
 
 
 
 
     {{-- ====================== START ======================== --}}
-
+{{--
 
     <div>
         <img src="/assets/images/vehicles/ertiga/image1.png" alt="explore baleno cover" class="w-full">
@@ -130,7 +130,7 @@
         </div>
     </div>
 
-
+ --}}
 
 
 
