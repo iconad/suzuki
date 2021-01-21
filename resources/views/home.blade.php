@@ -31,8 +31,8 @@
             <div class="relative bg-theme-blue-500 h-screen-50 lg:h-40rem xxl:h-50rem lg:col-span-2 lg:row-span-2 overflow-hidden">
                 <div class="p-12 absolute left-0 top-0 w-full z-10">
                     <div class="uppercase text-xl md:text-4xl xxl:text-5xl leading-none text-gray-100 font-light">
-                        <span class="block suzuki-regular">suzuki <span class="suzuki-bold">virtual</span></span>
-                        <span class="block suzuki-regular">showroom</span>
+                        <span class="block font-medium">suzuki <span class="suzuki-bold">virtual</span></span>
+                        <span class="block font-medium">showroom</span>
                     </div>
                     <div class="mt-3">
                         <a href="http://" class="red-button xxl:text-2xl px-3 py-1 hover:bg-white hover:border-white">Explore Now</a>
@@ -45,7 +45,7 @@
             </div>
             <div class="bg-theme-gray h-screen-50 lg:h-20rem xxl:h-25rem flex flex-col items-center justify-around">
                 <div>
-                    <div class="text-center w-full text-3xl capitalize font-light">lets drive</div>
+                    <div class="text-center w-full text-3xl capitalize font-medium">lets drive</div>
                 </div>
                 <div>
                     <img src="{{asset('assets/images/vehicles/swift.webp')}}" alt="swift" class="w-3/4">
@@ -54,7 +54,7 @@
             <div class="bg-theme-red-500 h-screen-50 lg:h-20rem xxl:h-25rem relative overflow-hidden">
                 <div class="flex flex-col items-center justify-around lg:justify-end absolute left-0 top-0 w-full h-full">
                     <div class="absolute left-0 top-0 w-full pt-10">
-                        <div class="text-center text-gray-200 lg:mb-5 w-full text-3xl capitalize font-light">
+                        <div class="text-center text-gray-200 lg:mb-5 w-full text-3xl capitalize font-medium">
                             <span class="block text-sm">Reach out</span>
                             <span class="block">To Us</span>
                         </div>
@@ -78,7 +78,7 @@
             <div class="bg-white h-screen-50 lg:h-20rem xxl:h-25rem relative">
                 <div class="flex flex-col items-center justify-end absolute left-0 top-0 w-full h-full">
                     <div>
-                        <div class="text-center text-gray-900 mb-5 w-full text-3xl capitalize font-light">
+                        <div class="text-center text-gray-900 mb-5 w-full text-3xl capitalize font-medium">
                             <span class="block text-sm">Book A</span>
                             <span class="block">Car Service</span>
                         </div>
@@ -197,7 +197,7 @@
                             <img src="https://i.ibb.co/37ghz6p/insta1.jpg" alt="insta image">
                         </div>
                         <div class="info p-3 md:bg-white">
-                            <div class="text-sm text-gray-800 suzuki-regular">
+                            <div class="text-sm text-gray-800 font-medium">
                                 <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
                             </div>
                             <div class="mt-3">
@@ -211,7 +211,7 @@
                             <img src="https://i.ibb.co/m056ZPX/insta2.jpg" alt="insta image">
                         </div>
                         <div class="info p-3 bg-white">
-                            <div class="text-sm text-gray-800 suzuki-regular">
+                            <div class="text-sm text-gray-800 font-medium">
                                 <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
                             </div>
                             <div class="mt-3">
@@ -225,7 +225,7 @@
                             <img src="https://i.ibb.co/ngg6mqy/insta3.jpg" alt="insta image">
                         </div>
                         <div class="info p-3 bg-white">
-                            <div class="text-sm text-gray-800 suzuki-regular">
+                            <div class="text-sm text-gray-800 font-medium">
                                 <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
                             </div>
                             <div class="mt-3">
@@ -239,7 +239,7 @@
                             <img src="https://i.ibb.co/hZ9L0FG/insta4.jpg" alt="insta image">
                         </div>
                         <div class="info p-3 bg-white">
-                            <div class="text-sm text-gray-800 suzuki-regular">
+                            <div class="text-sm text-gray-800 font-medium">
                                 <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
                             </div>
                             <div class="mt-3">

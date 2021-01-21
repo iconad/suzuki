@@ -2,12 +2,14 @@ $red: #ed1e26;
 $blue: #00264A;
 $darkblue: #00334C;
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
-
+// @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
 body {
-    font-family: "SuzukiPRORegular";
+    // font-family: "SuzukiPRORegular";
     // font-family: 'Oswald', sans-serif;
+    // font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .suzuki-mon {
@@ -15,13 +17,19 @@ body {
 }
 
 .suzuki-regular {
-    font-family: "SuzukiPRORegular";
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    // font-family: "SuzukiPRORegular";
 }
 .suzuki-medium {
-    font-family: "SuzukiPROHeadline";
+    // font-family: "SuzukiPROHeadline";
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 500;
 }
 .suzuki-bold {
-    font-family: "SuzukiPROBold";
+    // font-family: "SuzukiPROBold";
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 700;
 }
 
 .top-100 {

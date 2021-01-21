@@ -151,6 +151,7 @@ module.exports = {
                 "1440px": "1440px",
                 "1650px": "1650px",
                 "90-percent": "90%",
+                "70-percent": "70%",
                 "5vw": "5vw",
                 "6vw": "6vw",
                 "8vw": "8vw",
@@ -164,7 +165,14 @@ module.exports = {
                 "screen-80": "80vh",
                 "screen-60": "60vh",
                 "screen-70": "70vh",
-                "screen-50": "50vh"
+                "screen-55": "55vh",
+                "screen-50": "50vh",
+                "screen-45": "45vh",
+                "screen-40": "40vh",
+                "screen-35": "35vh",
+                "screen-30": "30vh",
+                "screen-20": "20vh",
+                "screen-10": "10vh"
             }
         }
     },

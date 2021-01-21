@@ -2,7 +2,7 @@
     <div>
         <!-- <div @click="OpenBroucherModal">specs</div> -->
         <div>
-            <iframe :src="iframe" class="w-full h-screen" title="Baleno"></iframe>
+            <iframe :src="iframe" class="w-full h-screen-40 md:h-screen-70 xl:h-screen" title="Baleno"></iframe>
         </div>
 
         <side-buttons></side-buttons>

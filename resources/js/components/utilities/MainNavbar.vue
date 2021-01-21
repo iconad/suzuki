@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="md:ml-48 sc1240:pl-5 capitalize relative z-20 suzuki-bold text-gray-800 text-base tracking-normal">
+        <nav class="md:ml-48 sc1240:pl-5 capitalize relative z-20 suzuki-bold text-gray-800 text-lg tracking-normal navbar">
             <ul class="sc1240:flex sc1240:items-center cursor-pointer hover:bg-gray-200" :class="isMenu ? 'bg-gray-300' : '' " @click="isMenu = !isMenu">
                 <li class="p-4 text-gray-800 block sc1240:hidden">
                     <svg v-if="!isMenu" class="fill-current w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
@@ -17,9 +17,9 @@
                     <ul v-if="item.child.length != 0" class="text-sm nav-list sc1240:absolute left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-theme-red-500 text-white w-auto whitespace-nowrap">
                         <li class="nav-link" :class="child1.child.length != 0 ? 'relative' : ''" v-for="(child1, b) in item.child" :key="b">
                             <a :href="`${baseUrl}${child1.link}`" class="block p-2">{{child1.label}}</a>
-                            <ul class="nav-list sc1240:absolute uppercase italic font-bold left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-gray-300 text-gray-800 w-64 sc1240:w-auto whitespace-nowrap">
-                                <li class="nav-link" :class="child2.child.length != 0 ? 'relative' : ''" v-for="(child2, c) in child1.child" :key="c">
-                                    <a :href="`${baseUrl}${child2.link}`" class="block p-2">{{child2.label}}</a>
+                            <ul class="nav-list sc1240:absolute z-50 uppercase left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-gray-300 text-black w-64 sc1240:w-auto whitespace-nowrap">
+                                <li class="nav-link font-bold" v-for="(child2, c) in child1.child" :key="c">
+                                    <a :href="`${baseUrl}${child2.link}`" class="font-bold suzuki-bold block p-2">{{child2.label}}</a>
                                 </li>
                             </ul>
                         </li>
@@ -53,5 +53,11 @@
 </script>
 
 <style lang="scss" scoped>
+
+.navbar {
+    a {
+        font-weight: bold!important;
+    }
+}
 
 </style>
