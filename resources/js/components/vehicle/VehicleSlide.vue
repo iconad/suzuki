@@ -14,7 +14,7 @@
 
 <script>
 
-    import thumbImage from '../../ThumbImage'
+    import thumbImage from '../ThumbImage'
 
     export default {
         props: ['slide', 'index'],

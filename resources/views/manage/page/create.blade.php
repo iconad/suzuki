@@ -6,7 +6,7 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <a href="/manage/recall-announcements" class="section">Pages</a>
+        <a href="/manage/pages" class="section">Pages</a>
         <div class="divider"> / </div>
         <div class="active section">Create</div>
     </div>

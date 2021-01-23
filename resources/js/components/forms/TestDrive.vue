@@ -188,6 +188,7 @@
                 isValidMobileNumber: true,
                 titles: ['Mr', 'Mrs'],
                 selectedModel: 1,
+                isLoading: false,
                 form: {
                     first_name: null,
                     last_name: null,

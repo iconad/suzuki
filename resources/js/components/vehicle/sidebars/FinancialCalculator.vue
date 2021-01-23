@@ -10,8 +10,7 @@
                             <div>AED {{deposit}}</div>
                         </div>
                         <vue-slider
-                        :min="5000"
-                        :max="price"
+                        :min="0"
                         v-model="deposit"></vue-slider>
                     </div>
                     <div>
@@ -101,7 +100,7 @@
         },
         mounted() {
             let vehicle = this.$store.state.vehicle
-            this.price = vehicle.price
+            this.price = parseInt(vehicle.price)
         },
         computed: {
             yearsToMonths () {

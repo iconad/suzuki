@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- <div @click="OpenBroucherModal">specs</div> -->
-        <div>
+        <div class="hold-the-iframe">
             <iframe :src="iframe" class="w-full h-screen-40 md:h-screen-70 xl:h-screen" title="Baleno"></iframe>
         </div>
 
@@ -44,3 +44,21 @@
         },
     }
 </script>
+
+<style lang="scss">
+    .hold-the-iframe {
+        &:before {
+            content: "360 Loading...";
+            font-size: 32px;
+            z-index: -1;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+</style>

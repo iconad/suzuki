@@ -1,6 +1,6 @@
 <template>
     <div>
-        <suzuki-loader v-if="$apollo.queries.accessories.loading" width="w-16"></suzuki-loader>
+        <div v-if="$apollo.queries.accessories.loading" width="loader"></div>
         <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 relative">
            <div v-for="(item,i) in accessories" :key="i" class="border rounded overflow-hidden hover:shadow-xl transition ease-in-out duration-300">
             <accessory-item @see-more="seeMoreModal(item)" @update="updateCart" :item="item" :vehicle="vname"></accessory-item>
@@ -26,13 +26,17 @@
 
        </div>
 
-        <div class="flex flex-wrap md:flex-no-wrap items-center justify-end w-full mt-5">
+        <div v-if="!$apollo.queries.accessories.loading" class="flex items-center justify-center h-32 w-full mt-5">
+            No accessories found!
+        </div>
+
+        <div v-if="accessories.length != 0" class="flex flex-wrap md:flex-no-wrap items-center justify-end w-full mt-5">
             <accessories-brochures class="order-2 md:order-1 w-full md:w-auto md:mr-2"></accessories-brochures>
             <accessories-quote-form class="order-1 md:order-2  w-full md:w-auto"></accessories-quote-form>
         </div>
 
 
-        <modal  width="1100" height="auto" scrollable name="accessory-modal" class="bg-opacity-25 bg-black relative">
+        <modal width="1100" height="auto" scrollable name="accessory-modal" class="bg-opacity-25 bg-black relative">
             <div class="p-10">
 
                     <div class="flex flex-wrap md:flex-no-wrap">
@@ -89,7 +93,7 @@
     import AccessoriesQuoteForm from '../forms/AccessoriesQuote'
     import AccessoriesBrochures from '../forms/Accessoriesbrochures'
     import AccessoriesCart from './AccessoriesCart'
-    import thumbImage from '../../ThumbImage';
+    import thumbImage from '../ThumbImage';
 
     export default {
         props: ['vid', 'vname'],

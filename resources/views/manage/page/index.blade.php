@@ -41,7 +41,10 @@
                 <td>
                     <a class="capitalize" href="pages/{{$page->id}}">{{$page->title}}</a>
                 </td>
-                <td> <span>{{ url('/pages',$page->slug) }}</span> </td>
+                <td class="flex items-center space-x-3">
+                    <span class="bg-gray-100 block px-3 rounded text-lg">{{ url('/page',$page->slug) }}</span>
+                    <a href="{{ url('/page',$page->slug) }}" target="_blank" class="rounded-full inline-block transition border border-gray-500 bg-gray-500 hover:bg-transparent px-3 text-gray-100">Visit Page <i class="linkify icon"></i> </a>
+                </td>
                 <td> {{ $page->status == 1 ? 'Published' : 'Draft' }} </td>
                 <td>
                     <div class="ui basic mini buttons">

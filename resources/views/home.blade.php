@@ -35,7 +35,7 @@
                         <span class="block font-medium">showroom</span>
                     </div>
                     <div class="mt-3">
-                        <a href="http://" class="red-button xxl:text-2xl px-3 py-1 hover:bg-white hover:border-white">Explore Now</a>
+                        <a href="/vehicles" class="red-button xxl:text-2xl px-3 py-1 hover:bg-white hover:border-white">Explore Now</a>
                     </div>
                 </div>
                 {{-- absolute left-0 bottom-0 -ml-12 lg:-ml-24 -mb-12 lg:-mb-2 xxl:-mb-48 w-full h-auto --}}
@@ -45,7 +45,7 @@
             </div>
             <div class="bg-theme-gray h-screen-50 lg:h-20rem xxl:h-25rem flex flex-col items-center justify-around">
                 <div>
-                    <div class="text-center w-full text-3xl capitalize font-medium">lets drive</div>
+                    <a href="/after-sales/test-drive" class="text-center w-full text-3xl capitalize font-medium">lets drive</a>
                 </div>
                 <div>
                     <img src="{{asset('assets/images/vehicles/swift.webp')}}" alt="swift" class="w-3/4">
@@ -54,10 +54,10 @@
             <div class="bg-theme-red-500 h-screen-50 lg:h-20rem xxl:h-25rem relative overflow-hidden">
                 <div class="flex flex-col items-center justify-around lg:justify-end absolute left-0 top-0 w-full h-full">
                     <div class="absolute left-0 top-0 w-full pt-10">
-                        <div class="text-center text-gray-200 lg:mb-5 w-full text-3xl capitalize font-medium">
+                        <a href="/contact-us" class="block text-center text-gray-200 lg:mb-5 w-full text-3xl capitalize font-medium">
                             <span class="block text-sm">Reach out</span>
                             <span class="block">To Us</span>
-                        </div>
+                        </a>
                     </div>
                     <div>
                         <img src="{{asset('assets/images/vehicles/swift-red.png')}}" alt="swift" class="mb-10 sm:mb-0 w-full">
@@ -71,17 +71,17 @@
                         <span class="block">genuine parts</span>
                     </div>
                     <div>
-                        <a href="#" class="trasn-button border-gray-100 border-2 mt-5 inline-block px-8 rounded py-1 text-base hover:text-theme-skyblue hover:bg-white hover:border-white transition ease-linear duration-200 hover:font-medium">Shop Now</a>
+                        <a href="/after-sales/genuine-parts" class="trasn-button border-gray-100 border-2 mt-5 inline-block px-8 rounded py-1 text-base hover:text-theme-skyblue hover:bg-white hover:border-white transition ease-linear duration-200 hover:font-medium">Shop Now</a>
                     </div>
                 </div>
             </div>
             <div class="bg-white h-screen-50 lg:h-20rem xxl:h-25rem relative">
                 <div class="flex flex-col items-center justify-end absolute left-0 top-0 w-full h-full">
                     <div>
-                        <div class="text-center text-gray-900 mb-5 w-full text-3xl capitalize font-medium">
+                        <a href="/after-sales/services" class="text-center text-gray-900 mb-5 w-full text-3xl capitalize font-medium">
                             <span class="block text-sm">Book A</span>
                             <span class="block">Car Service</span>
-                        </div>
+                        </a>
                     </div>
                     <div>
                         <img src="{{asset('assets/images/vehicles/engine.webp')}}" alt="engine" class="w-48 xxl:w-64 mx-auto">
@@ -93,7 +93,7 @@
     {{-- explore the exciting --}}
 
     <section class="explore-cover">
-        <img src="{{asset('assets/images/explore-cover.webp')}}" alt="explore baleno cover" class="w-full">
+        <a href="/vehicles/baleno"><img src="{{asset('assets/images/explore-cover.webp')}}" alt="explore baleno cover" class="w-full"></a>
     </section>
     {{-- explore cover --}}
 

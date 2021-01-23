@@ -7,8 +7,8 @@
             </span>
         </div>
 
-        <splide :options="options">
-            <splide-slide class="image-scale-effect" v-for="(slide, i) in slides" :key="i">
+        <splide :options="options" v-if="!$apollo.queries.models.loading">
+            <splide-slide class="image-scale-effect" v-for="(slide, i) in models" :key="i">
                 <take-your-pick-slide :slide="slide" />
             </splide-slide>
         </splide>
@@ -17,6 +17,10 @@
 </template>
 
 <script>
+
+    import gql from 'graphql-tag'
+    import vehiclesQuery from "../../../../gql/frontend/vehicles.gql";
+
     import { Splide, SplideSlide } from '@splidejs/vue-splide';
     import TakeYourPickSlide from './TakeYourPickSlide'
     export default {
@@ -104,6 +108,17 @@
                   }
               ],
             }
+        },
+        apollo: {
+            models() {
+                return {
+                    query: vehiclesQuery,
+                    update(data) {
+                        this.selectedModel = data.vehicles[0]
+                        return data.vehicles;
+                    },
+                };
+            },
         }
     }
 </script>

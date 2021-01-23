@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PageController@home')->name('home');
+Route::get('/home', 'PageController@home');
 Route::get('/vehicles', 'PageController@vehicles');
 Route::get('/vehicles/{vehicle}', 'PageController@singeVehicle');
 Route::get('/page/{page}', 'PageController@show');

@@ -2,8 +2,8 @@
     <div :class="parentclasses">
         <v-lazy-image
             :class="classess"
-            :src="`${publicUrl}${id}/${image}`"
-            :src-placeholder="`${publicUrl}${id}/${image}`"
+            :src="`${publicUrl}/${id}/${image}`"
+            :src-placeholder="`${publicUrl}/${id}/${image}`"
         />
     </div>
 </template>

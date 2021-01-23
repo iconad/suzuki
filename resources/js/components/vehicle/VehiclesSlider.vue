@@ -87,71 +87,7 @@
                     }
                 }
             },
-            count: 0,
-            thumbSlides: [
-                {
-                    src: "https://i.ibb.co/bQRMVC1/bleno.png",
-                    alt: "image"
-                },
-                {
-                    src: "https://i.ibb.co/wKGdxKq/swift.png",
-                    alt: "image"
-                },
-                {
-                    src: "https://i.ibb.co/bsfF2Yj/jimny.png",
-                    alt: "image"
-                },
-                {
-                    src: "https://i.ibb.co/BgD2gyy/vitara.png",
-                    alt: "image"
-                },
-                {
-                    src: "https://i.ibb.co/G33hdy2/dzire.png",
-                    alt: "image"
-                },
-                {
-                    src: "https://i.ibb.co/G33hdy2/dzire.png",
-                    alt: "image"
-                },
-            ],
-            slides: [
-                {
-                    title: "Baleno",
-                    subtitle: "REASON FINDS EMOTION",
-                    src: "https://i.ibb.co/mGLwqS7/baleno.png",
-                    alt: "image"
-                },
-                {
-                    title: "Swift",
-                    subtitle: "up your game",
-                    src: "https://i.ibb.co/1M0DW2y/swift.png",
-                    alt: "image"
-                },
-                {
-                    title: "Jimny",
-                    subtitle: "REASON FINDS EMOTION",
-                    src: "https://i.ibb.co/frKkHjg/jimny.png",
-                    alt: "image"
-                },
-                {
-                    title: "Suzuki",
-                    subtitle: "up your game",
-                    src: "https://i.ibb.co/FHZ2n9M/vitara.png",
-                    alt: "image"
-                },
-                {
-                    title: "Dzire",
-                    subtitle: "A whole new world awaits",
-                    src: "https://i.ibb.co/rvXJgn7/dzire.png",
-                    alt: "image"
-                },
-                {
-                    title: "Ciaz",
-                    subtitle: "reason finds emotion",
-                    src: "https://i.ibb.co/3Fr9SC9/ertiga.png",
-                    alt: "image"
-                },
-            ],
+            count: 0
         }
         },
         mounted() {

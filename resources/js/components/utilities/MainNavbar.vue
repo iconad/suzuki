@@ -9,17 +9,17 @@
             </ul>
             <ul :class="!isMenu ? 'hidden sc1240:flex' : '' " class="absolute sc1240:static sc1240:left-0 sc1240:top-100 w-64 sc1240:w-auto sc1240:items-center bg-white shadow-xl sc1240:shadow-none">
                 <li v-for="(item, a) in menu" :key="a" class="nav-link" :class="item.child.length != 0 ? 'relative' : ''">
-                    <a :href="`${baseUrl}${item.link}`" class="px-2 pr-0 py-3 hover:text-theme-red-500" :class="item.child.length != 0 ? 'flex items-center' : 'block'">{{item.label}}
+                    <a :href="`${baseUrl}/${item.link}`" class="px-2 pr-0 py-3 hover:text-theme-red-500" :class="item.child.length != 0 ? 'flex items-center' : 'block'">{{item.label}}
                         <span v-if="item.child.length != 0" class="text-gray-900">
                             <svg class="fill-current w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 13l1 1 6-6-2-1-4 4-4-4-2 1z"/></svg>
                         </span>
                     </a>
                     <ul v-if="item.child.length != 0" class="text-sm nav-list sc1240:absolute left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-theme-red-500 text-white w-auto whitespace-nowrap">
                         <li class="nav-link" :class="child1.child.length != 0 ? 'relative' : ''" v-for="(child1, b) in item.child" :key="b">
-                            <a :href="`${baseUrl}${child1.link}`" class="block p-2">{{child1.label}}</a>
+                            <a :href="`${baseUrl}/${child1.link}`" class="block p-2">{{child1.label}}</a>
                             <ul class="nav-list sc1240:absolute z-50 uppercase left-0 top-100 flex flex-col sc1240:flex-row items-start sc1240:items-center bg-gray-300 text-black w-64 sc1240:w-auto whitespace-nowrap">
                                 <li class="nav-link font-bold" v-for="(child2, c) in child1.child" :key="c">
-                                    <a :href="`${baseUrl}${child2.link}`" class="font-bold suzuki-bold block p-2">{{child2.label}}</a>
+                                    <a :href="`${baseUrl}/${child2.link}`" class="font-bold suzuki-bold block p-2">{{child2.label}}</a>
                                 </li>
                             </ul>
                         </li>
