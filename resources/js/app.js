@@ -9,7 +9,17 @@ Vue.component(Vodal.name, Vodal);
 import VueSweetalert2 from 'vue-sweetalert2';
 import VModal from 'vue-js-modal'
 import { VLazyImagePlugin } from "v-lazy-image";
+import iframeResize from 'iframe-resizer/js/iframeResizer';
 
+
+Vue.directive('resize', {
+    bind: function(el, { value = {} }) {
+      el.addEventListener('load', () => iframeResize(value, el))
+    },
+    unbind: function (el) {
+      el.iFrameResizer.removeListeners();
+    }
+  })
 
 require('./components')
 
@@ -26,7 +36,6 @@ const httpLink = createHttpLink({
     // You should use an absolute URL here
     uri: 'https://gypromo.com/graphql',
 })
-
 // Cache implementation
 const cache = new InMemoryCache()
 

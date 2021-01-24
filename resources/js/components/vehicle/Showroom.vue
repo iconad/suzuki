@@ -1,8 +1,11 @@
 <template>
     <div>
         <!-- <div @click="OpenBroucherModal">specs</div> -->
-        <div class="hold-the-iframe">
-            <iframe :src="iframe" class="w-full h-screen-40 md:h-screen-70 xl:h-screen" title="Baleno"></iframe>
+        <div class="hold-the-iframe relative">
+            <iframe v-resize="{ log: true }" width="100%" :src="iframe" class="w-full h-screen-40 md:h-screen-40 xl:h-screen" title="Baleno">
+            </iframe>
+            <!-- <div class="w-32 h-32 bg-red-400 rounded absolute z-50 left-10 top-10"></div> -->
+
         </div>
 
         <side-buttons></side-buttons>

@@ -5,30 +5,15 @@
             <i class="sidebar icon"></i>
           </a>
           <a href="#" class="header item">
-            Suzuki Admin Panel
+            Suzuki UAE Admin Panel
           </a>
         </div>
 
         <div class="right menu">
-          <a href="#" class="item">
-            <i class="bell icon"></i>
-          </a>
-          <div class="ui dropdown item">
+          <a href="/logout" class="ui item">
             <i class="user cirlce icon"></i>
-            <div class="menu">
-              <a href="#" class="item">
-                <i class="info circle icon"></i> Profile</a
-              >
-              <a href="#" class="item">
-                <i class="wrench icon"></i>
-                Settings</a
-              >
-              <a href="#" class="item">
-                <i class="sign-out icon"></i>
-                Logout
-              </a>
-            </div>
-          </div>
+            Logout
+          </a>
         </div>
     </nav>
 </div>

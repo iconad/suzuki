@@ -48,7 +48,7 @@ Route::get('/locations/{location}/services/', 'PageController@servicesLocation')
 Route::get('/locations/{location}/parts/', 'PageController@partsLocation');
 
 Auth::routes();
-
+Route::get('/logout', 'HomeController@logout')->name('logout');
 
 Route::group(['prefix' => 'manage'], function() {
 

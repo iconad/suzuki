@@ -11,19 +11,7 @@
             </a>
           </div>
         </div>
-        <div class="item">
-          <div class="header">
-            Administration
-          </div>
-          <div class="menu">
-            <a class="item">
-              <div><i class="cogs icon"></i>Settings</div>
-            </a>
-            <a class="item">
-              <div><i class="users icon"></i>Team</div>
-            </a>
-          </div>
-        </div>
+
         <div class="item">
             <div class="header">
               Leads
@@ -89,23 +77,18 @@
         </a>
 
         <div class="item">
-          <div class="header">Other</div>
-          <div class="menu">
-            <a href="#" class="item">
-              <div>
-                <i class="icon envelope"></i>
-                Messages
-              </div>
-            </a>
-
-            <a href="#" class="item">
-              <div>
-                <i class="icon calendar alternate"></i>
-                Calendar
-              </div>
-            </a>
+            <div class="header">
+              Administration
+            </div>
+            <div class="menu">
+              <a class="item">
+                <div><i class="cogs icon"></i>Settings</div>
+              </a>
+              <a class="item">
+                <div><i class="users icon"></i>Users</div>
+              </a>
+            </div>
           </div>
-        </div>
 
         <div class="hidden">
           <form action="#">

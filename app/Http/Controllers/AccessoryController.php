@@ -23,7 +23,7 @@ class AccessoryController extends Controller
      */
     public function index(Vehicle $vehicle)
     {
-        $accessories = Accessory::all();
+        $accessories = Accessory::where('vehicle_id', $vehicle->id)->get();
         return view('manage.vehicle.accessory.index', compact('accessories', 'vehicle'));
     }
 

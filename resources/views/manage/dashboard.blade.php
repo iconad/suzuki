@@ -105,7 +105,7 @@
         <thead>
           <tr>
             <th colspan="3">
-              Git Repository
+              Latest Leads
             </th>
           </tr>
         </thead>

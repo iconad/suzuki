@@ -21,7 +21,7 @@
         <div class="field">
             <label>COPY URL</label>
             <div class="flex items-center space-x-4">
-                <span class="bg-gray-100 py-1 px-3 rounded text-lg">{{ url('/page',$page->slug) }}</span>
+                <span class="bg-gray-100 py-1 px-3 rounded text-lg">{{ 'page/' . $page->slug }}</span>
                 <a href="{{ url('/page',$page->slug) }}" target="_blank" class="rounded-full inline-block transition border border-gray-500 bg-gray-500 hover:bg-transparent px-3 text-gray-100">Visit Page <i class="linkify icon"></i> </a>
             </div>
         </div>
