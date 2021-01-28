@@ -68,7 +68,7 @@
                 <td> {{ $med->created_at->format('d M, Y')}} </td>
                 <td>
                     <div class="ui basic mini buttons">
-                        <a href="recall-announcements/{{$med->id}}" class="ui button">Edit</a>
+                        {{-- <a href="recall-announcements/{{$med->id}}" class="ui button">Edit</a> --}}
                     </div>
                 </td>
             </tr>
