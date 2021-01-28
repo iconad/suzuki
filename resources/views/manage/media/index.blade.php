@@ -50,7 +50,7 @@
             <th>URL To Copy</th>
             <th>Image</th>
             <th>Date</th>
-            <th>Actions</th>
+            {{-- <th>Actions</th> --}}
           </tr>
         </thead>
         @if (count($media) != 0)
@@ -66,11 +66,11 @@
                     <img src="{{ url("/storage/$med->id/$med->file_name/") }}" alt="image" class="w-24 bg-gray-500">
                 </td>
                 <td> {{ $med->created_at->format('d M, Y')}} </td>
-                <td>
-                    <div class="ui basic mini buttons">
+                {{-- <td> --}}
+                    {{-- <div class="ui basic mini buttons"> --}}
                         {{-- <a href="recall-announcements/{{$med->id}}" class="ui button">Edit</a> --}}
-                    </div>
-                </td>
+                    {{-- </div> --}}
+                {{-- </td> --}}
             </tr>
             @endforeach
             @if($media->hasPages())
