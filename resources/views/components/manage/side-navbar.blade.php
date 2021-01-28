@@ -76,6 +76,13 @@
           </div>
         </a>
 
+        <a href="/manage/media" class="item">
+          <div>
+            <i class="icon wpforms"></i>
+            Media
+          </div>
+        </a>
+
         <div class="item">
             <div class="header">
               Administration
