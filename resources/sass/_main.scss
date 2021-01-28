@@ -61,7 +61,7 @@ body {
 }
 
 .nav-list,
-.nav-list {
+.nav-list-child {
     display: none;
 }
 .nav-link {
@@ -72,8 +72,8 @@ body {
             > .nav-link {
                 &:hover{
                     color: white;
-                    > ul.nav-list {
-                        display: flex;
+                    > ul.nav-list-child {
+                        display: block;
                         .nav-link {
                             &:hover{
                                 color: $red;

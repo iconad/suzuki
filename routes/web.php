@@ -54,6 +54,8 @@ Route::group(['prefix' => 'manage'], function() {
 
     Route::group(['middleware' => ['auth','permission:browse admin']], function () {
         Route::get('/dashboard', 'ManagePages@dashboard')->name('manage.dashboard');
+        Route::post('/media/store', 'ManageMediaController@store');
+        Route::get('/media', 'ManageMediaController@getAllMedia')->name('media.getallmedia');
         Route::get('/menus', 'ManagePages@menus')->name('manage.menus');
         Route::get('/leads/{lead}', 'ManagePages@singleLead');
         Route::get('/leads/type/{newsletter}', 'ManagePages@index')->name('manage.leads.index');

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <div @click="OpenBroucherModal">specs</div> -->
+        <div @click="OpenBroucherModal">specs</div>
         <div class="hold-the-iframe relative">
             <iframe v-resize="{ log: true }" width="100%" :src="iframe" class="w-full h-screen-40 md:h-screen-40 xl:h-screen" title="Baleno">
             </iframe>

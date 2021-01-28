@@ -69,7 +69,7 @@ class RecallController extends Controller
 
         if ($recall) {
             $request->session()->flash('green', 'Recall Announcement was successful created!');
-            return redirect("/manage/recall-announcements/{{$recall->id}");
+            return redirect("/manage/recall-announcements/$recall->id");
         }
     }
 

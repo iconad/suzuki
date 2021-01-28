@@ -12,7 +12,6 @@ type Query {
     vehicles(orderBy: [OrderByClause!] @orderBy): [Vehicle!]!  @all
     vehicle(id: ID @eq): Vehicle @find
 
-
 }
 
 type User {
