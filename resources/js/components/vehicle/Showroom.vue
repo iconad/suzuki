@@ -1,27 +1,27 @@
 <template>
     <div>
-        <div @click="OpenBroucherModal">specs</div>
+        <!-- <div @click="OpenBroucherModal">specs</div> -->
         <div class="hold-the-iframe relative">
-            <iframe v-resize="{ log: true }" width="100%" :src="iframe" class="w-full h-screen-40 md:h-screen-40 xl:h-screen" title="Baleno">
+            <iframe width="100%" :src="iframe" class="w-full h-screen-40 md:h-screen-40 xl:h-screen" title="Baleno">
             </iframe>
             <!-- <div class="w-32 h-32 bg-red-400 rounded absolute z-50 left-10 top-10"></div> -->
 
         </div>
 
-        <side-buttons></side-buttons>
+        <this-side-buttons></this-side-buttons>
         <spec-broucher :spec="spec" :brochure="brochure" :vehicle="vehicle"></spec-broucher>
 
     </div>
 </template>
 
 <script>
-    import SideButtons from './SideButtons'
+    import ThisSideButtons from './SideButtons'
     import SpecBroucher from '../forms/SpecBroucher'
 
     export default {
         props: ['iframe', "brochure", 'spec', 'vid'],
         components: {
-            SideButtons
+            ThisSideButtons
         },
         mounted() {
             this.$store.dispatch('getVehicle', this.vid)

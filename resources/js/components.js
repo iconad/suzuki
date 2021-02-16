@@ -108,3 +108,9 @@ Vue.component(
     require("./components/ThumbImage.vue").default
 );
 
+
+Vue.component(
+    "side-buttons",
+    require("./components/utilities/SideButtons.vue").default
+);
+

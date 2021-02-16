@@ -23,6 +23,7 @@
             {{-- <x-main-navbar /> --}}
             @livewire('main-navbar')
         </nav>
+        <side-buttons></side-buttons>
         <main>
             @yield('content')
         </main>

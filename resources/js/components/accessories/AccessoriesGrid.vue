@@ -26,7 +26,7 @@
 
        </div>
 
-        <div v-if="!$apollo.queries.accessories.loading" class="flex items-center justify-center h-32 w-full mt-5">
+        <div v-if="accessories.length == 0" class="flex items-center justify-center h-32 w-full mt-5">
             No accessories found!
         </div>
 

@@ -15,7 +15,7 @@
         @csrf
 
         <div class="field">
-            <label>Cover</label>
+            <label>Image</label>
             <input type="file" name="image" required>
         </div>
 
