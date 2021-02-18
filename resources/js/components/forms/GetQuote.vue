@@ -74,7 +74,6 @@
                             <div slot-scope="{ errors }">
                                 <input type="text" v-model="form.mobile" class="form-input-1" name="mobile" placeholder="Mobile Number *">
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">
-                                    <!-- <span v-if="isValidMobileNumber">Must be a valid UAE mobile number. </span> -->
                                     <span>{{ errors[0] }}</span>
                                 </p>
                             </div>

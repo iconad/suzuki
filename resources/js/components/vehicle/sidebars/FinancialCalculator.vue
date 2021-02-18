@@ -1,6 +1,6 @@
 <template>
-    <div class="w-full">
-        <div class="bg-white shadow rounded-lg w-full overflow-hidden">
+    <div class="w-full relative">
+        <div class="bg-white rounded-lg w-full overflow-hidden">
             <div class="text-center py-2 bg-theme-red-500 text-white suzuki-bold">Financial Calculator</div>
             <div class="h-screen-70 overflow-y-auto custom-scrollbar">
                 <div class="px-10 my-16">
@@ -11,6 +11,7 @@
                         </div>
                         <vue-slider
                         :min="0"
+                        :max="price"
                         v-model="deposit"></vue-slider>
                     </div>
                     <div>
@@ -25,7 +26,7 @@
                     </div>
                 </div>
                 <div class="px-4 my-5">
-                <button class="red-button w-full">Apply Now</button>
+                <button @click="isFinanceQuote = true" class="red-button w-full">Apply Now</button>
                 </div>
                 <div class="mt-10 px-4 flex flex-col justify-center space-y-2 text-lg pb-10">
                     <div class="flex items-center justify-between">
@@ -76,6 +77,48 @@
             </div>
             {{yearsToMonths}}
         </div>
+        <div :class="isFinanceQuote ? '' : 'hidden'" class="absolute inset-0 bg-gray-100 z-10 p-5">
+            <table class="text-left w-full">
+                <tr v-if="vehicle">
+                    <th class="p-1">  Vehicle </th>
+                    <td class="p-1"> {{vehicle.title}} </td>
+                </tr>
+                <tr>
+                    <th class="p-1">  Deposit </th>
+                    <td class="p-1"> {{deposit}} </td>
+                </tr>
+                <tr>
+                    <th class="p-1">  Duration </th>
+                    <td class="p-1"> {{duration}} Months </td>
+                </tr>
+                <tr>
+                    <th class="p-1">  Price </th>
+                    <td class="p-1"> {{price}} </td>
+                </tr>
+                <tr>
+                    <th class="p-1">  Total Interest </th>
+                    <td class="p-1"> AED {{Math.round((totalIntrest + Number.EPSILON) * 100) / 100}} </td>
+                </tr>
+                <tr>
+                    <th class="p-1">  Total Payable </th>
+                    <td class="p-1"> AED {{Math.round((totalRepayable + Number.EPSILON) * 100) / 100}} </td>
+                </tr>
+                <tr>
+                    <th class="p-1">  Interest Rate </th>
+                    <td class="p-1"> {{interest}} % </td>
+                </tr>
+            </table>
+            <div class="mt-5 mb-5" v-if="vehicle">
+                <finance-quote 
+                :deposit="deposit"
+                :interest_rate="interest"
+                :duration="duration"
+                :price="price"
+                :total_payable="Math.round((totalRepayable + Number.EPSILON) * 100) / 100"
+                :total_interest="Math.round((totalIntrest + Number.EPSILON) * 100) / 100"
+                :vehicle="vehicle.title" @financel-quote="cancelFinanceQuote"></finance-quote>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -84,23 +127,30 @@
     import VueSlider from 'vue-slider-component'
     import 'vue-slider-component/theme/default.css'
 
+    import financeQuote from '../../forms/financeQuote'
+import FinanceQuote from '../../forms/financeQuote.vue'
+
     export default {
         components: {
-            VueSlider
+            VueSlider,
+            financeQuote,
+                FinanceQuote
         },
         data() {
             return {
+                isFinanceQuote: false,
                 deposit: 10000,
                 duration: 3,
                 price: 0,
                 interest: 2.99,
                 totalIntrest: 0,
                 months: 0,
+                vehicle: null
             }
         },
         mounted() {
-            let vehicle = this.$store.state.vehicle
-            this.price = parseInt(vehicle.price)
+            this.vehicle = this.$store.state.vehicle
+            this.price = parseInt(this.vehicle.price)
         },
         computed: {
             yearsToMonths () {
@@ -124,6 +174,11 @@
                 return  Math.round((final + Number.EPSILON) * 100) / 100
             }
         },
+        methods: {
+            cancelFinanceQuote () {
+                this.isFinanceQuote = false
+            }
+        }
     }
 </script>
 

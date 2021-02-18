@@ -22,7 +22,7 @@ class ManagePages extends Controller
 
     public function index ($type) {
 
-        $types = ['newsletter', 'commitments', 'contact-us', 'services', 'geniune-part', 'quotations', 'accessory-quotations', 'test-drive'];
+        $types = ['newsletter', 'finance-quote', 'commitments', 'contact-us', 'services', 'geniune-part', 'quotations', 'accessory-quotations', 'test-drive'];
 
         if (in_array($type, $types)) {
 

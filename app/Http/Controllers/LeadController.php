@@ -263,6 +263,87 @@ class LeadController extends Controller
 
     }
 
+    
+    public function financeQuote (Request $request) {
+
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'mobile' => 'required',
+            'email' => 'required',
+        ]);
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|exists:users',
+        ]);
+
+        $name = $request->first_name . ' ' . $request->last_name;
+
+        if ($validator->fails()) {
+            $user = User::create([
+                'name' => $name,
+                'email' => $request->email,
+                'password' => Hash::make(Str::random(8)),
+            ]);
+            $roles = [2];
+            $user->roles()->sync($roles);
+        }else{
+            $user = User::where('email', $request->email)->first();
+        }
+
+        $lead = Lead::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'title' => "-",
+            'mobile' => $request->mobile,
+            'user_id' => $user->id,
+            'type' => 'finance-quote',
+        ]);
+
+        $email =  $request->email;
+
+        $data = array(
+            'name' => $name,
+            'email' => $request->email,
+            'vehicle' => $request->vehicle,
+            'deposit' => $request->deposit,
+            'duration' => $request->duration,
+            'mobile' => $request->mobile,
+            'price' => $request->price,
+            'total_interest' => $request->total_interest,
+            'total_payable' => $request->total_payable,
+            'interest_rate' => $request->interest_rate,
+            'bodyMessage' => $request->message
+        );
+
+
+        Mail::send('mail.admin.finance_quote', $data, function ($message) use ($email, $name) {
+            $message->from('info@suzuki.ae');
+            $message->to($this->adminEmail, $this->adminName)->subject('New Finance Quotation');
+        });
+
+
+        if($lead) {
+            return response()->json(
+                [
+                    "wow" => "Awesome!",
+                    "message" => "Soon you will hear from us."
+                ]
+            );
+        }else{
+            return response()->json(
+                [
+                    "wow" => "opps!",
+                    "message" => "Something went wrong! please try again."
+                ]
+            );
+        }
+
+
+    }
+
+
     public function ourCommitment (Request $request) {
 
         $request->validate([

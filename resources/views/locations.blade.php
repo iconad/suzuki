@@ -25,8 +25,8 @@
                 <div class="flex flex-wrap items-center hover:bg-gray-100 border rounded-lg">
                     <div class="w-full p-4 flex items-center">
                         <div>
-                            <div class="text-3xl suzuki-bold">{{$branche->$type[0]->title}}</div>
-                            <div class="text-base flex items-center mb-3 text-orange-400 ">
+                            <div class="text-3xl mb-5 suzuki-bold">{{$branche->$type[0]->title}}</div>
+                            <div class="hidden text-base flex items-center mb-3 text-orange-400 ">
                                 <span class="mx-px">★</span>
                                 <span class="mx-px">★</span>
                                 <span class="mx-px">★</span>

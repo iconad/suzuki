@@ -50,6 +50,9 @@ class ManageLeads extends Component
         if($this->type == 'newsletter') {
             $callback = $this->getNewsletterLeads($leads);
         }
+        if($this->type == 'finance-quote') {
+            $callback = $this->getFinanceQuoteLeads($leads);
+        }
         elseif($this->type == 'commitments') {
             $callback = $this->getCommitmentsLeads($leads);
         }
@@ -77,6 +80,28 @@ class ManageLeads extends Component
     }
 
     public function getNewsletterLeads ($leads) {
+        $columns = array('Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Date');
+
+        $callback = function() use($leads, $columns) {
+        $file = fopen('php://output', 'w');
+        fputcsv($file, $columns);
+
+        foreach ($leads as $lead) {
+            $row['Title']  = $lead->title;
+            $row['First Name']    = $lead->first_name;
+            $row['Last Name']    = $lead->last_name;
+            $row['Mobile']  = $lead->mobile;
+            $row['Email']  = $lead->email;
+            $row['Date']  = $lead->date_for_humans;
+
+            fputcsv($file, array($row['Title'], $row['First Name'], $row['Last Name'], $row['Mobile'], $row['Email'], $row['Date']));
+        }
+        fclose($file);
+        };
+        return $callback;
+    }
+
+    public function getFinanceQuoteLeads ($leads) {
         $columns = array('Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Date');
 
         $callback = function() use($leads, $columns) {

@@ -23,6 +23,7 @@ Route::post('/geniune-parts', 'LeadController@geniuneParts');
 Route::post('/book-service', 'LeadController@bookService');
 Route::post('/accessories-quote', 'LeadController@accessoriesQuote');
 Route::post('/newsletter', 'LeadController@newsletter');
+Route::post('/finance-quote', 'LeadController@financeQuote');
 Route::post('/get-brochure', 'LeadController@getBrochure');
 Route::post('/test-drive', 'LeadController@testDrive');
 Route::post('/contact-us', 'LeadController@contactUs');

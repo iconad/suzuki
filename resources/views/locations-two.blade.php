@@ -16,13 +16,13 @@
                     <div class="w-full p-4 flex items-center">
                         <div>
                             <div class="text-3xl suzuki-bold">Abu Dhabi</div>
-                            <div class="text-base flex items-center mb-3 text-orange-400 ">
+                            <div class="hidden text-base flex items-center mb-3 text-orange-400 ">
                                 <span class="mx-px">★</span>
                                 <span class="mx-px">★</span>
                                 <span class="mx-px">★</span>
                                 <span class="mx-px">★</span>
                                 <span class="mx-px text-gray-500">★</span>
-                                <a href="#" class="theme-link inline-block ml-3 text-blue-500">
+                                <a href="#" class="hidden theme-link inline-block ml-3 text-blue-500">
                                     63 reviews
                                 </a>
                             </div>

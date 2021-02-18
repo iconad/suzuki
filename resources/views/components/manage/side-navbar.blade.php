@@ -29,6 +29,9 @@
               <a href="/manage/leads/type/quotations" class="item">
                 <div><i class="envelope outline icon"></i>Quotations</div>
               </a>
+              <a href="/manage/leads/type/finance-quote" class="item">
+                <div><i class="envelope outline icon"></i>Finance Quotations</div>
+              </a>
               <a href="/manage/leads/type/accessory-quotations" class="item">
                 <div><i class="envelope outline icon"></i>Quotations (Accessories)</div>
               </a>
