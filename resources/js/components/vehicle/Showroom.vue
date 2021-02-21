@@ -9,7 +9,7 @@
         </div>
 
         <this-side-buttons></this-side-buttons>
-        <spec-broucher :spec="spec" :brochure="brochure" :vehicle="vehicle"></spec-broucher>
+        <spec-broucher v-if="vehicle" :spec="spec" :brochure="brochure" :vehicle="vehicle"></spec-broucher>
 
     </div>
 </template>

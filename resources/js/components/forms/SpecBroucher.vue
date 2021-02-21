@@ -1,7 +1,8 @@
 <template>
     <div>
-
-        <!-- <div class="isBroucher">Broucher</div> -->
+<!-- 
+        <div class="isBroucher">
+        </div> -->
 
             <modal @before-close="onCloseModal" adaptive width="1100" height="auto" scrollable name="modal" class="bg-opacity-50 bg-black relative">
             <div class="bg-white relative px-12 py-24 lg:rounded-30">
@@ -13,24 +14,30 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                     <div class="flex items-center">
                         <div>
-                            <img src="https://i.ibb.co/g4061LK/broucher.png" alt="image" class="w-full shadow-2xl">
+                            <thumb-image v-if="firstMedia.length != 0" classess="w-full shadow-2xl" :image="firstMedia[0].file_name" :id="firstMedia[0].id"></thumb-image>
                             <div class="mt-12 flex items-center">
                                 <div class="flex items-center">
                                     <div v-if="brochure && brochure.length != 0" class="cursor-pointer border border-gray-300 explore-more-button mb-2 flex items-center focus:outline-none transition ease-linear duration-200 hover:bg-gray-300 focus:bg-gray-300 rounded-lg overflow-hidden bg-gray-200 w-48">
                                         <img src="https://i.ibb.co/sywLcjp/icon-download.png" alt="download icon" class="w-8">
                                         <a href="/get-a-brochure" class="inline-block px-2 py-1 text-sm capitalize" >Download Brochure </a>
                                     </div>
-                                    <!-- <div v-if="spec && spec.length != 0" class="ml-3 cursor-pointer border border-gray-300 explore-more-button mb-2 flex items-center focus:outline-none transition ease-linear duration-200 hover:bg-gray-300 focus:bg-gray-300 rounded-lg overflow-hidden bg-gray-200 w-48"> -->
-                                        <!-- <img src="https://i.ibb.co/3vn5hPx/icon-specs.png" alt="download icon" class="w-8"> -->
-                                        <!-- <span class="inline-block px-2 py-1 text-sm capitalize">Specification Sheet</span> -->
-                                    <!-- </div> -->
+                                    <div v-else>
+                                        Broucher not available
+                                    </div>
+                                    <div v-if="spec && spec.length != 0" class="ml-3 cursor-pointer border border-gray-300 explore-more-button mb-2 flex items-center focus:outline-none transition ease-linear duration-200 hover:bg-gray-300 focus:bg-gray-300 rounded-lg overflow-hidden bg-gray-200 w-48">
+                                        <img src="https://i.ibb.co/3vn5hPx/icon-specs.png" alt="download icon" class="w-8">
+                                        <span class="inline-block px-2 py-1 text-sm capitalize">Specification Sheet</span>
+                                    </div>
+                                    <div class="ml-5" v-else>
+                                        Specsheet not available
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="w-full page-shadow">
-                            <img src="https://i.ibb.co/gPZgfRp/spec-sheet.png" alt="image" class="w-full shadow-lg">
+                            <thumb-image v-if="specList.length != 0" classess="w-full shadow-lg" :image="specList[0].file_name" :id="specList[0].id"></thumb-image>
                         </div>
                     </div>
                 </div>
@@ -56,9 +63,10 @@
 
 <script>
 
+ import thumbImage from '../ThumbImage'
 
 export default {
-    props: ['brochure'],
+    props: ['brochure', 'vehicle'],
     data() {
         return {
         }
@@ -71,6 +79,20 @@ export default {
         }
     },
     computed: {
+        firstMedia (){
+            return this.vehicle.media.filter(e => {
+                if(e.collection_name === 'speccover') {
+                    return e
+                }
+            })
+        },
+        specList (){
+            return this.vehicle.media.filter(e => {
+                if(e.collection_name === 'speclist') {
+                    return e
+                }
+            })
+        },
         isModalOne () {
             return this.$store.state.isModalOne
         }

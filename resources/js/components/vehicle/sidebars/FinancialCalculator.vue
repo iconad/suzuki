@@ -77,7 +77,7 @@
             </div>
             {{yearsToMonths}}
         </div>
-        <div :class="isFinanceQuote ? '' : 'hidden'" class="absolute inset-0 bg-gray-100 z-10 p-5">
+        <div :class="isFinanceQuote ? '' : 'hidden'" class="absolute inset-0 bg-gray-100 z-10 p-5 overflow-y-auto custom-scrollbar">
             <table class="text-left w-full">
                 <tr v-if="vehicle">
                     <th class="p-1">  Vehicle </th>

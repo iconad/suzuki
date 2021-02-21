@@ -59,6 +59,26 @@
             </div>
 
             <div class="field">
+                <label>Change Spac Sheet Cover Image</label>
+
+                <div class="ui small image mb-4">
+                    <img src="{{$speccover}}">
+                </div>
+
+                <input type="file" name="speccover">
+            </div>
+
+            <div class="field">
+                <label>Change Spac Sheet List Image</label>
+
+                <div class="ui small image mb-4">
+                    <img src="{{$speclist}}">
+                </div>
+
+                <input type="file" name="speclist">
+            </div>
+
+            <div class="field">
                 <label>Change Logo</label>
                 <div class="ui small image mb-4">
                     <div class="bg-gray-400 p-2">

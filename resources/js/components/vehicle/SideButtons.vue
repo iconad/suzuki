@@ -4,7 +4,7 @@
         :class="isSideButton ? 'bg-gray-100' : '' "
         class="hidden fixed h-screen z-20 right-0 top-0 w-auto md:flex flex-col justify-center space-y-1 pr-3"
         >
-            <span @click="OpenBroucherModal" class="cursor-pointer border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto">
+            <span  @click="OpenBroucherModal" class="cursor-pointer border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto">
                 <img src="../../../../public/assets/images/icons/download.png" alt="icon" class="w-8">
             </span>
             <a href="/test-drive" class="border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto">

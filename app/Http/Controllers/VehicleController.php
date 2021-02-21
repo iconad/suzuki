@@ -88,11 +88,13 @@ class VehicleController extends Controller
      */
     public function show(Vehicle $vehicle)
     {
+        $speclist = $vehicle->getMedia('speclist')->count() != 0 ? $vehicle->getMedia('speclist')[0]->getUrl() : null;
+        $speccover = $vehicle->getMedia('speccover')->count() != 0 ? $vehicle->getMedia('speccover')[0]->getUrl() : null;
         $thumbnail = $vehicle->getMedia('thumbnail')->count() != 0 ? $vehicle->getMedia('thumbnail')[0]->getUrl() : null;
         $showroom = $vehicle->getMedia('showroom')->count() != 0 ? $vehicle->getMedia('showroom')[0]->getUrl() : null;
         $logo = $vehicle->getMedia('logo')->count() != 0 ? $vehicle->getMedia('logo')[0]->getUrl() : null;
 
-        return view('manage.vehicle.show', compact('vehicle', 'thumbnail', 'showroom', 'logo'));
+        return view('manage.vehicle.show', compact('vehicle', 'thumbnail', 'showroom', 'logo', 'speccover', 'speclist'));
     }
 
     /**
@@ -118,6 +120,26 @@ class VehicleController extends Controller
         $request->validate([
             'title' => 'required',
         ]);
+
+        if($request->has('speclist')) {
+            $mediaItems = $vehicle->getMedia('speclist');
+            if(count($mediaItems) != 0) {
+                $mediaItems[0]->delete();
+            }
+            $pathToFile = $this->createImage($request->speclist);
+            $vehicle->addMedia($pathToFile)
+                    ->toMediaCollection('speclist');
+        }
+
+        if($request->has('speccover')) {
+            $mediaItems = $vehicle->getMedia('speccover');
+            if(count($mediaItems) != 0) {
+                $mediaItems[0]->delete();
+            }
+            $pathToFile = $this->createImage($request->speccover);
+            $vehicle->addMedia($pathToFile)
+                    ->toMediaCollection('speccover');
+        }
 
         if($request->has('thumbnail')) {
             $mediaItems = $vehicle->getMedia('thumbnail');
