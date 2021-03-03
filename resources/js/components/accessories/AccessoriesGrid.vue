@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- {{brochure}} -->
         <div v-if="$apollo.queries.accessories.loading" width="loader"></div>
         <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 relative">
            <div v-for="(item,i) in accessories" :key="i" class="border rounded overflow-hidden hover:shadow-xl transition ease-in-out duration-300">
@@ -7,7 +8,7 @@
            </div>
 
 
-            <audio id="audio" src="https://www.soundjay.com/button/sounds/button-20.mp3" autoplay="false" ></audio>
+            <!-- <audio id="audio" src="https://www.soundjay.com/button/sounds/button-20.mp3" autoplay="false" ></audio> -->
             <div class="absolute bottom-100 right-0 w-full md:w-25rem bg-white">
                 <div class="suzuki-bold text-2xl mb-3 flex items-center justify-end">
                 <transition name="bounce">
@@ -26,12 +27,13 @@
 
        </div>
 
+
         <div v-if="accessories.length == 0" class="flex items-center justify-center h-32 w-full mt-5">
             No accessories found!
         </div>
 
         <div v-if="accessories.length != 0" class="flex flex-wrap md:flex-no-wrap items-center justify-end w-full mt-5">
-            <accessories-brochures class="order-2 md:order-1 w-full md:w-auto md:mr-2"></accessories-brochures>
+            <accessories-brochures :model="vid" v-if="media.length != 0" :brochure="brochure" class="order-2 md:order-1 w-full md:w-auto md:mr-2"></accessories-brochures>
             <accessories-quote-form class="order-1 md:order-2  w-full md:w-auto"></accessories-quote-form>
         </div>
 
@@ -96,7 +98,7 @@
     import thumbImage from '../ThumbImage';
 
     export default {
-        props: ['vid', 'vname'],
+        props: ['vid', 'vname', 'media'],
         components: {
             AccessoriesCart,
             thumbImage,
@@ -116,6 +118,15 @@
             cart.forEach(this.forEachCart);
         },
         computed: {
+            // brochure () {
+            //     if(this.media.length != 0) {
+            //         return this.media[0].media.filter(e => {
+            //             if(e.collection_name === 'file') {
+            //                 return e
+            //             }
+            //         })
+            //     }
+            // },
             cart() {
                 return this.$store.state.cart
             },

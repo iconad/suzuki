@@ -27,7 +27,7 @@
             </div>
         </div>
         {{-- heading --}}
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 bg-yellow-200">
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
             <div class="relative bg-theme-blue-500 h-screen-50 lg:h-40rem xxl:h-50rem lg:col-span-2 lg:row-span-2 overflow-hidden">
                 <div class="p-12 absolute left-0 top-0 w-full z-10">
                     <div class="uppercase text-xl md:text-4xl xxl:text-5xl leading-none text-gray-100 font-light">
@@ -39,22 +39,22 @@
                     </div>
                 </div>
                 {{-- absolute left-0 bottom-0 -ml-12 lg:-ml-24 -mb-12 lg:-mb-2 xxl:-mb-48 w-full h-auto --}}
-                <div class="absolute left-0 bottom-0 w-full h-auto">
+                <div class="absolute left-0 bottom-0 w-full h-auto image-scale-effect-small">
                     <img src="{{asset('assets/images/vehicles/baleno-blue-2.webp')}}" alt="Baleno" class="-mb-16 sm:-mb-24 md:-mb-48 lg:-mb-24 -ml-8 w-full object-cover h-full">
                 </div>
             </div>
-            <div class="bg-theme-gray h-screen-50 lg:h-20rem xxl:h-25rem flex flex-col items-center justify-around">
+            <div onclick="location.href='/after-sales/test-drive';" class="cursor-pointer bg-theme-gray h-screen-50 lg:h-20rem xxl:h-25rem flex flex-col items-center justify-around image-scale-effect-small">
                 <div>
                     <a href="/after-sales/test-drive" class="text-center w-full text-3xl capitalize font-medium">lets drive</a>
                 </div>
-                <div>
+                <div class="car-effect-left-right">
                     <img src="{{asset('assets/images/vehicles/swift.webp')}}" alt="swift" class="w-3/4">
                 </div>
             </div>
-            <div class="bg-theme-red-500 h-screen-50 lg:h-20rem xxl:h-25rem relative overflow-hidden">
+            <div onclick="location.href='/after-sales/services';" class="cursor-pointer bg-theme-red-500 h-screen-50 lg:h-20rem xxl:h-25rem relative overflow-hidden image-scale-effect-small">
                 <div class="flex flex-col items-center justify-around lg:justify-end absolute left-0 top-0 w-full h-full">
                     <div class="absolute left-0 top-0 w-full pt-10">
-                        <a href="/contact-us" class="block text-center text-gray-200 lg:mb-5 w-full text-3xl capitalize font-medium">
+                        <a href="/contact-us" class="z-10 relative block text-center text-gray-200 lg:mb-5 w-full text-3xl capitalize font-medium">
                             <span class="block text-sm">Reach out</span>
                             <span class="block">To Us</span>
                         </a>
@@ -64,18 +64,18 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-theme-skyblue h-screen-50 lg:h-20rem xxl:h-25rem flex items-center justify-center">
+            <div onclick="location.href='/after-sales/genuine-parts';" class="cursor-pointer bg-theme-skyblue h-screen-50 lg:h-20rem xxl:h-25rem flex items-center justify-center">
                 <div class="capitalize text-center text-gray-100 font-light">
                     <div class="text-4xl leading-tight">
                         <span class="block">suzuki</span>
                         <span class="block">genuine parts</span>
                     </div>
                     <div>
-                        <a href="/after-sales/genuine-parts" class="trasn-button border-gray-100 border-2 mt-5 inline-block px-8 rounded py-1 text-base hover:text-theme-skyblue hover:bg-white hover:border-white transition ease-linear duration-200 hover:font-medium">Shop Now</a>
+                        <a href="/after-sales/genuine-parts" class="trasn-button border-gray-100 border-2 mt-5 inline-block px-8 rounded py-1 text-base hover:text-theme-skyblue hover:bg-white hover:border-white transition ease-linear duration-200 hover:font-medium">Explore Parts</a>
                     </div>
                 </div>
             </div>
-            <div class="bg-white h-screen-50 lg:h-20rem xxl:h-25rem relative">
+            <div onclick="location.href='/after-sales/services';" class="cursor-pointer bg-white h-screen-50 lg:h-20rem xxl:h-25rem relative">
                 <div class="flex flex-col items-center justify-end absolute left-0 top-0 w-full h-full">
                     <div>
                         <a href="/after-sales/services" class="text-center text-gray-900 mb-5 w-full text-3xl capitalize font-medium">

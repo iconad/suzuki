@@ -95,7 +95,8 @@
                                 class="block mt-1 -ml-3 inline-block">Please confirm you have read and agree to our <a href="http://" class="theme-link">Terms and Conditions</a> *</span>
                             </label>
                         </div>
-                        <div class="form-element mb-0 mt-5 text-right">
+                        <div v-if="isLoading" class="loader"></div>
+                        <div v-else class="form-element mb-0 mt-5 text-right">
                             <input
                                 type="submit"
                                 value="Submit"
@@ -143,6 +144,7 @@
     });
 
     export default {
+        props: ['model'],
         components: {
             Multiselect,
             ValidationProvider,
@@ -170,7 +172,37 @@
         },
         methods: {
             submitForm () {
-                console.log(this.form)
+                 if(this.form.check){
+                    this.isLoading = true
+                    axios.post(`/api/get-accessories-brochure`, {
+                        title: this.form.title,
+                        first_name: this.form.first_name,
+                        last_name: this.form.last_name,
+                        phone: this.form.phone,
+                        emirate: this.form.emirate,
+                        mobile: this.form.mobile,
+                        email: this.form.email,
+                        model: this.model,
+                    })
+                    .then(response => {
+                        this.$emit('updated')
+                        this.$swal({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timerProgressBar: true,
+                            timer: 3000,
+                            icon: "success",
+                            title: response.data.wow,
+                            text: response.data.message,
+                        });
+                        if(response.data.wow != 'opps!') {
+                            this.form = []
+                        }
+                        this.isLoading = false
+                        this.$modal.hide('accessories-brochures-modal');
+                    })
+                }
             },
             showModal () {
                 this.$modal.show('accessories-brochures-modal');

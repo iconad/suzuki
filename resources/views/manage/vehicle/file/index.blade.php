@@ -30,9 +30,9 @@
         <thead>
           <tr>
             <th>Title</th>
-            <th>year</th>
-            <th>type</th>
-            <th>status</th>
+            <th>Year</th>
+            <th>Type</th>
+            <th>Status</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -48,7 +48,7 @@
                     <a href="/manage/vehicles/{{$vehicle->id}}/files/{{$file->id}}"> {{$file->title}} </a>
                 </td>
                 <td> {{$file->year}} </td>
-                <td> {{$file->type}} </td>
+                <td class="capitalize"> {{$file->type}} </td>
                 <td>
                     @if ($vehicle->status == 1)
                         Published

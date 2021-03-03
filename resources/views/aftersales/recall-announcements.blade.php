@@ -30,8 +30,8 @@
                 </div>
                 <div class="w-full flex items-center md:pl-12">
                     <div>
-                        <a href="/after-sales/recall-announcements/announcement" class="theme-link hover:border-transparent text-xs"> {{$recall->vehicle_type}}</a>
-                        <a href="/after-sales/recall-announcements/announcement" class="theme-link hover:border-transparent block suzuki-bold leading-tight my-3 text-2xl text-gray-900">{{$recall->title}}</a>
+                        <a href="/after-sales/recall-announcements/{{$recall->slug}}" class="theme-link hover:border-transparent text-xs"> {{$recall->vehicle_type}}</a>
+                        <a href="/after-sales/recall-announcements/{{$recall->slug}}" class="theme-link hover:border-transparent block suzuki-bold leading-tight my-3 text-2xl text-gray-900">{{$recall->title}}</a>
                         <div class="text-sm text-gray-600">{{date('d M, Y', strtotime($recall->created_at))}}</div>
                     </div>
                 </div>

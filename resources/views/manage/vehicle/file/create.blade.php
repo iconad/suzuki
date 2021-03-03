@@ -50,6 +50,12 @@
                     <label for="brochure">Brochure</label>
                 </div>
             </div>
+            <div class="block mb-2">
+                <div class="ui radio checkbox">
+                    <input id="accessory_brochure" type="radio" value="accessory brochure" name="type">
+                    <label for="accessory_brochure">Accessory Brochure</label>
+                </div>
+            </div>
         </div>
         <div class="field">
             <label>File (PDF only) </label>

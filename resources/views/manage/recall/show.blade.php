@@ -40,7 +40,7 @@
         </div>
 
         @php
-            $types = ['type 1', 'type 2', 'type 3']
+            $types = ['saloon', 'hatchback', 'SUV']
         @endphp
 
         <div class="field">

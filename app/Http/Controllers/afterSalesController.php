@@ -13,7 +13,8 @@ class afterSalesController extends Controller
     {
         $vehicle = Vehicle::where('slug', $slug)->first();
         $logo = $vehicle->getMedia('logo')->count() != 0 ? $vehicle->getMedia('logo')[0]->getUrl() : null;
-        return view('aftersales.accessories', compact('vehicle', 'logo'));
+        $brochure = $vehicle->accessory_brochure;
+        return view('aftersales.accessories', compact('vehicle', 'logo', 'brochure'));
     }
 
     public function RecallAnnouncements()

@@ -263,7 +263,7 @@ class LeadController extends Controller
 
     }
 
-    
+
     public function financeQuote (Request $request) {
 
         $request->validate([
@@ -804,10 +804,93 @@ class LeadController extends Controller
                     ]
                 );
             }
+    }
+
+    public function getAccessoriesBrochure (Request $request) {
+
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+        ]);
 
 
+            $model = Vehicle::where('id', $request->model)->first();
+            $file = $model->accessory_brochure;
+            $pdf = $file[0]->getMedia('file')->count() != 0 ? $file[0]->getMedia('file')[0]->getUrl() : null;
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|exists:users',
+        ]);
+
+        $name = $request->first_name . ' ' . $request->last_name;
+        $name = $request->first_name . ' ' . $request->last_name;
+
+        if ($validator->fails()) {
+            $user = User::create([
+                'name' => $name,
+                'email' => $request->email,
+                'password' => Hash::make(Str::random(8)),
+            ]);
+            $roles = [2];
+            $user->roles()->sync($roles);
+        }else{
+            $user = User::where('email', $request->email)->first();
+        }
+
+            $lead = Lead::create([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'title' => $request->title,
+                'email' => $request->email,
+                'mobile' => $request->mobile,
+                'phone' => $request->phone,
+                'emirate' => $request->emirate,
+                'user_id' => $user->id,
+                'type' => 'accessory-brochure',
+            ]);
+
+            $email =  $request->email;
+            $email =  $request->email;
+
+            $data = array(
+                'name' => $name,
+                'email' => $request->email,
+                'file' => $file,
+                'pdf' => $pdf,
+                'model' => $model->title,
+                'bodyMessage' => $request->message
+            );
 
 
+            Mail::send('mail.admin.get_accessory_brochure_download_link', $data, function ($message) use ($email, $name) {
+                $message->from('info@suzuki.ae');
+                $message->to($this->adminEmail, $this->adminName)->subject('New entry for accessories brochure download');
+            });
+
+
+            Mail::send('mail.user.get_accessory_brochure_download_link', $data, function ($message) use ($email, $name) {
+                $message->from('info@suzuki.ae');
+                $message->to($email, $name)->subject('Suzuki Accessories Brochure download link');
+            });
+
+
+            if($lead) {
+                return response()->json(
+                    [
+                        "wow" => "Awesome!",
+                        "message" => "Thanks! Shortly you will get an email with download links!"
+                    ]
+                );
+            }else{
+                return response()->json(
+                    [
+                        "wow" => "opps!",
+                        "message" => "Something went wrong! please try again."
+                    ]
+                );
+            }
     }
 
     public function contactUs (Request $request) {

@@ -44,9 +44,8 @@
                     @endforeach
                 </select>
             </div>
-
             @php
-                $types = ['specs', 'brochure'];
+                $types = ['specs', 'brochure', 'accessory brochure'];
             @endphp
             <div class="grouped fields">
             <label class="text-base">Select file type</label>

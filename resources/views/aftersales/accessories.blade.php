@@ -13,9 +13,10 @@
             </h1>
         </div>
     </div>
+
     {{-- heading --}}
     <div class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 text-gray-800">
-        <accessories-grid :vname="{{ json_encode($vehicle->title) }}" :vid="{{ json_encode($vehicle->id) }}"></accessories-grid>
+        <accessories-grid :vname="{{ json_encode($vehicle->title) }}" :media="{{ json_encode($brochure) }}" :vid="{{ json_encode($vehicle->id) }}"></accessories-grid>
     </div>
     {{-- accessories grid --}}
 </section>

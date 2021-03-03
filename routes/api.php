@@ -25,5 +25,6 @@ Route::post('/accessories-quote', 'LeadController@accessoriesQuote');
 Route::post('/newsletter', 'LeadController@newsletter');
 Route::post('/finance-quote', 'LeadController@financeQuote');
 Route::post('/get-brochure', 'LeadController@getBrochure');
+Route::post('/get-accessories-brochure', 'LeadController@getAccessoriesBrochure');
 Route::post('/test-drive', 'LeadController@testDrive');
 Route::post('/contact-us', 'LeadController@contactUs');

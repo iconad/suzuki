@@ -109,13 +109,16 @@ body {
     );
   }
 
+  .splide__arrows {
+    display: block!important;
+  }
 .splide__arrow {
-    top: -195px;
+    top: -30px;
     background: none;
     opacity: 1;
     width: 4em;
     @include md-max {
-        top: -87px;
+        top: -40px;
         width: 2em;
     }
     svg {
@@ -123,18 +126,19 @@ body {
     }
 }
 .splide__arrow svg {
-    width: 200px;
-    height: 200px;
+    width: 40px;
+    height: 40px;
     font-weight: bold;
 }
 .splide__arrow--next {
-    right: 15%;
+    // right: 15%;
+    z-index: 999;
     @include md-max {
         right: 5%;
     }
 }
 .splide__arrow--prev {
-    left: 15%;
+    // left: 15%;
     @include md-max {
         left: 5%;
     }
@@ -427,3 +431,12 @@ body {
 .text-shadow-overlay {
     text-shadow: 0px 0px 20px rgba(black, 0.6);
 }
+
+// .float-button {
+//     &:hover {
+//         .float-name {
+//             dispaly: none;
+//         }
+//         .float-icon {}
+//     }
+// }
