@@ -5,7 +5,7 @@
         class="hidden fixed h-screen z-20 right-0 top-0 w-auto md:flex flex-col justify-center space-y-1 pr-3"
         >
             <div @click="OpenBroucherModal" class="cursor-pointer lex items-center space-x-1 float-button w-12 h-12 relative">
-                <span class="absolute float-name right-0 border border-gray-400 bg-white bg-opacity-100 h-12 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Download Broucher</span>
+                <span class="absolute float-name right-0 border border-gray-400 bg-white bg-opacity-100 h-12 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Download Brochure</span>
 
                 <span class=" float-icon absolute right-0 w-8 h-12 border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">
                     <img src="../../../../public/assets/images/icons/download.png" alt="icon" class="w-8">

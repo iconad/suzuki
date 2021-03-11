@@ -23,6 +23,7 @@ Route::get('/page', 'PageController@vehiclesPage');
 // Forms
 Route::get('/get-a-quote', 'formPagesController@getQuote')->name('form.getquote');
 Route::get('/get-a-brochure', 'formPagesController@getBroucher')->name('form.getbroucher');
+Route::get('/get-a-specsheet', 'formPagesController@getSpecsheet')->name('form.getSpecsheet');
 Route::get('/test-drive', 'formPagesController@testDrive')->name('form.testdrive');
 Route::get('/book-a-service', 'formPagesController@bookService')->name('form.bookservice');
 Route::get('/request-accessories-quote', 'formPagesController@RequestQuoteAccessories')->name('form.requestquoteaccessories');

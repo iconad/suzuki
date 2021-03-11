@@ -58,6 +58,11 @@ Vue.component(
 );
 
 Vue.component(
+    "get-spec-sheet",
+    require("./components/forms/GetSpecSheet.vue").default
+);
+
+Vue.component(
     "get-quote",
     require("./components/forms/GetQuote.vue").default
 );

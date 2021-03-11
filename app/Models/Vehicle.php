@@ -64,4 +64,8 @@ class Vehicle extends Model implements HasMedia
         return $this->hasMany(VehicleFile::class)->where('type', 'brochure')->where('status', 1);
     }
 
+    public function specsheet() {
+        return $this->hasMany(VehicleFile::class)->where('type', 'specs')->where('status', 1);
+    }
+
 }

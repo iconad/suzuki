@@ -806,6 +806,96 @@ class LeadController extends Controller
             }
     }
 
+    public function getSpecSheet (Request $request) {
+
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+        ]);
+
+
+        $files = [];
+        foreach ($request->models as $model) {
+            $file = Vehicle::where('id', $model['id'])->first()->specsheet[0];
+            $pdf = $file->getMedia('file')->count() != 0 ? $file->getMedia('file')[0]->getUrl() : null;
+            $data = array(
+                'model'=> $file->vehicle->title,
+                'pdf'=> $pdf,
+            );
+            $files[] = $data;
+        }
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|exists:users',
+        ]);
+
+        $name = $request->first_name . ' ' . $request->last_name;
+        $name = $request->first_name . ' ' . $request->last_name;
+
+        if ($validator->fails()) {
+            $user = User::create([
+                'name' => $name,
+                'email' => $request->email,
+                'password' => Hash::make(Str::random(8)),
+            ]);
+            $roles = [2];
+            $user->roles()->sync($roles);
+        }else{
+            $user = User::where('email', $request->email)->first();
+        }
+
+            $lead = Lead::create([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'title' => $request->title,
+                'email' => $request->email,
+                'hear' => $request->hear,
+                'emirate' => $request->emirate,
+                'user_id' => $user->id,
+                'type' => 'specsheet',
+            ]);
+
+            $email =  $request->email;
+            $email =  $request->email;
+
+            $data = array(
+                'name' => $name,
+                'email' => $request->email,
+                'files' => $files,
+                'bodyMessage' => $request->message
+            );
+
+
+            Mail::send('mail.admin.get_specsheet_download_link', $data, function ($message) use ($email, $name) {
+                $message->from('info@suzuki.ae');
+                $message->to($this->adminEmail, $this->adminName)->subject('New entry for specsheet download');
+            });
+
+
+            Mail::send('mail.user.get_specsheet_download_link', $data, function ($message) use ($email, $name) {
+                $message->from('info@suzuki.ae');
+                $message->to($email, $name)->subject('Suzuki specsheet download link');
+            });
+
+
+            if($lead) {
+                return response()->json(
+                    [
+                        "wow" => "Awesome!",
+                        "message" => "Thanks! Shortly you will get an email with download links!"
+                    ]
+                );
+            }else{
+                return response()->json(
+                    [
+                        "wow" => "opps!",
+                        "message" => "Something went wrong! please try again."
+                    ]
+                );
+            }
+    }
+
     public function getAccessoriesBrochure (Request $request) {
 
         $request->validate([

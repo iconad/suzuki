@@ -45,7 +45,7 @@
             </div>
             <div onclick="location.href='/after-sales/test-drive';" class="cursor-pointer bg-theme-gray h-screen-50 lg:h-20rem xxl:h-25rem flex flex-col items-center justify-around image-scale-effect-small">
                 <div>
-                    <a href="/after-sales/test-drive" class="text-center w-full text-3xl capitalize font-medium">lets drive</a>
+                    <a href="/after-sales/test-drive" class="text-center w-full text-3xl capitalize font-medium">let's drive</a>
                 </div>
                 <div class="car-effect-left-right">
                     <img src="{{asset('assets/images/vehicles/swift.webp')}}" alt="swift" class="w-3/4">
@@ -99,6 +99,9 @@
 
 
     <section class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 py-8 md:py-32 reviews">
+        <div class="mb-5">
+            <div class="text-3xl uppercase font-semibold text-gray-900">what our customers say</div>
+        </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-10">
             <div class="border rounded text-center">
                 <div class="bg-gray-100 text-gray-900 py-24 px-16 ">

@@ -18,9 +18,14 @@ class formPagesController extends Controller
 
     public function getBroucher(Request $request)
     {
-
         $selectedModel = $request->vehicle;
         return view('forms.get-broucher', compact('selectedModel'));
+    }
+
+    public function getSpecsheet(Request $request)
+    {
+        $selectedModel = $request->vehicle;
+        return view('forms.get-specsheet', compact('selectedModel'));
     }
 
     public function testDrive()
