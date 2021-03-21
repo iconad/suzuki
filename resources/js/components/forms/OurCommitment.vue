@@ -77,10 +77,11 @@
                             </div>
                         </ValidationProvider>
                     </div>
-                    <div>
+                    <div class="lg:col-span-2 lg:pr-5 lg:w-1/2">
+                        <label class="block text-lg font-medium text-gray-800 mb-2">Location</label>
                         <ValidationProvider name="form.location" rules="required">
                             <div slot-scope="{ errors }">
-                                <input type="text" v-model="form.location" class="form-input-1" name="location" placeholder="Location *">
+                                <multiselect v-model="form.location" :options="emirates"></multiselect>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
                             </div>
                         </ValidationProvider>
@@ -178,6 +179,7 @@
                     check: false,
                     showroom: false,
                 },
+                emirates: ["Abu Dhabi", "Dubai", "Sharjah", "Ajman", "Ras al khaimah", "Fujairah", "Umm al-Qaiwain"],
                 hears: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"],
             }
         },
