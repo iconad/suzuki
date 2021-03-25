@@ -14,7 +14,7 @@
 </div>
 
 {{-- <div class="flex items-center justify-between">
-    <a href="/manage/" class="ui header">Add New</a>
+    <a href="/cms/" class="ui header">Add New</a>
 </div> --}}
 <div class="ui secondary menu">
     <span class="item fitted">

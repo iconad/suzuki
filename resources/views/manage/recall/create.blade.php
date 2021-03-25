@@ -1,6 +1,6 @@
 @extends('manage.layouts.app')
 @section('headlinks')
-    <link rel="stylesheet" href="{{asset('/css/manage/trumbowyg.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/cms/trumbowyg.min.css')}}">
 @endsection
 @section('content')
 
@@ -8,7 +8,7 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <a href="/manage/recall-announcements" class="section">Recall Announcements</a>
+        <a href="/cms/recall-announcements" class="section">Recall Announcements</a>
         <div class="divider"> / </div>
         <div class="active section">Create</div>
     </div>
@@ -66,7 +66,7 @@
 
 @endsection
 @section('scripts')
-    <script src="{{asset('/js/manage/trumbowyg.min.js')}}"></script>
+    <script src="{{asset('/js/cms/trumbowyg.min.js')}}"></script>
     <script>
         $('#detailTextarea').trumbowyg();
     </script>

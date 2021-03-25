@@ -16,12 +16,12 @@ const mix = require('laravel-mix');
 
 
 mix.js("resources/js/app.js", "public/js")
-   .js('resources/js/manage/app.js', 'public/js/manage');
+   .js('resources/js/cms/app.js', 'public/js/cms');
 
 const tailwindcss = require("tailwindcss");
 
 mix.sass("resources/sass/app.scss", "public/css")
-   .sass("resources/sass/manage/app.scss", "public/css/manage").options({
+   .sass("resources/sass/cms/app.scss", "public/css/cms").options({
     processCssUrls: false,
     postCss: [tailwindcss("tailwind.config.js")]
 });

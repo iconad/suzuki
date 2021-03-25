@@ -17,7 +17,7 @@
     />
 
     <!-- Styles -->
-    <link href="{{ asset('css/manage/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/cms/app.css') }}" rel="stylesheet">
 
     @yield('headlinks')
 </head>
@@ -76,7 +76,7 @@
     <script type="text/javascript">
         window.csrf_token = "{{ csrf_token() }}"
     </script>
-    <script src="{{ asset('js/manage/app.js') }}"></script>
+    <script src="{{ asset('js/cms/app.js') }}"></script>
     @yield('scripts')
 
 </body>

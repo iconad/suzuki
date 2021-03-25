@@ -3,7 +3,7 @@
         <div class="item">
           <div class="header">General</div>
           <div class="menu">
-            <a href="/manage/dashboard" class="item">
+            <a href="/cms/dashboard" class="item">
               <div>
                 <i class="icon tachometer alternate"></i>
                 Dashboard
@@ -17,37 +17,37 @@
               Leads
             </div>
             <div class="menu">
-              <a href="/manage/leads/type/newsletter" class="item">
+              <a href="/cms/leads/type/newsletter" class="item">
                 <div><i class="envelope outline icon"></i>Newsletters</div>
               </a>
-              <a href="/manage/leads/type/test-drive" class="item">
+              <a href="/cms/leads/type/test-drive" class="item">
                 <div><i class="envelope outline icon"></i>Test Drive</div>
               </a>
-              <a href="/manage/leads/type/services" class="item">
+              <a href="/cms/leads/type/services" class="item">
                 <div><i class="envelope outline icon"></i>Services</div>
               </a>
-              <a href="/manage/leads/type/quotations" class="item">
+              <a href="/cms/leads/type/quotations" class="item">
                 <div><i class="envelope outline icon"></i>Quotations</div>
               </a>
-              <a href="/manage/leads/type/finance-quote" class="item">
+              <a href="/cms/leads/type/finance-quote" class="item">
                 <div><i class="envelope outline icon"></i>Finance Quotations</div>
               </a>
-              <a href="/manage/leads/type/accessory-quotations" class="item">
+              <a href="/cms/leads/type/accessory-quotations" class="item">
                 <div><i class="envelope outline icon"></i>Quotations (Accessories)</div>
               </a>
-              <a href="/manage/leads/type/geniune-part" class="item">
+              <a href="/cms/leads/type/geniune-part" class="item">
                 <div><i class="envelope outline icon"></i>Geniune Part</div>
               </a>
-              <a href="/manage/leads/type/commitments" class="item">
+              <a href="/cms/leads/type/commitments" class="item">
                 <div><i class="envelope outline icon"></i>Commitments</div>
               </a>
-              <a href="/manage/leads/type/contact-us" class="item">
+              <a href="/cms/leads/type/contact-us" class="item">
                 <div><i class="envelope outline icon"></i>Contact</div>
               </a>
             </div>
           </div>
 
-        <a href="/manage/vehicles" class="item">
+        <a href="/cms/vehicles" class="item">
             <div><i class="car icon"></i>Vehicles</div>
         </a>
 
@@ -72,33 +72,35 @@
           </div>
         </a>
 
-        <a href="/manage/menus?menu=1" class="item">
+        <a href="/cms/menus?menu=1" class="item">
           <div>
             <i class="icon wpforms"></i>
             Menus
           </div>
         </a>
 
-        <a href="/manage/media" class="item">
+        <a href="/cms/media" class="item">
           <div>
             <i class="icon wpforms"></i>
             Media
           </div>
         </a>
 
-        <div class="item">
-            <div class="header">
-              Administration
+        <div class="hidden">
+            <div class="item">
+                <div class="header">
+                  Administration
+                </div>
+                <div class="menu">
+                  <a class="item">
+                    <div><i class="cogs icon"></i>Settings</div>
+                  </a>
+                  <a class="item">
+                    <div><i class="users icon"></i>Users</div>
+                  </a>
+                </div>
             </div>
-            <div class="menu">
-              <a class="item">
-                <div><i class="cogs icon"></i>Settings</div>
-              </a>
-              <a class="item">
-                <div><i class="users icon"></i>Users</div>
-              </a>
-            </div>
-          </div>
+        </div>
 
         <div class="hidden">
           <form action="#">

@@ -11,14 +11,14 @@
 </div>
 
 {{-- <div class="flex items-center justify-between">
-    <a href="/manage/" class="ui header">Add New</a>
+    <a href="/cms/" class="ui header">Add New</a>
 </div> --}}
 <div class="ui secondary menu">
     <span class="item fitted">
         <h3 class="ui header">Pages</h3>
     </span>
     <div class="right menu fitted">
-      <a href="/manage/pages/create" class="ui button item">
+      <a href="/cms/pages/create" class="ui button item">
         Add New
       </a>
     </div>

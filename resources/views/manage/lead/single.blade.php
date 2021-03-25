@@ -11,7 +11,7 @@
 </div>
 
 {{-- <div class="flex items-center justify-between">
-    <a href="/manage/" class="ui header">Add New</a>
+    <a href="/cms/" class="ui header">Add New</a>
 </div> --}}
 <div class="ui secondary menu">
     <span class="item fitted">
@@ -40,7 +40,7 @@
                 <span class="font-bold">Fist Name</span>
             </td>
             <td data-label="Job">
-                <a href="/manage/users/{{$lead->user->id}}">{{$lead->first_name}} <i class="icon user"></i> </a>
+                <a href="/cms/users/{{$lead->user->id}}">{{$lead->first_name}} <i class="icon user"></i> </a>
             </td>
         </tr>
         @endif
@@ -204,7 +204,7 @@
 
         </tbody>
       </table>
-      <a href="/manage/leads/type/{{$lead->type}}" class="ui button">Go Back &nbsp; <i class="icon hand point left"></i></a>
+      <a href="/cms/leads/type/{{$lead->type}}" class="ui button">Go Back &nbsp; <i class="icon hand point left"></i></a>
   </div>
 
 

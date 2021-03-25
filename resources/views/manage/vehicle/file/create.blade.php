@@ -6,15 +6,15 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <a href="/manage/vehicles" class="section">Vehicles</a>
+        <a href="/cms/vehicles" class="section">Vehicles</a>
         <div class="divider"> / </div>
-        <a href="/manage/vehicles/{{$vehicle->id}}" class="section">{{$vehicle->id}}</a>
+        <a href="/cms/vehicles/{{$vehicle->id}}" class="section">{{$vehicle->id}}</a>
         <div class="divider"> / </div>
         <div class="active section">file upload</div>
     </div>
 </div>
 
-<form class="ui form" action="/manage/vehicles/{{$vehicle->id}}/files" method="post" enctype="multipart/form-data">
+<form class="ui form" action="/cms/vehicles/{{$vehicle->id}}/files" method="post" enctype="multipart/form-data">
     @csrf
     <h3 class="ui header">Add New File to {{$vehicle->title}}</h3>
     <div class="ui divider"></div>

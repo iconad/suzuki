@@ -6,9 +6,9 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <a href="/manage/vehicles" class="section">vehicles</a>
+        <a href="/cms/vehicles" class="section">vehicles</a>
         <div class="divider"> / </div>
-        <a href="/manage/vehicles/{{$vehicle->id}}" class="section">{{$vehicle->id}}</a>
+        <a href="/cms/vehicles/{{$vehicle->id}}" class="section">{{$vehicle->id}}</a>
         <div class="divider"> / </div>
         <div class="active section">files</div>
     </div>
@@ -19,7 +19,7 @@
         <h3 class="ui header">Vehicles</h3>
     </span>
     <div class="right menu fitted">
-      <a href="/manage/vehicles/{{$vehicle->id}}/files/create" class="ui button item">
+      <a href="/cms/vehicles/{{$vehicle->id}}/files/create" class="ui button item">
         Add New
       </a>
     </div>
@@ -45,7 +45,7 @@
             @foreach ($files as $file)
             <tr>
                 <td>
-                    <a href="/manage/vehicles/{{$vehicle->id}}/files/{{$file->id}}"> {{$file->title}} </a>
+                    <a href="/cms/vehicles/{{$vehicle->id}}/files/{{$file->id}}"> {{$file->title}} </a>
                 </td>
                 <td> {{$file->year}} </td>
                 <td class="capitalize"> {{$file->type}} </td>

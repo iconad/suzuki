@@ -18,7 +18,7 @@
         <h3 class="ui header">Branches</h3>
     </span>
     <div class="right menu fitted">
-      <a href="/manage/branches/create" class="ui button item">
+      <a href="/cms/branches/create" class="ui button item">
         Add New
       </a>
     </div>

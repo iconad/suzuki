@@ -6,7 +6,7 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <a href="/manage/accessory-categories" class="section">Categories</a>
+        <a href="/cms/accessory-categories" class="section">Categories</a>
         <div class="divider"> / </div>
         <div class="active section">Create</div>
     </div>

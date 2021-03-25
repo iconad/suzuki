@@ -6,18 +6,18 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <a href="/manage/vehicles" class="section">Vehicles</a>
+        <a href="/cms/vehicles" class="section">Vehicles</a>
         <div class="divider"> / </div>
-        <a href="/manage/vehicles/{{$vehicle->id}}" class="section">{{$vehicle->id}}</a>
+        <a href="/cms/vehicles/{{$vehicle->id}}" class="section">{{$vehicle->id}}</a>
         <div class="divider"> / </div>
-        <a href="/manage/vehicles/{{$vehicle->id}}/files" class="section">files</a>
+        <a href="/cms/vehicles/{{$vehicle->id}}/files" class="section">files</a>
         <div class="divider"> / </div>
         <div class="active section">{{$file->id}}</div>
     </div>
 </div>
 
     <div class="relative">
-        <form class="ui form" action="/manage/vehicles/{{$vehicle->id}}/files/{{$file->id}}" method="post" enctype="multipart/form-data">
+        <form class="ui form" action="/cms/vehicles/{{$vehicle->id}}/files/{{$file->id}}" method="post" enctype="multipart/form-data">
             {{method_field('PUT')}}
             @csrf
             <h3 class="ui header">Add New File to {{$vehicle->title}}</h3>
@@ -78,7 +78,7 @@
             <button type="submit" class="ui button" tabindex="0">Submit</button>
         </form>
         <div class="absolute bottom-0 right-0">
-            <form method="post" action="/manage/vehicles/{{$vehicle->id}}/files/{{$file->id}}">
+            <form method="post" action="/cms/vehicles/{{$vehicle->id}}/files/{{$file->id}}">
                 @csrf
                 <input type="hidden" name="_method" value="DELETE">
                 <button type="submit" class="ui button red mt-5" onclick="return confirm('Are you sure?')">Delete</button>

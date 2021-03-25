@@ -6,7 +6,7 @@
         <div class="ui breadcrumb">
             <a class="section">Dashboard</a>
             <div class="divider"> / </div>
-            <a href="/manage/vehicles/" class="section">Vehicles</a>
+            <a href="/cms/vehicles/" class="section">Vehicles</a>
             <div class="divider"> / </div>
             <div class="active section">{{$vehicle->id}}</div>
         </div>
@@ -109,7 +109,7 @@
             <button type="submit" class="ui button" tabindex="0">Submit</button>
         </form>
         <div class="absolute bottom-0 right-0">
-            <form method="post" action="/manage/vehicles/{{$vehicle->id}}">
+            <form method="post" action="/cms/vehicles/{{$vehicle->id}}">
                 @csrf
                 <input type="hidden" name="_method" value="DELETE">
                 <button type="submit" class="ui button red mt-5" onclick="return confirm('Are you sure?')">Delete</button>
@@ -133,7 +133,7 @@
         <div class="item">
           <div class="content">
             <h4 class="ui header">
-                <a href="/manage/vehicles/{{$vehicle->id}}/files" class="header">{{$vehicle->title}}'s files</a>
+                <a href="/cms/vehicles/{{$vehicle->id}}/files" class="header">{{$vehicle->title}}'s files</a>
             </h4>
             <div class="description">Total files {{count($vehicle->files)}} </div>
           </div>
@@ -142,7 +142,7 @@
         <div class="item">
             <div class="content">
               <h4 class="ui header">
-                  <a href="/manage/vehicles/{{$vehicle->id}}/accessories" class="header">{{$vehicle->title}}'s Accessory</a>
+                  <a href="/cms/vehicles/{{$vehicle->id}}/accessories" class="header">{{$vehicle->title}}'s Accessory</a>
               </h4>
               <div class="description">Total files {{count($vehicle->accessories)}} </div>
             </div>
@@ -156,7 +156,7 @@
             <h3 class="ui header">{{$vehicle->title}}' files</h3>
         </span>
         <div class="right menu fitted">
-            <a href="/manage/vehicles/{{$vehicle->id}}/files/create" class="ui button item">
+            <a href="/cms/vehicles/{{$vehicle->id}}/files/create" class="ui button item">
             Add New File
             </a>
         </div>
@@ -182,7 +182,7 @@
                 @foreach ($vehicle->files as $file)
                 <tr>
                     <td>
-                        <a href="/manage/vehicles/{{$vehicle->id}}/files/{{$file->id}}"> {{$file->title}} </a>
+                        <a href="/cms/vehicles/{{$vehicle->id}}/files/{{$file->id}}"> {{$file->title}} </a>
                     </td>
                     <td> {{$file->year}} </td>
                     <td> {{$file->type}} </td>
@@ -210,7 +210,7 @@
                 <h3 class="ui header">{{$vehicle->title}}' Accessories</h3>
             </span>
             <div class="right menu fitted">
-                <a href="/manage/vehicles/{{$vehicle->id}}/accessories/create" class="ui button item">
+                <a href="/cms/vehicles/{{$vehicle->id}}/accessories/create" class="ui button item">
                 Add New Accessory
                 </a>
             </div>
@@ -234,7 +234,7 @@
                 @foreach ($vehicle->files as $file)
                 <tr>
                     <td>
-                        <a href="/manage/vehicles/{{$vehicle->id}}/files/{{$file->id}}"> {{$file->title}} </a>
+                        <a href="/cms/vehicles/{{$vehicle->id}}/files/{{$file->id}}"> {{$file->title}} </a>
                     </td>
                     <td> {{$file->year}} </td>
                     <td> {{$file->type}} </td>

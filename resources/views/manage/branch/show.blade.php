@@ -71,7 +71,7 @@
                     @if ($branch->showroom_a->count() != 0)
                     <tr>
                         <td>
-                            <a href="/manage/branches/{{$branch->id}}/offices/{{$branch->showroom_a[0]->id}}?type=showroom">{{$branch->showroom_a[0]->title}}</a>
+                            <a href="/cms/branches/{{$branch->id}}/offices/{{$branch->showroom_a[0]->id}}?type=showroom">{{$branch->showroom_a[0]->title}}</a>
                         </td>
                         <td class="capitalize">{{ $branch->showroom_a[0]->type}}</td>
                         <td>{{ $branch->showroom_a[0]->email ? $branch->showroom_a[0]->email : "---" }}</td>
@@ -79,7 +79,7 @@
                         <td>{{ $branch->showroom_a[0]->map ? "Yes" : "No" }}</td>
                         <td>
                             <div class="ui basic mini buttons">
-                                <a href="/manage/branches/{{$branch->id}}/offices/{{$branch->showroom_a[0]->id}}?type=showroom" class="ui button">Edit</a>
+                                <a href="/cms/branches/{{$branch->id}}/offices/{{$branch->showroom_a[0]->id}}?type=showroom" class="ui button">Edit</a>
                             </div>
                         </td>
                     </tr>
@@ -89,7 +89,7 @@
                             <button class="ui basic mini button">
                                 <i class="plus icon"></i>
                                 <h4 class="ui header inline">
-                                    <a href="/manage/branches/{{ $branch->id }}/offices/create?type=showroom">Add Showroom</a>
+                                    <a href="/cms/branches/{{ $branch->id }}/offices/create?type=showroom">Add Showroom</a>
                                 </h4>
                             </button>
                         </td>
@@ -98,7 +98,7 @@
                     @if ($branch->services_a->count() != 0)
                     <tr>
                         <td>
-                            <a href="/manage/branches/{{$branch->id}}/offices/{{$branch->services_a[0]->id}}">{{$branch->services_a[0]->title}}</a>
+                            <a href="/cms/branches/{{$branch->id}}/offices/{{$branch->services_a[0]->id}}">{{$branch->services_a[0]->title}}</a>
                         </td>
                         <td class="capitalize">{{ $branch->services_a[0]->type}}</td>
                         <td>{{ $branch->services_a[0]->email ? $branch->services_a[0]->email : "---" }}</td>
@@ -106,7 +106,7 @@
                         <td>{{ $branch->services_a[0]->map ? "Yes" : "No" }}</td>
                         <td>
                             <div class="ui basic mini buttons">
-                                <a href="/manage/branches/{{$branch->id}}/offices/{{$branch->services_a[0]->id}}?type=services" class="ui button">Edit</a>
+                                <a href="/cms/branches/{{$branch->id}}/offices/{{$branch->services_a[0]->id}}?type=services" class="ui button">Edit</a>
                             </div>
                         </td>
                     </tr>
@@ -116,7 +116,7 @@
                             <button class="ui basic mini button">
                                 <i class="plus icon"></i>
                                 <h4 class="ui header inline">
-                                    <a href="/manage/branches/{{ $branch->id }}/offices/create?type=services">Add Services</a>
+                                    <a href="/cms/branches/{{ $branch->id }}/offices/create?type=services">Add Services</a>
                                 </h4>
                             </button>
                         </td>
@@ -125,7 +125,7 @@
                     @if ($branch->parts_a->count() != 0)
                     <tr>
                         <td>
-                            <a href="/manage/branches/{{$branch->id}}/offices/{{$branch->parts_a[0]->id}}?type=showroom">{{$branch->parts_a[0]->title}}</a>
+                            <a href="/cms/branches/{{$branch->id}}/offices/{{$branch->parts_a[0]->id}}?type=showroom">{{$branch->parts_a[0]->title}}</a>
                         </td>
                         <td class="capitalize">{{ $branch->parts_a[0]->type}}</td>
                         <td>{{ $branch->parts_a[0]->email ? $branch->parts_a[0]->email : "---" }}</td>
@@ -133,7 +133,7 @@
                         <td>{{ $branch->parts_a[0]->map ? "Yes" : "No" }}</td>
                         <td>
                             <div class="ui basic mini buttons">
-                                <a href="/manage/branches/{{$branch->id}}/offices/{{$branch->parts_a[0]->id}}?type=parts" class="ui button">Edit</a>
+                                <a href="/cms/branches/{{$branch->id}}/offices/{{$branch->parts_a[0]->id}}?type=parts" class="ui button">Edit</a>
                             </div>
                         </td>
                     </tr>
@@ -143,7 +143,7 @@
                             <button class="ui basic mini button">
                                 <i class="plus icon"></i>
                                 <h4 class="ui header inline">
-                                    <a href="/manage/branches/{{ $branch->id }}/offices/create?type=parts">Add Parts</a>
+                                    <a href="/cms/branches/{{ $branch->id }}/offices/create?type=parts">Add Parts</a>
                                 </h4>
                             </button>
                         </td>

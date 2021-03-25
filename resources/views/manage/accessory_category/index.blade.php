@@ -15,7 +15,7 @@
         <h3 class="ui header"> Accessory Categories</h3>
     </span>
     <div class="right menu fitted">
-      <a href="/manage/accessory-categories/create" class="ui button item">
+      <a href="/cms/accessory-categories/create" class="ui button item">
         Add New
       </a>
     </div>
@@ -39,7 +39,7 @@
             @foreach ($categories as $category)
             <tr>
                 <td>
-                    <a href="/manage/accessory-categories/{{$category->id}}"> {{$category->title}} </a>
+                    <a href="/cms/accessory-categories/{{$category->id}}"> {{$category->title}} </a>
                 </td>
                 <td>
                     @if ($category->status == 1)
@@ -50,7 +50,7 @@
                 </td>
                 <td>
                     <div class="ui basic mini buttons">
-                        <a href="/manage/accessory-categories/{{$category->id}}/" class="ui button">Edit</a>
+                        <a href="/cms/accessory-categories/{{$category->id}}/" class="ui button">Edit</a>
                     </div>
                 </td>
             </tr>

@@ -13,7 +13,7 @@
 </div>
 
 <div class="relative">
-    <form class="ui form" action="/manage/branches/{{$branch->id}}/offices/{{$office->id}}" method="post" >
+    <form class="ui form" action="/cms/branches/{{$branch->id}}/offices/{{$office->id}}" method="post" >
         {{method_field('PUT')}}
         @csrf
         <h3 class="ui header"> {{$branch->title}}'s {{$office->type}}</h3>

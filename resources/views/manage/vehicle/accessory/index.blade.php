@@ -6,9 +6,9 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <a href="/manage/vehicles" class="section">vehicles</a>
+        <a href="/cms/vehicles" class="section">vehicles</a>
         <div class="divider"> / </div>
-        <a href="/manage/vehicles/{{$vehicle->id}}" class="section">{{$vehicle->id}}</a>
+        <a href="/cms/vehicles/{{$vehicle->id}}" class="section">{{$vehicle->id}}</a>
         <div class="divider"> / </div>
         <div class="active section">Accessories</div>
     </div>
@@ -19,7 +19,7 @@
         <h3 class="ui header"> {{$vehicle->title}} Accessories</h3>
     </span>
     <div class="right menu fitted">
-      <a href="/manage/vehicles/{{$vehicle->id}}/accessories/create" class="ui button item">
+      <a href="/cms/vehicles/{{$vehicle->id}}/accessories/create" class="ui button item">
         Add New
       </a>
     </div>
@@ -49,7 +49,7 @@
             @foreach ($accessories as $accessory)
             <tr>
                 <td>
-                    <a href="/manage/vehicles/{{$accessory->id}}"> {{$accessory->title}} </a>
+                    <a href="/cms/vehicles/{{$accessory->id}}"> {{$accessory->title}} </a>
                 </td>
                 <td> {{$accessory->title}} </td>
                 <td> {{$accessory->weight}} </td>
@@ -68,7 +68,7 @@
                 </td>
                 <td>
                     <div class="ui basic mini buttons">
-                        <a href="/manage/vehicles/{{$vehicle->id}}/accessories/{{$accessory->id}}" class="ui button">Edit</a>
+                        <a href="/cms/vehicles/{{$vehicle->id}}/accessories/{{$accessory->id}}" class="ui button">Edit</a>
                     </div>
                 </td>
             </tr>

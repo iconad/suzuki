@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<form class="ui form" action="/manage/branches/{{$branch->id}}/offices" method="post" >
+<form class="ui form" action="/cms/branches/{{$branch->id}}/offices" method="post" >
     @csrf
     <h3 class="ui header">Adding <span class="">{{ app('request')->input('type') }}</span> location to {{$branch->title}} branch</h3>
     <div class="ui divider"></div>

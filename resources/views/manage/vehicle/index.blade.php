@@ -15,7 +15,7 @@
         <h3 class="ui header">Vehicles</h3>
     </span>
     <div class="right menu fitted">
-      <a href="/manage/vehicles/create" class="ui button item">
+      <a href="/cms/vehicles/create" class="ui button item">
         Add New
       </a>
     </div>
@@ -40,7 +40,7 @@
             @foreach ($vehicles as $vehicle)
             <tr>
                 <td>
-                    <a href="/manage/vehicles/{{$vehicle->id}}"> {{$vehicle->title}} </a>
+                    <a href="/cms/vehicles/{{$vehicle->id}}"> {{$vehicle->title}} </a>
                 </td>
                 <td> {{$vehicle->price}} </td>
                 <td>
@@ -52,7 +52,7 @@
                 </td>
                 <td>
                     <div class="ui basic mini buttons">
-                        <a href="/manage/vehicles/{{$vehicle->id}}" class="ui button">Edit</a>
+                        <a href="/cms/vehicles/{{$vehicle->id}}" class="ui button">Edit</a>
                     </div>
                 </td>
             </tr>

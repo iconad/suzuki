@@ -51,7 +51,7 @@ Route::get('/locations/{location}/parts/', 'PageController@partsLocation');
 Auth::routes();
 Route::get('/logout', 'HomeController@logout')->name('logout');
 
-Route::group(['prefix' => 'manage'], function() {
+Route::group(['prefix' => 'cms'], function() {
 
     Route::group(['middleware' => ['auth','permission:browse admin']], function () {
         Route::get('/dashboard', 'ManagePages@dashboard')->name('manage.dashboard');

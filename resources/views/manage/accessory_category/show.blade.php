@@ -6,7 +6,7 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <a href="/manage/accessory-categories" class="section">Categories</a>
+        <a href="/cms/accessory-categories" class="section">Categories</a>
         <div class="divider"> / </div>
         <div class="active section">{{$accessoryCategory->id}}</div>
     </div>
@@ -45,7 +45,7 @@
         <button type="submit" class="ui button" tabindex="0">Submit</button>
     </form>
     <div class="absolute bottom-0 right-0">
-        <form method="post" action="/manage/accessory-categories/{{$accessoryCategory->id}}">
+        <form method="post" action="/cms/accessory-categories/{{$accessoryCategory->id}}">
             @csrf
             <input type="hidden" name="_method" value="DELETE">
             <button type="submit" class="ui button red mt-5" onclick="return confirm('Are you sure?')">Delete</button>
