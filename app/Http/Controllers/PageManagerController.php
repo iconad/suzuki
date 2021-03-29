@@ -60,7 +60,7 @@ class PageManagerController extends Controller
 
         if ($page) {
             $request->session()->flash('green', 'Page was successful created!');
-            return redirect("/manage/pages/$page->id");
+            return redirect("/cms/pages/$page->id");
         }
     }
 

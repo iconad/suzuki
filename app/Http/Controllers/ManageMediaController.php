@@ -38,10 +38,10 @@ class ManageMediaController extends Controller
 
         if ($done) {
             $request->session()->flash('green', 'Media was successful added!');
-            return redirect("/manage/media");
+            return redirect("/cms/media");
         }else{
             $request->session()->flash('red', 'Something went wrong! Please try again');
-            return redirect("/manage/media");
+            return redirect("/cms/media");
         }
 
     }

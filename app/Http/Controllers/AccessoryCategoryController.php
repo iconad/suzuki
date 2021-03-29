@@ -48,7 +48,7 @@ class AccessoryCategoryController extends Controller
 
         if ($category) {
             $request->session()->flash('green', 'Accessory Category was successful added!');
-            return redirect("/manage/accessory-categories/$category->id");
+            return redirect("/cms/accessory-categories/$category->id");
         }
     }
 

@@ -81,7 +81,7 @@ class AccessoryController extends Controller
 
         if ($accessory) {
             $request->session()->flash('green', 'Accessory was successful added!');
-            return redirect("/manage/vehicles/$vehicle->id/accessories/$accessory->id");
+            return redirect("/cms/vehicles/$vehicle->id/accessories/$accessory->id");
         }
     }
 
@@ -154,7 +154,7 @@ class AccessoryController extends Controller
 
         if ($accessory->save()) {
             $request->session()->flash('green', 'Accessory successful updated!');
-            return redirect("/manage/vehicles/$vehicle->id/accessories/$accessory->id");
+            return redirect("/cms/vehicles/$vehicle->id/accessories/$accessory->id");
         }
 
     }
@@ -169,7 +169,7 @@ class AccessoryController extends Controller
     {
         if($accessory->delete()){
             $request->session()->flash('green', 'Accessory successful deleted!');
-            return redirect("/manage/vehicles/$vehicle->id/accessories");
+            return redirect("/cms/vehicles/$vehicle->id/accessories");
         }else {
             $request->session()->flash('red', 'Something went wrong, Please try again!');
             return back();

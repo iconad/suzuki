@@ -76,7 +76,7 @@ class VehicleController extends Controller
 
         if ($vehicle) {
             $request->session()->flash('green', 'Vehicle was successful added!');
-            return redirect("/manage/vehicles/$vehicle->id");
+            return redirect("/cms/vehicles/$vehicle->id");
         }
     }
 
@@ -194,7 +194,7 @@ class VehicleController extends Controller
     {
         if($vehicle->delete()){
             $request->session()->flash('green', 'vehicle successful deleted!');
-            return redirect("/manage/vehicles/");
+            return redirect("/cms/vehicles/");
         }else {
             $request->session()->flash('red', 'Something went wrong, Please try again!');
             return back();

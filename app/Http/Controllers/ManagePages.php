@@ -30,7 +30,7 @@ class ManagePages extends Controller
         return view('manage.lead.index', compact('leads', 'type'));
 
         }else{
-            return redirect('/manage/dashboard');
+            return redirect('/cms/dashboard');
         }
 
     }

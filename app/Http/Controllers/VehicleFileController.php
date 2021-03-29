@@ -65,7 +65,7 @@ class VehicleFileController extends Controller
 
         if ($file) {
             $request->session()->flash('green', 'File was successful added!');
-            return redirect("/manage/vehicles/$vehicle->id/files/$file->id");
+            return redirect("/cms/vehicles/$vehicle->id/files/$file->id");
         }
     }
 
@@ -125,7 +125,7 @@ class VehicleFileController extends Controller
 
         if ($file->save()) {
             $request->session()->flash('green', 'File successful updated!');
-            return redirect("/manage/vehicles/$vehicle->id/files/$file->id");
+            return redirect("/cms/vehicles/$vehicle->id/files/$file->id");
         }
 
     }
@@ -143,7 +143,7 @@ class VehicleFileController extends Controller
 
         if($file->delete()){
             $request->session()->flash('green', 'File successful deleted!');
-            return redirect("/manage/vehicles/$vehicle->id/files");
+            return redirect("/cms/vehicles/$vehicle->id/files");
         }else {
             $request->session()->flash('red', 'Something went wrong, Please try again!');
             return back();
