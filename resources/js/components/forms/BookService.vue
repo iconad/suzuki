@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="!isFormSend">
-            <div class="text-xl md:text-3xl suzuki-bold text-gray-900 mb-5"> Book Service</div>
+            <div class="mb-5 text-3xl suzuki-bold uppercase text-theme-skyblue"> Book Service</div>
             <ValidationObserver v-slot="{ invalid,passes }">
                 <form @submit.prevent="passes(submitForm)">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10">

@@ -69,27 +69,91 @@
             <div class="content text-lg">
                 <h2 class="text-3xl suzuki-bold uppercase text-theme-skyblue">MISSION</h2>
                 <p>
-                    Commitment to become one of the most trusted car dealerships in the automotive industry by building and sustaining a genuine passion for offering excellent value for money, products and services.To create a customer-focused and integrated network of automotive sales and service facilities that are easily accessible through strategic locations.
+                    Al Rostamani Group’s mission is to be recognized as a leading successful regional conglomerate with diverse commercial interests and core competencies in select sectors.
                 </p>
-
-                <ul class="list-none">
-                    <li>To develop high integrity relationships through all communications with customers and employees.</li>
-                    <li>To become a benchmark for excellence in every aspect of our business. We are committed to delivering exceptional service and value.</li>
-                    <li>To promote personal and professional growth and foster teamwork among the staff.</li>
-                    <li>Our commitment to this mission makes our company a place where people want to work and do business.</li>
-                </ul>
-
             </div>
 
             <div class="content text-lg">
                 <h2 class="text-3xl suzuki-bold uppercase text-theme-skyblue">VISION</h2>
                 <p>
-                    Our vision is to become one of the top 5 Japanese car dealers in the UAE, through setting higher standards in operational excellence, market penetration, customer satisfaction, territorial coverage and community commitment.
+                    Al Rostamani Group’s vision is to be regarded as a responsible, reliable and respectable business conglomerate and to be the partner of choice for international and regional corporations
                 </p>
             </div>
 
+            <div class="content text-lg">
+                <h2 class="text-3xl suzuki-bold uppercase text-theme-skyblue">COMMITMENTS</h2>
+                <p>
+                    True to the company Mission & Vision Values Al Rostamani Trading Company LLC is committed to provide a much focused attitude to deliver the exceptional Customer Service Experience through its network of 6 state of the art Suzuki Service and Parts outlets across the emirates of UAE.
+                </p>
+                <p>
+                    A variety of Services are obtainable to give your Suzuki the attention it deserves to keep you on the move always without facing any unforeseen breakdowns.
+                </p>
+                <p>
+                    You can call us, visit our website or our Suzuki Service and parts locations to know more about the services that we offer.
+                </p>
+                <p>
+                    Furthermore, Al Rostamani Trading Company LLC – Suzuki is committed to provide the below values to meet the high standards expected by Suzuki Owners.
+                </p>
+
+                <ul>
+                    <li class="font-bold">Quality Service
+                        <ul class="font-normal">
+                            <li>Suzuki Trained Professional Technician</li>
+                            <li>Suzuki Genuine Parts</li>
+                            <li>Suzuki prescribed Tools & Equipment</li>
+                            <li>Fix it Right First Time (FRFT)</li>
+                        </ul>
+                    </li>
+                    <li class="font-bold">Deliver as Promised
+                        <ul class="font-normal">
+                            <li>Same Day Delivery Promise for Periodic Maintenance</li>
+                            <li>Express Maintenance with Appointments </li>
+                        </ul>
+                    </li>
+                    <li class="font-bold">Highly Transparent & Ethical in business dealings
+                        <ul class="font-normal">
+                            <li>Competitive Service Charges </li>
+                            <li>Explanation of the Job or Invoice for all services and repairs carried out on all visits</li>
+                        </ul>
+                    </li>
+                    <li class="font-bold">Create WOW Experience
+                        <ul class="font-normal">
+                            <li>Active Delivery </li>
+                            <li>Complimentary Wash on All Periodic Maintenance Service Visit</li>
+                            <li>Service Reminders </li>
+                            <li>Free End of Warranty Inspection </li>
+                        </ul>
+                    </li>
+                    <li class="font-bold">Convenience to the Core
+                        <ul class="font-normal">
+                            <li>Drop off facility to the nearest Metro/Taxi/Bus stations</li>
+                            <li>Fully Equipped Customer Waiting Lounge </li>
+                            <li>Same Day delivery & Express Service Facility with appointments</li>
+                            <li>Fleet Owners TAT (Turnaround Time) Conscious Service Program</li>
+                        </ul>
+                    </li>
+                    <li class="font-bold">Value for Money
+                        <ul class="font-normal">
+                            <li>Hassle Free Service Contracts with easy of Payment</li>
+                            <li>Cars maintained Periodically as prescribed by Suzuki gains enhanced resale value</li>
+                            <li>Exceptional Customer Service Experience</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            @php
+                if(isset($_GET['register']) && $_GET['register'] == 'yes'){
+                    $register = 'yes';
+                }else{
+                    $register = 'no';
+                }
+            @endphp
+
+
             <div>
-                <our-commitment></our-commitment>
+                <our-commitment register="{!! $register !!}"></our-commitment>
             </div>
 
 

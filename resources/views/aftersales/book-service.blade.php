@@ -27,6 +27,19 @@
                 <p>
                     You’ll be able to protect against the cost of future repair and replacement parts with our Extended Warranty, which is designed to give you the flexibility you need. So, for example, you can choose from three levels of cover, a choice of excess level and the option to pay as you go. And, if you decide an Extended Warranty isn’t for you – you’re free to cancel your policy at any time.
                 </p>
+                <p>
+                    Help us making your journey and Suzuki Service Experience a memorable one.
+                </p>
+                <p>
+                    Book an Appointment for all your servicing needs, including Express maintenance & get
+                </p>
+                <ul>
+                    <li> Priority Privileged Services  </li>
+                    <li> Extra 5% discount on Published Menu Pricing if booked between Monday to Wednesday for Periodic Maintenance Services </li>
+                    <li> Saturday Appointments (Cut off time Wednesday 5 pm) </li>
+                    <li> Free End of Warranty Inspection </li>
+                    <li> Recall / Product Update Check done in Advance </li>
+                </ul>
             </div>
 
             <div>

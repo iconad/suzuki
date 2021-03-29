@@ -1,9 +1,14 @@
 <template>
     <div>
-        <button @click="showModal" class="red-button text-xl">Click To Learn More</button>
+        <button id="ClickHerToLearMore" @click="showModal" class="red-button text-xl">Click To Learn More</button>
         <modal adaptive width="1100" height="auto" scrollable name="commitment-modal" class="bg-opacity-25 bg-black relative">
         <div class="p-10">
-            <div class="text-xl md:text-2xl suzuki-bold text-gray-900 mb-5"> Get in Touch to Learn More </div>
+            <div class="text-xl md:text-2xl suzuki-bold text-gray-900"> Welcome to the Suzuki Family </div>
+            <div class="content text-lg -mt-3">
+                <p>
+                    Please register with your vehicle and personal details to join us on an exciting journey of experiencing an exceptional Suzuki Service.
+                </p>
+            </div>
             <ValidationObserver v-slot="{ invalid,passes }">
                 <form @submit.prevent="passes(submitForm)">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -155,6 +160,7 @@
     });
 
     export default {
+        props:['register'],
         components: {
             Multiselect,
             ValidationProvider,
@@ -168,6 +174,7 @@
                 checkError: 2,
                 isLoading: false,
                 isFormSend: false,
+                hash: null,
                 form: {
                     first_name: null,
                     last_name: null,
@@ -181,6 +188,13 @@
                 },
                 emirates: ["Abu Dhabi", "Dubai", "Sharjah", "Ajman", "Ras al khaimah", "Fujairah", "Umm al-Qaiwain"],
                 hears: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"],
+            }
+        },
+        mounted() {
+            if(this.register == 'yes') {
+                 this.$modal.show('commitment-modal');
+            }else{
+                 this.$modal.hide('commitment-modal');
             }
         },
         methods: {
