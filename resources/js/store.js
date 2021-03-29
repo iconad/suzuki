@@ -13,7 +13,7 @@ export const store = new Vuex.Store({
 
     state: {
         publicUrl: "https://gypromo.com/storage",
-        baseUrl: "https://gypromo.com/",
+        baseUrl: "https://gypromo.com",
         isModalOne: false,
         isBroucherModal: false,
         isSpecSheetModal: false,
