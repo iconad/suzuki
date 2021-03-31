@@ -16,6 +16,7 @@ class PageManager extends Model implements HasMedia
     use HasFactory, Sluggable, InteractsWithMedia;
 
     public $fillable = [
+        'id',
         'title',
         'body',
         'status',

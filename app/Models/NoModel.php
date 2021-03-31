@@ -15,6 +15,6 @@ class NoModel extends Model implements HasMedia
     use HasFactory, InteractsWithMedia;
 
     public $fillable = [
-        'title',
+        'id','title',
     ];
 }
