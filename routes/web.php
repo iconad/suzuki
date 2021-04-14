@@ -53,7 +53,7 @@ Route::get('/logout', 'HomeController@logout')->name('logout');
 
 Route::group(['prefix' => 'cms'], function() {
 
-    Route::group(['middleware' => ['auth','permission:browse admin']], function () {
+    Route::group(['middleware' => ['auth','role:admin']], function () {
         Route::get('/dashboard', 'ManagePages@dashboard')->name('manage.dashboard');
         Route::post('/media/store', 'ManageMediaController@store');
         Route::get('/media', 'ManageMediaController@getAllMedia')->name('media.getallmedia');
