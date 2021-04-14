@@ -564,7 +564,6 @@ class LeadController extends Controller
 
         // return $request;
 
-
         $lead = Lead::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -578,8 +577,11 @@ class LeadController extends Controller
             'user_id' => $user->id,
             'model' => $request->model,
             'year' => $request->year,
-            'type' => 'book-service',
+            'type' => 'services',
         ]);
+
+
+        return $lead->id;
 
         $email =  $request->email;
 
