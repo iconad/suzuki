@@ -49,23 +49,23 @@ class Vehicle extends Model implements HasMedia
     }
 
     public function files() {
-        return $this->hasMany(VehicleFile::class)->where('status', 1);
+        return $this->hasMany(vehicleFile::class)->where('status', 1);
     }
 
     public function accessory_brochure() {
-        return $this->hasMany(VehicleFile::class)->where('type', 'accessory brochure')->where('status', 1)->with('media');
+        return $this->hasMany(vehicleFile::class)->where('type', 'accessory brochure')->where('status', 1)->with('media');
     }
 
     public function specfile() {
-        return $this->hasMany(VehicleFile::class)->where('type', 'specs')->where('status', 1);
+        return $this->hasMany(vehicleFile::class)->where('type', 'specs')->where('status', 1);
     }
 
     public function brochure() {
-        return $this->hasMany(VehicleFile::class)->where('type', 'brochure')->where('status', 1);
+        return $this->hasMany(vehicleFile::class)->where('type', 'brochure')->where('status', 1);
     }
 
     public function specsheet() {
-        return $this->hasMany(VehicleFile::class)->where('type', 'specs')->where('status', 1);
+        return $this->hasMany(vehicleFile::class)->where('type', 'specs')->where('status', 1);
     }
 
 }
