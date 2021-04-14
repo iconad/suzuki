@@ -580,9 +580,6 @@ class LeadController extends Controller
             'type' => 'services',
         ]);
 
-
-        return $lead->id;
-
         $email =  $request->email;
 
         $data = array(
