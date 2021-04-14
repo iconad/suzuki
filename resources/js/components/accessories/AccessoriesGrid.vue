@@ -27,12 +27,11 @@
 
        </div>
 
-
-        <div v-if="accessories.length == 0" class="flex items-center justify-center h-32 w-full mt-5">
+        <div v-if="!$apollo.queries.accessories.loading && accessories.length == 0" class="flex items-center justify-center h-32 w-full mt-5">
             No accessories found!
         </div>
 
-        <div v-if="accessories.length != 0" class="flex flex-wrap md:flex-no-wrap items-center justify-end w-full mt-5">
+        <div v-if="!$apollo.queries.accessories.loading && accessories.length != 0" class="flex flex-wrap md:flex-no-wrap items-center justify-end w-full mt-5">
             <accessories-brochures :model="vid" v-if="media.length != 0" :brochure="brochure" class="order-2 md:order-1 w-full md:w-auto md:mr-2"></accessories-brochures>
             <accessories-quote-form class="order-1 md:order-2  w-full md:w-auto"></accessories-quote-form>
         </div>
@@ -115,18 +114,20 @@
         },
         mounted () {
             let cart = JSON.parse(sessionStorage.getItem("cart"))
-            cart.forEach(this.forEachCart);
+            if(cart) {
+                cart.forEach(this.forEachCart);
+            }
         },
         computed: {
-            // brochure () {
-            //     if(this.media.length != 0) {
-            //         return this.media[0].media.filter(e => {
-            //             if(e.collection_name === 'file') {
-            //                 return e
-            //             }
-            //         })
-            //     }
-            // },
+            brochure () {
+                if(this.media.length != 0) {
+                    return this.media[0].media.filter(e => {
+                        if(e.collection_name === 'file') {
+                            return e
+                        }
+                    })
+                }
+            },
             cart() {
                 return this.$store.state.cart
             },

@@ -2,7 +2,7 @@
 <template>
     <div class="select-none">
         <div class="img overflow-hidden">
-            <thumb-image parentclasses="h-64 bg-gray-100" classess="w-full h-full object-cover scale-110 transform transition ease-in-out duration-500 hover:scale-125" :image="firstMedia[0].file_name" :id="firstMedia[0].id"></thumb-image>
+            <thumb-image v-if="firstMedia.length != 0" parentclasses="h-64 bg-gray-100" classess="w-full h-full object-cover scale-110 transform transition ease-in-out duration-500 hover:scale-125" :image="firstMedia[0].file_name" :id="firstMedia[0].id"></thumb-image>
 
         </div>
         <div class="info px-3 py-2">

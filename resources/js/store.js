@@ -59,7 +59,7 @@ export const store = new Vuex.Store({
         },
         updateCart (state, payload) {
             window.sessionStorage.setItem("cart", JSON.stringify(state.cart))
-            document.getElementById("audio").play()
+            // document.getElementById("audio").play()
         },
         isBodyOverlay: function(state, payload) {
             state.isBodyOverlay = payload

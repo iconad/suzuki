@@ -168,6 +168,7 @@
                     showroom: false,
                 },
                 emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ras al khaimah", "Ajman", "Fujairah", "Umm al Quwain"],
+                isLoading: false
             }
         },
         methods: {
