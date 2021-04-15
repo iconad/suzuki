@@ -12,8 +12,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
 
     state: {
-        publicUrl: "http://beta.suzuki.ae/storage",
-        baseUrl: "http://beta.suzuki.ae",
+        publicUrl: "https://beta.suzuki.ae/storage",
+        baseUrl: "https://beta.suzuki.ae",
         isModalOne: false,
         isBroucherModal: false,
         isSpecSheetModal: false,
