@@ -388,7 +388,7 @@ class LeadController extends Controller
             'vin' => $request->vin,
             'age' => $request->age,
             'location' => $request->location,
-            'type' => 'commitment',
+            'type' => 'commitments',
         ]);
 
         $email =  $request->email;
@@ -404,12 +404,12 @@ class LeadController extends Controller
 
         Mail::send('mail.admin.our_commitment', $data, function ($message) use ($email, $name) {
             $message->from('info@suzuki.ae');
-            $message->to($this->adminEmail, $this->adminName)->subject('Geniune Part Quote');
+            $message->to($this->adminEmail, $this->adminName)->subject('New member joined Suzuki family');
         });
 
         Mail::send('mail.user.our_commitment', $data, function ($message) use ($email, $name) {
             $message->from('info@suzuki.ae');
-            $message->to($email, $name)->subject('Geniune Part Quote | Suzuki.ae');
+            $message->to($email, $name)->subject('Welcome to Suzuki family');
         });
 
 

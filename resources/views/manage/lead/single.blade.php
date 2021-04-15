@@ -40,7 +40,8 @@
                 <span class="font-bold">Fist Name</span>
             </td>
             <td data-label="Job">
-                <a href="/cms/users/{{$lead->user->id}}">{{$lead->first_name}} <i class="icon user"></i> </a>
+                {{-- <a href="/cms/users/{{$lead->user->id}}">{{$lead->first_name}} <i class="icon user"></i> </a> --}}
+                {{$lead->first_name}}
             </td>
         </tr>
         @endif
