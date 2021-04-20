@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="pt-5 py-12 md:py-24 text-center font-bold uppercase italic text-4xl md:text-7xl xxl:text-8xl leading-none mb-5">
+        <!-- py-12 md:py-24 -->
+        <div class="pt-8 pb-3 text-center font-bold uppercase italic text-4xl md:text-7xl xxl:text-8xl leading-none mb-5">
             <span class="suzuki-mon font-black">
                 <span class="text-theme-darkblue">Take your</span>
                 <span class="text-theme-red-500">Pick</span>
