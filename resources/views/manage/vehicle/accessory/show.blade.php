@@ -101,9 +101,9 @@
               <div class="field">
                 <div class="ui radio checkbox">
                   @if ($accessory->status == $sts)
-                  <input checked type="radio" name="status" id="{{$sts}}" value="0" tabindex="0">
+                  <input checked type="radio" name="status" id="{{$sts}}" value="{{$sts}}" tabindex="0">
                   @else
-                  <input type="radio" name="status" id="0" value="{{$sts}}" tabindex="0">
+                  <input type="radio" name="status" id="{{$sts}}" value="{{$sts}}" tabindex="0">
                   @endif
                   <label class="cursor-pointer capitalize" for="{{$sts}}">
                     {{$sts == 0 ? 'Draft' : 'Published'}}

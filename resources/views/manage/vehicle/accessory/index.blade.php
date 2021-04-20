@@ -49,7 +49,7 @@
             @foreach ($accessories as $accessory)
             <tr>
                 <td>
-                    <a href="/cms/vehicles/{{$accessory->id}}"> {{$accessory->title}} </a>
+                    <a href="/cms/vehicles/{{$vehicle->id}}/accessories/{{$accessory->id}}"> {{$accessory->title}} </a>
                 </td>
                 <td> {{$accessory->title}} </td>
                 <td> {{$accessory->weight}} </td>

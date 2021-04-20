@@ -66,12 +66,12 @@
                                 <div class="my-5 text-sm" v-if="item">
                                     {{item.detail}}
                                 </div>
-                                <div class="mb-5 bg-gray-900 border-b-2 border-gray-800"></div>
-                                <div class="text-xl mb-1">
+                                <div class="mb-5 bg-gray-900 border-b-2 border-gray-800 hidden"></div>
+                                <div class="text-xl mb-1 hidden">
                                     <span class="suzuki-bold">Minimum fitting time:</span>
                                     <span>15 minutes</span>
                                 </div>
-                                <div class="text-sm">
+                                <div class="text-sm hidden">
                                     <span class="suzuki-bold">Available on: </span>
                                     <span>GLX AUTO, GL MANUAL, GLX AUTO, GL MANUAL, GLX AUTO, GL MANUAL, GLX AUTO, GL MANUAL, GLX AUTO, GL MANUAL.</span>
                                 </div>
