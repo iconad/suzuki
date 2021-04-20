@@ -104,7 +104,7 @@
                     </div>
                     <div class="w-full relative mt-8 md:mt-0">
                         <div class="absolute bottom-100 right-0 p-3">
-                        <a href="{{$branche->$type[0]->map}}" class="theme-link text-base" target="_blank">Get Directions</a>
+                        <a href="{{$branche->$type[0]->direction_map}}" class="theme-link text-base" target="_blank">Get Directions</a>
                         </div>
                         <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="{{$branche->$type[0]->map}}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
                     </div>
