@@ -67,7 +67,12 @@
 
         <div class="field">
             <label>Google Map Iframe</label>
-            <input type="text" name="map" value="{{ $office->map }}" placeholder="Paste google iframe URL here">
+            <input type="text" name="map" value="{{ $office->map }}" placeholder="Paste google map iframe URL here">
+        </div>
+
+        <div class="field">
+            <label>Direction Map</label>
+            <input type="text" name="direction_map" value="{{ $office->direction_map }}" placeholder="Paste google map direction URL">
         </div>
 
         <div class="mt-10">

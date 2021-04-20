@@ -27,6 +27,7 @@ class CreateBranchOfficesTable extends Migration
             $table->string('thursday')->nullable();
             $table->text('friday')->nullable();
             $table->text('map')->nullable();
+            $table->text('direction_map')->nullable();
             $table->bigInteger('branch_id')->unsigned();
             $table->integer('user_id');
             $table->integer('status')->default(0);

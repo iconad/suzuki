@@ -49,6 +49,7 @@ class BranchOfficeController extends Controller
             'type' => 'required',
             'open_days' => 'required',
             'map' => 'required',
+            'direction_map' => 'required',
         ]);
 
         $office = BranchOffice::create([
@@ -62,6 +63,7 @@ class BranchOfficeController extends Controller
             'open_days' => $request->open_days,
             'thursday' => $request->thursday,
             'map' => $request->map,
+            'direction_map' => $request->direction_map,
             'friday' => $request->friday,
             'branch_id' => $branch->id,
             'user_id' => auth()->id(),
@@ -108,6 +110,7 @@ class BranchOfficeController extends Controller
             'title' => 'required',
             'open_days' => 'required',
             'map' => 'required',
+            'direction_map' => 'required',
         ]);
 
         $branchOffice = BranchOffice::where('id', $branchOffice)->first();
@@ -122,6 +125,7 @@ class BranchOfficeController extends Controller
         $branchOffice->open_days = $request->open_days;
         $branchOffice->thursday = $request->thursday;
         $branchOffice->map = $request->map;
+        $branchOffice->direction_map = $request->direction_map;
 
         if ($branchOffice->save()) {
             $request->session()->flash('green', "{$branchOffice->type} was successful updated!");

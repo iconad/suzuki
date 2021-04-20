@@ -15,6 +15,7 @@ class BranchOffice extends Model
         'manager',
         'type',
         'map',
+        'direction_map',
         'tel',
         'mobile',
         'fax',

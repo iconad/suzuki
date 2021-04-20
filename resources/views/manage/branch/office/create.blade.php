@@ -66,7 +66,12 @@
 
     <div class="field">
         <label>Google Map Iframe</label>
-        <input type="text" name="map" value="{{old('map')}}" placeholder="Paste google iframe URL here">
+        <input type="text" name="map" value="{{old('map')}}" placeholder="Paste google map iframe URL here">
+    </div>
+
+    <div class="field">
+        <label>Google Map Iframe</label>
+        <input type="text" name="direction_map" value="{{old('direction_map')}}" placeholder="Paste google map direction URL here">
     </div>
 
     <button type="submit" class="ui button" tabindex="0">Add</button>
