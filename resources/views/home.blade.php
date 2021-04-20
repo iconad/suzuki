@@ -6,7 +6,7 @@
     </section>
     {{-- front cover --}}
 
-    <section class="take-your-pick">
+    <section class="take-your-pick my-2">
         <take-your-pick></take-your-pick>
     </section>
 
