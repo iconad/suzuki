@@ -6,11 +6,11 @@
     </section>
     {{-- front cover --}}
 
-    <section class="take-your-pick my-5 mb-8">
+    <section class="take-your-pick mt-8 mb-10">
         <take-your-pick></take-your-pick>
     </section>
 
-    <section class="explore-the-exciting pt-8">
+    <section class="explore-the-exciting bg-gray-200 pt-8">
         <div class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 heading  mb-6">
             <div class="hidden text-6xl lg:text-8xl text-theme-red-500 font-bold uppercase leading-none">
                 <span class="flex items-end">
