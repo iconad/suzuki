@@ -98,7 +98,7 @@
     {{-- explore cover --}}
 
 
-    <section class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 py-8 md:py-32 reviews">
+    <section class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 py-8 md:py-32 reviews hidden">
         <div class="mb-5">
             <div class="text-3xl uppercase font-semibold text-gray-900">what our customers say</div>
         </div>
