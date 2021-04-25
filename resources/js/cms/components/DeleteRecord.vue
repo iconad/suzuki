@@ -19,14 +19,14 @@
             },
             api () {
                 if(this.model3) {
-                    this.redirectPath = `/manage/${this.model}/${this.id}/${this.model2}/${this.id2}/`
-                    return `/manage/${this.model}/${this.id}/${this.model2}/${this.id2}/${this.model3}/${this.id3}`
+                    this.redirectPath = `/cms/${this.model}/${this.id}/${this.model2}/${this.id2}/`
+                    return `/cms/${this.model}/${this.id}/${this.model2}/${this.id2}/${this.model3}/${this.id3}`
                 } else if (this.model2) {
-                    this.redirectPath = `/manage/${this.model}/${this.id}`
-                    return `/manage/${this.model}/${this.id}/${this.model2}/${this.id2}`
+                    this.redirectPath = `/cms/${this.model}/${this.id}`
+                    return `/cms/${this.model}/${this.id}/${this.model2}/${this.id2}`
                 }else{
-                    this.redirectPath = `/manage/${this.model}`
-                    return `/manage/${this.model}/${this.id}`
+                    this.redirectPath = `/cms/${this.model}`
+                    return `/cms/${this.model}/${this.id}`
                 }
             }
         },

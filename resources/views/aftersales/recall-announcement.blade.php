@@ -26,7 +26,8 @@
             </div>
 
             <div class="content text-lg">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi quisquam, sunt atque sit perspiciatis nobis assumenda obcaecati, totam tenetur, dolorem fugit est non earum a recusandae nemo aliquam cupiditate., ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque architecto consectetur reprehenderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
+                {{$recall->detail}}
+                {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi quisquam, sunt atque sit perspiciatis nobis assumenda obcaecati, totam tenetur, dolorem fugit est non earum a recusandae nemo aliquam cupiditate., ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque architecto consectetur reprehenderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
                 <p>Lorem ipsum dolor sit amet consecteturderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi quisquam, sunt atque sit perspiciatis nobis assumenda obcaecati, totam tenetur, dolorem fugit est non earum a recusandae nemo aliquam cupiditate., ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque architecto consectetur reprehenderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
                 <ul class="no-list">
@@ -38,7 +39,7 @@
                     <li class=""> <b class="suzuki-bold">Ras Al Khaimah</b> (02) 678 6543 </li>
                 </ul>
                 <p>Lorem ipsum dolor sit amet consecteturderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi quisquam, sunt atque sit perspiciatis nobis assumenda obcaecati, totam tenetur, dolorem fugit est non earum a recusandae nemo aliquam cupiditate., ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque architecto consectetur reprehenderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi quisquam, sunt atque sit perspiciatis nobis assumenda obcaecati, totam tenetur, dolorem fugit est non earum a recusandae nemo aliquam cupiditate., ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque architecto consectetur reprehenderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p> --}}
             </div>
 
         </div>
