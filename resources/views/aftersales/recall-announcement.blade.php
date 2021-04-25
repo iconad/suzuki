@@ -26,7 +26,7 @@
             </div>
 
             <div class="content text-lg">
-                {{$recall->detail}}
+                {!! $recall->detail !!}
                 {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi quisquam, sunt atque sit perspiciatis nobis assumenda obcaecati, totam tenetur, dolorem fugit est non earum a recusandae nemo aliquam cupiditate., ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque architecto consectetur reprehenderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
                 <p>Lorem ipsum dolor sit amet consecteturderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi quisquam, sunt atque sit perspiciatis nobis assumenda obcaecati, totam tenetur, dolorem fugit est non earum a recusandae nemo aliquam cupiditate., ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque architecto consectetur reprehenderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
