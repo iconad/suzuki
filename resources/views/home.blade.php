@@ -75,13 +75,13 @@
                     </div>
                 </div>
             </div>
-            <div onclick="location.href='/after-sales/services';" class="cursor-pointer bg-white h-screen-50 lg:h-20rem xxl:h-25rem relative">
+            <div onclick="location.href='/after-sales/book-service';" class="cursor-pointer bg-white h-screen-50 lg:h-20rem xxl:h-25rem relative">
                 <div class="flex flex-col items-center justify-end absolute left-0 top-0 w-full h-full">
                     <div>
-                        <a href="/after-sales/book-service" class="text-center text-gray-900 mb-5 w-full text-3xl capitalize font-medium">
+                        <span class="text-center text-gray-900 mb-5 w-full text-3xl capitalize font-medium">
                             <span class="block text-sm">Book A</span>
                             <span class="block">Car Service</span>
-                        </a>
+                        </span>
                     </div>
                     <div>
                         <img src="{{asset('assets/images/vehicles/engine.webp')}}" alt="engine" class="w-48 xxl:w-64 mx-auto">
