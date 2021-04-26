@@ -7,6 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="facebook-domain-verification" content="4bjakulbq2vtll1f05jvs2y366vx49" />
     <link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}">
 
     <title>Suzuki UAE</title>
