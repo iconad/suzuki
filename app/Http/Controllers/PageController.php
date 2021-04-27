@@ -50,8 +50,8 @@ class PageController extends Controller
     public function show($slug)
     {
         $page = PageManager::where('slug', $slug)->first();
-        $cover = $page->getMedia('cover')->count() != 0 ? $page->getMedia('cover')[0]->getUrl() : null;
-        return view('page', compact('page', 'cover'));
+        return $cover = $page->getMedia('cover')->count() != 0 ? $page->getMedia('cover')[0]->getUrl() : null;
+        // return view('page', compact('page', 'cover'));
     }
 
     /**
