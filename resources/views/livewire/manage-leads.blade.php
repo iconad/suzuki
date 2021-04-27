@@ -46,7 +46,7 @@
             <tr>
                 <td>{{$lead->title}}</td>
                 <td>
-                    <a href="/manage/leads/{{$lead->id}}">
+                    <a href="/cms/leads/{{$lead->id}}">
                         {{ $lead->first_name }}
                         {{ $lead->last_name }}
                     </a>
@@ -55,7 +55,7 @@
                 <td> {{$lead->date_for_humans}} </td>
                 <td>
                     <div class="ui mini buttons">
-                        <a href="/manage/leads/{{$lead->id}}" class="ui button">View</a>
+                        <a href="/cms/leads/{{$lead->id}}" class="ui button">View</a>
                     </div>
                 </td>
             </tr>
