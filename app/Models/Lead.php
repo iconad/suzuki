@@ -39,6 +39,10 @@ class Lead extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function vehicle() {
+        return $this->belongsTo(Vehicle::class, 'model');
+    }
+
     public function getDateForHumansAttribute() {
         return $this->created_at->format('d M, Y');
     }

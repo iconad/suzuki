@@ -123,7 +123,7 @@
             <td data-label="Name" width="300px">
                 <span class="font-bold capitalize">model</span>
             </td>
-            <td data-label="Job">{{$lead->model}}</td>
+            <td data-label="Job">{{$lead->vehicle->title}}</td>
         </tr>
         @endif
 
