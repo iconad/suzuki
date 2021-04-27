@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// redirects
+Route::get('/Pages/RequestQuote.aspx', function () {
+    return redirect()->route('contact-us');
+});
+
 Route::get('/', 'PageController@home')->name('home');
 Route::get('/home', 'PageController@home');
 Route::get('/vehicles', 'PageController@vehicles');
