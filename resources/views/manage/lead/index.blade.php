@@ -1,5 +1,4 @@
 @extends('manage.layouts.app')
-
 @section('headlinks')
 @livewireStyles()
 @endsection
@@ -34,6 +33,7 @@
 </div>
 
 @endsection
+
 @section('scripts')
 @livewireScripts()
 @endsection
