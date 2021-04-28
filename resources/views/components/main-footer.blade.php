@@ -11,16 +11,16 @@
                     <div class="w-full text-gray-100 text-lg bg-theme-darkblue-500 p-5 lg:p-0">
                         <ul>
                             <li class="mt-2 capitalize">
-                                <a href="http://" class="hover:border-gray-500 border-b transition ease-linear duration-100 border-transparent">Contact Us</a>
+                                <a href="/contact-us" class="hover:border-gray-500 border-b transition ease-linear duration-100 border-transparent">Contact Us</a>
                             </li>
                             <li class="mt-2 capitalize">
-                                <a href="http://" class="hover:border-gray-500 border-b transition ease-linear duration-100 border-transparent">About</a>
+                                <a href="/after-sales/our-commitment" class="hover:border-gray-500 border-b transition ease-linear duration-100 border-transparent">About</a>
                             </li>
-                            <li class="mt-2 capitalize">
-                                <a href="http://" class="hover:border-gray-500 border-b transition ease-linear duration-100 border-transparent">Career</a>
+                            <li class="mt-2 capitalize hidden">
+                                <a href="#" class="hover:border-gray-500 border-b transition ease-linear duration-100 border-transparent">Career</a>
                             </li>
-                            <li class="mt-2 capitalize">
-                                <a href="http://" class="hover:border-gray-500 border-b transition ease-linear duration-100 border-transparent">Privacy Policy</a>
+                            <li class="mt-2 capitalize hidden">
+                                <a href="#" class="hover:border-gray-500 border-b transition ease-linear duration-100 border-transparent">Privacy Policy</a>
                             </li>
                         </ul>
                     </div>
