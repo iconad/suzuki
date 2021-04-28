@@ -5,7 +5,7 @@
                 <th colspan="5">
                     <div class="ui secondary menu ">
                         <div class="right menu fitted">
-                            <form wire:submit.prevent="downloadLead" action="/cms/leads/download" method="post" class="flex items-center space-x-4">
+                            <form wire:submit.prevent="downloadLead" class="flex items-center space-x-4">
                                 <div class="ui icon input">
                                     <input wire:model="term" type="text" placeholder="Search by name & email...">
                                     <i class="search icon"></i>
