@@ -207,7 +207,7 @@
 <table class="force-full-width" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td class="header-cell" valign="top"><img src="http://127.0.0.1:8000/assets/images/logo.png" alt="logo" width="196" height="60" /></td>
+<td class="header-cell" valign="top"><img src="https://i.ibb.co/jWrZvQN/logo.png" alt="logo" width="196" height="60" /></td>
 </tr>
 <tr>
 <td class="body-cell" valign="top">
