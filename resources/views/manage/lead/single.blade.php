@@ -6,7 +6,7 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <div class="active section">Newsletter</div>
+        <div class="active section capitalize">{{$lead->type}}</div>
     </div>
 </div>
 
@@ -123,7 +123,11 @@
             <td data-label="Name" width="300px">
                 <span class="font-bold capitalize">model</span>
             </td>
+            @if(is_int($lead->model))
             <td data-label="Job">{{$lead->vehicle->title}}</td>
+            @else
+            <td data-label="Job">{{$lead->model}}</td>
+            @endif
         </tr>
         @endif
 
