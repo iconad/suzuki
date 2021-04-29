@@ -58,7 +58,7 @@
                 </td>
                 <td>
                     <div class="ui basic mini buttons">
-                        <div class="ui button">Edit</div>
+                        <a href="/cms/vehicles/{{$vehicle->id}}/files/{{$file->id}}" class="ui button">Edit</a>
                     </div>
                 </td>
             </tr>
