@@ -214,7 +214,7 @@
 <table style="height: 318px; width: 100%;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
 <tbody>
 <tr style="height: 66px;">
-<td style="padding-bottom: 20px; background-color: #ffffff; height: 66px;" valign="top">Hello {{$title}} {{$name}},<br /><br />We have recived your message . Shortly you will get a call from one of our memeber</td>
+<td style="padding-bottom: 20px; background-color: #ffffff; height: 66px;" valign="top">Hello {{$title}} {{$name}},<br /><br />We have recived your message . Shortly you will get a call from one of our member</td>
 </tr>
 <tr style="height: 208px;">
 <td style="height: 208px;">
