@@ -51,7 +51,7 @@
         <div class="flex flex-wrap">
             <div v-if="isFormSubmit" class="w-full h-64 flex items-center justify-center">
                 <div class="h-64 flex items-center justify-center text-lg text-green-600 select-none">
-                    We have recived you request for the test drive. Shortly you will get a call from one of our memeber.
+                    We have recived you request for the test drive. Shortly you will get a call from one of our member.
                 </div>
             </div>
             <div v-else class="w-full">

@@ -19,7 +19,7 @@ class LeadController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public $adminEmail = "amir@icon-ad.com";
+    public $adminEmail = "burhan.gani@alrostamanigroup.ae";
     public $adminName = "Suzuki UAE";
 
     public function index()
