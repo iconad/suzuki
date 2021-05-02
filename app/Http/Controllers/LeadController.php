@@ -297,6 +297,7 @@ class LeadController extends Controller
             'email' => $request->email,
             'title' => "-",
             'mobile' => $request->mobile,
+            'model' => $request->vehicle,
             'user_id' => $user->id,
             'type' => 'finance-quote',
         ]);

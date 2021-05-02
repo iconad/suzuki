@@ -123,7 +123,7 @@
             <td data-label="Name" width="300px">
                 <span class="font-bold capitalize">model</span>
             </td>
-            @if(is_int($lead->model))
+            @if(is_numeric($lead->model))
             <td data-label="Job">{{$lead->vehicle->title}}</td>
             @else
             <td data-label="Job">{{$lead->model}}</td>

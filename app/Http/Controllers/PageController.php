@@ -90,6 +90,15 @@ class PageController extends Controller
 
     public function home()
     {
+
+        // $instagram = new \InstagramScraper\Instagram(new \GuzzleHttp\Client());
+        // $nonPrivateAccountMedias = $instagram->getMedias('suzukicaruae');
+
+        // $post1 = array(
+        //     'link'=> $nonPrivateAccountMedias[0]->getLink(),
+        //     'caption'=> $nonPrivateAccountMedias[0]->getCaption(),
+        // );
+
         return view('home');
     }
 
