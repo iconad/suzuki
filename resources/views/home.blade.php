@@ -207,7 +207,7 @@
                                 <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
                             </div>
                             <div class="mt-3">
-                                <a href="http://" class="hidden text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
+                                {{-- <a href="http://" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a> --}}
                             </div>
                         </div>
                     </div>
@@ -221,7 +221,7 @@
                                 <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
                             </div>
                             <div class="mt-3">
-                                <a href="http://" class="hidden text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
+                                {{-- <a href="http://" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a> --}}
                             </div>
                         </div>
                     </div>
@@ -235,7 +235,7 @@
                                 <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
                             </div>
                             <div class="mt-3">
-                                <a href="http://" class="hidden text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
+                                {{-- <a href="http://" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a> --}}
                             </div>
                         </div>
                     </div>
@@ -249,7 +249,7 @@
                                 <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
                             </div>
                             <div class="mt-3">
-                                <a href="http://" class="hidden text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
+                                {{-- <a href="http://" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a> --}}
                             </div>
                         </div>
                     </div>
