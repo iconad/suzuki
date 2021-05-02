@@ -1,5 +1,5 @@
 <template>
-    <div class="relative h-64">
+    <div class="relative h-64 cursor-pointer" @click="slideClick(slide.slug)">
         <thumb-image classess="w-full h-64 object-cover object-center" :image="firstMedia[0].file_name" :id="firstMedia[0].id"></thumb-image>
         <div class="absolute left-0 top-0 w-full h-full">
             <div class="absolute left-0 bottom-0 p-5 xxl:p-8 z-10 title">
@@ -38,7 +38,12 @@
                     }
                 })
             }
-        }
+        },
+        methods: {
+            slideClick (slug) {
+                window.location.href=`/vehicles/${slug}`
+            }
+        },
     }
 </script>
 
