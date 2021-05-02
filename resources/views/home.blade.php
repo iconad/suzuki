@@ -194,7 +194,7 @@
             {{-- heading --}}
 
 
-
+            {{-- {!! $post1['caption'] !!} --}}
 
             <div class="instagram mt-24">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -204,7 +204,7 @@
                         </div>
                         <div class="info p-3 md:bg-white">
                             <div class="text-sm text-gray-800 font-medium">
-                                <p>{!! $post1['caption'] !!}</p>
+                                <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
                             </div>
                             <div class="mt-3">
                                 <a href="http://" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
