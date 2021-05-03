@@ -19,7 +19,7 @@ class LeadController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public $adminEmail = "amir@icon-ad.com";
+    public $adminEmail = "burhan.gani@alrostamanigroup.ae";
     public $adminName = "Suzuki UAE";
 
     public function index()
@@ -154,7 +154,7 @@ class LeadController extends Controller
 
 
         Mail::send('mail.admin.accessory_quote', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($email, $name)->subject('Accessory Quote Request ');
         });
 
@@ -230,7 +230,7 @@ class LeadController extends Controller
 
 
             Mail::send('mail.admin.newletter_signup', $data, function ($message) use ($email, $name) {
-                $message->from('info@suzuki.ae');
+                $message->from('info@suzukiuae-offers.com');
                 $message->to($this->adminEmail, $this->adminName)->subject('New newsletter signup');
             });
 
@@ -320,7 +320,7 @@ class LeadController extends Controller
 
 
         Mail::send('mail.admin.finance_quote', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($this->adminEmail, $this->adminName)->subject('New Finance Quotation');
         });
 
@@ -404,12 +404,12 @@ class LeadController extends Controller
         );
 
         Mail::send('mail.admin.our_commitment', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($this->adminEmail, $this->adminName)->subject('New member joined Suzuki family');
         });
 
         Mail::send('mail.user.our_commitment', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($email, $name)->subject('Welcome to Suzuki family');
         });
 
@@ -501,12 +501,12 @@ class LeadController extends Controller
         );
 
         Mail::send('mail.admin.geniune_part', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($this->adminEmail, $this->adminName)->subject('Geniune Part Quote');
         });
 
         Mail::send('mail.user.geniune_part', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($email, $name)->subject('Geniune Part Quote | Suzuki.ae');
         });
 
@@ -594,12 +594,12 @@ class LeadController extends Controller
         );
 
         Mail::send('mail.admin.book_service', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($this->adminEmail, $this->adminName)->subject('Book a service request');
         });
 
         Mail::send('mail.user.book_service', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($email, $name)->subject('Book a service | Suzuki');
         });
 
@@ -685,12 +685,12 @@ class LeadController extends Controller
 
 
         Mail::send('mail.admin.test_drive', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($this->adminEmail, $this->adminName)->subject('Test Drive Request');
         });
 
         Mail::send('mail.user.test_drive', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($email, $name)->subject('Test Drive Request');
         });
 
@@ -778,13 +778,13 @@ class LeadController extends Controller
 
 
             Mail::send('mail.admin.get_brochure_download_link', $data, function ($message) use ($email, $name) {
-                $message->from('info@suzuki.ae');
+                $message->from('info@suzukiuae-offers.com');
                 $message->to($this->adminEmail, $this->adminName)->subject('New entry for brochure download');
             });
 
 
             Mail::send('mail.user.get_brochure_download_link', $data, function ($message) use ($email, $name) {
-                $message->from('info@suzuki.ae');
+                $message->from('info@suzukiuae-offers.com');
                 $message->to($email, $name)->subject('Suzuki Brochure download link');
             });
 
@@ -868,13 +868,13 @@ class LeadController extends Controller
 
 
             Mail::send('mail.admin.get_specsheet_download_link', $data, function ($message) use ($email, $name) {
-                $message->from('info@suzuki.ae');
+                $message->from('info@suzukiuae-offers.com');
                 $message->to($this->adminEmail, $this->adminName)->subject('New entry for specsheet download');
             });
 
 
             Mail::send('mail.user.get_specsheet_download_link', $data, function ($message) use ($email, $name) {
-                $message->from('info@suzuki.ae');
+                $message->from('info@suzukiuae-offers.com');
                 $message->to($email, $name)->subject('Suzuki specsheet download link');
             });
 
@@ -955,13 +955,13 @@ class LeadController extends Controller
 
 
             Mail::send('mail.admin.get_accessory_brochure_download_link', $data, function ($message) use ($email, $name) {
-                $message->from('info@suzuki.ae');
+                $message->from('info@suzukiuae-offers.com');
                 $message->to($this->adminEmail, $this->adminName)->subject('New entry for accessories brochure download');
             });
 
 
             Mail::send('mail.user.get_accessory_brochure_download_link', $data, function ($message) use ($email, $name) {
-                $message->from('info@suzuki.ae');
+                $message->from('info@suzukiuae-offers.com');
                 $message->to($email, $name)->subject('Suzuki Accessories Brochure download link');
             });
 
@@ -1019,13 +1019,13 @@ class LeadController extends Controller
 
 
         Mail::send('mail.admin.contact_us', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($this->adminEmail, $this->adminName)->subject('New inquiry from suzuki.ae contact form');
         });
 
 
         Mail::send('mail.user.contact_us', $data, function ($message) use ($email, $name) {
-            $message->from('info@suzuki.ae');
+            $message->from('info@suzukiuae-offers.com');
             $message->to($email, $name)->subject('Suzuki UAE contact');
         });
 
