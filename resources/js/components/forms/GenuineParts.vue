@@ -100,10 +100,12 @@
                             </div>
                         </ValidationProvider>
                     </div>
-                    <div>
+                    <div v-if="!$apollo.queries.branches.loading">
                         <ValidationProvider name="form.showroom" rules="required">
                             <div slot-scope="{ errors }">
-                                <multiselect placeholder="Nearest service centre you can visit *" v-model="form.showroom" :options="showrooms"></multiselect>
+                                <multiselect placeholder="Nearest showroom you can visit *" v-model="form.showroom" label="title" :options="branches">
+                                    <template slot="singleLabel" slot-scope="{ option }">{{ option.title }}</template>
+                                </multiselect>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
                             </div>
                         </ValidationProvider>
@@ -155,7 +157,7 @@
             </ValidationObserver>
         </div>
         <div class="h-64 flex items-center justify-center text-lg text-green-600" v-else>
-            We have recived you request for the test drive. Shortly you will get a call from one of our memeber.
+            We have recived your request for the test drive. Shortly you will get a call from one of our member.
         </div>
     </div>
 </template>
@@ -164,6 +166,7 @@
 
     import gql from 'graphql-tag'
     import vehiclesQuery from "../../../../gql/frontend/vehicles.gql";
+    import branchesQuery from "../../../../gql/frontend/branchesbyemail.gql";
 
     import Multiselect from 'vue-multiselect'
     import PrettyCheckbox from 'pretty-checkbox-vue/check';
@@ -286,6 +289,17 @@
                     query: vehiclesQuery,
                     update(data) {
                         return data.vehicles;
+                    },
+                };
+            },
+            branches() {
+                return {
+                    query: branchesQuery,
+                    variables: {
+                        type: 'parts',
+                    },
+                    update(data) {
+                        return data.branchesByEmail;
                     },
                 };
             },

@@ -102,7 +102,9 @@
                     <div>
                         <ValidationProvider name="form.hearFrom" rules="required">
                             <div slot-scope="{ errors }">
-                                <multiselect placeholder="Nearest showroom you can visit *" v-model="form.showroom" :options="showrooms"></multiselect>
+                                 <multiselect placeholder="Nearest showroom you can visit *" v-model="form.showroom" label="title" :options="branches">
+                                    <template slot="singleLabel" slot-scope="{ option }">{{ option.title }}</template>
+                                </multiselect>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
                             </div>
                         </ValidationProvider>
@@ -152,6 +154,7 @@
     import { extend,ValidationProvider,ValidationObserver } from 'vee-validate';
     import { required, email } from 'vee-validate/dist/rules';
 
+    import branchesQuery from "../../../../gql/frontend/branchesbyemail.gql";
 
     // Add the required rule
     extend('required', {
@@ -237,6 +240,16 @@
             submitForm () {
                 console.log(this.form)
             }
+        },
+        apollo: {
+            branches() {
+                return {
+                    query: branchesQuery,
+                    update(data) {
+                        return data.branchesByEmail;
+                    },
+                };
+            },
         }
     }
 </script>

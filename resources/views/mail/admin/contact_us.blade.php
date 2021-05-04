@@ -207,7 +207,7 @@
 <table class="force-full-width" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td class="header-cell" valign="top"><img src="https://i.ibb.co/jWrZvQN/logo.png" alt="logo" width="196" height="auto" /></td>
+<td class="header-cell" valign="top"><img src="https://suzuki.ae/assets/logo.png" alt="logo" width="196" height="auto" /></td>
 </tr>
 <tr>
 <td class="body-cell" valign="top">
@@ -277,7 +277,9 @@
 </td>
 </tr>
 <tr>
-<td class="footer-cell" valign="top">Awesome Co<br />an Awesome Co Technologies, INC company</td>
+<td class="footer-cell" valign="top">
+    <a href="https://suzuki.ae">Click here to unsubscribe if you no longer want our emails</a>
+</td>
 </tr>
 </tbody>
 </table>

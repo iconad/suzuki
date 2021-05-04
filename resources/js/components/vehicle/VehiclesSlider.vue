@@ -25,7 +25,7 @@
                 @splide:moved="moved"
                 >
                     <splide-slide v-for="(slide,i) in vehicles" :key="i" class="car-splide">
-                        <vehicle-slide :slide="slide" :index="i"></vehicle-slide>
+                        <vehicle-slide  :customwidth="customWidth" :slide="slide" :index="i"></vehicle-slide>
                     </splide-slide>
                 </splide>
             </div>
@@ -64,6 +64,7 @@
     },
     data() {
         return {
+            customWidth: "w-1/3",
             options: {
                 type: 'loop',
                 arrows: false,
@@ -108,6 +109,12 @@
                 let slideSlideTitle = document.getElementById('slideTitle')
                 let slideSlideSubTitle = document.getElementById('slideSubTitle')
                 let slideSlideSlug = document.getElementById('slideSlug')
+
+                if(title.toLowerCase() == 'ciaz') {
+                    this.customWidth = 'w-1/2'
+                }else{
+                    this.customWidth = 'w-1/3'
+                }
 
                 slideSlideTitle.classList.add("slide-in-blurred-top");
                 slideSlideSubTitle.classList.add("focus-in-contract");

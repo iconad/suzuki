@@ -1,0 +1,14 @@
+
+query getEvent($type: String) {
+  branchesByEmail (type: $type) {
+    id
+    title
+    email
+    offices {
+      id
+      title
+      type
+      email
+    }
+  }
+}

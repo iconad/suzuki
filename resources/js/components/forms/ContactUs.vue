@@ -51,7 +51,7 @@
         <div class="flex flex-wrap">
             <div v-if="isFormSubmit" class="w-full h-64 flex items-center justify-center">
                 <div class="h-64 flex items-center justify-center text-lg text-green-600 select-none">
-                    We have recived you request for the test drive. Shortly you will get a call from one of our member.
+                    We have recived your request for the test drive. Shortly you will get a call from one of our member.
                 </div>
             </div>
             <div v-else class="w-full">
@@ -85,7 +85,7 @@
                                     </ValidationProvider>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-2 gap-3 items-end">
+                            <div class="grid grid-cols-3 gap-3 items-end">
                                 <div class="relative">
                                     <ValidationProvider name="form.mobile" rules="required|mobile">
                                         <div slot-scope="{ errors }">
@@ -105,6 +105,18 @@
                                     </ValidationProvider>
                                 </div>
                             </div>
+
+                            <div v-if="!$apollo.queries.branches.loading">
+                                <ValidationProvider name="form.hear" rules="required">
+                                    <div slot-scope="{ errors }">
+                                        <multiselect placeholder="Preferred Branch *" class="bg-transparent" v-model="form.showroom" label="title" :options="branches">
+                                            <template slot="singleLabel" class="bg-transparrent" slot-scope="{ option }">{{ option.title }}</template>
+                                        </multiselect>
+                                        <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
+                                    </div>
+                                </ValidationProvider>
+                            </div>
+
 
                             <div>
                                 <ValidationProvider name="form.message" rules="required">
@@ -145,6 +157,8 @@
 
     import Multiselect from 'vue-multiselect'
     import PrettyCheckbox from 'pretty-checkbox-vue/check';
+
+    import branchesQuery from "../../../../gql/frontend/branchesbyemail.gql";
 
     import { extend,ValidationProvider,ValidationObserver } from 'vee-validate';
     import { required, email } from 'vee-validate/dist/rules';
@@ -192,6 +206,7 @@
                     email: null,
                     mobile: null,
                     phone: null,
+                    showroom: null,
                     check: false,
                 },
             }
@@ -204,6 +219,7 @@
                     first_name: this.form.first_name,
                     last_name: this.form.last_name,
                     email: this.form.email,
+                    emirate: this.form.showroom,
                     mobile: this.form.mobile,
                     message: this.form.message,
                 })
@@ -219,13 +235,40 @@
                         text: response.data.message,
                     });
                     if(response.data.wow != 'opps!') {
+                        this.gtag_report_conversion()
                         this.form = []
                         this.isFormSubmit = true
                         this.isFormSubmitMessage = response.data.message
                     }
                     this.isLoading = false
                 })
+            },
+
+            gtag_report_conversion(url) {
+                var callback = function () {
+                    if (typeof(url) != 'undefined') {
+                    window.location = url;
+                    }
+                };
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-965823247/PDRcCPqlmboBEI-WxcwD',
+                    'event_callback': callback
+                });
+                return false;
             }
+        },
+        apollo: {
+            branches() {
+                return {
+                    query: branchesQuery,
+                    variables: {
+                        type: 'services',
+                    },
+                    update(data) {
+                        return data.branchesByEmail;
+                    },
+                };
+            },
         }
     }
 </script>

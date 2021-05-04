@@ -92,10 +92,12 @@
                                         </div>
                                     </ValidationProvider>
                                 </div>
-                                <div class="w-full relative">
+                                <div class="w-full relative" v-if="!$apollo.queries.branches.loading">
                                     <ValidationProvider name="form.hearFrom" rules="required">
                                         <div slot-scope="{ errors }">
-                                            <multiselect placeholder="Nearest showroom you can visit *" v-model="form.showroom" :options="showrooms"></multiselect>
+                                            <multiselect placeholder="Nearest showroom you can visit *" v-model="form.showroom" label="title" :options="branches">
+                                                <template slot="singleLabel" slot-scope="{ option }">{{ option.title }}</template>
+                                            </multiselect>
                                             <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium absolute top-0 p-2 right-0 z-10">{{ errors[0] }}</p>
                                         </div>
                                     </ValidationProvider>
@@ -147,6 +149,7 @@
     import { extend,ValidationProvider,ValidationObserver } from 'vee-validate';
     import { required, email } from 'vee-validate/dist/rules';
 
+    import branchesQuery from "../../../../gql/frontend/branchesbyemail.gql";
 
     // Add the required rule
     extend('required', {
@@ -196,7 +199,6 @@
                     purchaseType: null
                 },
                 purchaseTypes: ["type 1", "type 2", "type 3"],
-                showrooms: ["Deira City center", "Abu Dhabi", "shaikh zayed road", "Al Ain", "Sharjah", "Ajman"],
             }
         },
         watch: {
@@ -265,6 +267,19 @@
             onModalClose () {
                 this.$store.commit("accessoriesQuoteModal", false)
             }
+        },
+        apollo: {
+            branches() {
+                return {
+                    query: branchesQuery,
+                    variables: {
+                        type: 'parts',
+                    },
+                    update(data) {
+                        return data.branchesByEmail;
+                    },
+                };
+            },
         }
     }
 </script>

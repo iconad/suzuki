@@ -10,6 +10,7 @@ type Query {
 
     accessoriesbyvehicle(vehicle_id: Int orderBy: [OrderByClause!] @orderBy): [Accessory!]!
     vehicles(orderBy: [OrderByClause!] @orderBy): [Vehicle!]!  @all
+    branchesByEmail(type: String orderBy: [OrderByClause!] @orderBy): [Branch!]!
     vehicle(id: ID @eq): Vehicle @find
 
 }
@@ -18,6 +19,28 @@ type User {
     id: ID!
     name: String!
     email: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Branch {
+    id: ID!
+    title: String!
+    slug: String!
+    email: String
+    manager: String
+    offices: [BranchOffice] @hasMany
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type BranchOffice {
+    id: ID!
+    title: String!
+    email: String
+    type: String
+    manager: String
+    branch: Branch @hasOne
     created_at: DateTime!
     updated_at: DateTime!
 }

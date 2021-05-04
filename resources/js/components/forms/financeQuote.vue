@@ -38,6 +38,17 @@
                             </div>
                         </ValidationProvider>
                     </div>
+                    <div v-if="!$apollo.queries.branches.loading">
+                        <ValidationProvider name="form.hear" rules="required">
+                            <div slot-scope="{ errors }">
+                                <multiselect placeholder="Preferred Branch *" class="bg-transparent" v-model="form.showroom" label="title" :options="branches">
+                                    <template slot="singleLabel" class="bg-transparrent" slot-scope="{ option }">{{ option.title }}</template>
+                                </multiselect>
+                                <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
+                            </div>
+                        </ValidationProvider>
+                    </div>
+
                 </div>
                 <div class="form-element mt-8">
                     <label class="flex items-center">
@@ -77,6 +88,7 @@
     import { extend,ValidationProvider,ValidationObserver } from 'vee-validate';
     import { required, email, oneOf } from 'vee-validate/dist/rules';
 
+    import branchesQuery from "../../../../gql/frontend/branchesbyemail.gql";
 
     // Add the required rule
     extend('required', {
@@ -112,6 +124,7 @@ export default {
                 first_name: null,
                 last_name: null,
                 title: null,
+                showroom: null,
                 email: null,
                 mobile: null,
                 hearFrom: null,
@@ -135,6 +148,7 @@ export default {
                     mobile: this.form.mobile,
                     email: this.form.email,
                     vehicle: this.vehicle,
+                    emirate: this.form.showroom,
                     total_interest: this.total_interest,
                     total_payable: this.total_payable,
                     interest_rate: this.interest_rate,
@@ -162,5 +176,18 @@ export default {
             }
         },
     },
+    apollo: {
+        branches() {
+            return {
+                query: branchesQuery,
+                variables: {
+                    type: 'services',
+                },
+                update(data) {
+                    return data.branchesByEmail;
+                },
+            };
+        },
+    }
 }
 </script>

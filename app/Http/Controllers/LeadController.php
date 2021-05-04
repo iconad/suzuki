@@ -19,6 +19,7 @@ class LeadController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public $modEmail = "balraj.chetty@alrostamanigroup.ae";
     public $adminEmail = "burhan.gani@alrostamanigroup.ae";
     public $adminName = "Suzuki UAE";
 
@@ -96,6 +97,7 @@ class LeadController extends Controller
 
     public function accessoriesQuote (Request $request) {
 
+
         $request->validate([
             'purchase_type' => 'required',
             'first_name' => 'required',
@@ -131,7 +133,7 @@ class LeadController extends Controller
             'last_name' => $request->last_name,
             'title' => $request->title,
             'email' => $request->email,
-            'showroom' => $request->showroom,
+            'showroom' => $request->showroom['title'],
             'purchase_type' => $request->purchase_type,
             'tel' => $request->tel,
             'age' => $request->age,
@@ -143,6 +145,9 @@ class LeadController extends Controller
 
         $email =  $request->email;
 
+        $leadEmail =  $this->getEmail($request->showroom['offices'], 'parts')['email'];
+        $leadTitle =  $request->showroom['title'];
+
         $data = array(
             'name' => $name,
             'email' => $request->email,
@@ -153,9 +158,10 @@ class LeadController extends Controller
         );
 
 
-        Mail::send('mail.admin.accessory_quote', $data, function ($message) use ($email, $name) {
+        Mail::send('mail.admin.accessory_quote', $data, function ($message) use ($leadEmail, $leadTitle) {
             $message->from('info@suzukiuae-offers.com');
-            $message->to($email, $name)->subject('Accessory Quote Request ');
+            $message->cc($this->adminEmail);
+            $message->to($leadEmail, $leadTitle)->subject('Accessory Quote Request ');
         });
 
 
@@ -297,12 +303,15 @@ class LeadController extends Controller
             'email' => $request->email,
             'title' => "-",
             'mobile' => $request->mobile,
+            'emirate' => $request->emirate['title'],
             'model' => $request->vehicle,
             'user_id' => $user->id,
             'type' => 'finance-quote',
         ]);
 
         $email =  $request->email;
+        $leadEmail =  $this->getEmail($request->emirate['offices'], 'services')['email'];
+        $leadTitle =  $request->emirate['title'];
 
         $data = array(
             'name' => $name,
@@ -319,9 +328,10 @@ class LeadController extends Controller
         );
 
 
-        Mail::send('mail.admin.finance_quote', $data, function ($message) use ($email, $name) {
+        Mail::send('mail.admin.finance_quote', $data, function ($message) use ($leadEmail, $leadTitle) {
             $message->from('info@suzukiuae-offers.com');
-            $message->to($this->adminEmail, $this->adminName)->subject('New Finance Quotation');
+            $message->cc($this->adminEmail);
+            $message->to($leadEmail, $leadTitle)->subject('New Finance Quotation');
         });
 
 
@@ -388,24 +398,27 @@ class LeadController extends Controller
             'user_id' => $user->id,
             'vin' => $request->vin,
             'age' => $request->age,
-            'location' => $request->location,
+            'location' => $request->location['title'],
             'type' => 'commitments',
         ]);
 
         $email =  $request->email;
+
+        $leadTitle =  $request->location['title'];
 
         $data = array(
             'title' => $request->title,
             'name' => $name,
             'email' => $request->email,
             'mobile' => $request->mobile,
-            'location' => $request->location,
+            'location' => $request->location['title'],
             'vin' => $request->vin,
         );
 
-        Mail::send('mail.admin.our_commitment', $data, function ($message) use ($email, $name) {
+        Mail::send('mail.admin.our_commitment', $data, function ($message) use ($email, $leadTitle) {
             $message->from('info@suzukiuae-offers.com');
-            $message->to($this->adminEmail, $this->adminName)->subject('New member joined Suzuki family');
+            $message->cc($this->adminEmail);
+            $message->to($this->modEmail, $leadTitle)->subject('New member joined Suzuki family');
         });
 
         Mail::send('mail.user.our_commitment', $data, function ($message) use ($email, $name) {
@@ -478,7 +491,7 @@ class LeadController extends Controller
             'mobile' => $request->mobile,
             'tel' => $request->tel,
             'emirate' => $request->emirate,
-            'showroom' => $request->showroom,
+            'showroom' => $request->showroom['title'],
             'user_id' => $user->id,
             'model' => $request->model,
             'vin' => $request->vin,
@@ -489,6 +502,10 @@ class LeadController extends Controller
 
         $email =  $request->email;
 
+        $leadEmail =  $this->getEmail($request->showroom['offices'], 'parts')['email'];
+        $leadTitle =  $request->showroom['title'];
+
+
         $data = array(
             'title' => $request->title,
             'name' => $name,
@@ -496,13 +513,14 @@ class LeadController extends Controller
             'mobile' => $request->mobile,
             'part' => $request->part,
             'vin' => $request->vin,
-            'showroom' => $request->showroom,
-            'emirate' => $request->emirate,
+            'showroom' => $request->showroom['title'],
+            'emirate' => $request->emirate['title'],
         );
 
-        Mail::send('mail.admin.geniune_part', $data, function ($message) use ($email, $name) {
+        Mail::send('mail.admin.geniune_part', $data, function ($message) use ($leadEmail, $leadTitle) {
             $message->from('info@suzukiuae-offers.com');
-            $message->to($this->adminEmail, $this->adminName)->subject('Geniune Part Quote');
+            $message->cc($this->adminEmail);
+            $message->to($leadEmail, $leadTitle)->subject('Geniune Part Quote');
         });
 
         Mail::send('mail.user.geniune_part', $data, function ($message) use ($email, $name) {
@@ -527,9 +545,6 @@ class LeadController extends Controller
             );
         }
 
-
-
-
     }
 
     public function bookService (Request $request) {
@@ -541,6 +556,7 @@ class LeadController extends Controller
             'mobile' => 'required',
             'model' => 'required',
             'year' => 'required',
+            'showroom' => 'required',
             'service_type' => 'required',
             'date' => 'required',
         ]);
@@ -573,8 +589,8 @@ class LeadController extends Controller
             'age' => $request->age,
             'mobile' => $request->mobile,
             'tel' => $request->tel,
-            'emirate' => $request->emirate,
-            'showroom' => $request->showroom,
+            'emirate' => $request->emirate['title'],
+            'showroom' => $request->showroom['title'],
             'user_id' => $user->id,
             'model' => $request->model,
             'year' => $request->year,
@@ -583,19 +599,23 @@ class LeadController extends Controller
 
         $email =  $request->email;
 
+        $leadEmail =  $this->getEmail($request->showroom['offices'], 'services')['email'];
+        $leadTitle =  $request->showroom['title'];
+
         $data = array(
             'title' => $request->title,
             'name' => $name,
             'email' => $request->email,
             'mobile' => $request->mobile,
             'date' => $request->date,
-            'showroom' => $request->showroom,
+            'showroom' => $request->showroom['title'],
             'emirate' => $request->emirate,
         );
 
-        Mail::send('mail.admin.book_service', $data, function ($message) use ($email, $name) {
+        Mail::send('mail.admin.book_service', $data, function ($message) use ($leadEmail, $leadTitle) {
             $message->from('info@suzukiuae-offers.com');
-            $message->to($this->adminEmail, $this->adminName)->subject('Book a service request');
+            $message->cc($this->adminEmail);
+            $message->to($leadEmail, $leadTitle)->subject('Book a service request');
         });
 
         Mail::send('mail.user.book_service', $data, function ($message) use ($email, $name) {
@@ -666,7 +686,7 @@ class LeadController extends Controller
             'tel' => $request->phone,
             'emirate' => $request->emirate,
             'showroom' => $request->showroom,
-            'showroom' => $request->showroom,
+            'showroom' => $request->showroom['title'],
             'user_id' => $user->id,
             'model' => $request->model['id'],
             'type' => 'test-drive',
@@ -674,19 +694,23 @@ class LeadController extends Controller
 
         $email =  $request->email;
 
+        $leadEmail =  $this->getEmail($request->showroom['offices'], 'services')['email'];
+        $leadTitle =  $request->showroom['title'];
+
         $data = array(
             'title' => $request->title,
             'name' => $name,
             'email' => $request->email,
             'mobile' => $request->mobile,
-            'showroom' => $request->showroom,
+            'showroom' => $request->showroom['title'],
             'emirate' => $request->emirate,
         );
 
 
-        Mail::send('mail.admin.test_drive', $data, function ($message) use ($email, $name) {
+        Mail::send('mail.admin.test_drive', $data, function ($message) use ($leadEmail, $leadTitle) {
             $message->from('info@suzukiuae-offers.com');
-            $message->to($this->adminEmail, $this->adminName)->subject('Test Drive Request');
+            $message->cc($this->adminEmail);
+            $message->to($leadEmail, $leadTitle)->subject('Test Drive Request');
         });
 
         Mail::send('mail.user.test_drive', $data, function ($message) use ($email, $name) {
@@ -710,9 +734,6 @@ class LeadController extends Controller
                 ]
             );
         }
-
-
-
 
     }
 
@@ -761,13 +782,15 @@ class LeadController extends Controller
                 'title' => $request->title,
                 'email' => $request->email,
                 'hear' => $request->hear,
-                'emirate' => $request->emirate,
+                'emirate' => $request->emirate['title'],
                 'user_id' => $user->id,
                 'type' => 'brochure',
             ]);
 
             $email =  $request->email;
-            $email =  $request->email;
+
+            $leadEmail =  $this->getEmail($request->emirate['offices'], 'services')['email'];
+            $leadTitle =  $request->emirate['title'];
 
             $data = array(
                 'name' => $name,
@@ -777,9 +800,10 @@ class LeadController extends Controller
             );
 
 
-            Mail::send('mail.admin.get_brochure_download_link', $data, function ($message) use ($email, $name) {
+            Mail::send('mail.admin.get_brochure_download_link', $data, function ($message) use ($leadEmail, $leadTitle) {
                 $message->from('info@suzukiuae-offers.com');
-                $message->to($this->adminEmail, $this->adminName)->subject('New entry for brochure download');
+                $message->cc($this->adminEmail);
+                $message->to($leadEmail, $leadTitle)->subject('New entry for brochure download');
             });
 
 
@@ -808,6 +832,8 @@ class LeadController extends Controller
 
     public function getSpecSheet (Request $request) {
 
+        // return $request->emirate;
+
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -831,7 +857,6 @@ class LeadController extends Controller
         ]);
 
         $name = $request->first_name . ' ' . $request->last_name;
-        $name = $request->first_name . ' ' . $request->last_name;
 
         if ($validator->fails()) {
             $user = User::create([
@@ -851,13 +876,14 @@ class LeadController extends Controller
                 'title' => $request->title,
                 'email' => $request->email,
                 'hear' => $request->hear,
-                'emirate' => $request->emirate,
+                'emirate' => $request->emirate['title'],
                 'user_id' => $user->id,
                 'type' => 'specsheet',
             ]);
 
             $email =  $request->email;
-            $email =  $request->email;
+            $leadEmail =  $this->getEmail($request->emirate['offices'], 'services')['email'];
+            $leadTitle =  $request->emirate['title'];
 
             $data = array(
                 'name' => $name,
@@ -867,9 +893,10 @@ class LeadController extends Controller
             );
 
 
-            Mail::send('mail.admin.get_specsheet_download_link', $data, function ($message) use ($email, $name) {
+            Mail::send('mail.admin.get_specsheet_download_link', $data, function ($message) use ($leadEmail, $leadTitle) {
                 $message->from('info@suzukiuae-offers.com');
-                $message->to($this->adminEmail, $this->adminName)->subject('New entry for specsheet download');
+                $message->cc($this->adminEmail);
+                $message->to($leadEmail, $leadTitle)->subject('New entry for specsheet download');
             });
 
 
@@ -936,7 +963,7 @@ class LeadController extends Controller
                 'email' => $request->email,
                 'mobile' => $request->mobile,
                 'phone' => $request->phone,
-                'emirate' => $request->emirate,
+                'emirate' => $request->emirate['title'],
                 'user_id' => $user->id,
                 'type' => 'accessory-brochure',
             ]);
@@ -1003,11 +1030,14 @@ class LeadController extends Controller
             'title' => $request->title,
             'email' => $request->email,
             'mobile' => $request->mobile,
+            'emirate' => $request->emirate['title'],
             'message' => $request->message,
             'type' => 'contact-us',
         ]);
 
         $email =  $request->email;
+        $leadEmail =  $this->getEmail($request->emirate['offices'], 'services')['email'];
+        $leadTitle =  $request->emirate['title'];
 
         $data = array(
             'title' => $request->title,
@@ -1018,9 +1048,10 @@ class LeadController extends Controller
         );
 
 
-        Mail::send('mail.admin.contact_us', $data, function ($message) use ($email, $name) {
+        Mail::send('mail.admin.contact_us', $data, function ($message) use ($leadEmail, $leadTitle) {
             $message->from('info@suzukiuae-offers.com');
-            $message->to($this->adminEmail, $this->adminName)->subject('New inquiry from suzuki.ae contact form');
+            $message->cc($this->adminEmail);
+            $message->to($leadEmail, $leadTitle)->subject('New inquiry from suzuki.ae contact form');
         });
 
 
@@ -1048,6 +1079,19 @@ class LeadController extends Controller
 
 
 
+
+    }
+
+
+    public function getEmail ($request, $type) {
+        $item = null;
+        foreach($request as $struct) {
+            if ($type == $struct['type']) {
+                $item = $struct;
+                break;
+            }
+        }
+        return $item;
 
     }
 

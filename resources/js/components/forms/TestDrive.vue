@@ -99,10 +99,12 @@
                             </div>
                         </ValidationProvider>
                     </div>
-                    <div>
+                    <div v-if="!$apollo.queries.branches.loading">
                         <ValidationProvider name="form.hearFrom" rules="required">
                             <div slot-scope="{ errors }">
-                                <multiselect placeholder="Nearest showroom you can visit *" v-model="form.showroom" :options="showrooms"></multiselect>
+                                <multiselect placeholder="Nearest showroom you can visit *" v-model="form.showroom" label="title" :options="branches">
+                                    <template slot="singleLabel" slot-scope="{ option }">{{ option.title }}</template>
+                                </multiselect>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
                             </div>
                         </ValidationProvider>
@@ -155,6 +157,7 @@
 
     import gql from 'graphql-tag'
     import vehiclesQuery from "../../../../gql/frontend/vehicles.gql";
+    import branchesQuery from "../../../../gql/frontend/branchesbyemail.gql";
 
     // Add the required rule
     extend('required', {
@@ -202,7 +205,7 @@
                     showroom: false,
                 },
                 emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ras al khaimah", "Ajman", "Fujairah", "Umm al Quwain"],
-                hears: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"],
+                hears: ["Google", "LinkedIn", "Dubai", "Email", "Other"],
                 showrooms: ["Deira City center", "Abu Dhabi", "shaikh zayed road", "Al Ain", "Sharjah", "Ajman"],
             }
         },
@@ -249,6 +252,17 @@
                     update(data) {
                         this.selectedModel = data.vehicles[0]
                         return data.vehicles;
+                    },
+                };
+            },
+            branches() {
+                return {
+                    query: branchesQuery,
+                    variables: {
+                        type: 'services',
+                    },
+                    update(data) {
+                        return data.branchesByEmail;
                     },
                 };
             },

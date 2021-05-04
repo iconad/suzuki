@@ -26,7 +26,7 @@
                                     </div>
                                     <div v-if="spec && spec.length != 0" class="ml-3 cursor-pointer border border-gray-300 explore-more-button mb-2 flex items-center focus:outline-none transition ease-linear duration-200 hover:bg-gray-300 focus:bg-gray-300 rounded-lg overflow-hidden bg-gray-200 w-48">
                                         <img src="https://i.ibb.co/3vn5hPx/icon-specs.png" alt="download icon" class="w-8">
-                                        <a href="" class="inline-block px-2 py-1 text-sm capitalize">Specification Sheet</a>
+                                        <a href="/get-a-specsheet" class="inline-block px-2 py-1 text-sm capitalize">Specification Sheet</a>
                                     </div>
                                     <div class="ml-5" v-else>
                                         Specsheet not available

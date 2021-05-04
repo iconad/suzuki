@@ -55,4 +55,10 @@ class Branch extends Model
         return $this->hasMany(BranchOffice::class)->where('status', 1)->where('type', 'services');
     }
 
+    public function offices() {
+        return $this->hasMany(BranchOffice::class)
+                    ->where('status', 1)
+                    ->whereNotNull('email');
+    }
+
 }

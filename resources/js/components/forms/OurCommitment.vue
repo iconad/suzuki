@@ -86,7 +86,10 @@
                         <label class="block text-lg font-medium text-gray-800 mb-2">Location</label>
                         <ValidationProvider name="form.location" rules="required">
                             <div slot-scope="{ errors }">
-                                <multiselect v-model="form.location" :options="emirates"></multiselect>
+                                <!-- <multiselect v-model="form.location" :options="emirates"></multiselect> -->
+                                <multiselect placeholder="Location *" v-model="form.location" label="title" :options="branches">
+                                    <template slot="singleLabel" slot-scope="{ option }">{{ option.title }}</template>
+                                </multiselect>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
                             </div>
                         </ValidationProvider>
@@ -134,6 +137,8 @@
 
     import Multiselect from 'vue-multiselect'
     import PrettyCheckbox from 'pretty-checkbox-vue/check';
+
+    import branchesQuery from "../../../../gql/frontend/branchesbyemail.gql";
 
     import { extend,ValidationProvider,ValidationObserver } from 'vee-validate';
     import { required, email } from 'vee-validate/dist/rules';
@@ -186,8 +191,7 @@
                     check: false,
                     showroom: false,
                 },
-                emirates: ["Abu Dhabi", "Dubai", "Sharjah", "Ajman", "Ras al khaimah", "Fujairah", "Umm al-Qaiwain"],
-                hears: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"],
+                hears: ["Google", "LinkedIn", "Friend", "Email", "Other"],
             }
         },
         mounted() {
@@ -240,6 +244,16 @@
                     this.checkError = 0
                 }
             }
+        },
+        apollo: {
+            branches() {
+                return {
+                    query: branchesQuery,
+                    update(data) {
+                        return data.branchesByEmail;
+                    },
+                };
+            },
         }
     }
 </script>

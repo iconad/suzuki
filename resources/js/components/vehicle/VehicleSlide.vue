@@ -5,7 +5,8 @@
             <input type="hidden" :class="`slideSubTitle${index}`" :value="slide.sub_title" />
             <input type="hidden" :class="`slideSlug${index}`" :value="slide.slug" />
         </div>
-        <div class="w-1/3 mx-auto">
+
+        <div :class="`mx-auto car-box-slide ${customwidth}`">
             <thumb-image classess="car w-full ml-5 md:ml-12 lg:ml-16" :image="firstMedia[0].file_name" :id="firstMedia[0].id"></thumb-image>
         </div>
     </div>
@@ -16,7 +17,7 @@
     import thumbImage from '../ThumbImage'
 
     export default {
-        props: ['slide', 'index'],
+        props: ['slide', 'index', 'customwidth'],
         components: {
             thumbImage
         },
@@ -31,3 +32,6 @@
         }
     }
 </script>
+
+<style lang="scss">
+ </style>
