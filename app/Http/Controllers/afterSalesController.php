@@ -6,6 +6,7 @@ use App\Models\Accessory;
 use App\Models\Recall;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+use Dymantic\InstagramFeed\Profile;
 
 class afterSalesController extends Controller
 {
@@ -41,7 +42,8 @@ class afterSalesController extends Controller
 
     public function warranty()
     {
-        return view('aftersales.warranty');
+        $instafeed = Profile::where('username', 'suzukicaruae')->first()->feed(4);
+        return view('aftersales.warranty', compact('instafeed'));
     }
 
     public function servicePaymentPlan()

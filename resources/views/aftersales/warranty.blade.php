@@ -19,6 +19,7 @@
 
     <div class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 text-gray-800">
         <div class="w-full space-y-10">
+            {{$instafeed}}
 
             <div class="content text-lg">
                 <h2 class="text-3xl suzuki-bold uppercase text-theme-skyblue">Warranty</h2>
@@ -60,9 +61,13 @@
             </div>
 
 
+
         </div>
     </div>
     {{-- accessories grid --}}
 </section>
 
 @endsection
+
+
+{{-- IGQVJWSzVGMXFIdTJST3BJc0ZAuSEoxbDdWQmtZAOEJBTngwYXYzdWpTRngwa1JLcHJJQlFsTzlFckxFN003Y1dXRU9McnJtQTVkTV8tMGRYMFZASQktUc29mSC0za1J6WWNPRXVjR0p1TTNCNjlSb2d3RAZDZD --}}
