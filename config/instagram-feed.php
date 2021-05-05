@@ -4,13 +4,13 @@ return [
     /*
      * The client_id from registering your app on Instagram
      */
-    'client_id'           => 'YOUR INSTAGRAM CLIENT ID',
+    'client_id'           => '819625141981767',
 
     /*
      * The client secret from registering your app on Instagram,
      * This is not the same as an access token.
      */
-    'client_secret'       => 'YOUR INSTAGRAM CLIENT SECRET',
+    'client_secret'       => '4133ccd43cffb1656d20fe0106ed6062',
 
     /*
      * The route that will respond to the Instagram callback during the OAuth process.
