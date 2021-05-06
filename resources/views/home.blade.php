@@ -210,7 +210,7 @@
                             </div>
                             <div class="info p-3 md:bg-white">
                                 <div class="text-sm text-gray-800 font-medium">
-                                    <p>{{ substr($item['caption'], 250) }}</p>
+                                    {{ Str::limit($item['caption'], 250) }}
                                 </div>
                                 <div class="mt-3">
                                     <a target="_blank" href="{{ $item['permalink'] }}" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
