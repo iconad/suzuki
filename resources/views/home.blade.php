@@ -205,7 +205,7 @@
                                 @if ($item['type'] === 'image')
                                     <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
                                 @else
-                                    <div><video src="{{ $item['url'] }}" controls></video></div>
+                                    <div><video class="w-full" src="{{ $item['url'] }}" controls></video></div>
                                 @endif
                             </div>
                             <div class="info p-3 md:bg-white">
