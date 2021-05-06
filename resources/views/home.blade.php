@@ -203,12 +203,14 @@
                         <div class="bg-gray-100 border rounded overflow-hidden md:bg-transparent">
                             <div>
                                 @if ($item['type'] === 'image')
-                                    <div> <img class="w-full h-48 object-cover" src="{{ $item['url'] }}" alt="insta feed"> </div>
+                                    <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
+                                @else
+                                    <div><video class="w-full" src="{{ $item['url'] }}" controls></video></div>
                                 @endif
                             </div>
                             <div class="info p-3 md:bg-white">
                                 <div class="text-sm text-gray-800 font-medium">
-                                    {{ Str::limit($item['caption'], 250) }}
+                                    <p>{{ $item['caption'] }}</p>
                                 </div>
                                 <div class="mt-3">
                                     <a target="_blank" href="{{ $item['permalink'] }}" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>

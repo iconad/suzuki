@@ -100,16 +100,7 @@ class PageController extends Controller
         //     'caption'=> $nonPrivateAccountMedias[0]->getCaption(),
         // );
 
-        $data = Profile::where('username', 'suzukicaruae')->first()->feed(10);
-
-        $instafeed = [];
-        $count = 0;
-        foreach ($data as $value) {
-            if ($value['type'] === 'image' && $count != 4) {
-                array_push($instafeed, $value);
-                $count += 1;
-            }
-        }
+        $instafeed = Profile::where('username', 'suzukicaruae')->first()->feed(10);
 
         return view('home', compact('instafeed'));
     }
