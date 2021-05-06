@@ -20,6 +20,7 @@
     <div class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 text-gray-800">
         <div class="w-full space-y-10">
 
+
             <div class="content text-lg">
                 <h2 class="text-3xl suzuki-bold uppercase text-theme-skyblue">Warranty</h2>
                 <p>If your warranty is running out, you can continue protecting your car with a Suzuki Extended Warranty.</p>

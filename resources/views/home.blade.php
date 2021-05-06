@@ -196,6 +196,18 @@
 
             {{-- {!! $post1['caption'] !!} --}}
 
+            @isset($instafeed)
+                @foreach ($instafeed as $item)
+                    <div> {{ $item['permalink'] }} </div>
+                    @if ($item['type'] === 'image')
+                        <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
+                    @else
+                        <div><video src="{{ $item['url'] }}" controls></video></div>
+                    @endif
+                    <div> {{ $item['caption'] }} </div>
+                @endforeach
+            @endisset
+
             <div class="instagram mt-24">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
                     @isset($instafeed)
