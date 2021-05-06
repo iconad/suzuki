@@ -40,19 +40,19 @@
                   {
                       id: 1,
                       name: "slide one",
-                      src: "https://i.ibb.co/3SYDYJj/cover.webp",
+                      src: "https://suzuki.ae/storage/197/2u9kKDjsl2LCQgwA.jpeg",
                       link: ""
                   },
                   {
                       id: 2,
                       name: "slide two",
-                      src: "https://i.ibb.co/Tc8d8wL/cover-2.webp",
+                      src: "https://suzuki.ae/storage/198/hq9XmFgdhASassGl.jpeg",
                       link: ""
                   },
                   {
                       id: 3,
                       name: "slide three",
-                      src: "https://i.ibb.co/B6c7FKf/cover-1.webp",
+                      src: "https://suzuki.ae/storage/199/7toXPLYThpTeaWu8.jpeg",
                       link: ""
                   },
               ],
