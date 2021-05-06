@@ -22,7 +22,6 @@
             @isset($instafeed)
                 @foreach ($instafeed as $item)
                     <div> {{ $item['permalink'] }} </div>
-                    <div> {{ $item['url'] }} </div>
                     <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
                     <div> {{ $item['caption'] }} </div>
                 @endforeach
