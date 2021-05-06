@@ -22,7 +22,11 @@
             @isset($instafeed)
                 @foreach ($instafeed as $item)
                     <div> {{ $item['permalink'] }} </div>
-                    <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
+                    @if ($item['image'])
+                        <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
+                    @else
+                        <div><video src="{{ $item['url'] }}"></video></div>
+                    @endif
                     <div> {{ $item['caption'] }} </div>
                 @endforeach
             @endisset
