@@ -199,13 +199,11 @@
             <div class="instagram mt-24">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
                     @isset($instafeed)
-                        @foreach ($instafeed as $item)
+                        @foreach ($instafeed->slice(0, 4) as $item)
                         <div class="bg-gray-100 border rounded overflow-hidden md:bg-transparent">
                             <div>
                                 @if ($item['type'] === 'image')
-                                    <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
-                                @else
-                                    <div><video class="w-full" src="{{ $item['url'] }}" controls></video></div>
+                                    <div> <img class="w-full h-48 object-cover" src="{{ $item['url'] }}" alt="insta feed"> </div>
                                 @endif
                             </div>
                             <div class="info p-3 md:bg-white">
