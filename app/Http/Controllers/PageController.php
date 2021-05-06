@@ -105,7 +105,7 @@ class PageController extends Controller
         $instafeed = [];
         $count = 0;
         foreach ($data as $value) {
-            if ($data['type'] === 'image' && $count != 4) {
+            if ($value['type'] === 'image' && $count != 4) {
                 array_push($instafeed, $value);
                 $count += 1;
             }
