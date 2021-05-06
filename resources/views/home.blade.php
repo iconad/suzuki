@@ -199,7 +199,7 @@
             <div class="instagram mt-24">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
                     @isset($instafeed)
-                        @foreach ($instafeed->slice(0, 4) as $item)
+                        @foreach ($instafeed as $item)
                         <div class="bg-gray-100 border rounded overflow-hidden md:bg-transparent">
                             <div>
                                 @if ($item['type'] === 'image')
