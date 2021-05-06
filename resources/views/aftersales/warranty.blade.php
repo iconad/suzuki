@@ -25,7 +25,7 @@
                     @if ($item['type'] === 'image')
                         <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
                     @else
-                        <div><video src="{{ $item['url'] }}"></video></div>
+                        <div><video src="{{ $item['url'] }}" controls></video></div>
                     @endif
                     <div> {{ $item['caption'] }} </div>
                 @endforeach
