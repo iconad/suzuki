@@ -25,8 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $instafeed = Profile::where('username', 'suzukicaruae')->first()->refreshFeed(4);
-        return view('home', compact('instafeed'));
+        // $instafeed = Profile::where('username', 'suzukicaruae')->first()->refreshFeed(4);
+        // return view('home', compact('instafeed'));
     }
 
 

@@ -6,6 +6,7 @@ use App\Models\Page;
 use App\Models\Branch;
 use App\Models\PageManager;
 use App\Models\Vehicle;
+use Dymantic\InstagramFeed\Profile;
 use Harimayco\Menu\Facades\Menu;
 use Illuminate\Http\Request;
 class PageController extends Controller
@@ -99,7 +100,8 @@ class PageController extends Controller
         //     'caption'=> $nonPrivateAccountMedias[0]->getCaption(),
         // );
 
-        return view('home');
+        $instafeed = Profile::where('username', 'suzukicaruae')->first()->feed(4);
+        return view('home', compact('instafeed'));
     }
 
     public function vehicles(){
