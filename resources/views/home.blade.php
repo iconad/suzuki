@@ -210,10 +210,10 @@
                             </div>
                             <div class="info p-3 md:bg-white">
                                 <div class="text-sm text-gray-800 font-medium">
-                                    <p>{{ $item['caption'] }}</p>
+                                    <p>{{ substr($item['caption'], 250) }}</p>
                                 </div>
                                 <div class="mt-3">
-                                    <a href="{{ $item['permalink'] }}" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
+                                    <a target="_blank" href="{{ $item['permalink'] }}" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
                                 </div>
                             </div>
                         </div>
