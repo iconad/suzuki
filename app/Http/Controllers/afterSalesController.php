@@ -42,8 +42,7 @@ class afterSalesController extends Controller
 
     public function warranty()
     {
-        $instafeed = Profile::where('username', 'suzukicaruae')->first()->feed(4);
-        return view('aftersales.warranty', compact('instafeed'));
+        return view('aftersales.warranty');
     }
 
     public function servicePaymentPlan()

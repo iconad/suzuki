@@ -19,17 +19,6 @@
 
     <div class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 text-gray-800">
         <div class="w-full space-y-10">
-            @isset($instafeed)
-                @foreach ($instafeed as $item)
-                    <div> {{ $item['permalink'] }} </div>
-                    @if ($item['type'] === 'image')
-                        <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
-                    @else
-                        <div><video src="{{ $item['url'] }}" controls></video></div>
-                    @endif
-                    <div> {{ $item['caption'] }} </div>
-                @endforeach
-            @endisset
 
             <div class="content text-lg">
                 <h2 class="text-3xl suzuki-bold uppercase text-theme-skyblue">Warranty</h2>

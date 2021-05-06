@@ -198,62 +198,29 @@
 
             <div class="instagram mt-24">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
-                    <div class="bg-gray-100 border rounded overflow-hidden md:bg-transparent">
-                        <div>
-                            <img src="https://i.ibb.co/37ghz6p/insta1.jpg" alt="insta image">
-                        </div>
-                        <div class="info p-3 md:bg-white">
-                            <div class="text-sm text-gray-800 font-medium">
-                                <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
+                    @isset($instafeed)
+                        @foreach ($instafeed as $item)
+                        <div class="bg-gray-100 border rounded overflow-hidden md:bg-transparent">
+                            <div>
+                                @if ($item['type'] === 'image')
+                                    <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
+                                @else
+                                    <div><video src="{{ $item['url'] }}" controls></video></div>
+                                @endif
                             </div>
-                            <div class="mt-3">
-                                {{-- <a href="http://" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a> --}}
-                            </div>
-                        </div>
-                    </div>
-                    {{-- inst --}}
-                    <div class="bg-gray-100 border rounded overflow-hidden md:bg-transparent">
-                        <div>
-                            <img src="https://i.ibb.co/m056ZPX/insta2.jpg" alt="insta image">
-                        </div>
-                        <div class="info p-3 bg-white">
-                            <div class="text-sm text-gray-800 font-medium">
-                                <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
-                            </div>
-                            <div class="mt-3">
-                                {{-- <a href="http://" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a> --}}
+                            <div class="info p-3 md:bg-white">
+                                <div class="text-sm text-gray-800 font-medium">
+                                    <p>{{ $item['caption'] }}</p>
+                                </div>
+                                <div class="mt-3">
+                                    <a href="{{ $item['permalink'] }}" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    {{-- inst --}}
-                    <div class="bg-gray-100 border rounded overflow-hidden md:bg-transparent">
-                        <div>
-                            <img src="https://i.ibb.co/ngg6mqy/insta3.jpg" alt="insta image">
-                        </div>
-                        <div class="info p-3 bg-white">
-                            <div class="text-sm text-gray-800 font-medium">
-                                <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
-                            </div>
-                            <div class="mt-3">
-                                {{-- <a href="http://" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a> --}}
-                            </div>
-                        </div>
-                    </div>
-                    {{-- inst --}}
-                    <div class="bg-gray-100 border rounded overflow-hidden md:bg-transparent">
-                        <div>
-                            <img src="https://i.ibb.co/hZ9L0FG/insta4.jpg" alt="insta image">
-                        </div>
-                        <div class="info p-3 bg-white">
-                            <div class="text-sm text-gray-800 font-medium">
-                                <p>A practical hatchback that is very versatile and stylish, that's what the Suzuki Baleno is all about!</p>
-                            </div>
-                            <div class="mt-3">
-                                {{-- <a href="http://" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a> --}}
-                            </div>
-                        </div>
-                    </div>
-                    {{-- inst --}}
+                        {{-- inst --}}
+                        @endforeach
+                    @endisset
+
 
                 </div>
 
