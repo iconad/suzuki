@@ -1,6 +1,6 @@
 <template>
     <div class="overflow-hidden relative showroom">
-        <img src="https://i.ibb.co/47BBcMG/bg.jpg" class="w-full" alt="cover">
+        <img src="../../../../public/assets/images/bg.jpeg" class="w-full" alt="cover">
         <!-- <div class="" v-if="!$apollo.queries.vehicles.loading"> -->
              <div class="absolute left-12vw top-12vw text-gray-900 leading-none">
                 <div class="text-4vw text-shadow">
