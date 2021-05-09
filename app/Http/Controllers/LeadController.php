@@ -94,7 +94,6 @@ class LeadController extends Controller
         //
     }
 
-
     public function accessoriesQuote (Request $request) {
 
 
@@ -269,7 +268,6 @@ class LeadController extends Controller
 
     }
 
-
     public function financeQuote (Request $request) {
 
         $request->validate([
@@ -310,7 +308,7 @@ class LeadController extends Controller
         ]);
 
         $email =  $request->email;
-        $leadEmail =  $this->getEmail($request->emirate['offices'], 'services')['email'];
+        $leadEmail =  $this->getEmail($request->emirate['offices'], 'showroom')['email'];
         $leadTitle =  $request->emirate['title'];
 
         $data = array(
@@ -353,7 +351,6 @@ class LeadController extends Controller
 
 
     }
-
 
     public function ourCommitment (Request $request) {
 
@@ -694,7 +691,7 @@ class LeadController extends Controller
 
         $email =  $request->email;
 
-        $leadEmail =  $this->getEmail($request->showroom['offices'], 'services')['email'];
+        $leadEmail =  $this->getEmail($request->showroom['offices'], 'showroom')['email'];
         $leadTitle =  $request->showroom['title'];
 
         $data = array(
@@ -789,7 +786,7 @@ class LeadController extends Controller
 
             $email =  $request->email;
 
-            $leadEmail =  $this->getEmail($request->emirate['offices'], 'services')['email'];
+            $leadEmail =  $this->getEmail($request->emirate['offices'], 'showroom')['email'];
             $leadTitle =  $request->emirate['title'];
 
             $data = array(
@@ -882,7 +879,7 @@ class LeadController extends Controller
             ]);
 
             $email =  $request->email;
-            $leadEmail =  $this->getEmail($request->emirate['offices'], 'services')['email'];
+            $leadEmail =  $this->getEmail($request->emirate['offices'], 'showroom')['email'];
             $leadTitle =  $request->emirate['title'];
 
             $data = array(
@@ -1036,7 +1033,7 @@ class LeadController extends Controller
         ]);
 
         $email =  $request->email;
-        $leadEmail =  $this->getEmail($request->emirate['offices'], 'services')['email'];
+        $leadEmail =  $this->getEmail($request->emirate['offices'], 'showroom')['email'];
         $leadTitle =  $request->emirate['title'];
 
         $data = array(
@@ -1081,7 +1078,6 @@ class LeadController extends Controller
 
 
     }
-
 
     public function getEmail ($request, $type) {
         $item = null;
