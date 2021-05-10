@@ -196,7 +196,7 @@
 
             {{-- {!! $post1['caption'] !!} --}}
 
-            <div class="instagram mt-24">
+            <div class="instagram mt-12 md:mt-24">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
                     @isset($instafeed)
                         @foreach ($instafeed as $item)

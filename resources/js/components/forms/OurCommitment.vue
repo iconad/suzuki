@@ -258,6 +258,8 @@
     }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+    .vm--modal {
+        height: auto!important;
+    }
 </style>

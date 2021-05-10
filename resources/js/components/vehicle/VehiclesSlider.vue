@@ -2,44 +2,44 @@
     <div class="overflow-hidden relative showroom">
         <img src="../../../../public/assets/images/bg.jpeg" class="w-full" alt="cover">
         <!-- <div class="" v-if="!$apollo.queries.vehicles.loading"> -->
-             <div class="absolute left-12vw top-12vw text-gray-900 leading-none">
-                <div class="text-4vw text-shadow">
-                    <span>Suzuki</span>
-                    <span class="suzuki-bold splide-slide-title" id="slideTitle">Baleno</span>
-                </div>
-                <div class="text-2vw mt-1 uppercase text-gray-800 text-shadow splide-slide-sub-title text-shadow" id="slideSubTitle">
-                    <span>Reason</span>
-                    <span class="suzuki-bold">Finds</span>
-                    <span>Emotion</span>
-                </div>
-                <div class="relative z-10">
-                    <a id="slideSlug" href="/vehicles/baleno" class="red-button mt-2 text-10px md:text-lg xxl:text-xl px-2 lg:px-4 py-0 xxl:py-1 hover:bg-red-500 hover:text-white">Explore Car</a>
-                </div>
+        <div class="absolute left-12vw top-12vw text-gray-900 leading-none">
+            <div class="text-4vw text-shadow">
+                <span>Suzuki</span>
+                <span class="suzuki-bold splide-slide-title" id="slideTitle">Baleno</span>
             </div>
+            <div class="text-2vw mt-1 uppercase text-gray-800 text-shadow splide-slide-sub-title text-shadow" id="slideSubTitle">
+                <span>Reason</span>
+                <span class="suzuki-bold">Finds</span>
+                <span>Emotion</span>
+            </div>
+            <div class="relative z-10">
+                <a id="slideSlug" href="/vehicles/baleno" class="red-button mt-2 text-10px md:text-lg xxl:text-xl px-2 lg:px-4 py-0 xxl:py-1 hover:bg-red-500 hover:text-white">Explore Car</a>
+            </div>
+        </div>
 
-            <div class="absolute bottom-0 w-full left-0 car-wrapper">
-                <splide
-                :options="options"
-                ref="primary"
-                @splide:move="move"
-                @splide:moved="moved"
-                >
-                    <splide-slide v-for="(slide,i) in vehicles" :key="i" class="car-splide">
-                        <vehicle-slide  :customwidth="customWidth" :slide="slide" :index="i"></vehicle-slide>
-                    </splide-slide>
-                </splide>
-            </div>
-            <div class="vehicle-splide02-track mt-3 z-10 absolute bottom-2 md:bottom-5 left-0 w-full flex items-center justify-center vehicles-slider">
-                <splide
-                :options="secondaryOptions"
-                ref="secondary"
-                class="flex items-center"
-                >
-                    <splide-slide v-for="(slide,t) in vehicles" :key="t" class="opacity-0 md:opacity-100">
-                        <thumb-slide :slide="slide"></thumb-slide>
-                    </splide-slide>
-                </splide>
-            </div>
+        <div class="absolute bottom-0 w-full left-0 car-wrapper">
+            <splide
+            :options="options"
+            ref="primary"
+            @splide:move="move"
+            @splide:moved="moved"
+            >
+                <splide-slide v-for="(slide,i) in vehicles" :key="i" class="car-splide">
+                    <vehicle-slide  :customwidth="customWidth" :slide="slide" :index="i"></vehicle-slide>
+                </splide-slide>
+            </splide>
+        </div>
+
+        <div class="vehicle-splide02-track mt-3 z-10 absolute bottom-2 md:bottom-5 left-0 w-full flex items-center justify-center vehicles-slider">
+            <splide
+            :options="secondaryOptions"
+            ref="secondary"
+            class="flex items-center"
+            >
+                <splide-slide v-for="(slide,t) in vehicles" :key="t" class="opacity-0 md:opacity-100">
+                    <thumb-slide :slide="slide"></thumb-slide>
+                </splide-slide>
+            </splide>
         </div>
     </div>
 </template>
