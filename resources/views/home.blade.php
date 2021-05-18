@@ -197,7 +197,7 @@
             {{-- {!! $post1['caption'] !!} --}}
 
             <div class="instagram mt-12 md:mt-24">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
                     @isset($instafeed)
                         @foreach ($instafeed as $item)
                         <div class="bg-gray-100 border rounded overflow-hidden md:bg-transparent">
@@ -208,7 +208,7 @@
                                     <div><video class="w-full" src="{{ $item['url'] }}" controls></video></div>
                                 @endif
                             </div>
-                            <div class="info p-3 md:bg-white">
+                            <div class="flex flex-col justify-between h-64 info p-3 md:bg-white">
                                 <div class="text-sm text-gray-800 font-medium">
                                     <p>{{ $item['caption'] }}</p>
                                 </div>
