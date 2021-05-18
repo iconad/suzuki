@@ -48,7 +48,7 @@
                     <span class="text-center w-full text-3xl capitalize font-medium">let's drive</span>
                 </div>
                 <div class="car-effect-left-right">
-                    <img src="{{asset('assets/images/vehicles/swift.webp')}}" alt="swift" class="w-3/4">
+                    <img src="{{asset('assets/images/vehicles/swift.webp')}}" alt="swift" class="-ml-1 w-3/4">
                 </div>
             </div>
             <div onclick="location.href='/get-a-quote';" class="cursor-pointer bg-theme-red-500 h-screen-50 lg:h-20rem xxl:h-25rem relative overflow-hidden image-scale-effect-small">
@@ -83,7 +83,7 @@
                             <span class="block">Car Service</span>
                         </span>
                     </div>
-                    <div>
+                    <div class="relative image-scale-effect-small-no-overlay">
                         <img src="{{asset('assets/images/vehicles/engine.webp')}}" alt="engine" class="w-48 xxl:w-64 mx-auto">
                     </div>
                 </div>

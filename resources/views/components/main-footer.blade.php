@@ -25,7 +25,7 @@
                         </ul>
                     </div>
                     <div class="w-full lg:mt-0 py-10 md:py-0">
-                        <div class="text-center md:text-right text-lg uppercase">Follow us on social media</div>
+                        <div class="text-center md:text-right text-1-point-07 uppercase">Follow us on social media</div>
                         <div class="flex flex-col justify-center lg:justify-between h-full items-center lg:items-end">
                             <div class="flex items-center text-theme-darkblue-500">
                                 <div class="ml-3">

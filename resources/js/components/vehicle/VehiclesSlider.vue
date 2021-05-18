@@ -2,12 +2,12 @@
     <div class="overflow-hidden relative showroom">
         <img src="../../../../public/assets/images/bg.jpeg" class="w-full" alt="cover">
         <!-- <div class="" v-if="!$apollo.queries.vehicles.loading"> -->
-        <div class="absolute left-12vw top-12vw text-gray-900 leading-none">
-            <div class="text-4vw text-shadow">
+        <div class="absolute left-12vw top-16vw text-gray-900 leading-none">
+            <div class="text-3vw">
                 <span>Suzuki</span>
-                <span class="suzuki-bold splide-slide-title" id="slideTitle">Baleno</span>
+                <span class="suzuki-bold splide-slide-title uppercase" id="slideTitle">Baleno</span>
             </div>
-            <div class="text-2vw mt-1 uppercase text-gray-800 text-shadow splide-slide-sub-title text-shadow" id="slideSubTitle">
+            <div class="text-2vw mt-1 uppercase text-gray-800 splide-slide-sub-title" id="slideSubTitle">
                 <span>Reason</span>
                 <span class="suzuki-bold">Finds</span>
                 <span>Emotion</span>
@@ -30,7 +30,7 @@
             </splide>
         </div>
 
-        <div class="vehicle-splide02-track mt-3 z-10 absolute bottom-2 md:bottom-5 left-0 w-full flex items-center justify-center vehicles-slider">
+        <div class="vehicle-splide02-track mt-3 z-10 absolute bottom-2 md:bottom-24 xxl:bottom-32 left-0 w-full flex items-center justify-center vehicles-slider">
             <splide
             :options="secondaryOptions"
             ref="secondary"
@@ -172,6 +172,15 @@
 
 .splide__arrows {
     display: none;
+}
+
+
+.vehicle-splide02-track .splide__arrow--prev {
+    left: -4em;
+}
+
+.vehicle-splide02-track .splide__arrow--next {
+    right: -5em;
 }
 
 .splide--nav>.splide__track>.splide__list>.splide__slide.is-active {

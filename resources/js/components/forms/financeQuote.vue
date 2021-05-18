@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>
+        <div class="bg-yellow-400">
             <ValidationObserver v-slot="{ invalid,passes }">
                 <form @submit.prevent="passes(submitForm)">
                 <div class="grid grid-cols-1 gap-3">

@@ -4,7 +4,7 @@
         :class="isSideButton ? 'bg-gray-100' : '' "
         class="bg-white md:bg-transparent fixed md:h-screen w-full md:w-auto z-20 right-0 bottom-0 py-2 md:py-0 md:top-0 w-auto flex flex-row md:flex-col justify-center space-x-1 md:space-y-1 md:pr-3"
         >
-            <div @click="OpenBroucherModal" class="cursor-pointer flex items-center space-x-1 float-button w-12 h-12 relative">
+            <div @click="OpenBroucherModal" class="cursor-pointer flex items-center space-x-1 float-button w-12 h-12 relative ml-1">
                 <span class="absolute float-name right-0 border border-gray-400 bg-white bg-opacity-100 h-12 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Download Brochure</span>
 
                 <span class="float-icon absolute right-0 w-8 h-12 border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">
@@ -50,7 +50,7 @@
         <transition name="slide-fade">
             <div
             v-if="isSidebar"
-            class="right-0 sidebar fixed top-0 h-full w-35rem z-20 bg-gray-100 flex items-center justify-center pl-8 pr-24 border-gray-300 border-l-2 transition ease-out duration-300">
+            class="right-0 sidebar fixed top-0 h-full w-35rem z-20 bg-gray-100 flex items-center justify-center px-8 border-gray-300 border-l-2 transition ease-out duration-300">
                 <span class="block absolute right-0 top-0 p-5 hover:bg-gray-200 z-2 text-theme-red-500 cursor-pointer hover:text-theme-red-800" @click="clearEverything">
                     <svg class="fill-current w-10 h-10 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 9L3 2 2 3l7 7-7 7 1 1 7-7 7 7 1-1-7-7 7-7-1-1-7 7z"/></svg>
                 </span>

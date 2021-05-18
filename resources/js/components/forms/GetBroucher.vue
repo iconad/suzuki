@@ -18,8 +18,8 @@
                                     <label
                                     :key="n"
                                     v-if="isBrochure(model) != 0"
-                                    :class=" selectedModels.includes(n) ? 'border-gray-400 bg-gray-200' : 'border-transparent bg-transparent'"
-                                    class="rounded p-2 lg:text-center border w-full">
+                                    :class=" selectedModels.includes(n) ? 'border-gray-500 bg-gray-100' : 'border-transparent bg-transparent'"
+                                    class="rounded-md p-1 lg:text-center border w-full">
                                         <input
                                         class="hidden"
                                         type="checkbox"
@@ -29,7 +29,10 @@
                                         number>
                                         <span
                                         :class="selectedModels.length > 1 && selectedModels.indexOf(n) === -1 ? 'text-gray-500' : 'text-gray-700'"
-                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic "> {{model.title}} </span>
+                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic ">
+                                        <vehicle-logo :slide="model" class="bg-gray-400 rounded-md flex items-center justify-center h-12"></vehicle-logo>
+                                        <!-- {{model.title}} -->
+                                         </span>
                                     </label>
                                     </template>
                                 </div>
@@ -124,6 +127,8 @@
     import vehiclesQuery from "../../../../gql/frontend/vehicles.gql";
     import branchesQuery from "../../../../gql/frontend/branchesbyemail.gql";
 
+    import vehicleLogo from './vehicleLogo'
+
     import Multiselect from 'vue-multiselect'
     import PrettyCheckbox from 'pretty-checkbox-vue/check';
 
@@ -147,6 +152,7 @@
         props: ['selectedmodel'],
         components: {
             Multiselect,
+            vehicleLogo,
             ValidationProvider,
             ValidationObserver,
             'p-check': PrettyCheckbox,

@@ -1,6 +1,6 @@
 <template>
-    <div class="relative h-64 cursor-pointer" @click="slideClick(slide.slug)">
-        <thumb-image classess="w-full h-64 object-cover object-center" :image="firstMedia[0].file_name" :id="firstMedia[0].id"></thumb-image>
+    <div class="relative h-64 xxxl:h-25rem cursor-pointer" @click="slideClick(slide.slug)">
+        <thumb-image classess="w-full h-64 xxxl:h-25rem object-cover object-bottom" :image="firstMedia[0].file_name" :id="firstMedia[0].id"></thumb-image>
         <div class="absolute left-0 top-0 w-full h-full">
             <div class="absolute left-0 bottom-0 p-5 xxl:p-8 z-10 title">
                 <span class="block italic text-gray-100 text-2xl suzuki-mon xxl:text-3xl uppercase font-black">

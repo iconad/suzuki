@@ -60,31 +60,7 @@ body {
     right: -600px;
 }
 
-.nav-list,
-.nav-list-child {
-    display: none;
-}
-.nav-link {
-    &:hover{
-         color: $red;
-        > ul.nav-list {
-            display: flex;
-            > .nav-link {
-                &:hover{
-                    color: white;
-                    > ul.nav-list-child {
-                        display: block;
-                        .nav-link {
-                            &:hover{
-                                color: $red;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+
 
 
 .box-overlay div.title {
@@ -193,6 +169,17 @@ body {
 }
 .image-scale-effect-small {
     overflow: hidden;
+    img {
+        transition: 0.5s;
+    }
+    &:hover {
+        img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.image-scale-effect-small-no-overlay {
     img {
         transition: 0.5s;
     }
