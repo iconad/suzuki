@@ -211,7 +211,7 @@
                                 </div>
                                 <div class="flex flex-col justify-between info p-3">
                                     <div class="text-sm text-gray-800 font-medium">
-                                        <p> {{substr($item['caption'], 0, 150)}}... </p>
+                                        <p> {{substr($item['caption'], 0, 40)}}... </p>
                                     </div>
                                 </div>
 
