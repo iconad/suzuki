@@ -5,7 +5,7 @@
         class="bg-white md:bg-transparent fixed md:h-screen w-full md:w-auto z-20 right-0 bottom-0 py-2 md:py-0 md:top-0 w-auto flex flex-row md:flex-col justify-center space-x-1 md:space-y-1 md:pr-3"
         >
             <div @click="OpenBroucherModal" class="cursor-pointer flex items-center space-x-1 float-button w-12 h-12 relative ml-1">
-                <span class="absolute float-name right-0 border border-gray-400 bg-white bg-opacity-100 h-12 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Download Brochure</span>
+                <span class="absolute float-name right-0 border border-theme-red-500 text-gray-100 bg-theme-red-500 bg-opacity-100 h-12 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Download Brochure</span>
 
                 <span class="float-icon absolute right-0 w-8 h-12 border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">
                     <img src="../../../../public/assets/images/icons/download.png" alt="icon" class="w-8">
@@ -14,7 +14,7 @@
             </div>
 
             <div @click="sidebar" class="cursor-pointer flex items-center space-x-1 float-button w-12 h-12 relative">
-                <span class="absolute float-name right-0 border border-gray-400 bg-white bg-opacity-100 h-12 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Request a Quote</span>
+                <span class="absolute float-name right-0 border border-theme-red-500 text-gray-100 bg-theme-red-500 bg-opacity-100 h-12 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Request a Quote</span>
 
                 <span class="float-icon absolute right-0 w-8 h-12 border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">
                     <img src="../../../../public/assets/images/icons/spec.png" alt="icon" class="w-8">
@@ -22,7 +22,7 @@
             </div>
 
             <div class="flex items-center space-x-1 float-button w-12 h-12 relative">
-                <a href="/test-drive" class="absolute float-name right-0 border border-gray-400 bg-white bg-opacity-100 h-11 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Test Drive</a>
+                <a href="/test-drive" class="absolute float-name right-0 border border-theme-red-500 text-gray-100 bg-theme-red-500 bg-opacity-100 h-11 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Test Drive</a>
 
                 <a href="/test-drive" class="float-icon absolute right-0 w-8 h-12 border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">
                     <img src="../../../../public/assets/images/icons/drive.png" alt="icon" class="w-8">
@@ -30,7 +30,7 @@
             </div>
 
             <div class="flex items-center space-x-1 float-button w-12 h-12 relative">
-                <a href="/after-sales/genuine-parts" class="absolute float-name right-0 border border-gray-400 bg-white bg-opacity-100 h-11 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Genuine Parts</a>
+                <a href="/after-sales/genuine-parts" class="absolute float-name right-0 border border-theme-red-500 text-gray-100 bg-theme-red-500 bg-opacity-100 h-11 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Genuine Parts</a>
 
                 <a href="/after-sales/genuine-parts" class="float-icon absolute right-0 w-8 h-12 border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">
                     <img src="../../../../public/assets/images/icons/setting.png" alt="icon" class="w-8">
@@ -38,7 +38,7 @@
             </div>
 
             <div class="flex items-center space-x-1 float-button w-12 h-12 relative">
-                <a href="/locations/abu-dhabi/services" class="absolute float-name right-0 border border-gray-400 bg-white bg-opacity-100 h-11 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Services</a>
+                <a href="/locations/abu-dhabi/services" class="absolute float-name right-0 border border-theme-red-500 text-gray-100 bg-theme-red-500 bg-opacity-100 h-11 px-2 flex items-center justify-center rounded transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">Services</a>
 
                 <a href="/locations/abu-dhabi/services" class="float-icon absolute right-0 w-8 h-12 border border-gray-400 bg-white bg-opacity-100 focus:outline-none focus:bg-theme-red-500 focus:border-theme-red-500 p-2 flex items-center justify-center rounded hover:border-theme-red-500 hover:bg-theme-red-500 invert-img transition ease-linear duration-100 inline-block w-auto whitespace-nowrap">
                     <img src="../../../../public/assets/images/icons/calender.png" alt="icon" class="w-8">

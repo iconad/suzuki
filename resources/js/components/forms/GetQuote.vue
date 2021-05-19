@@ -156,6 +156,8 @@
     import Multiselect from 'vue-multiselect'
     import PrettyCheckbox from 'pretty-checkbox-vue/check';
 
+    import vehicleLogo from './vehicleLogo'
+
     import { extend,ValidationProvider,ValidationObserver } from 'vee-validate';
     import { required, email } from 'vee-validate/dist/rules';
 
@@ -183,6 +185,7 @@
     export default {
         components: {
             Multiselect,
+            vehicleLogo,
             ValidationProvider,
             ValidationObserver,
             'p-check': PrettyCheckbox

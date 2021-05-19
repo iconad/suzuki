@@ -197,30 +197,33 @@
             {{-- {!! $post1['caption'] !!} --}}
 
             <div class="instagram mt-12 md:mt-24">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div class="grid grid-cols-1 md:grid-cols-4 auto-rows-fr gap-3 table">
                     @isset($instafeed)
                         @foreach ($instafeed as $item)
-                        <div class="bg-gray-100 border rounded overflow-hidden md:bg-transparent">
-                            <div>
-                                @if ($item['type'] === 'image')
-                                    <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
-                                @else
-                                    <div><video class="w-full" src="{{ $item['url'] }}" controls></video></div>
-                                @endif
+                        <div class="bg-gray-100 border border-b-0 rounded overflow-hidden md:bg-transparent">
+                            <div class="h-20rem  bg-white">
+                                <div>
+                                    @if ($item['type'] === 'image')
+                                        <div> <img src="{{ $item['url'] }}" alt="insta feed"> </div>
+                                    @else
+                                        <div><video class="w-full" src="{{ $item['url'] }}" controls></video></div>
+                                    @endif
+                                </div>
+                                <div class="flex flex-col justify-between info p-3">
+                                    <div class="text-sm text-gray-800 font-medium">
+                                        <p> {{substr($item['caption'], 0, 150)}}... </p>
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="flex flex-col justify-between h-64 info p-3 md:bg-white">
-                                <div class="text-sm text-gray-800 font-medium">
-                                    <p>{{ $item['caption'] }}</p>
-                                </div>
-                                <div class="mt-3">
-                                    <a target="_blank" href="{{ $item['permalink'] }}" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
-                                </div>
+                            <div class="mt-0 p-3 bg-white">
+                                <a target="_blank" href="{{ $item['permalink'] }}" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
                             </div>
                         </div>
+
                         {{-- inst --}}
                         @endforeach
                     @endisset
-
 
                 </div>
 

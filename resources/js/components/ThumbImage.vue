@@ -26,5 +26,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+.invert-logo {
+    filter: invert(50%);
+}
 </style>

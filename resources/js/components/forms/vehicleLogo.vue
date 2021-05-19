@@ -1,6 +1,6 @@
 <template>
     <div>
-        <thumb-image v-if="firstMediaLogo[0]" classess="w-7rem" :class="classes" :image="firstMediaLogo[0].file_name" :id="firstMediaLogo[0].id"></thumb-image>
+        <thumb-image v-if="firstMediaLogo[0]" classess="w-7rem invert-logo" :class="classes" :image="firstMediaLogo[0].file_name" :id="firstMediaLogo[0].id"></thumb-image>
         <span v-else>{{slide.title}}</span>
     </div>
 </template>

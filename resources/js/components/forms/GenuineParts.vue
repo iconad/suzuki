@@ -13,7 +13,7 @@
                                     <label
                                     v-for="(model, n) in models"
                                     :key="n"
-                                    :class=" selectedModel === model.title ? 'border-gray-400 bg-gray-100' : 'border-transparent bg-transparent'"
+                                    :class=" selectedModel === model.title ? 'border-gray-300 bg-gray-50' : 'border-transparent bg-transparent'"
                                     class="rounded p-2 lg:text-center border w-full">
                                         <input
                                         class="hidden"
@@ -23,7 +23,9 @@
                                         number>
                                         <span
                                         :class="selectedModel === model.title ? 'text-gray-700' : 'text-gray-600'"
-                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic "> {{model.title}} </span>
+                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic ">
+                                        <vehicle-logo :slide="model" class="flex items-center justify-center h-12"></vehicle-logo>
+                                        </span>
                                     </label>
                                 </div>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm">{{ errors[0] }}</p>
@@ -167,6 +169,7 @@
     import gql from 'graphql-tag'
     import vehiclesQuery from "../../../../gql/frontend/vehicles.gql";
     import branchesQuery from "../../../../gql/frontend/branchesbyemail.gql";
+    import vehicleLogo from './vehicleLogo'
 
     import Multiselect from 'vue-multiselect'
     import PrettyCheckbox from 'pretty-checkbox-vue/check';
@@ -200,6 +203,7 @@
     export default {
         components: {
             Multiselect,
+            vehicleLogo,
             ValidationProvider,
             ValidationObserver,
             'p-check': PrettyCheckbox,

@@ -12,7 +12,7 @@
                                     <label
                                     v-for="(model, n) in models"
                                     :key="n"
-                                    :class=" selectedModel.id === model.id ? 'border-blue-400 bg-blue-100' : 'border-transparent bg-transparent'"
+                                    :class=" selectedModel.id === model.id ? 'border-gray-300 bg-gray-50' : 'border-transparent bg-transparent'"
                                     class="rounded p-2 lg:text-center border w-full">
                                         <input
                                         class="hidden"
@@ -22,7 +22,9 @@
                                         number>
                                         <span
                                         :class="selectedModel.id === model.id ? 'text-gray-700' : 'text-gray-600'"
-                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic "> {{model.title}} </span>
+                                        class="suzuki-bold cursor-pointer text-2xl uppercase font-medium italic ">
+                                        <vehicle-logo :slide="model" class="flex items-center justify-center h-12"></vehicle-logo>
+                                        </span>
                                     </label>
                                 </div>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm">{{ errors[0] }}</p>
@@ -158,6 +160,7 @@
     import gql from 'graphql-tag'
     import vehiclesQuery from "../../../../gql/frontend/vehicles.gql";
     import branchesQuery from "../../../../gql/frontend/branchesbyemail.gql";
+    import vehicleLogo from './vehicleLogo'
 
     // Add the required rule
     extend('required', {
@@ -184,7 +187,8 @@
             Multiselect,
             ValidationProvider,
             ValidationObserver,
-            'p-check': PrettyCheckbox
+            'p-check': PrettyCheckbox,
+            vehicleLogo
         },
         data() {
             return {
