@@ -138,6 +138,19 @@
                                 class="block mt-1 -ml-3 inline-block">Get Suzuki updates <a href="http://" class="theme-link text-gray-600">(what are these?)</a></span>
                             </label>
                         </div>
+
+                        <div class="form-element mt-4">
+                            <label class="flex items-center">
+                                    <p-check v-model="form.check_for_email" class="p-bigger p-curve p-rotate p-icon" color="success">
+                                        <span>
+                                            <svg class="icon w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+                                        </span>
+                                    </p-check>
+                                <span
+                                class="block mt-1 -ml-3 inline-block">Check this for letest offers, deals and updates. </span>
+                            </label>
+                        </div>
+
                         <div v-if="isLoading" class="loader"></div>
                         <div v-else class="form-element mb-0 mt-5 text-right">
                             <input
@@ -219,6 +232,7 @@
                     first_name: this.form.first_name,
                     last_name: this.form.last_name,
                     email: this.form.email,
+                    check_for_email: this.form.check_for_email,
                     emirate: this.form.showroom,
                     mobile: this.form.mobile,
                     message: this.form.message,

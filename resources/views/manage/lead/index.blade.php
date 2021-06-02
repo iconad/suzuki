@@ -8,7 +8,7 @@
     <div class="ui breadcrumb">
         <a class="section">Dashboard</a>
         <div class="divider"> / </div>
-        <div class="active section">Newsletter</div>
+        <div class="active section">Leads</div>
     </div>
 </div>
 

@@ -118,6 +118,24 @@
         </tr>
         @endif
 
+        @if ($lead->chassis)
+        <tr>
+            <td data-label="Name" width="300px">
+                <span class="font-bold capitalize">Chassis Number</span>
+            </td>
+            <td data-label="Job">{{$lead->chassis}}</td>
+        </tr>
+        @endif
+
+        @if ($lead->registration)
+        <tr>
+            <td data-label="Name" width="300px">
+                <span class="font-bold capitalize">Registration Number</span>
+            </td>
+            <td data-label="Job">{{$lead->registration}}</td>
+        </tr>
+        @endif
+
         @if ($lead->model)
         <tr>
             <td data-label="Name" width="300px">
@@ -195,6 +213,13 @@
             </td>
         </tr>
         @endif
+
+        <tr>
+            <td width="300px">
+                <span class="font-bold capitalize">Signed up emails</span>
+            </td>
+            <td>{{($lead->check_for_email === 1) ? 'Yes' : 'No'}}</td>
+        </tr>
 
         @if ($lead->created_at)
         <tr>

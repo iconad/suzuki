@@ -16,6 +16,9 @@
 .content a:hover {
     @apply border-gray-300 text-theme-red-500;
 }
+.theme-link-active {
+    @apply border-b border-transparent text-theme-red-500 border-gray-300 inline-block pb-px transition ease-linear duration-200;
+}
 .theme-link {
     @apply border-b border-transparent inline-block pb-px transition ease-linear duration-200;
 }

@@ -222,6 +222,7 @@ class LeadController extends Controller
                 'email' => $request->email,
                 'hear' => $request->hear,
                 'user_id' => $user->id,
+                'check_for_email' => 1,
                 'type' => 'newsletter',
             ]);
 
@@ -261,6 +262,102 @@ class LeadController extends Controller
                 [
                     "wow" => "opps!",
                     "message" => "Email is already exists."
+                ]
+            );
+        }
+
+
+    }
+
+    public function recall (Request $request) {
+
+
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'chassis' => 'required',
+            'registration' => 'required',
+            'model' => 'required',
+            'year' => 'required',
+        ]);
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|exists:users',
+        ]);
+
+        $name = $request->first_name . ' ' . $request->last_name;
+
+        if ($validator->fails()) {
+            $user = User::create([
+                'name' => $name,
+                'email' => $request->email,
+                'password' => Hash::make(Str::random(8)),
+            ]);
+            $roles = [2];
+            $user->roles()->sync($roles);
+        }else{
+            $user = User::where('email', $request->email)->first();
+        }
+
+        // $check_for_email = ($request->check_for_email === true) ? 1 : 0;
+
+        $lead = Lead::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'mobile' => $request->mobile,
+            'email' => $request->email,
+            'model' => $request->model['title'],
+            'year' => $request->year,
+            'chassis' => $request->chassis,
+            'registration' => $request->registration,
+            'recall_id' => $request->recall_id,
+            'user_id' => $user->id,
+            'check_for_email' => $request->check_for_email,
+            'type' => 'recall',
+        ]);
+
+        $email =  $request->email;
+
+        $leadEmail =  'chona.toradio@alrostamanigroup.ae';
+        $leadTitle =  "Recall Enquiry";
+
+        $data = array(
+            'name' => $name,
+            'mobile' => $request->mobile,
+            'email' => $request->email,
+            'model' => $request->model['title'],
+            'year' => $request->year,
+            'chassis' => $request->chassis,
+            'registration' => $request->registration,
+        );
+
+        Mail::send('mail.admin.recall_enquiry', $data, function ($message) use ($leadEmail, $leadTitle) {
+            $message->from('info@suzukiuae-offers.com');
+            $message->cc($this->adminEmail);
+            $message->cc($this->modEmail);
+            $message->to($leadEmail, $leadTitle)->subject('Recall Enquiry');
+        });
+
+        Mail::send('mail.user.recall_enquiry', $data, function ($message) use ($email, $name) {
+            $message->from('info@suzukiuae-offers.com');
+            $message->to($email, $name)->subject('Recall Enquiry | Suzuki.ae');
+        });
+
+
+        if($lead) {
+            return response()->json(
+                [
+                    "wow" => "Awesome!",
+                    "message" => "Thanks you for your enquiry. Our CRM team will get back to your with the relevant information soon."
+                ]
+            );
+        }else{
+            return response()->json(
+                [
+                    "wow" => "opps!",
+                    "message" => "Something went wrong! please try again."
                 ]
             );
         }
@@ -591,6 +688,7 @@ class LeadController extends Controller
             'user_id' => $user->id,
             'model' => $request->model,
             'year' => $request->year,
+            'check_for_email' => $request->check_for_email,
             'type' => 'services',
         ]);
 
@@ -686,6 +784,7 @@ class LeadController extends Controller
             'showroom' => $request->showroom['title'],
             'user_id' => $user->id,
             'model' => $request->model['id'],
+            'check_for_email' => $request->check_for_email,
             'type' => 'test-drive',
         ]);
 
@@ -713,6 +812,96 @@ class LeadController extends Controller
         Mail::send('mail.user.test_drive', $data, function ($message) use ($email, $name) {
             $message->from('info@suzukiuae-offers.com');
             $message->to($email, $name)->subject('Test Drive Request');
+        });
+
+
+        if($lead) {
+            return response()->json(
+                [
+                    "wow" => "Awesome!",
+                    "message" => "We have recived your request! check you email."
+                ]
+            );
+        }else{
+            return response()->json(
+                [
+                    "wow" => "opps!",
+                    "message" => "Something went wrong! please try again."
+                ]
+            );
+        }
+
+    }
+
+    public function getQuote (Request $request) {
+
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+        ]);
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|exists:users',
+        ]);
+
+        $name = $request->first_name . ' ' . $request->last_name;
+
+        if ($validator->fails()) {
+            $user = User::create([
+                'name' => $name,
+                'email' => $request->email,
+                'password' => Hash::make(Str::random(8)),
+            ]);
+            $roles = [2];
+            $user->roles()->sync($roles);
+        }else{
+            $user = User::where('email', $request->email)->first();
+        }
+
+        $lead = Lead::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'title' => $request->title,
+            'email' => $request->email,
+            'hear' => $request->hear,
+            'age' => $request->age,
+            'mobile' => $request->mobile,
+            'tel' => $request->phone,
+            'emirate' => $request->emirate,
+            'showroom' => $request->showroom,
+            'showroom' => $request->showroom['title'],
+            'user_id' => $user->id,
+            'model' => $request->model['id'],
+            'check_for_email' => $request->check_for_email,
+            'type' => 'quotations',
+        ]);
+
+        $email =  $request->email;
+
+        $leadEmail =  $this->getEmail($request->showroom['offices'], 'showroom')['email'];
+        $leadTitle =  $request->showroom['title'];
+
+        $data = array(
+            'title' => $request->title,
+            'name' => $name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'showroom' => $request->showroom['title'],
+            'emirate' => $request->emirate,
+        );
+
+
+        Mail::send('mail.admin.get_quotations', $data, function ($message) use ($leadEmail, $leadTitle) {
+            $message->from('info@suzukiuae-offers.com');
+            $message->cc($this->adminEmail);
+            $message->to($leadEmail, $leadTitle)->subject('Quotation Request');
+        });
+
+        Mail::send('mail.user.get_quotations', $data, function ($message) use ($email, $name) {
+            $message->from('info@suzukiuae-offers.com');
+            $message->to($email, $name)->subject('Quotation Request');
         });
 
 
@@ -781,6 +970,7 @@ class LeadController extends Controller
                 'hear' => $request->hear,
                 'emirate' => $request->emirate['title'],
                 'user_id' => $user->id,
+                'check_for_email' => $request->check_for_email,
                 'type' => 'brochure',
             ]);
 
@@ -875,6 +1065,7 @@ class LeadController extends Controller
                 'hear' => $request->hear,
                 'emirate' => $request->emirate['title'],
                 'user_id' => $user->id,
+                'check_for_email' => $request->check_for_email,
                 'type' => 'specsheet',
             ]);
 
@@ -961,6 +1152,7 @@ class LeadController extends Controller
                 'mobile' => $request->mobile,
                 'phone' => $request->phone,
                 'emirate' => $request->emirate['title'],
+                'check_for_email' => $request->check_for_email,
                 'user_id' => $user->id,
                 'type' => 'accessory-brochure',
             ]);
@@ -1029,6 +1221,7 @@ class LeadController extends Controller
             'mobile' => $request->mobile,
             'emirate' => $request->emirate['title'],
             'message' => $request->message,
+            'check_for_email' => $request->check_for_email,
             'type' => 'contact-us',
         ]);
 

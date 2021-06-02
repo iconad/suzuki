@@ -2,7 +2,7 @@
     <table class="ui celled table">
         <thead>
             <tr>
-                <th colspan="5">
+                <th colspan="6">
                     <div class="ui secondary menu ">
                         <div class="right menu fitted">
                             <form wire:submit.prevent="downloadLead" class="flex items-center space-x-4">
@@ -36,6 +36,7 @@
             <th>Title</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Signed up emails</th>
             <th>Date</th>
             <th>Actions</th>
           </tr>
@@ -44,7 +45,15 @@
         <tbody>
             @forelse ($leads as $lead)
             <tr>
-                <td>{{$lead->title}}</td>
+                <td>
+
+                    @if ($lead->title)
+                        {{$lead->title}}
+                    @else
+                        <span class="ml-5">-</span>
+                    @endif
+
+                </td>
                 <td>
                     <a href="/cms/leads/{{$lead->id}}">
                         {{ $lead->first_name }}
@@ -52,6 +61,7 @@
                     </a>
                 </td>
                 <td> {{ $lead->email ? $lead->email : "---" }} </td>
+                <td> {{($lead->check_for_email === 1) ? 'Yes' : 'No'}} </td>
                 <td> {{$lead->date_for_humans}} </td>
                 <td>
                     <div class="ui mini buttons">
@@ -61,14 +71,14 @@
             </tr>
             @empty
             <tr>
-                <td colspan="5">
+                <td colspan="6">
                     No Record Found.
                 </td>
             </tr>
             @endforelse
             @if($leads->hasPages())
             <tr>
-                <td colspan="5">
+                <td colspan="6">
                     {{$leads->links()}}
                 </td>
             </tr>

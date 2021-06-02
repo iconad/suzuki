@@ -45,7 +45,7 @@
                                                 <span class="text-lg suzuki-bold">Tel No</span>
                                             </td>
                                             <td>
-                                                <span class="text-lg suzuki-bold">{{$branche->$type[0]->tel}}</span>
+                                                <a href="tel:{{$branche->$type[0]->tel}}" class="text-lg suzuki-bold">{{$branche->$type[0]->tel}}</a>
                                             </td>
                                         </tr>
                                         @endif

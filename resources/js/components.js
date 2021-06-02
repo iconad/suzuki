@@ -119,3 +119,8 @@ Vue.component(
     require("./components/utilities/SideButtons.vue").default
 );
 
+Vue.component(
+    "check-recall-form",
+    require("./components/forms/checkRecall.vue").default
+);
+

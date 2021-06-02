@@ -27,7 +27,10 @@ class CreateLeadsTable extends Migration
             $table->string('hear')->nullable();
             $table->string('emirate')->nullable();
             $table->integer('user_id')->nullable();
+            $table->integer('recall_id')->nullable();
             $table->string('purchase_type')->nullable();
+            $table->string('chassis')->nullable();
+            $table->string('registration')->nullable();
             $table->string('showroom')->nullable();
             $table->string('location')->nullable();
             $table->string('model')->nullable();
@@ -37,6 +40,7 @@ class CreateLeadsTable extends Migration
             $table->longtext('cart')->nullable();
             $table->longtext('detail')->nullable();
             $table->string('branch')->nullable();
+            $table->integer('check_for_email')->default(0);
             $table->integer('status')->default(1);
             $table->integer('order')->default(0);
             $table->timestamps();

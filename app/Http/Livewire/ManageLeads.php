@@ -68,15 +68,46 @@ class ManageLeads extends Component
         elseif($this->type == 'quotations') {
             $callback = $this->getQuotationsLeads($leads);
         }
+        elseif($this->type == 'recall') {
+            $callback = $this->getRecallLeads($leads);
+        }
         elseif($this->type == 'accessory-quotations') {
             $callback = $this->getAccessoryQuotationsLeads($leads);
         }
         elseif($this->type == 'test-drive') {
             $callback = $this->getTestDriveLeads($leads);
         }
+        elseif($this->type == 'quotations') {
+            $callback = $this->getQuoteLeads($leads);
+        }
 
         return response()->stream($callback, 200, $headers);
 
+    }
+
+    public function getRecallLeads ($leads) {
+        $columns = array('First Name', 'Last Name', 'Mobile', 'Email', 'Chassis', 'Registration', 'Model', 'Year', 'Date');
+
+        $callback = function() use($leads, $columns) {
+        $file = fopen('php://output', 'w');
+        fputcsv($file, $columns);
+
+        foreach ($leads as $lead) {
+            $row['First Name']    = $lead->first_name;
+            $row['Last Name']    = $lead->last_name;
+            $row['Mobile']  = $lead->mobile;
+            $row['Email']  = $lead->email;
+            $row['Chassis']  = $lead->chassis;
+            $row['Registration']  = $lead->registration;
+            $row['Model']  = $lead->model;
+            $row['Year']  = $lead->year;
+            $row['Date']  = $lead->date_for_humans;
+
+            fputcsv($file, array($row['First Name'], $row['Last Name'], $row['Mobile'], $row['Email'], $row['Chassis'], $row['Registration'], $row['Model'], $row['Year'], $row['Date']));
+        }
+        fclose($file);
+        };
+        return $callback;
     }
 
     public function getNewsletterLeads ($leads) {
@@ -258,6 +289,43 @@ class ManageLeads extends Component
     }
 
     public function getTestDriveLeads ($leads) {
+        $columns = array('Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Age', 'Emirate', 'Showroom', 'Model', 'Date');
+
+        $callback = function() use($leads, $columns) {
+        $file = fopen('php://output', 'w');
+        fputcsv($file, $columns);
+
+        foreach ($leads as $lead) {
+            $row['Title']  = $lead->title;
+            $row['First Name']    = $lead->first_name;
+            $row['Last Name']    = $lead->last_name;
+            $row['Mobile']  = $lead->mobile;
+            $row['Email']  = $lead->email;
+            $row['Age']  = $lead->age;
+            $row['Emirate']  = $lead->emirate;
+            $row['Showroom']  = $lead->showroom;
+            $row['Model']  = $lead->model;
+            $row['Date']  = date('d M, Y', strtotime($lead->created_at));
+
+            fputcsv($file, array(
+                $row['Title'],
+                $row['First Name'],
+                $row['Last Name'],
+                $row['Mobile'],
+                $row['Email'],
+                $row['Age'],
+                $row['Emirate'],
+                $row['Showroom'],
+                $row['Model'],
+                $row['Date']
+            ));
+        }
+        fclose($file);
+        };
+        return $callback;
+    }
+
+    public function getQuoteLeads ($leads) {
         $columns = array('Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Age', 'Emirate', 'Showroom', 'Model', 'Date');
 
         $callback = function() use($leads, $columns) {

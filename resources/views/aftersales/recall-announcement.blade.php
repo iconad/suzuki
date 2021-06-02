@@ -27,19 +27,10 @@
 
             <div class="content text-lg">
                 {!! $recall->detail !!}
-                {{-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi quisquam, sunt atque sit perspiciatis nobis assumenda obcaecati, totam tenetur, dolorem fugit est non earum a recusandae nemo aliquam cupiditate., ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque architecto consectetur reprehenderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
-                <p>Lorem ipsum dolor sit amet consecteturderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi quisquam, sunt atque sit perspiciatis nobis assumenda obcaecati, totam tenetur, dolorem fugit est non earum a recusandae nemo aliquam cupiditate., ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque architecto consectetur reprehenderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
-                <ul class="no-list">
-                    <li class=""> <b class="suzuki-bold">Abu Dhabi</b> (02) 678 6543 </li>
-                    <li class=""> <b class="suzuki-bold">Al Ain</b> (02) 678 6543 </li>
-                    <li class=""> <b class="suzuki-bold">Dubai</b> (02) 678 6543 </li>
-                    <li class=""> <b class="suzuki-bold">Sheikh Zayed Road</b> (02) 678 6543 </li>
-                    <li class=""> <b class="suzuki-bold">Sharjah</b> (02) 678 6543 </li>
-                    <li class=""> <b class="suzuki-bold">Ras Al Khaimah</b> (02) 678 6543 </li>
-                </ul>
-                <p>Lorem ipsum dolor sit amet consecteturderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse modi quisquam, sunt atque sit perspiciatis nobis assumenda obcaecati, totam tenetur, dolorem fugit est non earum a recusandae nemo aliquam cupiditate., ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque architecto consectetur reprehenderit hic? Nostrum, consectetur magni expedita obcaecati doloremque cupiditate sunt asperiores mollitia soluta incidunt harum, earum, dolore numquam.</p> --}}
+            </div>
+
+            <div class="mt-5">
+                <check-recall-form recall="{{$recall->id}}"></check-recall-form>
             </div>
 
         </div>

@@ -40,7 +40,7 @@
                   {
                       id: 1,
                       name: "slide one",
-                      src: "https://suzuki.ae/storage/197/2u9kKDjsl2LCQgwA.jpeg",
+                      src: "https://i.ibb.co/sbh72ps/Suzuksi-ramadan-web-banner-2000x815.jpg",
                       link: ""
                   },
                   {

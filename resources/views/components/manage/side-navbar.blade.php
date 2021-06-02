@@ -17,6 +17,9 @@
               Leads
             </div>
             <div class="menu">
+              <a href="/cms/leads/type/quotations" class="item">
+                <div><i class="envelope outline icon"></i>Quotations</div>
+              </a>
               <a href="/cms/leads/type/newsletter" class="item">
                 <div><i class="envelope outline icon"></i>Newsletters</div>
               </a>
@@ -40,6 +43,9 @@
               </a>
               <a href="/cms/leads/type/commitments" class="item">
                 <div><i class="envelope outline icon"></i>Commitments</div>
+              </a>
+              <a href="/cms/leads/type/recall" class="item">
+                <div><i class="envelope outline icon"></i>Recall Enquiries</div>
               </a>
               <a href="/cms/leads/type/contact-us" class="item">
                 <div><i class="envelope outline icon"></i>Contact</div>
