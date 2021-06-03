@@ -277,8 +277,6 @@ class LeadController extends Controller
             'last_name' => 'required',
             'email' => 'required',
             'mobile' => 'required',
-            'chassis' => 'required',
-            'registration' => 'required',
             'model' => 'required',
             'year' => 'required',
         ]);
@@ -329,8 +327,6 @@ class LeadController extends Controller
             'email' => $request->email,
             'model' => $request->model['title'],
             'year' => $request->year,
-            'chassis' => $request->chassis,
-            'registration' => $request->registration,
         );
 
         Mail::send('mail.admin.recall_enquiry', $data, function ($message) use ($leadEmail, $leadTitle) {

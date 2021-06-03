@@ -151,7 +151,7 @@
                                 </span>
                             </p-check>
                         <span
-                        class="block mt-1 -ml-3 inline-block">Check this for letest offers, deals and updates. </span>
+                        class="block mt-1 -ml-3 inline-block">Check this for latest offers, deals and updates. </span>
                     </label>
                 </div>
 

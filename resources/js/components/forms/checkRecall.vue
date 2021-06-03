@@ -49,7 +49,7 @@
                             </ValidationProvider>
                         </div>
                         <div>
-                            <ValidationProvider name="form.chassis" rules="required">
+                            <ValidationProvider name="form.chassis">
                                 <div slot-scope="{ errors }">
                                     <input type="text" v-model="form.chassis" class="form-input-1" name="chassis" placeholder="Chassis Number *">
                                     <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
@@ -57,7 +57,7 @@
                             </ValidationProvider>
                         </div>
                         <div>
-                            <ValidationProvider name="form.registration" rules="required">
+                            <ValidationProvider name="form.registration">
                                 <div slot-scope="{ errors }">
                                     <input type="text" v-model="form.registration" class="form-input-1" name="registration" placeholder="Registration Number *">
                                     <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
@@ -104,7 +104,7 @@
                                     </span>
                                 </p-check>
                             <span
-                            class="block mt-1 -ml-3 inline-block">Check this for letest offers, deals and updates. </span>
+                            class="block mt-1 -ml-3 inline-block">Check this for latest offers, deals and updates. </span>
                         </label>
                     </div>
 
@@ -112,7 +112,7 @@
                     <div v-else class="form-element mb-0 mt-5 text-right">
                         <input
                             type="submit"
-                            value="Subscribe"
+                            value="Check"
                             :disabled="!form.check"
                             :class="[
                                 invalid ? 'bg-theme-gray-dark text-gray-800 cursor-not-allowed red-button border-theme-gray-dark hover:bg-theme-gray-dark hover:text-gray-800 hover:border-theme-gray-dark' : 'red-button cursor-pointer',
