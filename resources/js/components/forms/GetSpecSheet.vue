@@ -50,7 +50,7 @@
                     <div class="w-full relative">
                         <ValidationProvider name="form.purchaseType" rules="required">
                             <div slot-scope="{ errors }">
-                                <multiselect v-model="form.purchaseType" placeholder="Purchase Type *" :options="purchaseTypes"></multiselect>
+                                <multiselect v-model="form.purchaseType" placeholder="Sales Type *" :options="purchaseTypes"></multiselect>
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium absolute top-0 p-2 right-0 z-10">{{ errors[0] }}</p>
                             </div>
                         </ValidationProvider>
