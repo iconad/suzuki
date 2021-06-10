@@ -7,7 +7,7 @@
                         <div class="right menu fitted">
                             <form wire:submit.prevent="downloadLead" class="flex items-center space-x-4">
                                 <div class="ui icon input">
-                                    <input wire:model="term" type="text" placeholder="Search by name & email...">
+                                    <input wire:model="term" type="text" placeholder="Search by email">
                                     <i class="search icon"></i>
                                 </div>
 
@@ -33,6 +33,7 @@
         </thead>
         <thead>
           <tr>
+            <th>TID</th>
             <th>Title</th>
             <th>Name</th>
             <th>Email</th>
@@ -45,6 +46,8 @@
         <tbody>
             @forelse ($leads as $lead)
             <tr>
+                <td> {{$lead->id}} </td>
+
                 <td>
 
                     @if ($lead->title)

@@ -202,7 +202,23 @@
                     models: []
                 },
                 emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ras al khaimah", "Ajman", "Fujairah", "Umm al Quwain"],
-                hears: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"],
+                hears: [
+                    "Email",
+                    "Friends & Relatives",
+                    "Google",
+                    "Magazines",
+                    "Newspaper - Digital",
+                    "Newspaper - Print",
+                    "Outdoor ads",
+                    "Radio",
+                    "Showrooms",
+                    "SMS",
+                    "Social Media (Facebook; Instagram; TikTok; Youtube)",
+                    "Suzuki User",
+                    "Web - Internet",
+                    "Other Social Media",
+                    "Other"
+                ],
                 showrooms: ["Deira City center", "Abu Dhabi", "shaikh zayed road", "Al Ain", "Sharjah", "Ajman"],
                 models: [
                     {

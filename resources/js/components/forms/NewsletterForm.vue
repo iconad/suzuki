@@ -126,7 +126,23 @@ export default {
             },
             titles: ['Mr', 'Mrs'],
             hears: {
-                data: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"]
+                data: [
+                    "Email",
+                    "Friends & Relatives",
+                    "Google",
+                    "Magazines",
+                    "Newspaper - Digital",
+                    "Newspaper - Print",
+                    "Outdoor ads",
+                    "Radio",
+                    "Showrooms",
+                    "SMS",
+                    "Social Media (Facebook; Instagram; TikTok; Youtube)",
+                    "Suzuki User",
+                    "Web - Internet",
+                    "Other Social Media",
+                    "Other"
+                ],
             },
             isLoading: false
         }

@@ -191,7 +191,23 @@
                     check: false,
                     showroom: false,
                 },
-                hears: ["Google", "LinkedIn", "Friend", "Email", "Other"],
+                hears: [
+                    "Email",
+                    "Friends & Relatives",
+                    "Google",
+                    "Magazines",
+                    "Newspaper - Digital",
+                    "Newspaper - Print",
+                    "Outdoor ads",
+                    "Radio",
+                    "Showrooms",
+                    "SMS",
+                    "Social Media (Facebook; Instagram; TikTok; Youtube)",
+                    "Suzuki User",
+                    "Web - Internet",
+                    "Other Social Media",
+                    "Other"
+                ],
             }
         },
         mounted() {

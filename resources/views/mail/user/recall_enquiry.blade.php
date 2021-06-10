@@ -241,6 +241,10 @@
 <table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
 <tbody>
     <tr>
+        <td class="data-heading" width="150">Tracking ID</td>
+        <td class="data-value">{{$tid}}</td>
+    </tr>
+    <tr>
         <td class="data-heading" width="150">Name</td>
         <td class="data-value">{{$name}}</td>
     </tr>

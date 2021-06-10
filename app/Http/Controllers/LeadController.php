@@ -148,6 +148,7 @@ class LeadController extends Controller
         $leadTitle =  $request->showroom['title'];
 
         $data = array(
+            'tid' => $lead->id,
             'name' => $name,
             'email' => $request->email,
             'mobile' => $request->mobile,
@@ -229,6 +230,7 @@ class LeadController extends Controller
             $email =  $request->email;
 
             $data = array(
+                'tid' => $lead->id,
                 'name' => $name,
                 'email' => $request->email,
                 'bodyMessage' => $request->message
@@ -322,6 +324,7 @@ class LeadController extends Controller
         $leadTitle =  "Recall Enquiry";
 
         $data = array(
+            'tid' => $lead->id,
             'name' => $name,
             'mobile' => $request->mobile,
             'email' => $request->email,
@@ -405,6 +408,7 @@ class LeadController extends Controller
         $leadTitle =  $request->emirate['title'];
 
         $data = array(
+            'tid' => $lead->id,
             'name' => $name,
             'email' => $request->email,
             'vehicle' => $request->vehicle,
@@ -497,6 +501,7 @@ class LeadController extends Controller
         $leadTitle =  $request->location['title'];
 
         $data = array(
+            'tid' => $lead->id,
             'title' => $request->title,
             'name' => $name,
             'email' => $request->email,
@@ -597,6 +602,7 @@ class LeadController extends Controller
 
 
         $data = array(
+            'tid' => $lead->id,
             'title' => $request->title,
             'name' => $name,
             'email' => $request->email,
@@ -694,6 +700,7 @@ class LeadController extends Controller
         $leadTitle =  $request->showroom['title'];
 
         $data = array(
+            'tid' => $lead->id,
             'title' => $request->title,
             'name' => $name,
             'email' => $request->email,
@@ -776,7 +783,6 @@ class LeadController extends Controller
             'mobile' => $request->mobile,
             'tel' => $request->phone,
             'emirate' => $request->emirate,
-            'showroom' => $request->showroom,
             'showroom' => $request->showroom['title'],
             'user_id' => $user->id,
             'model' => $request->model['id'],
@@ -790,6 +796,7 @@ class LeadController extends Controller
         $leadTitle =  $request->showroom['title'];
 
         $data = array(
+            'tid' => $lead->id,
             'title' => $request->title,
             'name' => $name,
             'email' => $request->email,
@@ -880,6 +887,7 @@ class LeadController extends Controller
         $leadTitle =  $request->showroom['title'];
 
         $data = array(
+            'tid' => $lead->id,
             'title' => $request->title,
             'name' => $name,
             'email' => $request->email,
@@ -976,6 +984,7 @@ class LeadController extends Controller
             $leadTitle =  $request->emirate['title'];
 
             $data = array(
+                'tid' => $lead->id,
                 'name' => $name,
                 'email' => $request->email,
                 'files' => $files,
@@ -1070,6 +1079,7 @@ class LeadController extends Controller
             $leadTitle =  $request->emirate['title'];
 
             $data = array(
+                'tid' => $lead->id,
                 'name' => $name,
                 'email' => $request->email,
                 'files' => $files,
@@ -1157,6 +1167,7 @@ class LeadController extends Controller
             $email =  $request->email;
 
             $data = array(
+                'tid' => $lead->id,
                 'name' => $name,
                 'email' => $request->email,
                 'file' => $file,
@@ -1226,6 +1237,7 @@ class LeadController extends Controller
         $leadTitle =  $request->emirate['title'];
 
         $data = array(
+            'tid' => $lead->id,
             'title' => $request->title,
             'name' => $name,
             'email' => $request->email,

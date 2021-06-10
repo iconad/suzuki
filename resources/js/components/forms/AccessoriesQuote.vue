@@ -211,7 +211,7 @@
                     showroom: false,
                     purchaseType: null
                 },
-                purchaseTypes: ["type 1", "type 2", "type 3"],
+                purchaseTypes: ["Individual", "Company"],
             }
         },
         watch: {

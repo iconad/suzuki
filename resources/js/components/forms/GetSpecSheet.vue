@@ -47,6 +47,14 @@
                             </div>
                         </ValidationProvider>
                     </div>
+                    <div class="w-full relative">
+                        <ValidationProvider name="form.purchaseType" rules="required">
+                            <div slot-scope="{ errors }">
+                                <multiselect v-model="form.purchaseType" placeholder="Purchase Type *" :options="purchaseTypes"></multiselect>
+                                <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium absolute top-0 p-2 right-0 z-10">{{ errors[0] }}</p>
+                            </div>
+                        </ValidationProvider>
+                    </div>
                     <div>
                         <ValidationProvider name="form.first_name" rules="required">
                             <div slot-scope="{ errors }">
@@ -68,6 +76,17 @@
                             <div slot-scope="{ errors }">
                                 <input type="email" v-model="form.email" class="form-input-1" name="email" placeholder="Email">
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
+                            </div>
+                        </ValidationProvider>
+                    </div>
+                    <div>
+                        <ValidationProvider name="form.mobile" rules="mobile|required">
+                            <div slot-scope="{ errors }">
+                                <input type="text" v-model="form.phone" class="form-input-1" name="phone" placeholder="Phone Number *">
+                                <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">
+                                    <!-- <span v-if="isValidMobileNumber">Must be a valid UAE mobile number. </span> -->
+                                    <span>{{ errors[0] }}</span>
+                                </p>
                             </div>
                         </ValidationProvider>
                     </div>
@@ -141,6 +160,13 @@
         message: 'This field is required'
     });
 
+    extend("mobile", {
+        validate(value) {
+            return /^(?:\+971|00971|0)?(?:50|51|52|55|58|56|2|3|4|6|7|9)\d{7}$/.test(value);
+        },
+        message: `Must be a valid UAE mobile number`
+    });
+
     // Add the email rule
     extend('email', {
     ...email,
@@ -166,13 +192,32 @@
                     last_name: null,
                     title: null,
                     email: null,
+                    mobile: null,
                     hear: null,
                     emirate: null,
                     check: false,
                     phone: null,
+                    purchaseType: null,
                     models: []
                 },
-                hears: ["Google", "LinkedIn", "Dubai", "Email", "Other"],
+                hears: [
+                    "Email",
+                    "Friends & Relatives",
+                    "Google",
+                    "Magazines",
+                    "Newspaper - Digital",
+                    "Newspaper - Print",
+                    "Outdoor ads",
+                    "Radio",
+                    "Showrooms",
+                    "SMS",
+                    "Social Media (Facebook; Instagram; TikTok; Youtube)",
+                    "Suzuki User",
+                    "Web - Internet",
+                    "Other Social Media",
+                    "Other"
+                ],
+                purchaseTypes: ["Individual", "Company"],
             }
         },
         watch: {
@@ -206,7 +251,9 @@
                         last_name: this.form.last_name,
                         hear: this.form.hear,
                         emirate: this.form.emirate,
+                        purchase_type: this.form.purchaseType,
                         email: this.form.email,
+                        mobile: this.form.mobile,
                         models: this.form.models,
                     })
                     .then(response => {

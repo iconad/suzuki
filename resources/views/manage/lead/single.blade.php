@@ -34,6 +34,15 @@
         </thead>
         <tbody>
 
+        <tr>
+            <td data-label="TID" width="300px">
+                <span class="font-bold">TID</span>
+            </td>
+            <td data-label="Job">
+                {{$lead->id}}
+            </td>
+        </tr>
+
         @if ($lead->first_name)
         <tr>
             <td data-label="Name" width="300px">
@@ -146,6 +155,16 @@
             @else
             <td data-label="Job">{{$lead->model}}</td>
             @endif
+        </tr>
+        @endif
+
+
+        @if ($lead->hear)
+        <tr>
+            <td data-label="Name" width="300px">
+                <span class="font-bold capitalize">How did you hear about us?</span>
+            </td>
+            <td data-label="Job">{{$lead->hear}}</td>
         </tr>
         @endif
 

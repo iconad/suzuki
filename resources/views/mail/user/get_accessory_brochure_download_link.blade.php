@@ -237,6 +237,10 @@
 <tbody>
 
     <tr>
+        <td class="data-heading" width="150">Tracking ID</td>
+        <td class="data-value">{{$tid}}</td>
+    </tr>
+    <tr>
         <td class="data-heading" width="150">{{$model}}</td>
         <td class="data-value"> <a href="{{$pdf}}" target="_blank" download>Download Brochure</a> </td>
     </tr>

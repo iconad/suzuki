@@ -235,7 +235,10 @@
 <td>
 <table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
 <tbody>
-
+    <tr>
+        <td class="data-heading" width="150">Tracking ID</td>
+        <td class="data-value">{{$tid}}</td>
+    </tr>
     @foreach ($files as $file)
     <tr>
         <td class="data-heading" width="150">{{$file['model']}}</td>

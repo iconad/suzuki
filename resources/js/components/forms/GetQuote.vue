@@ -39,6 +39,14 @@
                             </div>
                         </ValidationProvider>
                     </div>
+                    <div class="w-full relative">
+                        <ValidationProvider name="form.purchaseType" rules="required">
+                            <div slot-scope="{ errors }">
+                                <multiselect v-model="form.purchaseType" placeholder="Purchase Type *" :options="purchaseTypes"></multiselect>
+                                <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium absolute top-0 p-2 right-0 z-10">{{ errors[0] }}</p>
+                            </div>
+                        </ValidationProvider>
+                    </div>
                     <div>
                         <ValidationProvider name="form.first_name" rules="required">
                             <div slot-scope="{ errors }">
@@ -75,7 +83,7 @@
                         </ValidationProvider>
                     </div>
                     <div>
-                        <ValidationProvider name="form.mobile" rules="mobile">
+                        <ValidationProvider name="form.mobile" rules="mobile|required">
                             <div slot-scope="{ errors }">
                                 <input type="text" v-model="form.phone" class="form-input-1" name="phone" placeholder="Phone Number *">
                                 <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">
@@ -218,11 +226,29 @@
                     mobile: null,
                     phone: null,
                     emirate: null,
+                    purchaseType: null,
                     check: false,
                     showroom: false,
                 },
                 emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ras al khaimah", "Ajman", "Fujairah", "Umm al Quwain"],
-                hears: ["Google", "LinkedIn", "Dubai", "Email", "Other"],
+                hears: [
+                    "Email",
+                    "Friends & Relatives",
+                    "Google",
+                    "Magazines",
+                    "Newspaper - Digital",
+                    "Newspaper - Print",
+                    "Outdoor ads",
+                    "Radio",
+                    "Showrooms",
+                    "SMS",
+                    "Social Media (Facebook; Instagram; TikTok; Youtube)",
+                    "Suzuki User",
+                    "Web - Internet",
+                    "Other Social Media",
+                    "Other"
+                ],
+                purchaseTypes: ["Individual", "Company"],
                 showrooms: ["Deira City center", "Abu Dhabi", "shaikh zayed road", "Al Ain", "Sharjah", "Ajman"],
             }
         },
@@ -243,6 +269,7 @@
                         check_for_email: this.form.check_for_email,
                         hear: this.form.hearFrom,
                         showroom: this.form.showroom,
+                        purchase_type: this.form.purchaseType,
                         age: this.form.age,
                     })
                     .then(response => {

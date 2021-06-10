@@ -13,6 +13,14 @@
                             </div>
                         </ValidationProvider>
                     </div>
+                    <div class="w-full relative">
+                        <ValidationProvider name="form.purchaseType" rules="required">
+                            <div slot-scope="{ errors }">
+                                <multiselect v-model="form.purchaseType" placeholder="Purchase Type *" :options="purchaseTypes"></multiselect>
+                                <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium absolute top-0 p-2 right-0 z-10">{{ errors[0] }}</p>
+                            </div>
+                        </ValidationProvider>
+                    </div>
                     <div>
                         <ValidationProvider name="form.first_name" rules="required">
                             <div slot-scope="{ errors }">
@@ -241,11 +249,29 @@
                     date: new Date(),
                     stype: false,
                     year: false,
+                    purchaseType: null,
                     model: null
                 },
                 services: ["service 1", "service 2", "service 3", "service 4"],
                 emirates: ["Dubai", "Abu Dhabi", "Sharjah", "Ras al khaimah", "Ajman", "Fujairah", "Umm al Quwain"],
-                hears: ["Google", "LinkedIn", "Dubai", "Friend", "Email", "Offer"],
+                hears: [
+                    "Email",
+                    "Friends & Relatives",
+                    "Google",
+                    "Magazines",
+                    "Newspaper - Digital",
+                    "Newspaper - Print",
+                    "Outdoor ads",
+                    "Radio",
+                    "Showrooms",
+                    "SMS",
+                    "Social Media (Facebook; Instagram; TikTok; Youtube)",
+                    "Suzuki User",
+                    "Web - Internet",
+                    "Other Social Media",
+                    "Other"
+                ],
+                purchaseTypes: ["Individual", "Company"],
                 years: ["2016", "2017", "2018", "2019", "2020", "2021"],
                 showrooms: ["Deira City center", "Abu Dhabi", "shaikh zayed road", "Al Ain", "Sharjah", "Ajman"],
             }
@@ -268,6 +294,7 @@
                         date: this.form.date,
                         check_for_email: this.form.check_for_email,
                         year: this.form.year,
+                        purchase_type: this.form.purchaseType,
                         service_type: this.form.stype,
                     })
                     .then(response => {
