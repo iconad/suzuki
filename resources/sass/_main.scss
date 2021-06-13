@@ -315,6 +315,9 @@ body {
 
 .car-box-slide {
     margin-bottom: -25px;
+    @include landscape {
+        margin-bottom: -6px;
+    }
 }
 
 @media only screen and (max-width: 500px){
