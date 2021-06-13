@@ -30,7 +30,7 @@
             </splide>
         </div>
 
-        <div class="vehicle-splide02-track mt-3 z-10 absolute bottom-2 sm:bottom-12 md:bottom-24 xxl:bottom-32 left-0 w-full flex items-center justify-center vehicles-slider">
+        <div class="vehicle-splide02-track mt-3 z-10 absolute bottom-2 sm:bottom-12 md:bottom-12 xxl:bottom-32 left-0 w-full flex items-center justify-center vehicles-slider">
             <splide
             :options="secondaryOptions"
             ref="secondary"
