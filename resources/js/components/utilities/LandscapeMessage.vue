@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="landscape-message absolute left bottom-3 w-full p-4 text-center block sm:hidden">
-            <span class="bg-white inline-block px-3 py-1 shadow-2xl rounded-full popup-">
+            <span class="bg-white inline-block px-3 py-1 shadow-2xl rounded-full">
                 Rotate your screen for better experience
             </span>
         </div>
