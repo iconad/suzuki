@@ -68,7 +68,7 @@
     }
 
     .background {
-      background-color: #333333;
+      background-color: white3;
     }
 
     table.background {

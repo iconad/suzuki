@@ -39,7 +39,7 @@
     td {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 15px;
-      color: #333333;
+      color: white;
       line-height: 1.5em;
     }
 

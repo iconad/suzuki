@@ -8,6 +8,10 @@ module.exports = {
     ],
     theme: {
         extend: {
+            screens: {
+                'portrait': {'raw': '(orientation: portrait)'},
+                'landscape': {'raw': '(orientation: landscape)'},
+            },
             lineHeight: {
                 'extra-loose': '2.5',
                 '12': '3rem',

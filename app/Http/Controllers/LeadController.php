@@ -989,6 +989,7 @@ class LeadController extends Controller
                 'tid' => $lead->id,
                 'name' => $name,
                 'email' => $request->email,
+                'mobile' => $request->mobile,
                 'files' => $files,
                 'bodyMessage' => $request->message
             );
@@ -1085,6 +1086,7 @@ class LeadController extends Controller
                 'tid' => $lead->id,
                 'name' => $name,
                 'email' => $request->email,
+                'mobile' => $request->mobile,
                 'files' => $files,
                 'bodyMessage' => $request->message
             );
@@ -1173,6 +1175,7 @@ class LeadController extends Controller
                 'tid' => $lead->id,
                 'name' => $name,
                 'email' => $request->email,
+                'mobile' => $request->mobile,
                 'file' => $file,
                 'pdf' => $pdf,
                 'model' => $model->title,
@@ -1244,7 +1247,7 @@ class LeadController extends Controller
             'title' => $request->title,
             'name' => $name,
             'email' => $request->email,
-            'mobile' => $request->email,
+            'mobile' => $request->mobile,
             'bodyMessage' => $request->message
         );
 

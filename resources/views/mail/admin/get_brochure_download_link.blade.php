@@ -68,7 +68,7 @@
     }
 
     .background {
-      background-color: #333333;
+      background-color: white;
     }
 
     table.background {
@@ -244,8 +244,12 @@
 <td class="data-value">{{$name}}</td>
 </tr>
 <tr>
-<td class="data-heading" width="150">Email</td>
-<td class="data-value">{{$email}}</td>
+    <td class="data-heading" width="150">Email</td>
+    <td class="data-value">{{$email}}</td>
+</tr>
+<tr>
+    <td class="data-heading" width="150">Mobile</td>
+    <td class="data-value">{{$mobile}}</td>
 </tr>
 <tr>
     <td style="font-weight: bold;">Requested Brochures</td>

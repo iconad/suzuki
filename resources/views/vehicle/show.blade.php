@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="showroom-section">
+<section class="showroom-section relative z-10">
     @if ($vehicle->iframe)
         <showroom :vid="{{$vehicle->id}}" :spec="{{$vehicle->specfile}}" :brochure="{{$vehicle->brochure}}" iframe="{{$vehicle->iframe}}"></showroom>
     @endif

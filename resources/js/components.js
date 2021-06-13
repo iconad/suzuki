@@ -124,3 +124,8 @@ Vue.component(
     require("./components/forms/checkRecall.vue").default
 );
 
+Vue.component(
+    "landscape-message",
+    require("./components/utilities/LandscapeMessage.vue").default
+);
+
