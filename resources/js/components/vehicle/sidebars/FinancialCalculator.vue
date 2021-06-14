@@ -71,7 +71,7 @@
                     <div class="bg-gray-300 rounded-xl content text-sm px-4 py-px">
                         <p>*EMIs calculated above are indicative and could vary subject to prevailing market rates **</p>
                         <p>Hire Purchase- A simple finance plan where you pay an initial deposit and rest of the vehicle value in monthly installments in addition of an interest. The agreement ends as soon as you finish paying all the installments and the vehicle is yours entirely.</p>
-                        <p>AED {{$price}} Inc VAT</p>
+                        <p>AED {{price}} Inc VAT</p>
                     </div>
                 </div>
             </div>
