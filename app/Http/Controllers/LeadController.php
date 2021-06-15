@@ -328,6 +328,8 @@ class LeadController extends Controller
             'name' => $name,
             'mobile' => $request->mobile,
             'email' => $request->email,
+            'chassis' => $request->chassis,
+            'registration' => $request->registration,
             'model' => $request->model['title'],
             'year' => $request->year,
         );

@@ -168,6 +168,8 @@ module.exports = {
                 "16vw": "16vw",
                 "24vw": "24vw",
                 "32vw": "32vw",
+                "50vw": "50vw",
+                "60vw": "60vw",
                 "screen-90": "90vh",
                 "screen-80": "80vh",
                 "screen-60": "60vh",

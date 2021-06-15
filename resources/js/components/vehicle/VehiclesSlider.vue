@@ -1,19 +1,19 @@
 <template>
-    <div class="overflow-hidden relative showroom">
-        <img src="../../../../public/assets/images/bg.jpeg" class="w-full" alt="cover">
+    <div class="overflow-hidden relative showroom h-screen md:h-auto">
+        <img src="../../../../public/assets/images/bg.jpeg" class="w-full h-screen md:h-auto object-cover object-top" alt="cover">
         <!-- <div class="" v-if="!$apollo.queries.vehicles.loading"> -->
-        <div class="absolute left-12vw top-16vw text-gray-900 leading-none">
-            <div class="text-3vw">
+        <div class="absolute left-0 md:left-12vw top-50vw md:top-16vw text-gray-900 leading-none w-full md:w-auto text-center md:text-left">
+            <div class="text-4xl md:text-3vw">
                 <span>Suzuki</span>
                 <span class="suzuki-bold splide-slide-title uppercase" id="slideTitle">Baleno</span>
             </div>
-            <div class="text-2vw mt-1 uppercase text-gray-800 splide-slide-sub-title" id="slideSubTitle">
+            <div class="text-lg md:text-2vw mt-1 md:mt-5 uppercase text-gray-300 md:text-gray-800 splide-slide-sub-title" id="slideSubTitle">
                 <span>Reason</span>
                 <span class="suzuki-bold">Finds</span>
                 <span>Emotion</span>
             </div>
             <div class="relative z-10">
-                <a id="slideSlug" href="/vehicles/baleno" class="red-button mt-2 text-10px md:text-lg xxl:text-xl px-2 lg:px-4 py-0 xxl:py-1 hover:bg-red-500 hover:text-white">Explore Car</a>
+                <a id="slideSlug" href="/vehicles/baleno" class="red-button mt-2 md:mt-4 text-sm md:text-lg xxl:text-xl px-2 lg:px-4 pb-1 md:pb-0 py-0 xxl:py-1 hover:bg-red-500 hover:text-white">Explore Car</a>
             </div>
         </div>
 
@@ -64,7 +64,7 @@
     },
     data() {
         return {
-            customWidth: "w-1/3",
+            customWidth: "w-4/5 md:w-1/3",
             options: {
                 type: 'loop',
                 arrows: false,
@@ -111,9 +111,9 @@
                 let slideSlideSlug = document.getElementById('slideSlug')
 
                 if(title.toLowerCase() == 'ciaz') {
-                    this.customWidth = 'w-1/2'
+                    this.customWidth = 'w-4/5 md:w-1/2'
                 }else{
-                    this.customWidth = 'w-1/3'
+                    this.customWidth = 'w-4/5 md:w-1/3'
                 }
 
                 slideSlideTitle.classList.add("slide-in-blurred-top");
