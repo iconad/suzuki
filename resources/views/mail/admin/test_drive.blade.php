@@ -256,6 +256,14 @@
     <td class="data-value">{{$emirate}}</td>
 </tr>
 <tr>
+    <td class="data-heading" width="150">Model</td>
+    <td class="data-value">{{$model}}</td>
+</tr>
+<tr>
+    <td class="data-heading" width="150">purchase Type</td>
+    <td class="data-value">{{$purchase_type}}</td>
+</tr>
+<tr>
     <td class="data-heading" width="150">Showroom</td>
     <td class="data-value">{{$showroom}}</td>
 </tr>

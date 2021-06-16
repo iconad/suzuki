@@ -804,6 +804,8 @@ class LeadController extends Controller
             'name' => $name,
             'email' => $request->email,
             'mobile' => $request->mobile,
+            'model' => $request->model['title'],
+            'purchase_type' => $request->purchase_type,
             'showroom' => $request->showroom['title'],
             'emirate' => $request->emirate,
         );

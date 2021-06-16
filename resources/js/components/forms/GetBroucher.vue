@@ -91,7 +91,7 @@
                         </ValidationProvider>
                     </div>
                      <div v-if="!$apollo.queries.branches.loading">
-                        <label class="block text-lg font-medium text-gray-800 mb-2">Emirate *</label>
+                        <label class="block text-lg font-medium text-gray-800 mb-2">Nearest branch *</label>
                         <ValidationProvider name="form.hear" rules="required">
                             <div slot-scope="{ errors }">
                                 <multiselect placeholder="Emirate *" v-model="form.emirate" label="title" :options="branches">
