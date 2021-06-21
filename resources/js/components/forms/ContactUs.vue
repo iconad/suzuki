@@ -4,18 +4,18 @@
             <div class="text-lg">
                 <div class="mb-5">
                     <div class="text-xl suzuki-bold mb-2">Customer Support & <br> Roadside Assistance</div>
-                    <div><a href="tel:06 574 4212" class="theme-link hover:border-none">06 574 4212</a></div>
-                    <div><a href="mailto:info@suzuki.ae" class="theme-link hover:border-none">sales@suzuki.ae</a></div>
+                    <div><a href="tel:" class="theme-link hover:border-none">---</a></div>
+                    <div><a href="mailto:artc-suzuki@alrostamanigroup.ae" class="theme-link hover:border-none">Artc-suzuki@alrostamanigroup.ae</a></div>
                </div>
                <div class="mb-5">
                     <div class="text-xl suzuki-bold mb-2">Manager</div>
-                    <div><a href="tel:06 574 4212" class="theme-link hover:border-none">06 574 4212</a></div>
-                    <div><a href="mailto:info@suzuki.ae" class="theme-link hover:border-none">sales@suzuki.ae</a></div>
+                    <div><a href="tel:+97142955907" class="theme-link hover:border-none">+97142955907</a></div>
+                    <div><a href="mailto:artc-suzuki@alrostamanigroup.ae" class="theme-link hover:border-none">Artc-suzuki@alrostamanigroup.ae</a></div>
                </div>
                <div class="mb-5">
                     <div class="text-xl suzuki-bold mb-2">Sales</div>
-                    <div><a href="tel:06 574 4212" class="theme-link hover:border-none">06 574 4212</a></div>
-                    <div><a href="mailto:info@suzuki.ae" class="theme-link hover:border-none">sales@suzuki.ae</a></div>
+                    <div><a href="tel:+97142955907" class="theme-link hover:border-none">+97142955907</a></div>
+                    <div><a href="mailto:artc-suzuki@alrostamanigroup.ae" class="theme-link hover:border-none">Artc-suzuki@alrostamanigroup.ae</a></div>
                </div>
             </div>
 
@@ -23,12 +23,12 @@
                <div class="mb-5">
                     <div class="text-xl suzuki-bold mb-2">Book a Test Drive</div>
                     <div class="text-base">Visit our <a href="/test-drive" class="theme-link text-theme-red-500">Book a test drive</a> page to book your appointment online.</div>
-                    <div><a href="mailto:info@suzuki.ae" class="theme-link hover:border-none">sales@suzuki.ae</a></div>
+                    <div><a href="mailto:artc-suzuki@alrostamanigroup.ae" class="theme-link hover:border-none">Artc-suzuki@alrostamanigroup.ae</a></div>
                </div>
                <div class="mb-5">
                     <div class="text-xl suzuki-bold mb-2">Get a Quote</div>
                     <div class="text-base">Visit our <a href="/get-a-quote" class="theme-link text-theme-red-500">get a quote</a> page to book your appointment online.</div>
-                    <div><a href="mailto:info@suzuki.ae" class="theme-link hover:border-none">sales@suzuki.ae</a></div>
+                    <div><a href="mailto:artc-suzuki@alrostamanigroup.ae" class="theme-link hover:border-none">Artc-suzuki@alrostamanigroup.ae</a></div>
                </div>
             </div>
 
@@ -36,12 +36,12 @@
                <div class="mb-5">
                     <div class="text-xl suzuki-bold mb-2">Book a Service</div>
                     <div class="text-base">Visit our <a href="/book-a-service" class="theme-link text-theme-red-500">Book a service</a> page to book your appointment online.</div>
-                    <div><a href="mailto:info@suzuki.ae" class="theme-link hover:border-none">sales@suzuki.ae</a></div>
+                    <div><a href="mailto:artc-suzuki@alrostamanigroup.ae" class="theme-link hover:border-none">Artc-suzuki@alrostamanigroup.ae</a></div>
                </div>
                <div class="mb-5">
                     <div class="text-xl suzuki-bold mb-2">Get a Quote <br> For Accessories</div>
                     <div class="text-base">Visit our <a href="/get-a-quote" class="theme-link text-theme-red-500">get a quote</a> page to book your appointment online.</div>
-                    <div><a href="mailto:info@suzuki.ae" class="theme-link hover:border-none">sales@suzuki.ae</a></div>
+                    <div><a href="mailto:artc-suzuki@alrostamanigroup.ae" class="theme-link hover:border-none">Artc-suzuki@alrostamanigroup.ae</a></div>
                </div>
             </div>
 
