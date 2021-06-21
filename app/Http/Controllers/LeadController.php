@@ -320,7 +320,8 @@ class LeadController extends Controller
 
         $email =  $request->email;
 
-        $leadEmail =  'chona.toradio@alrostamanigroup.ae';
+        // $leadEmail =  'chona.toradio@alrostamanigroup.ae';
+        $leadEmail =  'brenda.nicomedez@alrostamanigroup.ae';
         $leadTitle =  "Recall Enquiry";
 
         $data = array(
