@@ -209,7 +209,9 @@
                     emirate: null,
                     check: false,
                     showroom: false,
-                    purchaseType: null
+                    purchaseType: null,
+                    formSubmited: false,
+                    submitMessage: "Your request has been submitted, You will have a response from our team shortly.",
                 },
                 purchaseTypes: ["Individual", "Company"],
             }

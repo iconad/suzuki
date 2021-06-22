@@ -210,6 +210,8 @@
                 isLoading: false,
                 titles: ['Mr', 'Mrs'],
                 selectedModel: 1,
+                formSubmited: false,
+                submitMessage: "Your request has been submitted, You will have a response from our team shortly.",
                 isFormSubmit: false,
                 isFormSubmitMessage: null,
                 form: {

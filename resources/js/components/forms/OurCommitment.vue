@@ -180,6 +180,8 @@
                 isLoading: false,
                 isFormSend: false,
                 hash: null,
+                formSubmited: false,
+                submitMessage: "Your request has been submitted, You will have a response from our team shortly.",
                 form: {
                     first_name: null,
                     last_name: null,

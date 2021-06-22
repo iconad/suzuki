@@ -125,6 +125,8 @@ export default {
                 check: false,
             },
             titles: ['Mr', 'Mrs'],
+            formSubmited: false,
+            submitMessage: "Your request has been submitted, You will have a response from our team shortly.",
             hears: {
                 data: [
                     "Email",
@@ -173,6 +175,7 @@ export default {
                         this.$modal.hide('newsletter-modal');
                     }
                     this.isLoading = false
+                    this.formSubmited = true
                 })
 
             }

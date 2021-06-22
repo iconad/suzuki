@@ -178,6 +178,8 @@ export default {
                 chassis: null,
                 registration: null,
                 check: false,
+                formSubmited: false,
+                submitMessage: "Your request has been submitted, You will have a response from our team shortly.",
             },
             titles: ['Mr', 'Mrs'],
             years: ["2016", "2017", "2018", "2019", "2020", "2021"],

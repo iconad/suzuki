@@ -111,7 +111,7 @@
                 let slideSlideSlug = document.getElementById('slideSlug')
 
                 if(title.toLowerCase() == 'ciaz') {
-                    this.customWidth = 'w-4/5 md:w-1/2'
+                    this.customWidth = 'w-full md:w-1/2'
                 }else{
                     this.customWidth = 'w-4/5 md:w-1/3'
                 }

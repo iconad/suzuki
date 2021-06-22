@@ -2,7 +2,10 @@
     <div>
         <div v-if="!isFormSend">
             <div class="text-xl md:text-2xl suzuki-bold text-gray-900 mb-5">Request a Quote – Genuine Parts</div>
-            <ValidationObserver v-slot="{ invalid,passes }">
+            <div v-if="formSubmited" class="message h-screen-50 flex items-center justify-center">
+                <p class="text-green-600 text-xl"> {{submitMessage}} </p>
+            </div>
+            <ValidationObserver v-else v-slot="{ invalid,passes }">
                 <form @submit.prevent="passes(submitForm)">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     <div class="lg:col-span-2">
@@ -218,6 +221,8 @@
                 isLoading: false,
                 isFormSend: false,
                 checkError: 2,
+                formSubmited: false,
+                submitMessage: "Your request has been submitted, You will have a response from our team shortly.",
                 form: {
                     first_name: null,
                     last_name: null,
@@ -281,6 +286,7 @@
                         }
                         this.isLoading = false
                         this.isFormSend = true
+                        this.formSubmited = true
                     })
                 }else{
                     this.checkError = 0

@@ -2,7 +2,10 @@
     <div>
         <div v-if="!isFormSend">
             <div class="mb-5 text-3xl suzuki-bold uppercase text-theme-skyblue"> Book Service</div>
-            <ValidationObserver v-slot="{ invalid,passes }">
+            <div v-if="formSubmited" class="message h-screen-50 flex items-center justify-center">
+                <p class="text-green-600 text-xl"> {{submitMessage}} </p>
+            </div>
+            <ValidationObserver v-else v-slot="{ invalid,passes }">
                 <form @submit.prevent="passes(submitForm)">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10">
                     <div>
@@ -236,6 +239,8 @@
                 checkError: 2,
                 isLoading: false,
                 isFormSend: false,
+                formSubmited: false,
+                submitMessage: "Your request has been submitted, You will have a response from our team shortly.",
                 form: {
                     first_name: null,
                     last_name: null,
@@ -314,6 +319,7 @@
                         }
                         this.isLoading = false
                         this.isFormSend = true
+                        this.formSubmited = true
                     })
                 }else{
                     this.checkError = 0

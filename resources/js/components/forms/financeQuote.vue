@@ -49,6 +49,15 @@
                         </ValidationProvider>
                     </div>
 
+                    <div>
+                        <ValidationProvider name="form.hearFrom" rules="required">
+                            <div slot-scope="{ errors }">
+                                <multiselect v-model="form.hearFrom" placeholder="How did you hear about us?" :options="hears"></multiselect>
+                                <p class="text-theme-red-500 mt-1 px-1 text-sm font-medium">{{ errors[0] }}</p>
+                            </div>
+                        </ValidationProvider>
+                    </div>
+
                 </div>
                 <div class="form-element mt-8">
                     <label class="flex items-center">
@@ -131,6 +140,23 @@ export default {
                 check: false,
             },
             titles: ['Mr', 'Mrs'],
+            hears: [
+                    "Email",
+                    "Friends & Relatives",
+                    "Google",
+                    "Magazines",
+                    "Newspaper - Digital",
+                    "Newspaper - Print",
+                    "Outdoor ads",
+                    "Radio",
+                    "Showrooms",
+                    "SMS",
+                    "Social Media (Facebook; Instagram; TikTok; Youtube)",
+                    "Suzuki User",
+                    "Web - Internet",
+                    "Other Social Media",
+                    "Other"
+                ],
             isLoading: false
         }
     },
@@ -148,6 +174,7 @@ export default {
                     mobile: this.form.mobile,
                     email: this.form.email,
                     vehicle: this.vehicle,
+                    hear: this.form.hearFrom,
                     emirate: this.form.showroom,
                     total_interest: this.total_interest,
                     total_payable: this.total_payable,

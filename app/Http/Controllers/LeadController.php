@@ -400,6 +400,7 @@ class LeadController extends Controller
             'email' => $request->email,
             'title' => "-",
             'mobile' => $request->mobile,
+            'hear' => $request->hear,
             'emirate' => $request->emirate['title'],
             'model' => $request->vehicle,
             'user_id' => $user->id,
@@ -648,6 +649,7 @@ class LeadController extends Controller
 
     public function bookService (Request $request) {
 
+
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -688,7 +690,7 @@ class LeadController extends Controller
             'age' => $request->age,
             'mobile' => $request->mobile,
             'tel' => $request->tel,
-            'emirate' => $request->emirate['title'],
+            'emirate' => $request->emirate,
             'showroom' => $request->showroom['title'],
             'user_id' => $user->id,
             'model' => $request->model,
