@@ -228,7 +228,7 @@
 
                 </div>
 
-                <div class="mt-10 text-center md:text-left">
+                <div class="mt-16 text-center md:text-left">
                     <newsletter-form></newsletter-form>
                 </div>
             </div>
