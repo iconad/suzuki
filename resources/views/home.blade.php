@@ -201,7 +201,7 @@
 
                     @isset($instafeed)
                         @foreach ($instafeed as $item)
-                        <div class="border border-b-0 rounded bg-white">
+                        <div class="border border-b-0 rounded bg-white relative">
                             <div class="rounded overflow-hidden">
                                 <div>
                                     @if ($item['type'] === 'image')
