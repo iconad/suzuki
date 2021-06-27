@@ -112,7 +112,7 @@ class ManageLeads extends Component
     }
 
     public function getNewsletterLeads ($leads) {
-        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Date');
+        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Source of Lead', 'Date');
 
         $callback = function() use($leads, $columns) {
         $file = fopen('php://output', 'w');
@@ -125,9 +125,19 @@ class ManageLeads extends Component
             $row['Last Name']    = $lead->last_name;
             $row['Mobile']  = $lead->mobile;
             $row['Email']  = $lead->email;
+            $row['Source of Lead']  = $lead->hear;
             $row['Date']  = $lead->date_for_humans;
 
-            fputcsv($file, array( $row['Tracking ID'], $row['Title'], $row['First Name'], $row['Last Name'], $row['Mobile'], $row['Email'], $row['Date']));
+            fputcsv($file, array(
+                $row['Tracking ID'],
+                $row['Title'],
+                $row['First Name'],
+                $row['Last Name'],
+                $row['Mobile'],
+                $row['Email'],
+                $row['Source of Lead'],
+                $row['Date']
+            ));
         }
         fclose($file);
         };
@@ -135,7 +145,7 @@ class ManageLeads extends Component
     }
 
     public function getFinanceQuoteLeads ($leads) {
-        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Date');
+        $columns = array('Tracking ID', 'First Name', 'Last Name', 'Mobile', 'Email', 'Source of Lead', 'Date');
 
         $callback = function() use($leads, $columns) {
         $file = fopen('php://output', 'w');
@@ -143,14 +153,22 @@ class ManageLeads extends Component
 
         foreach ($leads as $lead) {
             $row['Tracking ID']  = $lead->id;
-            $row['Title']  = $lead->title;
             $row['First Name']    = $lead->first_name;
             $row['Last Name']    = $lead->last_name;
             $row['Mobile']  = $lead->mobile;
             $row['Email']  = $lead->email;
+            $row['Source of Lead']  = $lead->hear;
             $row['Date']  = $lead->date_for_humans;
 
-            fputcsv($file, array( $row['Tracking ID'], $row['Title'], $row['First Name'], $row['Last Name'], $row['Mobile'], $row['Email'], $row['Date']));
+            fputcsv($file, array(
+                $row['Tracking ID'],
+                $row['First Name'],
+                $row['Last Name'],
+                $row['Mobile'],
+                $row['Email'],
+                $row['Source of Lead'],
+                $row['Date']
+            ));
         }
         fclose($file);
         };
@@ -158,7 +176,7 @@ class ManageLeads extends Component
     }
 
     public function getCommitmentsLeads ($leads) {
-        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Date');
+        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Age', 'VIN', 'Location', 'Source of Lead', 'Date');
 
         $callback = function() use($leads, $columns) {
         $file = fopen('php://output', 'w');
@@ -171,9 +189,24 @@ class ManageLeads extends Component
             $row['Last Name']    = $lead->last_name;
             $row['Mobile']  = $lead->mobile;
             $row['Email']  = $lead->email;
+            $row['Age']  = $lead->age;
+            $row['VIN']  = $lead->vin;
+            $row['Location']  = $lead->location;
+            $row['Source of Lead']  = $lead->hear;
             $row['Date']  = date('d M, Y', strtotime($lead->created_at));
 
-            fputcsv($file, array($row['Tracking ID'], $row['Title'], $row['First Name'], $row['Last Name'], $row['Mobile'], $row['Email'], $row['Date']));
+            fputcsv($file, array(
+                $row['Tracking ID'],
+                $row['Title'],
+                $row['First Name'],
+                $row['Last Name'],
+                $row['Mobile'],
+                $row['Email'],
+                $row['Age'],
+                $row['VIN'],
+                $row['Location'],
+                $row['Source of Lead'],
+                $row['Date']));
         }
         fclose($file);
         };
@@ -196,7 +229,15 @@ class ManageLeads extends Component
             $row['Email']  = $lead->email;
             $row['Date']  = date('d M, Y', strtotime($lead->created_at));
 
-            fputcsv($file, array( $row['Tracking ID'], $row['Title'], $row['First Name'], $row['Last Name'], $row['Mobile'], $row['Email'], $row['Date']));
+            fputcsv($file, array(
+                $row['Tracking ID'],
+                $row['Title'],
+                $row['First Name'],
+                $row['Last Name'],
+                $row['Mobile'],
+                $row['Email'],
+                $row['Date']
+            ));
         }
         fclose($file);
         };
@@ -204,7 +245,23 @@ class ManageLeads extends Component
     }
 
     public function getServicesLeads ($leads) {
-        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Date');
+        $columns = array(
+            'Tracking ID',
+            'Title',
+            'First Name',
+            'Last Name',
+            'Mobile',
+            'Email',
+            'Tel',
+            'Age',
+            'Emirate',
+            'Model',
+            'Year',
+            'Service Type',
+            'Service Date',
+            'Branch',
+            'Date'
+        );
 
         $callback = function() use($leads, $columns) {
         $file = fopen('php://output', 'w');
@@ -217,9 +274,32 @@ class ManageLeads extends Component
             $row['Last Name']    = $lead->last_name;
             $row['Mobile']  = $lead->mobile;
             $row['Email']  = $lead->email;
+            $row['Tel']  = $lead->tel;
+            $row['Age']  = $lead->age;
+            $row['Emirate']  = $lead->emirate;
+            $row['Model']  = $lead->model;
+            $row['Year']  = $lead->year;
+            $row['Service Type']  = $lead->service_type;
+            $row['Service Date']  = $lead->service_date;
+            $row['Branch']  = $lead->showroom;
             $row['Date']  = date('d M, Y', strtotime($lead->created_at));
 
-            fputcsv($file, array($row['Tracking ID'], $row['Title'], $row['First Name'], $row['Last Name'], $row['Mobile'], $row['Email'], $row['Date']));
+            fputcsv($file, array(
+                $row['Tracking ID'],
+                $row['Title'],
+                $row['First Name'],
+                $row['Last Name'],
+                $row['Mobile'],
+                $row['Email'],
+                $row['Tel'],
+                $row['Age'],
+                $row['Emirate'],
+                $row['Model'],
+                $row['Year'],
+                $row['Service Type'],
+                $row['Service Date'],
+                $row['Branch'],
+                $row['Date']));
         }
         fclose($file);
         };
@@ -227,7 +307,19 @@ class ManageLeads extends Component
     }
 
     public function getGeniunePartLeads ($leads) {
-        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Date');
+        $columns = array(
+            'Tracking ID',
+            'Title',
+            'First Name',
+            'Last Name',
+            'Mobile',
+            'Email',
+            'Age',
+            'Purchase Type',
+            'Tel',
+            'Branch',
+            'Date'
+        );
 
         $callback = function() use($leads, $columns) {
         $file = fopen('php://output', 'w');
@@ -240,9 +332,24 @@ class ManageLeads extends Component
             $row['Last Name']    = $lead->last_name;
             $row['Mobile']  = $lead->mobile;
             $row['Email']  = $lead->email;
+            $row['Age']  = $lead->age;
+            $row['Purchase Type']  = $lead->purchase_type;
+            $row['Tel']  = $lead->tel;
+            $row['Branch']  = $lead->showroom;
             $row['Date']  = date('d M, Y', strtotime($lead->created_at));
 
-            fputcsv($file, array($row['Tracking ID'], $row['Title'], $row['First Name'], $row['Last Name'], $row['Mobile'], $row['Email'], $row['Date']));
+            fputcsv($file, array(
+                $row['Tracking ID'],
+                $row['Title'],
+                $row['First Name'],
+                $row['Last Name'],
+                $row['Mobile'],
+                $row['Email'],
+                $row['Age'],
+                $row['Purchase Type'],
+                $row['Tel'],
+                $row['Branch'],
+                $row['Date']));
         }
         fclose($file);
         };
@@ -250,7 +357,21 @@ class ManageLeads extends Component
     }
 
     public function getQuotationsLeads ($leads) {
-        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Date');
+        $columns = array(
+            'Tracking ID',
+            'Title',
+            'First Name',
+            'Last Name',
+            'Mobile',
+            'Email',
+            'Purchase Type',
+            'Age',
+            'Tel',
+            'Emirate',
+            'Branch',
+            'Source of Lead',
+            'Date'
+        );
 
         $callback = function() use($leads, $columns) {
         $file = fopen('php://output', 'w');
@@ -263,9 +384,28 @@ class ManageLeads extends Component
             $row['Last Name']    = $lead->last_name;
             $row['Mobile']  = $lead->mobile;
             $row['Email']  = $lead->email;
+            $row['Purchase Type']  = $lead->purchase_type;
+            $row['Age']  = $lead->age;
+            $row['Tel']  = $lead->tel;
+            $row['Emirate']  = $lead->emirate;
+            $row['Branch']  = $lead->showroom;
+            $row['Source of Lead']  = $lead->hear;
             $row['Date']  = date('d M, Y', strtotime($lead->created_at));
 
-            fputcsv($file, array($row['Tracking ID'], $row['Title'], $row['First Name'], $row['Last Name'], $row['Mobile'], $row['Email'], $row['Date']));
+            fputcsv($file, array(
+                $row['Tracking ID'],
+                $row['Title'],
+                $row['First Name'],
+                $row['Last Name'],
+                $row['Mobile'],
+                $row['Email'],
+                $row['Purchase Type'],
+                $row['Age'],
+                $row['Tel'],
+                $row['Emirate'],
+                $row['Branch'],
+                $row['Source of Lead'],
+                $row['Date']));
         }
         fclose($file);
         };
@@ -298,7 +438,7 @@ class ManageLeads extends Component
     }
 
     public function getTestDriveLeads ($leads) {
-        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Age', 'Emirate', 'Showroom', 'Model', 'Date');
+        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Age', 'Emirate', 'Showroom', 'Model', 'Source of Lead', 'Date');
 
         $callback = function() use($leads, $columns) {
         $file = fopen('php://output', 'w');
@@ -315,6 +455,7 @@ class ManageLeads extends Component
             $row['Emirate']  = $lead->emirate;
             $row['Showroom']  = $lead->showroom;
             $row['Model']  = $lead->model;
+            $row['Source of Lead']  = $lead->hear;
             $row['Date']  = date('d M, Y', strtotime($lead->created_at));
 
             fputcsv($file, array(
@@ -328,6 +469,7 @@ class ManageLeads extends Component
                 $row['Emirate'],
                 $row['Showroom'],
                 $row['Model'],
+                $row['Source of Lead'],
                 $row['Date']
             ));
         }
@@ -337,7 +479,7 @@ class ManageLeads extends Component
     }
 
     public function getQuoteLeads ($leads) {
-        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Age', 'Emirate', 'Showroom', 'Model', 'Date');
+        $columns = array('Tracking ID', 'Title', 'First Name', 'Last Name', 'Mobile', 'Email', 'Age', 'Emirate', 'Showroom', 'Model', 'Source of Lead', 'Date');
 
         $callback = function() use($leads, $columns) {
         $file = fopen('php://output', 'w');
@@ -354,6 +496,7 @@ class ManageLeads extends Component
             $row['Emirate']  = $lead->emirate;
             $row['Showroom']  = $lead->showroom;
             $row['Model']  = $lead->model;
+            $row['Source of Lead']  = $lead->hear;
             $row['Date']  = date('d M, Y', strtotime($lead->created_at));
 
             fputcsv($file, array(
@@ -367,6 +510,7 @@ class ManageLeads extends Component
                 $row['Emirate'],
                 $row['Showroom'],
                 $row['Model'],
+                $row['Source of Lead'],
                 $row['Date']
             ));
         }
@@ -380,12 +524,13 @@ class ManageLeads extends Component
         if($this->days != 'all') {
             $leads = Lead::search('email', $this->term)
                 ->where('type', $this->type)
-                ->where('created_at','>=',Carbon::now()
-                ->subdays($this->days))
+                ->where('created_at','>=',Carbon::now()->subdays($this->days))
+                ->orderBy('id', 'DESC')
                 ->paginate(20);
         }else{
             $leads = Lead::search('email', $this->term)
                 ->where('type', $this->type)
+                ->orderBy('id', 'DESC')
                 ->paginate(20);
         }
         return view('livewire.manage-leads', [
