@@ -145,7 +145,7 @@ class ManageLeads extends Component
     }
 
     public function getFinanceQuoteLeads ($leads) {
-        $columns = array('Tracking ID', 'First Name', 'Last Name', 'Mobile', 'Email', 'Source of Lead', 'Date');
+        $columns = array('Tracking ID', 'First Name', 'Last Name', 'Mobile', 'Email', 'Model', 'Emirate', 'Source of Lead', 'Date');
 
         $callback = function() use($leads, $columns) {
         $file = fopen('php://output', 'w');
@@ -157,6 +157,8 @@ class ManageLeads extends Component
             $row['Last Name']    = $lead->last_name;
             $row['Mobile']  = $lead->mobile;
             $row['Email']  = $lead->email;
+            $row['Model']  = $lead->model;
+            $row['Emirate']  = $lead->emirate;
             $row['Source of Lead']  = $lead->hear;
             $row['Date']  = $lead->date_for_humans;
 
@@ -166,6 +168,8 @@ class ManageLeads extends Component
                 $row['Last Name'],
                 $row['Mobile'],
                 $row['Email'],
+                $row['Model'],
+                $row['Emirate'],
                 $row['Source of Lead'],
                 $row['Date']
             ));
