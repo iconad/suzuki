@@ -196,7 +196,7 @@
             {{-- {!! $post1['caption'] !!} --}}
 
             <div class="instagram mt-12 md:mt-24">
-                <div class="grid grid-cols-1 md:grid-cols-4 auto-rows-fr gap-3 table">
+                <div class="grid grid-cols-1 md:grid-cols-4 md:auto-rows-fr gap-3 table">
 
                     @isset($instafeed)
                         @foreach ($instafeed as $item)
@@ -216,7 +216,7 @@
                                 </div>
 
                             </div>
-                            <div class="mt-0 p-3 bg-white custom-absolute lg:top-100 w-full left-0 rounded overflow-hidden">
+                            <div class="mt-0 p-3 bg-white custom-absolute top-100 w-full left-0 rounded overflow-hidden">
                                 <a target="_blank" href="{{ $item['permalink'] }}" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
                             </div>
                         </div>
