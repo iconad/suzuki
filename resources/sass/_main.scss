@@ -439,3 +439,11 @@ body {
 //         .float-icon {}
 //     }
 // }
+
+
+.custom-absolute {
+    position: absolute;
+    @include md-max {
+        position: static;
+    }
+}
