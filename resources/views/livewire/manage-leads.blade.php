@@ -2,7 +2,7 @@
     <table class="ui celled table">
         <thead>
             <tr>
-                <th colspan="6">
+                <th colspan="7">
                     <div class="ui secondary menu ">
                         <div class="right menu fitted">
                             <form wire:submit.prevent="downloadLead" class="flex items-center space-x-4">
@@ -74,14 +74,14 @@
             </tr>
             @empty
             <tr>
-                <td colspan="6">
+                <td colspan="7">
                     No Record Found.
                 </td>
             </tr>
             @endforelse
             @if($leads->hasPages())
             <tr>
-                <td colspan="6">
+                <td colspan="7">
                     {{$leads->links()}}
                 </td>
             </tr>
