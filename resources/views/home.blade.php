@@ -193,15 +193,14 @@
             </div>
             {{-- heading --}}
 
-
             {{-- {!! $post1['caption'] !!} --}}
 
             <div class="instagram mt-12 md:mt-24">
-                <div class="grid grid-cols-1 md:grid-cols-4 auto-rows-fr gap-3 table">
+                <div class="grid grid-cols-1 md:grid-cols-4 md:auto-rows-fr gap-3 table">
 
                     @isset($instafeed)
                         @foreach ($instafeed as $item)
-                        <div class="border border-b-0 rounded bg-white relative">
+                        <div class="border md:border-b-0 rounded bg-white relative">
                             <div class="rounded overflow-hidden">
                                 <div>
                                     @if ($item['type'] === 'image')
@@ -217,7 +216,7 @@
                                 </div>
 
                             </div>
-                            <div class="mt-0 p-3 bg-white absolute top-100 w-full left-0 rounded overflow-hidden">
+                            <div class="mt-0 p-3 bg-white md:absolute md:top-100 w-full left-0 rounded md:overflow-hidden">
                                 <a target="_blank" href="{{ $item['permalink'] }}" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
                             </div>
                         </div>
@@ -228,7 +227,7 @@
 
                 </div>
 
-                <div class="mt-16 text-center md:text-left">
+                <div class="mt-10 text-center md:text-left">
                     <newsletter-form></newsletter-form>
                 </div>
             </div>
