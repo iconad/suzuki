@@ -216,7 +216,7 @@
                                 </div>
 
                             </div>
-                            <div class="mt-0 p-3 bg-white static md:absolute md:top-100 w-full left-0 rounded md:overflow-hidden">
+                            <div class="mt-0 p-3 bg-white absolute top-100 w-full left-0 rounded md:overflow-hidden">
                                 <a target="_blank" href="{{ $item['permalink'] }}" class="text-theme-blue-500 text-sm theme-link suzuki-bold">Read More</a>
                             </div>
                         </div>
