@@ -93,7 +93,9 @@
                     vehicle: this.vehicle,
                     sku: this.item.sku,
                     accessory: this.item.title,
+                    price: this.item.price,
                     count: this.count,
+                    total: this.count * this.item.price,
                 }
                 this.$store.dispatch('addToCart', item)
                 this.$emit('update')

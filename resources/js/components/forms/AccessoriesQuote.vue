@@ -9,6 +9,9 @@
                     </span>
                 </div>
                 <div class="text-xl md:text-3xl suzuki-bold text-gray-900 mb-5"> Request A Quote for Selected items</div>
+                <pre>
+                    {{cart}}
+                </pre>
                 <div class="flex flex-wrap">
                     <div class="w-full md:w-1/2 pr-0 pt-5 md:pr-10 ">
 

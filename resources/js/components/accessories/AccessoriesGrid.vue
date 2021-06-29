@@ -166,7 +166,9 @@
                     vehicle: this.item.vehicle,
                     accessory: this.item.title,
                     sku: this.item.sku,
+                    price: this.item.price,
                     count: this.item.count,
+                    total: this.item.count * this.item.price,
                 }
                 this.$store.dispatch('addToCart', item)
                 this.isAdded()
