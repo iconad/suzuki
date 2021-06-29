@@ -34,21 +34,26 @@
         </div>
 
         <div class="field">
+            <label>Price</label>
+            <input type="text" name="price" value="{{$accessory->price}}" placeholder="0">
+        </div>
+
+        <div class="field hidden">
             <label>Weight *</label>
             <input type="text" name="weight" value="{{$accessory->weight}}" placeholder="2.4">
         </div>
 
-        <div class="field">
+        <div class="field hidden">
             <label>Length *</label>
             <input type="text" name="length" value="{{$accessory->length}}" placeholder="72">
         </div>
 
-        <div class="field">
+        <div class="field hidden">
             <label>widh *</label>
             <input type="text" name="width" value="{{$accessory->width}}" placeholder="51">
         </div>
 
-        <div class="field">
+        <div class="field hidden">
             <label>Height *</label>
             <input type="text" name="height" value="{{$accessory->height}}" placeholder="8">
         </div>

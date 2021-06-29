@@ -66,6 +66,7 @@ class AccessoryController extends Controller
             'length' => $request->length,
             'weight' => $request->weight,
             'color' => $request->color,
+            'price' => $request->price,
             'vehicle_id' => $vehicle->id,
             'excerpt' => $request->excerpt,
             'detail' => $request->detail,
@@ -146,6 +147,7 @@ class AccessoryController extends Controller
         $accessory->length = $request->length;
         $accessory->weight = $request->weight;
         $accessory->color = $request->color;
+        $accessory->price = $request->price;
         $accessory->vehicle_id = $vehicle->id;
         $accessory->accessory_category_id = $request->category;
         $accessory->excerpt = $request->excerpt;

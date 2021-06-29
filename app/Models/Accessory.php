@@ -27,6 +27,7 @@ class Accessory extends Model implements HasMedia
         'width',
         'height',
         'color',
+        'price',
         'accessory_category_id',
         'status',
         'order',
