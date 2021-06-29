@@ -49,10 +49,6 @@ class AccessoryController extends Controller
         $request->validate([
             'title' => 'required',
             'sku' => 'required',
-            'width' => 'required',
-            'weight' => 'required',
-            'height' => 'required',
-            'length' => 'required',
             'color' => 'required',
             'thumbnail' => 'required',
             'category' => 'required',
@@ -122,10 +118,6 @@ class AccessoryController extends Controller
         $request->validate([
             'title' => 'required',
             'sku' => 'required',
-            'width' => 'required',
-            'weight' => 'required',
-            'height' => 'required',
-            'length' => 'required',
             'color' => 'required',
             'category' => 'required',
         ]);
