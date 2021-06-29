@@ -31,10 +31,11 @@
           <tr>
             <th>SKU</th>
             <th>Title</th>
-            <th>Weight</th>
-            <th>Length</th>
-            <th>Width</th>
-            <th>Height</th>
+            <th>Price</th>
+            <th class="hidden">Weight</th>
+            <th class="hidden">Length</th>
+            <th class="hidden">Width</th>
+            <th class="hidden">Height</th>
             <th>Image</th>
             <th>status</th>
             <th>Actions</th>
@@ -52,10 +53,11 @@
                     <a href="/cms/vehicles/{{$vehicle->id}}/accessories/{{$accessory->id}}"> {{$accessory->title}} </a>
                 </td>
                 <td> {{$accessory->title}} </td>
-                <td> {{$accessory->weight}} </td>
-                <td> {{$accessory->length}} </td>
-                <td> {{$accessory->width}} </td>
-                <td> {{$accessory->height}} </td>
+                <td> {{$accessory->price}} </td>
+                <td class="hidden"> {{$accessory->weight}} </td>
+                <td class="hidden"> {{$accessory->length}} </td>
+                <td class="hidden"> {{$accessory->width}} </td>
+                <td class="hidden"> {{$accessory->height}} </td>
                 <td>
                     <img src="{{$accessory->getMedia('thumbnail')->count() != 0 ? $accessory->getMedia('thumbnail')[0]->getUrl() : null}}" class="w-24" alt="image">
                 </td>
