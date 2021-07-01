@@ -48,7 +48,6 @@ class VehicleController extends Controller
             'logo' => 'required',
         ]);
 
-
         $vehicle = Vehicle::create([
             'title' => $request->title,
             'sub_title' => $request->sub_title,
@@ -93,8 +92,9 @@ class VehicleController extends Controller
         $thumbnail = $vehicle->getMedia('thumbnail')->count() != 0 ? $vehicle->getMedia('thumbnail')[0]->getUrl() : null;
         $showroom = $vehicle->getMedia('showroom')->count() != 0 ? $vehicle->getMedia('showroom')[0]->getUrl() : null;
         $logo = $vehicle->getMedia('logo')->count() != 0 ? $vehicle->getMedia('logo')[0]->getUrl() : null;
+        $accessory_cover = $vehicle->getMedia('accessory_cover')->count() != 0 ? $vehicle->getMedia('accessory_cover')[0]->getUrl() : null;
 
-        return view('manage.vehicle.show', compact('vehicle', 'thumbnail', 'showroom', 'logo', 'speccover', 'speclist'));
+        return view('manage.vehicle.show', compact('vehicle', 'thumbnail', 'showroom', 'logo', 'accessory_cover', 'speccover', 'speclist'));
     }
 
     /**
@@ -169,6 +169,16 @@ class VehicleController extends Controller
             $pathToFile = $this->createImage($request->logo);
             $vehicle->addMedia($pathToFile)
                     ->toMediaCollection('logo');
+        }
+
+        if($request->has('accessory_cover')) {
+            $mediaItems = $vehicle->getMedia('accessory_cover');
+            if(count($mediaItems) != 0) {
+                $mediaItems[0]->delete();
+            }
+            $pathToFile = $this->createImage($request->accessory_cover);
+            $vehicle->addMedia($pathToFile)
+                    ->toMediaCollection('accessory_cover');
         }
 
         $vehicle->title = $request->title;

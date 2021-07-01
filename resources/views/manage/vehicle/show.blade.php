@@ -83,10 +83,19 @@
                 <div class="ui small image mb-4">
                     <div class="bg-gray-400 p-2">
                         <img src="{{$logo}}">
+                    </div>
                 </div>
-                </div>
-
                 <input type="file" name="logo">
+            </div>
+
+            <div class="field">
+                <label>Accessory Cover</label>
+                @if ($accessory_cover)
+                <div class="ui small w-64">
+                    <img src="{{$accessory_cover}}">
+                </div>
+                @endif
+                <input type="file" name="accessory_cover">
             </div>
 
             <div class="field">

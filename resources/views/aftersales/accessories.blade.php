@@ -4,6 +4,13 @@
 
 <section class="vehicle-info section mt-16 space-y-16 xxl:space-y-24" id="bladeApp">
     <div class="md:max-w-screen-xl mx-auto px-5 xxl:px-0 text-gray-800">
+
+        @if ($accessory_cover)
+        <div class="cover mb-16">
+            <img src="{{$accessory_cover}}" class="w-full h-20rem object-cover object-center" alt="Accessory Cover">
+        </div>
+        @endif
+
         <div class="flex justify-center w-full">
             <h1 class="text-3xl flex flex-col leading-tight items-end text-center">
                 <span class="block suzuki-bold text-gray-900 capitalize">Accessorize your</span>
