@@ -2,9 +2,9 @@
 
 @section('content')
 <section class="showroom-section">
-    @if ($vehicle->iframe)
+    {{-- @if ($vehicle->iframe) --}}
         <showroom :vid="{{$vehicle->id}}" :spec="{{$vehicle->specfile}}" :brochure="{{$vehicle->brochure}}" iframe="{{$vehicle->iframe}}"></showroom>
-    @endif
+    {{-- @endif --}}
 </section>
 
     {{-- showroom section --}}

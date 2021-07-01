@@ -2,8 +2,10 @@
     <div>
         <!-- <div @click="OpenBroucherModal">specs</div> -->
         <div class="hold-the-iframe relative">
-            <iframe width="100%" :src="iframe" class="w-full h-screen-40 md:h-screen-60 xl:h-screen" title="Baleno">
-            </iframe>
+            <div v-if="iframe">
+                <iframe width="100%" :src="iframe" class="w-full h-screen-40 md:h-screen-60 xl:h-screen" title="Baleno">
+                </iframe>
+            </div>
             <!-- <div class="w-32 h-32 bg-red-400 rounded absolute z-50 left-10 top-10"></div> -->
         </div>
 
