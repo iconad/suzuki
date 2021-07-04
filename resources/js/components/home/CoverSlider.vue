@@ -40,13 +40,13 @@
                   {
                       id: 1,
                       name: "slide one",
-                      src: "https://suzuki.ae/storage/199/7toXPLYThpTeaWu8.jpeg",
+                      src: "https://suzuki.ae/storage/251/lZldZBycolVO540w.jpeg",
                       link: ""
                   },
                   {
                       id: 2,
                       name: "slide two",
-                      src: "https://suzuki.ae/storage/198/hq9XmFgdhASassGl.jpeg",
+                      src: "https://suzuki.ae/storage/253/Mwogtsr8ibh6Lcll.jpeg",
                       link: ""
                   },
                   {
