@@ -62,11 +62,11 @@
         <div>
             {{-- <x-topnav /> --}}
         </div>
-        {{-- <nav class="bg-white shadow-xl relative z-10"> --}}
+        <nav class="bg-white shadow-xl relative z-10">
             {{-- <x-main-navbar /> --}}
-            {{-- @livewire('main-navbar') --}}
-        {{-- </nav> --}}
-        {{-- <side-buttons></side-buttons> --}}
+            @livewire('main-navbar')
+        </nav>
+        <side-buttons></side-buttons>
         <main>
             @yield('content')
         </main>
