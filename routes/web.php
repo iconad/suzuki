@@ -60,11 +60,13 @@ Route::group(['prefix' => 'cms'], function() {
 
     Route::group(['middleware' => ['auth','role:admin']], function () {
         Route::get('/dashboard', 'ManagePages@dashboard')->name('manage.dashboard');
+        Route::delete('/media/{media}', 'ManageMediaController@destroy');
         Route::post('/media/store', 'ManageMediaController@store');
         Route::get('/media', 'ManageMediaController@getAllMedia')->name('media.getallmedia');
         Route::get('/menus', 'ManagePages@menus')->name('manage.menus');
         Route::get('/leads/{lead}', 'ManagePages@singleLead');
         Route::get('/leads/type/{newsletter}', 'ManagePages@index')->name('manage.leads.index');
+        Route::resource('/sliders', 'SliderController');
         Route::resource('/vehicles', 'VehicleController');
         Route::resource('/vehicles/{vehicle}/files', 'VehicleFileController');
         Route::resource('/vehicles/{vehicle}/accessories', 'AccessoryController');

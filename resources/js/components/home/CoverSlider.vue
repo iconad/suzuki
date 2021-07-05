@@ -1,7 +1,7 @@
     <template>
         <div class="front-cover">
-            <splide :options="options" has-slider-wrapper>
 
+            <splide v-if="!$apollo.queries.slides.loading" :options="options" has-slider-wrapper>
                 <splide-slide v-for="(slide, i) in slides" :key="i">
                     <cover-slide :slide="slide" />
                 </splide-slide>
@@ -12,10 +12,15 @@
                     </div>
                 </template>
             </splide>
+
         </div>
     </template>
 
 <script>
+
+    import gql from 'graphql-tag'
+    import sliderQuery from "../../../../gql/frontend/slider.gql";
+
     import { Splide, SplideSlide } from '@splidejs/vue-splide';
     import CoverSlide from './CoverSlide.vue'
 
@@ -36,28 +41,39 @@
                     arrows: false,
                     pagination: "slider"
 			  },
-			  slides:[
+			  hello:[
                   {
                       id: 1,
                       name: "slide one",
-                      src: "https://suzuki.ae/storage/251/lZldZBycolVO540w.jpeg",
+                      src: "https://i.ibb.co/6Yg3tJh/test-cover.jpg",
                       link: ""
                   },
                   {
                       id: 2,
                       name: "slide two",
-                      src: "https://suzuki.ae/storage/253/Mwogtsr8ibh6Lcll.jpeg",
+                      src: "https://i.ibb.co/BGh6LX5/test-cover-1.jpg",
                       link: ""
                   },
                   {
                       id: 3,
                       name: "slide three",
-                      src: "https://suzuki.ae/storage/199/7toXPLYThpTeaWu8.jpeg",
+                      src: "https://i.ibb.co/VM607xF/test-cover-2.jpg",
                       link: ""
                   },
               ],
             }
         },
+        apollo: {
+            slides() {
+                return {
+                    query: sliderQuery,
+                    update(data) {
+                        return data.slides;
+                    },
+                };
+            },
+        }
+
     }
 </script>
 

@@ -92,6 +92,13 @@
           </div>
         </a>
 
+        <a href="/cms/sliders" class="item">
+          <div>
+            <i class="icon wpforms"></i>
+            Sliders
+          </div>
+        </a>
+
         <div class="hidden">
             <div class="item">
                 <div class="header">

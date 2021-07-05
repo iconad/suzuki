@@ -1,0 +1,12 @@
+query {
+  slides {
+    id
+    title
+    media {
+        id
+        collection_name
+        name
+        file_name
+      }
+  }
+}

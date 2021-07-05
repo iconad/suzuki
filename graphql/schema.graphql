@@ -12,6 +12,7 @@ type Query {
     vehicles(orderBy: [OrderByClause!] @orderBy): [Vehicle!]!  @all
     branchesByEmail(type: String orderBy: [OrderByClause!] @orderBy): [Branch!]!
     vehicle(id: ID @eq): Vehicle @find
+    slides: [Slider] @all
 
 }
 
@@ -65,6 +66,17 @@ type Menu {
     id: ID!
     name: String!
 
+}
+
+type Slider {
+    id: ID!
+    title: String
+    type: String
+    status: Int
+    order: Int
+    media: [Media] @hasMany
+    created_at: DateTime!
+    updated_at: DateTime!
 }
 
 type AccessoryCategory {

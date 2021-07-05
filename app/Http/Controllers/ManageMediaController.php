@@ -60,4 +60,18 @@ class ManageMediaController extends Controller
         return $pathToFile;
     }
 
+
+    public function destroy(Request $request, $id)
+    {
+        $media = Media::where('id', $id)->first();
+
+        if($media->delete()){
+            $request->session()->flash('green', 'Media successful deleted!');
+            return redirect("/cms/media/");
+        }else {
+            $request->session()->flash('red', 'Something went wrong, Please try again!');
+            return back();
+        }
+    }
+
 }
