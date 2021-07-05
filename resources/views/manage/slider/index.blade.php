@@ -42,7 +42,7 @@
                         @endif
                     </td>
                     <td>
-                        @if (count($slider->getMedia('desktop-home-cover')) != 0)
+                        @if (count($slider->getMedia('mobile-home-cover')) != 0)
                             <img class="w-16" src="{{"http://127.0.0.1:8000/storage/".$slider->getMedia('mobile-home-cover')[0]->id."/".$slider->getMedia('mobile-home-cover')[0]->file_name}}" alt="">
                         @else
                         NO IMAGE
