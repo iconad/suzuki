@@ -23,6 +23,11 @@
     </div>
 
     <div class="field">
+        <label>Title / Name </label>
+        <input type="text" name="link" value="{{old('link')}}">
+    </div>
+
+    <div class="field">
         <label>Desktop Cover *</label>
         <input type="file" name="desktop" required>
     </div>

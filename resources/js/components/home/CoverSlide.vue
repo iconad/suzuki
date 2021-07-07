@@ -1,7 +1,5 @@
     <template>
-        <div>
-            <!-- <img :src="slide.src" alt="slide.title" class="w-full h-screen-70 lg:h-auto object-cover"> -->
-            <!-- <thumb-image v-if="desktop[0]" classess="w-full h-screen-70 lg:h-auto object-cover" :image="desktop[0].file_name" :id="desktop[0].id"></thumb-image> -->
+        <div @click="checkLink" :class="{ 'cursor-pointer': isLink }">
            <picture>
                 <source v-if="desktop[0]" media="(min-width:768px)" :srcset="`${publicUrl}/${desktop[0].id}/${desktop[0].file_name}`">
                 <source v-if="mobile[0]" media="(max-width:768px)" :srcset="`${publicUrl}/${mobile[0].id}/${mobile[0].file_name}`">
@@ -14,7 +12,20 @@
     import thumbImage from '../ThumbImage'
     export default {
         props: ['slide'],
+        data() {
+            return {
+                isLink: false
+            }
+        },
         computed: {
+            checkLink () {
+                if(this.slide.link) {
+                    window.location.href = this.slide.link
+                    this.isLink = true
+                }else{
+                    this.isLink = false
+                }
+            },
             publicUrl() {
                 return this.$store.state.publicUrl;
             },

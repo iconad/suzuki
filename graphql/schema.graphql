@@ -72,6 +72,7 @@ type Slider {
     id: ID!
     title: String
     type: String
+    link: String
     status: Int
     order: Int
     media: [Media] @hasMany

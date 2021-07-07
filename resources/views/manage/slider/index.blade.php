@@ -19,7 +19,7 @@
                 <th>Title</th>
                 <th>Cover</th>
                 <th>mobile</th>
-                {{-- <th>type</th> --}}
+                <th>link</th>
                 <th>Date Created</th>
                 <th>Action</th>
                 </tr>
@@ -36,14 +36,15 @@
                     </td>
                     <td>
                         @if (count($slider->getMedia('desktop-home-cover')) != 0)
-                            <img class="w-32" src="{{"http://127.0.0.1:8000/storage/".$slider->getMedia('desktop-home-cover')[0]->id."/".$slider->getMedia('desktop-home-cover')[0]->file_name}}" alt="">
+
+                            <img class="w-32" src="{{"/storage/".$slider->getMedia('desktop-home-cover')[0]->id."/".$slider->getMedia('desktop-home-cover')[0]->file_name}}" alt="">
                         @else
                         NO IMAGE
                         @endif
                     </td>
                     <td>
                         @if (count($slider->getMedia('mobile-home-cover')) != 0)
-                            <img class="w-16" src="{{"http://127.0.0.1:8000/storage/".$slider->getMedia('mobile-home-cover')[0]->id."/".$slider->getMedia('mobile-home-cover')[0]->file_name}}" alt="">
+                            <img class="w-16" src="{{"/storage/".$slider->getMedia('mobile-home-cover')[0]->id."/".$slider->getMedia('mobile-home-cover')[0]->file_name}}" alt="">
                         @else
                         NO IMAGE
                         @endif
@@ -52,10 +53,16 @@
                         <p class="text-gray-700">{{ $slider->type }}</p>
                     </td> --}}
                     <td>
+                        <p class="text-gray-700">{{$slider->link ? $slider->link : 'no link'}} </p>
+                    </td>
+                    <td>
                         <p class="text-gray-700">{{date('d M, Y', strtotime($slider->created_at))}}</p>
                     </td>
                     <td>
-                        <div class="">
+                        <div class="flex items-center space-x-3">
+                            <div class="ui small buttons">
+                                <a href="sliders/{{$slider->id}}" class="ui button">Edit</a>
+                            </div>
                             <form method="post" action="/cms/sliders/{{$slider->id}}">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">

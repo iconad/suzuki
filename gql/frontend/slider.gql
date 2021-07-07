@@ -2,6 +2,7 @@ query {
   slides {
     id
     title
+    link
     media {
         id
         collection_name

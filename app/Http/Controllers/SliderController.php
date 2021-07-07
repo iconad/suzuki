@@ -78,7 +78,9 @@ class SliderController extends Controller
      */
     public function show(Slider $slider)
     {
-        //
+        $desktop = $slider->getMedia('desktop-home-cover')->count() != 0 ? $slider->getMedia('desktop-home-cover')[0]->getUrl() : null;
+        $mobile = $slider->getMedia('mobile-home-cover')->count() != 0 ? $slider->getMedia('mobile-home-cover')[0]->getUrl() : null;
+        return view('manage.slider.show', compact('slider', 'desktop', 'mobile'));
     }
 
     /**
@@ -101,7 +103,35 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
-        return "update";
+
+        $slider->title = $request->title;
+        $slider->link = $request->link;
+
+        if($request->has('desktop')) {
+            $mediaItems = $slider->getMedia('desktop-home-cover');
+            if(count($mediaItems) != 0) {
+                $mediaItems[0]->delete();
+            }
+            $pathToFile = $this->createImage($request->desktop);
+            $slider->addMedia($pathToFile)
+                    ->toMediaCollection('desktop-home-cover');
+        }
+
+        if($request->has('mobile')) {
+            $mediaItems = $slider->getMedia('mobile-home-cover');
+            if(count($mediaItems) != 0) {
+                $mediaItems[0]->delete();
+            }
+            $pathToFile = $this->createImage($request->mobile);
+            $slider->addMedia($pathToFile)
+                    ->toMediaCollection('mobile-home-cover');
+        }
+
+        if ($slider->save()) {
+            $request->session()->flash('green', 'Slider was successful updated!');
+            return back();
+        }
+
     }
 
     /**

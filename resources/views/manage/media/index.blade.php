@@ -44,6 +44,7 @@
 
 <div class="branches">
     <table class="ui celled table">
+
         <thead>
           <tr>
             <th>ID</th>
